@@ -21,7 +21,7 @@ Goal is to replace a website zoonegara.my. The website contains the following
 ### Things to keep
 1. Logo.
 2. Multi language, malay/english.
-3. Static site, to save from hosting
+3. Static site, to save from hosting fee.
 
 ### Things that seems valid
 1. Ticketing seems to runned by another service.
