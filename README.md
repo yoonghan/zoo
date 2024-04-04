@@ -11,7 +11,6 @@ Goal is to replace a website zoonegara.my. The website contains the following
 4. Pop-up that is annoying and stops users from navigating before closing.
 5. Ticketing information are image.
 
-
 ### UI Issues
 1. Not mobile friendly.
 2. Contrast of catchy colors.
@@ -22,6 +21,7 @@ Goal is to replace a website zoonegara.my. The website contains the following
 ### Things to keep
 1. Logo.
 2. Multi language, malay/english.
+3. Static site, to save from hosting
 
 ### Things that seems valid
 1. Ticketing seems to runned by another service.
