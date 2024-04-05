@@ -9,18 +9,19 @@ describe("Menu", () => {
     <Menu
       model={[
           {
-              label: 'Furniture',
-              items: [
-                  [
-                      {
-                          label: 'Kitchen',
-                          items: [{ label: 'Bar stool' }, { label: 'Chair' }, { label: 'Table' }]
-                      }
-                  ]
-              ]
+            label: 'Furniture',
+            items: [
+                [
+                    {
+                        label: 'Kitchen',
+                        items: [{ label: 'Bar stool' }, { label: 'Chair' }, { label: 'Table' }]
+                    }
+                ]
+            ]
           },
           {
-              label: 'Electronics',
+            label: 'Electronics',
+            url: 'https://walcron.com'
           }
       ]}
     />
@@ -38,5 +39,17 @@ describe("Menu", () => {
     
     await userEvent.click(getByText('Furniture'))
     expect(getByText('Kitchen')).toBeVisible()
+  })
+
+  it("should contains url", async () => {
+    const {getByText} = renderMenuWithItems()
+    
+    expect(getByText('Electronics').parentNode).toHaveAttribute("href", "https://walcron.com")
+  })
+
+  it("should contain a mobile button", async () => {
+    const {getByRole} = renderMenuWithItems()
+    
+    expect(getByRole('button', {name: "Navigation"})).toBeVisible()
   })
 })
