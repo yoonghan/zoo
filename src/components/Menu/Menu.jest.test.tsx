@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react"
+import { render, within } from "@testing-library/react"
 import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
 import { Menu } from "."
@@ -51,5 +51,11 @@ describe("Menu", () => {
     const {getByRole} = renderMenuWithItems()
     
     expect(getByRole('button', {name: "Navigation"})).toBeVisible()
+  })
+
+  it("should be wrapped in nav, for schematics", async () => {
+    const {getByRole} = renderMenuWithItems()
+    
+    expect(within(getByRole('navigation')).getByText("Furniture")).toBeInTheDocument()
   })
 })
