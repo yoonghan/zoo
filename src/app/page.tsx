@@ -126,7 +126,7 @@ export default function Home() {
         </div>
 
         Prime Button 
-        <Button>Hello, I'm Prime</Button>
+        <Button>Hello, I&quot;m Prime</Button>
       </div>
     </main>
   );

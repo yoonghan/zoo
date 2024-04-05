@@ -1,5 +1,6 @@
-import { MegaMenu, MenuItem } from 'primereact/megamenu';
+import { MegaMenu } from 'primereact/megamenu';
+import { MenuItem } from 'primereact/menuitem';
 
-export function Menu({model}: {model: MenuItem}) {
+export function Menu({model}: {model: MenuItem[]}) {
     return <MegaMenu model={model} breakpoint="960px" />
 }
