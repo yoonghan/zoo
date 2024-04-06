@@ -24,7 +24,7 @@ export function Announcement({ announcements }: AnnouncementProps) {
               <i className="arrow left"></i>
             </button>
           )}
-          <span>{announcements[idx]}</span>
+          <div>{announcements[idx]}</div>
           {announcements.length > 1 && (
             <button onClick={goNext} className="no-style">
               <i className="arrow right"></i>
