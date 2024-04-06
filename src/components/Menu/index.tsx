@@ -58,10 +58,7 @@ function MutableMenu({ model }: { model: MenuType }) {
           </a>
           {topMenuItem.items && (
             <div role="presentation" className={style["subnav-content"]}>
-              <ul role="menu">
-                {" "}
-                {subMenu(topMenuItem.items, topMenuItem.url)}{" "}
-              </ul>
+              <ul role="menu">{subMenu(topMenuItem.items, topMenuItem.url)}</ul>
             </div>
           )}
         </div>
