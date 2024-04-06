@@ -9,7 +9,11 @@ describe("Accordian", () => {
         model={[
           {
             label: "Item 1",
-            content: "Lorem ipsum dolor sit amet!",
+            content: "1 Lorem ipsum dolor sit amet!",
+          },
+          {
+            label: "Item 2",
+            content: "2 Lorem ipsum dolor sit amet!",
           },
         ]}
       ></Accordian>
@@ -18,7 +22,9 @@ describe("Accordian", () => {
   it("should render component correctly", () => {
     const { getByText } = renderAccordian();
     expect(getByText("Item 1")).toBeInTheDocument();
-    expect(getByText("Lorem ipsum dolor sit amet!")).toBeInTheDocument();
+    expect(getByText("1 Lorem ipsum dolor sit amet!")).toBeInTheDocument();
+    expect(getByText("Item 2")).toBeInTheDocument();
+    expect(getByText("2 Lorem ipsum dolor sit amet!")).toBeInTheDocument();
   });
 
   it("should render component with correct id", () => {
