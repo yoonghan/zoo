@@ -50,7 +50,18 @@ describe("Announcement", () => {
     const renderEmptyAnnouncements = () =>
       render(<Announcement announcements={[]} />);
 
-    it("should not have buttons", async () => {
+    it("should not have navigation buttons", async () => {
+      const { queryByRole } = renderEmptyAnnouncements();
+      expect(queryByRole("button", { name: "<" })).not.toBeInTheDocument();
+      expect(queryByRole("button", { name: ">" })).not.toBeInTheDocument();
+    });
+  });
+
+  describe("one announcement", () => {
+    const renderEmptyAnnouncements = () =>
+      render(<Announcement announcements={["hi there"]} />);
+
+    it("should not have navigation buttons", async () => {
       const { queryByRole } = renderEmptyAnnouncements();
       expect(queryByRole("button", { name: "<" })).not.toBeInTheDocument();
       expect(queryByRole("button", { name: ">" })).not.toBeInTheDocument();
