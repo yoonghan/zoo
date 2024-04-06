@@ -30,7 +30,7 @@ export const zooMenu: Menu = [
         url: "#getting-there",
       },
       {
-        label: "Food &amp; Soveniour Kiosk",
+        label: "Food & Soveniour Kiosk",
         url: "#food-n-sovenior-kiosk",
       },
       {
@@ -64,7 +64,7 @@ export const zooMenu: Menu = [
         url: "#family-day",
       },
       {
-        label: "Scenic Point &amp; Function",
+        label: "Scenic Point & Function",
         url: "#scenic-point-and-function",
       },
       {
@@ -188,7 +188,7 @@ export const zooMenu: Menu = [
         url: "#humboldt-penguin",
       },
       {
-        label: "Children&apos;s World",
+        label: "Children's World",
         url: "#childrens-world",
       },
       {

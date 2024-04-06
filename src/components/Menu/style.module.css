@@ -1,0 +1,129 @@
+.nav {
+  background: var(--primary-color);
+  color: var(--primary-color-text);
+}
+
+.menu {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  overflow-y: scroll;
+  max-height: 0;
+  transition: max-height 0.5s ease-out;
+  background: var(--primary-color);
+}
+
+.menu ul {
+  list-style: none;
+}
+
+.menu ul > li {
+  padding: 5px 0;
+}
+
+.menu a {
+  text-decoration: none;
+  color: var(--primary-color-text);
+  padding: 10px;
+}
+
+.menu a:hover {
+  color: var(--primary-900);
+}
+
+.hamb {
+  cursor: pointer;
+  padding: 40px 20px;
+} /* Style label tag */
+
+.hamb-line {
+  background: var(--primary-color-text);
+  display: block;
+  height: 2px;
+  position: relative;
+  width: 24px;
+  margin-left: 20px;
+} /* Style span tag */
+
+.hamb-line::before,
+.hamb-line::after {
+  background: var(--primary-color-text);
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all 0.2s ease-out;
+  width: 100%;
+}
+.hamb-line::before {
+  top: 5px;
+}
+.hamb-line::after {
+  top: -5px;
+}
+
+.side-menu {
+  display: none;
+} /* Hide checkbox */
+
+/* Toggle menu icon */
+.side-menu:checked ~ nav {
+  max-height: 100%;
+}
+.side-menu:checked ~ .hamb .hamb-line {
+  background: transparent;
+}
+.side-menu:checked ~ .hamb .hamb-line::before {
+  transform: rotate(-45deg);
+  top: 0;
+}
+.side-menu:checked ~ .hamb .hamb-line::after {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.subnav-content {
+  width: 100%;
+  z-index: 1;
+  padding: 20px 0;
+  display: none;
+}
+.subnav:hover .subnav-content {
+  display: block;
+}
+
+@media (min-width: 960px) {
+  .nav {
+    padding: 0 10px;
+  }
+
+  .menu {
+    max-height: none;
+    top: 0;
+    position: relative;
+    width: fit-content;
+    background-color: transparent;
+    overflow-y: hidden;
+  }
+  .menu > ul {
+    display: flex;
+    gap: 20px;
+  }
+
+  .menu ul {
+    padding: 0;
+  }
+
+  .hamb {
+    display: none;
+  }
+
+  .subnav:hover .subnav-content {
+    width: auto;
+    height: auto;
+    display: flex;
+    position: fixed;
+    padding: 20px 10px;
+    background: var(--primary-color);
+  }
+}
