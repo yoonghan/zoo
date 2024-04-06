@@ -1,16 +1,21 @@
 import { memo } from "react";
 import style from "./style.module.css";
 
-type MenuItem = {
+type TopMenuItem = {
   label: string;
-  url?: string;
-  items?: MenuItem[];
+  url: string;
+  items?: SubMenuItem[];
 };
 
-export type MenuProps = MenuItem[];
+type SubMenuItem = {
+  label: string;
+  url?: string;
+};
+
+export type MenuProps = TopMenuItem[];
 
 function MutableMenu({ model }: { model: MenuProps }) {
-  const subMenu = (subMenu: MenuItem[]) =>
+  const subMenu = (subMenu: SubMenuItem[]) =>
     subMenu.map((subMenuItem) => (
       <li key={subMenuItem.label} role="presentation">
         <a href={subMenuItem.url} role="menuitem" aria-hidden={true}>
