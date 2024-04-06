@@ -12,9 +12,9 @@ type SubMenuItem = {
   url?: string;
 };
 
-export type MenuProps = TopMenuItem[];
+export type MenuType = TopMenuItem[];
 
-function MutableMenu({ model }: { model: MenuProps }) {
+function MutableMenu({ model }: { model: MenuType }) {
   const replaceWithTopMenuUrlIfAHashlinkOrEmpty = (
     topMenuUrl: string,
     url?: string

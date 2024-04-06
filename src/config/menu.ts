@@ -1,6 +1,6 @@
-import { Menu } from "./typings/menu";
+import { MenuType } from "@/components/Menu";
 
-export const zooMenu: Menu = [
+export const zooMenu: MenuType = [
   {
     label: "Zoo Negara",
     url: "/about-us",
