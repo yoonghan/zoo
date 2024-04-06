@@ -1,3 +1,4 @@
+
 export const zooMenu = [
     {
         label: 'Zoo Negara',
@@ -5,23 +6,10 @@ export const zooMenu = [
         items: [
             {
                 label: 'About Us',
-                url: '/about-us',
             },
             {
                 label: 'Zoo Negara Logo',
-                url: '/about-us#logo',
-            },
-            {
-                label: 'The 5 Pillars We Stand',
-                url: '/about-us#5pillars',
-            },
-            {
-                label: 'A Journey Through Time',
-                url: '/about-us#journeyThroughTime',
-            },
-            {
-                label: 'Careers',
-                url: '/about-us#careers',
+                url: '#logo'
             }
         ]
     },
@@ -31,36 +19,35 @@ export const zooMenu = [
         items: [
             {
                 label: 'Opening Hours And Rates',
-                url: '/visitor#opening-hours-and-rates',
             },
             {
                 label: 'Zoo Map',
-                url: '/visitor#zoo-map',
+                url: '#zoo-map',
             },
             {
                 label: 'Getting There',
-                url: '/visitor#getting-there',
+                url: '#getting-there',
             },
             {
                 label: 'Food &amp; Soveniour Kiosk',
-                url: '/visitor#food-n-sovenior-kiosk',
+                url: '#food-n-sovenior-kiosk',
             },
             {
                 label: 'Other Facilities',
-                url: '/visitor#other-facilities',
+                url: '#other-facilities',
             },
             {
                 label: 'Show Times',
-                url: '/visitor#show-times',
+                url: '#show-times',
             },
             {
                 label: 'Animal Feeding',
-                url: '/visitor#animal-feeding',
+                url: '#animal-feeding',
             },
             {
                 label: 'Rides',
-                url: '/visitor#rides',
-            },
+                url: '#rides',
+            }
         ]
     },
     {
@@ -69,23 +56,23 @@ export const zooMenu = [
         items: [
             {
                 label: 'Birthday',
-                url: '/event#birthday',
+                url: '#birthday',
             },
             {
                 label: 'Family Day',
-                url: '/event#family-day',
+                url: '#family-day',
             },
             {
                 label: 'Scenic Point &amp; Function',
-                url: '/visitor#scenic-point-and-function',
+                url: '#scenic-point-and-function',
             },
             {
                 label: 'Kancil Hall',
-                url: '/visitor#kancil-hall',
+                url: '#kancil-hall',
             },
             {
                 label: 'Tunku Abdul Rahman Theather',
-                url: '/visitor#tunku-abdul-rahman-theater',
+                url: '#tunku-abdul-rahman-theater',
             }
         ]
     },
@@ -95,23 +82,23 @@ export const zooMenu = [
         items: [
             {
                 label: 'Adopt Our Animals',
-                url: '/get-involved#adopt-our-animal',
+                url: '#adopt-our-animal',
             },
             {
                 label: 'List Of Donors And Sponsors',
-                url: '/get-involved#list-of-donors-and-sponsors',
+                url: '#list-of-donors-and-sponsors',
             },
             {
                 label: 'KeeperKu Programme',
-                url: '/get-involved#keepersku-programme',
+                url: '#keepersku-programme',
             },
             {
                 label: 'Student Training',
-                url: '/get-involved#student-training',
+                url: '#student-training',
             },
             {
                 label: 'CSR Programme',
-                url: '/get-involved#csr-programme',
+                url: '#csr-programme',
             }
         ]
     },
@@ -121,19 +108,19 @@ export const zooMenu = [
         items: [
             {
                 label: 'Newspaper article',
-                url: '/news#newspaper-article',
+                url: '#newspaper-article',
             },
             {
                 label: 'Partnership News Highlight',
-                url: '/news#partnership-news-highlight',
+                url: '#partnership-news-highlight',
             },
             {
                 label: 'Archive',
-                url: '/news#Archive',
+                url: '#Archive',
             },
             {
                 label: 'Notice',
-                url: '/news#notice',
+                url: '#notice',
             }
         ]
     },
@@ -143,16 +130,16 @@ export const zooMenu = [
         items: [
             {
                 label: 'Animals in CITES',
-                url: '/conservation#animals-in-cites',
+                url: '#animals-in-cites',
             },
             {
                 label: 'Research Papers On Milky Storks',
-                url: '/conservation#research-papers-on-milky-storks',
+                url: '#research-papers-on-milky-storks',
             },
             {
                 label: 'Research Papers On False Gahrial',
-                url: '/conservation#research-papers-on-false-gahrial',
-            },
+                url: '#research-papers-on-false-gahrial',
+            }
         ]
     },
     {
@@ -165,71 +152,71 @@ export const zooMenu = [
         items: [
             {
                 label: 'Giant Panda Conservation Centre',
-                url: '/exhibits#giant-panda-conservation-center',
+                url: '#giant-panda-conservation-center',
             },
             {
                 label: 'Rimba Biodiversiti',
-                url: '/exhibits#rimba-biodiversiti',
+                url: '#rimba-biodiversiti',
             },
             {
                 label: 'Hornbill Centre',
-                url: '/exhibits#hornbill-centre',
+                url: '#hornbill-centre',
             },
             {
                 label: 'Reptile House',
-                url: '/exhibits#reptile-house',
+                url: '#reptile-house',
             },
             {
                 label: 'Malaysian Elephants',
-                url: '/exhibits#malaysian-elephants',
+                url: '#malaysian-elephants',
             },
             {
                 label: 'Lake Birds',
-                url: '/exhibits#lake-birds',
+                url: '#lake-birds',
             },
             {
                 label: 'Bird Aviary',
-                url: '/exhibits#bird-aviary',
+                url: '#bird-aviary',
             },
             {
                 label: 'Australian Plain',
-                url: '/exhibits#australian-plain',
+                url: '#australian-plain',
             },
             {
                 label: 'Humboldt Penguin',
-                url: '/exhibits#humboldt-penguin',
+                url: '#humboldt-penguin',
             },
             {
                 label: 'Children&apos;s World',
-                url: '/exhibits#childrens-world',
+                url: '#childrens-world',
             },
             {
                 label: 'Bear Complex',
-                url: '/exhibits#bear-complex',
+                url: '#bear-complex',
             },
             {
                 label: 'Savannah Walk',
-                url: '/exhibits#savannah-walk',
+                url: '#savannah-walk',
             },
             {
                 label: 'Hippopotamus',
-                url: '/exhibits#hippopotamus',
+                url: '#hippopotamus',
             },
             {
                 label: 'Mammal Kingdom',
-                url: '/exhibits#mamal-kingdom',
+                url: '#mamal-kingdom',
             },
             {
                 label: 'Tunku Abdul Rahman Aquarium',
-                url: '/exhibits#tunku-abdul-rahman-aquarium',
+                url: '#tunku-abdul-rahman-aquarium',
             },
             {
                 label: 'Cat Walk',
-                url: '/exhibits#cat-walk',
+                url: '#cat-walk',
             },
             {
                 label: 'Ape Centre',
-                url: '/exhibits#ape-centre',
+                url: '#ape-centre',
             }
         ]
     },

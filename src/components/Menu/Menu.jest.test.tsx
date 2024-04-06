@@ -11,12 +11,12 @@ describe("Menu", () => {
           {
             label: 'Furniture',
             items: [
-                [
+                
                     {
                         label: 'Kitchen',
                         items: [{ label: 'Bar stool' }, { label: 'Chair' }, { label: 'Table' }]
                     }
-                ]
+                
             ]
           },
           {
