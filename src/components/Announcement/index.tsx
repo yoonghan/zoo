@@ -12,7 +12,7 @@ export function Announcement({ announcements }: AnnouncementProps) {
 
   return (
     <>
-      {announcements.length >= idx + 1 && (
+      {announcements.length > 0 && (
         <div>
           <button onClick={goPrev}>&lt;</button>
           <span>{announcements[idx]}</span>
