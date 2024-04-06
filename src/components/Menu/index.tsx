@@ -15,11 +15,22 @@ type SubMenuItem = {
 export type MenuProps = TopMenuItem[];
 
 function MutableMenu({ model }: { model: MenuProps }) {
+  const replaceWithTopMenuUrlIfAHashlinkOrEmpty = (
+    topMenuUrl: string,
+    url?: string
+  ) => {
+    if (url === undefined || url === "") return topMenuUrl;
+    return url.replace(/^#/, `${topMenuUrl}#`);
+  };
+
   const subMenu = (subMenu: SubMenuItem[], topMenuUrl: string) =>
     subMenu.map((subMenuItem) => (
       <li key={subMenuItem.label} role="presentation">
         <a
-          href={subMenuItem.url || topMenuUrl}
+          href={replaceWithTopMenuUrlIfAHashlinkOrEmpty(
+            topMenuUrl,
+            subMenuItem.url
+          )}
           role="menuitem"
           aria-hidden={true}
         >

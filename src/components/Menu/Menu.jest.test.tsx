@@ -51,4 +51,12 @@ describe("Menu", () => {
 
     expect(getByText("About Us")).toHaveAttribute("href", expectedRootUrl);
   });
+
+  it("should replace submenu url with # with topMenu", async () => {
+    const { getByText } = renderMenuWithItems();
+    expect(getByText("Zoo Negara Logo")).toHaveAttribute(
+      "href",
+      "/about-us#logo"
+    );
+  });
 });
