@@ -1,6 +1,8 @@
 import { ReactNode, useState } from "react";
 
-export type AnnouncementProps = { announcements: (string | ReactNode)[] };
+export type AnnouncementsType = (string | ReactNode)[];
+
+type AnnouncementProps = { announcements: AnnouncementsType };
 
 export function Announcement({ announcements }: AnnouncementProps) {
   const [idx, setIdx] = useState(0);
