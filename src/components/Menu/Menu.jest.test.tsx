@@ -59,4 +59,12 @@ describe("Menu", () => {
       "/about-us#logo"
     );
   });
+
+  it("should have top menu anchor to implement a style to prevent mobile clicks on href", async () => {
+    const { getByRole } = renderMenuWithItems();
+
+    expect(getByRole("menuitem", { name: "Zoo Negara" })).toHaveClass(
+      "top-menu-link"
+    );
+  });
 });

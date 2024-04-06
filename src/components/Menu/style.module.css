@@ -92,6 +92,14 @@
   display: block;
 }
 
+@media (max-width: 960px) {
+  .menu .top-menu-link {
+    /*prevents user click on href*/
+    pointer-events: none;
+    cursor: default;
+  }
+}
+
 @media (min-width: 960px) {
   .nav {
     padding: 0 10px;

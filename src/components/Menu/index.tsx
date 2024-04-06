@@ -49,7 +49,11 @@ function MutableMenu({ model }: { model: MenuProps }) {
         className={hasChild ? style.subnav : ""}
       >
         <div>
-          <a href={topMenuItem.url} role="menuitem">
+          <a
+            href={topMenuItem.url}
+            role="menuitem"
+            className={style["top-menu-link"]}
+          >
             {topMenuItem.label}
           </a>
           {topMenuItem.items && (
