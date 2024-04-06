@@ -18,19 +18,29 @@ export function Announcement({ announcements }: AnnouncementProps) {
   return (
     <>
       {announcements.length > 0 && (
-        <article className={style.announcement}>
-          {announcements.length > 1 && (
-            <button onClick={goPrev} className="no-style">
-              <i className="arrow left black"></i>
-            </button>
-          )}
-          <div>{announcements[idx]}</div>
-          {announcements.length > 1 && (
-            <button onClick={goNext} className="no-style">
-              <i className="arrow right black"></i>
-            </button>
-          )}
-        </article>
+        <>
+          <input
+            className={style["close-announcement"]}
+            type="checkbox"
+            id="close-announcement"
+          />
+          <article className={style.announcement}>
+            {announcements.length > 1 && (
+              <button onClick={goPrev} className="no-style">
+                <i className="arrow left black"></i>
+              </button>
+            )}
+            <div>{announcements[idx]}</div>
+            {announcements.length > 1 && (
+              <button onClick={goNext} className="no-style">
+                <i className="arrow right black"></i>
+              </button>
+            )}
+            <label htmlFor="close-announcement">
+              <span className={"close"}></span>
+            </label>
+          </article>
+        </>
       )}
     </>
   );

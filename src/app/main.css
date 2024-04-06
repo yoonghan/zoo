@@ -54,3 +54,30 @@ input[type="reset"].no-style {
   cursor: pointer;
   outline: inherit;
 }
+
+.close {
+  cursor: pointer;
+  display: block;
+  height: 2px;
+  position: absolute;
+  width: 24px;
+  top: 50%;
+  left: 50%;
+}
+
+.close::before,
+.close::after {
+  background: black;
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all 0.2s ease-out;
+  width: 100%;
+}
+.close::before {
+  transform: rotate(-45deg);
+}
+.close::after {
+  transform: rotate(45deg);
+}
