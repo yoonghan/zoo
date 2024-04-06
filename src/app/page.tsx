@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <header>
         <Announcement announcements={zooAnnouncement} />
-        <Menu model={zooMenu} />
+        <Menu model={zooMenu} mobileHomeText="Zoo Negara Malaysia" />
       </header>
       <main className="flex min-h-screen flex-col items-center justify-between p-24"></main>
     </>

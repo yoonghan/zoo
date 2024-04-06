@@ -1,5 +1,6 @@
 import { memo } from "react";
 import style from "./style.module.css";
+import Image from "next/image";
 
 type TopMenuItem = {
   label: string;
@@ -14,7 +15,13 @@ type SubMenuItem = {
 
 export type MenuType = TopMenuItem[];
 
-function MutableMenu({ model }: { model: MenuType }) {
+function MutableMenu({
+  model,
+  mobileHomeText,
+}: {
+  model: MenuType;
+  mobileHomeText: string;
+}) {
   const replaceWithTopMenuUrlIfAHashlinkOrEmpty = (
     topMenuUrl: string,
     url?: string
@@ -69,12 +76,27 @@ function MutableMenu({ model }: { model: MenuType }) {
   return (
     <div className={style.nav}>
       <input className={style["side-menu"]} type="checkbox" id="side-menu" />
-      <label className={style.hamb} htmlFor="side-menu">
-        <span className={style["hamb-line"]}></span>
-      </label>
+      <div className={style["mobile-menu"]}>
+        <label className={style.hamb} htmlFor="side-menu">
+          <span className={style["hamb-line"]}></span>
+        </label>
+        <a href="/" tabIndex={-1}>
+          {mobileHomeText}
+        </a>
+      </div>
 
       <nav role="menubar" className={style.menu}>
         <ul role="menu" aria-orientation="horizontal">
+          <li className={style["non-mobile-menu"]}>
+            <a href="/">
+              <Image
+                src="/home-link.png"
+                alt="home link"
+                height={20}
+                width={20}
+              />
+            </a>
+          </li>
           {topMenu}
         </ul>
       </nav>

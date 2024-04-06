@@ -21,8 +21,28 @@ describe("Menu", () => {
             ],
           },
         ]}
+        mobileHomeText="Zoo Negara Malaysia"
       />
     );
+
+  it("should will display mobile home text that links to home", () => {
+    const { getByRole } = renderMenuWithItems();
+    expect(getByRole("link", { name: "Zoo Negara Malaysia" })).toHaveAttribute(
+      "href",
+      "/"
+    );
+    expect(getByRole("link", { name: "home link" })).toHaveAttribute(
+      "href",
+      "/"
+    );
+  });
+
+  it("should will display a main logo", () => {
+    const { getByText } = renderMenuWithItems();
+    expect(getByText("Zoo Negara")).toBeVisible();
+    expect(getByText("About Us")).toBeVisible();
+    expect(getByText("Zoo Negara Logo")).toBeVisible();
+  });
 
   it("should display menu correctly", () => {
     const { getByText } = renderMenuWithItems();
