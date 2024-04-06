@@ -11,18 +11,22 @@ export type MenuProps = MenuItem[];
 function MutableMenu({ model }: { model: MenuProps }) {
   const subMenu = (subMenu: MenuItem[]) =>
     subMenu.map((subMenuItem) => (
-      <li key={subMenuItem.label}>
-        <a href={subMenuItem.url}>{subMenuItem.label}</a>
+      <li key={subMenuItem.label} role="presentation">
+        <a href={subMenuItem.url} role="menuitem">
+          {subMenuItem.label}
+        </a>
       </li>
     ));
 
   const topMenu = model.map((topMenuItem) => (
-    <li key={topMenuItem.label}>
+    <li key={topMenuItem.label} role="presentation">
       <>
-        <a href={topMenuItem.url}>{topMenuItem.label}</a>
+        <a href={topMenuItem.url} role="menuitem">
+          {topMenuItem.label}
+        </a>
         {topMenuItem.items && (
-          <div>
-            <ul> {subMenu(topMenuItem.items)} </ul>
+          <div role="presentation">
+            <ul role="menu"> {subMenu(topMenuItem.items)} </ul>
           </div>
         )}
       </>
@@ -30,8 +34,8 @@ function MutableMenu({ model }: { model: MenuProps }) {
   ));
 
   return (
-    <nav>
-      <ul>{topMenu}</ul>
+    <nav role="menubar">
+      <ul role="menu">{topMenu}</ul>
     </nav>
   );
 }
