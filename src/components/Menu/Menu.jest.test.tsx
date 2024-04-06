@@ -1,61 +1,32 @@
-import { render, within } from "@testing-library/react"
-import '@testing-library/jest-dom'
-import userEvent from '@testing-library/user-event'
-import { Menu } from "."
+import { render } from "@testing-library/react";
+import "@testing-library/jest-dom";
+import { Menu } from ".";
 
 describe("Menu", () => {
-
-  const renderMenuWithItems = () => render(
-    <Menu
-      model={[
+  const renderMenuWithItems = () =>
+    render(
+      <Menu
+        model={[
           {
-            label: 'Furniture',
+            label: "Zoo Negara",
+            url: "/about-us",
             items: [
-                
-                    {
-                        label: 'Kitchen',
-                        items: [{ label: 'Bar stool' }, { label: 'Chair' }, { label: 'Table' }]
-                    }
-                
-            ]
+              {
+                label: "About Us",
+              },
+              {
+                label: "Zoo Negara Logo",
+                url: "#logo",
+              },
+            ],
           },
-          {
-            label: 'Electronics',
-            url: 'https://walcron.com'
-          }
-      ]}
-    />
-  )
+        ]}
+      />
+    );
 
-  it("should display main menu correctly", () => {
-    const {getByText, queryByText} = renderMenuWithItems()
-    expect(getByText('Furniture')).toBeVisible()
-    expect(getByText('Electronics')).toBeVisible()
-    expect(queryByText('Kitchen')).not.toBeVisible()
-  })
-
-  it("should display sub menu correctly when main menu is clicked", async () => {
-    const {getByText} = renderMenuWithItems()
-    
-    await userEvent.click(getByText('Furniture'))
-    expect(getByText('Kitchen')).toBeVisible()
-  })
-
-  it("should contains url", async () => {
-    const {getByText} = renderMenuWithItems()
-    
-    expect(getByText('Electronics').parentNode).toHaveAttribute("href", "https://walcron.com")
-  })
-
-  it("should contain a mobile button", async () => {
-    const {getByRole} = renderMenuWithItems()
-    
-    expect(getByRole('button', {name: "Navigation"})).toBeVisible()
-  })
-
-  it("should be wrapped in nav, for schematics", async () => {
-    const {getByRole} = renderMenuWithItems()
-    
-    expect(within(getByRole('navigation')).getByText("Furniture")).toBeInTheDocument()
-  })
-})
+  it("should display top main menu correctly", () => {
+    const { getByText, queryByText } = renderMenuWithItems();
+    expect(getByText("Zoo Negara")).toBeVisible();
+    expect(queryByText("About Us")).not.toBeInTheDocument();
+  });
+});

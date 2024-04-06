@@ -1,7 +1,3 @@
-type MenuItem = {
-  label: string;
-  url?: string;
-  items?: MenuItem[];
-};
+import { MenuProps } from "@/components/Menu";
 
-type Menu = MenuItem[];
+export type Menu = MenuProps;

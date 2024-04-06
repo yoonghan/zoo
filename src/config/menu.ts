@@ -1,3 +1,5 @@
+import { Menu } from "./typings/menu";
+
 export const zooMenu: Menu = [
   {
     label: "Zoo Negara",
