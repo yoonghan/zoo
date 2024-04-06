@@ -8,6 +8,10 @@
   grid-template-columns: 20px 1fr 20px 80px;
 }
 
+.announcement.only-one {
+  grid-template-columns: 1fr 80px;
+}
+
 .announcement label {
   position: relative;
 }

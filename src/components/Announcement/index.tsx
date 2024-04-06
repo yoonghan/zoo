@@ -15,6 +15,8 @@ export function Announcement({ announcements }: AnnouncementProps) {
 
   const goNext = () => setIdx(announcements.length > idx + 1 ? idx + 1 : 0);
 
+  const hasOnly1Announcement = announcements.length === 1;
+
   return (
     <>
       {announcements.length > 0 && (
@@ -24,16 +26,26 @@ export function Announcement({ announcements }: AnnouncementProps) {
             type="checkbox"
             id="close-announcement"
           />
-          <article className={style.announcement}>
-            {announcements.length > 1 && (
+          <article
+            className={`${style.announcement} ${
+              hasOnly1Announcement ? style["only-one"] : ""
+            }`}
+          >
+            {!hasOnly1Announcement && (
               <button onClick={goPrev} className="no-style">
-                <i className="arrow left black"></i>
+                <i
+                  className="arrow left black"
+                  aria-label="previous announcement"
+                ></i>
               </button>
             )}
             <div>{announcements[idx]}</div>
-            {announcements.length > 1 && (
+            {!hasOnly1Announcement && (
               <button onClick={goNext} className="no-style">
-                <i className="arrow right black"></i>
+                <i
+                  className="arrow right black"
+                  aria-label="next announcement"
+                ></i>
               </button>
             )}
             <label htmlFor="close-announcement">
