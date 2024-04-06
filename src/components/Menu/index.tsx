@@ -15,10 +15,14 @@ type SubMenuItem = {
 export type MenuProps = TopMenuItem[];
 
 function MutableMenu({ model }: { model: MenuProps }) {
-  const subMenu = (subMenu: SubMenuItem[]) =>
+  const subMenu = (subMenu: SubMenuItem[], topMenuUrl: string) =>
     subMenu.map((subMenuItem) => (
       <li key={subMenuItem.label} role="presentation">
-        <a href={subMenuItem.url} role="menuitem" aria-hidden={true}>
+        <a
+          href={subMenuItem.url || topMenuUrl}
+          role="menuitem"
+          aria-hidden={true}
+        >
           {subMenuItem.label}
         </a>
       </li>
@@ -39,7 +43,10 @@ function MutableMenu({ model }: { model: MenuProps }) {
           </a>
           {topMenuItem.items && (
             <div role="presentation" className={style["subnav-content"]}>
-              <ul role="menu"> {subMenu(topMenuItem.items)} </ul>
+              <ul role="menu">
+                {" "}
+                {subMenu(topMenuItem.items, topMenuItem.url)}{" "}
+              </ul>
             </div>
           )}
         </div>

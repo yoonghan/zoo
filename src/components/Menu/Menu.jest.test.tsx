@@ -37,4 +37,18 @@ describe("Menu", () => {
     rerender(<Menu model={[]} />);
     expect(getByText("Zoo Negara")).toBeVisible();
   });
+
+  it("should replace submenu with main menu's root if url of submenu is missing", async () => {
+    const { getByRole, queryByRole, getByText } = renderMenuWithItems();
+    const expectedRootUrl = "/about-us";
+    expect(getByRole("menuitem", { name: "Zoo Negara" })).toHaveAttribute(
+      "href",
+      expectedRootUrl
+    );
+    expect(
+      queryByRole("menuitem", { name: "About Us" })
+    ).not.toBeInTheDocument();
+
+    expect(getByText("About Us")).toHaveAttribute("href", expectedRootUrl);
+  });
 });
