@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { memo } from "react";
 
 type MenuItem = {
   label: string;
@@ -8,16 +8,12 @@ type MenuItem = {
 
 export type MenuProps = MenuItem[];
 
-export function Menu({ model }: { model: MenuProps }) {
-  const topMenu = useMemo(
-    () =>
-      model.map((topMenuItem) => (
-        <li key={topMenuItem.label}>
-          <a href={topMenuItem.url}>{topMenuItem.label}</a>
-        </li>
-      )),
-    [model]
-  );
+function MutableMenu({ model }: { model: MenuProps }) {
+  const topMenu = model.map((topMenuItem) => (
+    <li key={topMenuItem.label}>
+      <a href={topMenuItem.url}>{topMenuItem.label}</a>
+    </li>
+  ));
 
   return (
     <nav>
@@ -25,3 +21,5 @@ export function Menu({ model }: { model: MenuProps }) {
     </nav>
   );
 }
+
+export const Menu = memo(MutableMenu, () => true);

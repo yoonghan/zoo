@@ -29,4 +29,11 @@ describe("Menu", () => {
     expect(getByText("Zoo Negara")).toBeVisible();
     expect(queryByText("About Us")).not.toBeInTheDocument();
   });
+
+  it("should be memozied and forever not modified. It's a menu!", async () => {
+    const { rerender, getByText } = renderMenuWithItems();
+    expect(getByText("Zoo Negara")).toBeVisible();
+    rerender(<Menu model={[]} />);
+    expect(getByText("Zoo Negara")).toBeVisible();
+  });
 });
