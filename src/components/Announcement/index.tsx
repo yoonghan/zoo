@@ -1,4 +1,7 @@
+"use client";
+
 import { ReactNode, useState } from "react";
+import style from "./Announcement.module.css";
 
 export type AnnouncementsType = (string | ReactNode)[];
 
@@ -15,11 +18,11 @@ export function Announcement({ announcements }: AnnouncementProps) {
   return (
     <>
       {announcements.length > 0 && (
-        <div>
+        <article className={style.announcement}>
           <button onClick={goPrev}>&lt;</button>
           <span>{announcements[idx]}</span>
           <button onClick={goNext}>&gt;</button>
-        </div>
+        </article>
       )}
     </>
   );
