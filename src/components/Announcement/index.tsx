@@ -21,13 +21,13 @@ export function Announcement({ announcements }: AnnouncementProps) {
         <article className={style.announcement}>
           {announcements.length > 1 && (
             <button onClick={goPrev} className="no-style">
-              <i className="arrow left"></i>
+              <i className="arrow left black"></i>
             </button>
           )}
           <div>{announcements[idx]}</div>
           {announcements.length > 1 && (
             <button onClick={goNext} className="no-style">
-              <i className="arrow right"></i>
+              <i className="arrow right black"></i>
             </button>
           )}
         </article>

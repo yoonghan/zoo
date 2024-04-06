@@ -7,7 +7,3 @@
   gap: 20px;
   grid-template-columns: 20px 1fr 20px;
 }
-
-.announcement .arrow {
-  border: solid black;
-}
