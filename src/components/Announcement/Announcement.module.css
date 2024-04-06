@@ -1,4 +1,14 @@
 .announcement {
-  background-color: var(--warning-color);
-  color: var(--warning-text-color);
+  background-color: var(--yellow-500);
+  color: black;
+  text-align: center;
+  padding: 20px;
+}
+
+.announcement .arrow {
+  border: solid black;
+}
+
+.announcement span {
+  padding: 10px;
 }
