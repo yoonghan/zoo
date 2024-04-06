@@ -24,10 +24,11 @@ describe("Menu", () => {
       />
     );
 
-  it("should display top main menu correctly", () => {
-    const { getByText, queryByText } = renderMenuWithItems();
+  it("should display menu correctly", () => {
+    const { getByText } = renderMenuWithItems();
     expect(getByText("Zoo Negara")).toBeVisible();
-    expect(queryByText("About Us")).not.toBeInTheDocument();
+    expect(getByText("About Us")).toBeVisible();
+    expect(getByText("Zoo Negara Logo")).toBeVisible();
   });
 
   it("should be memozied and forever not modified. It's a menu!", async () => {
