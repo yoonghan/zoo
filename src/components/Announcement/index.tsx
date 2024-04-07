@@ -30,7 +30,7 @@ export function Announcement({ announcements }: AnnouncementProps) {
             role="alert"
             className={`${style.announcement} ${
               hasOnly1Announcement ? style["only-one"] : ""
-            }`}
+            } p-6`}
           >
             {!hasOnly1Announcement && (
               <button onClick={goPrev} className="no-style">
@@ -49,8 +49,8 @@ export function Announcement({ announcements }: AnnouncementProps) {
                 ></i>
               </button>
             )}
-            <label htmlFor="close-announcement">
-              <span className={"close"} aria-label="Close Announcement" role="button"></span>
+            <label htmlFor="close-announcement" className="relative">
+              <span className={"close"}></span>
             </label>
           </div>
         </>
