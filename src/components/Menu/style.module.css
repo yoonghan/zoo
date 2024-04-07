@@ -107,6 +107,11 @@
   .menu .non-mobile-menu {
     display: none;
   }
+
+  header:has(.side-menu:checked) {
+    position: sticky;
+    top: 0;
+  }
 }
 
 @media (min-width: 960px) {
