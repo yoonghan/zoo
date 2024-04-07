@@ -17,6 +17,13 @@ describe("Footer", () => {
   const defaultContact = {
     phone: "Phone: +65 999 9999, Fax: +60 999 99999",
   };
+  const defaultPartners = [
+    {
+      url: "https://www.partner.com",
+      imageSrc: "/abc.jpg",
+      alt: "partner",
+    },
+  ];
 
   const renderFooterComponent = ({
     operatingTime = defaultOperatingTime,
@@ -60,6 +67,21 @@ describe("Footer", () => {
       "href",
       "https://www.partner.com"
     );
+  });
+
+  it("should be memozied and forever not modified. It's a footer!", async () => {
+    const { getByText, rerender } = renderFooterComponent({});
+    expect(getByText("© Zoo Negara")).toBeVisible();
+    rerender(
+      <Footer
+        companyName="Walcron"
+        operatingTime={defaultOperatingTime}
+        address={defaultAddress}
+        contact={defaultContact}
+        partners={defaultPartners}
+      />
+    );
+    expect(getByText("© Zoo Negara")).toBeVisible();
   });
 
   it("should render component with exceptional operating time", () => {

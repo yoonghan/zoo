@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { memo } from "react";
 
 export type FooterProps = {
   companyName: string;
@@ -25,7 +26,7 @@ export type FooterProps = {
   }[];
 };
 
-export function Footer({
+export function MutableFooter({
   companyName,
   operatingTime,
   address,
@@ -90,3 +91,5 @@ export function Footer({
     </footer>
   );
 }
+
+export const Footer = memo(MutableFooter, () => true);
