@@ -1,5 +1,4 @@
 body > header {
-  background-color: var(--black);
   box-shadow: 1px 1px 5px 0px var(--gray);
   position: sticky;
   top: 0;
@@ -81,3 +80,7 @@ input[type="reset"].no-style {
 .close::after {
   transform: rotate(45deg);
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
