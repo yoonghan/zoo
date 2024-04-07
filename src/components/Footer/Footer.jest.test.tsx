@@ -114,9 +114,14 @@ describe("Footer", () => {
     expect(getByText("walcoorperation@gmail.com")).toBeInTheDocument();
   });
 
-  it("should render website is maintained from 2021 till today", () => {
+  it("should render a set of predefined labels and include maintained from 2021 till today", () => {
     const currentYearUpdated = new Date().getFullYear();
+
     const { getByText } = renderFooterComponent({});
+    expect(getByText("Operation Hours:")).toBeInTheDocument();
+    expect(getByText("Address:")).toBeInTheDocument();
+    expect(getByText("Contact:")).toBeInTheDocument();
+    expect(getByText("Partners:")).toBeInTheDocument();
     expect(
       getByText(`Website is maintained from 2021 - ${currentYearUpdated}`)
     ).toBeInTheDocument();

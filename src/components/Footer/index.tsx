@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { memo } from "react";
+import labels from "./constant";
 
 export type FooterProps = {
   companyName: string;
@@ -45,7 +46,7 @@ export function MutableFooter({
         <section>
           <ul>
             <li>
-              <h3>Operation Hours:</h3>
+              <h3>{labels.operationHours}:</h3>
             </li>
             <li>
               {operatingTime.day.from} - {operatingTime.day.to}
@@ -57,7 +58,7 @@ export function MutableFooter({
           </ul>
           <ul>
             <li>
-              <h3>Address:</h3>
+              <h3>{labels.address}:</h3>
             </li>
             <li>{address.street},</li>
             {address.city && <li>{address.city},</li>}
@@ -68,14 +69,14 @@ export function MutableFooter({
           </ul>
           <ul>
             <li>
-              <h3>Contact</h3>
+              <h3>{labels.contact}:</h3>
             </li>
             <li>{contact.phone}</li>
             {contact.email && <li>{contact.email}</li>}
           </ul>
         </section>
         <section>
-          <h3>Partners:</h3>
+          <h3>{labels.partners}:</h3>
           <ul>
             {partners.map(({ url, imageSrc, alt }, idx) => (
               <li key={`foorter-partner-${idx}`}>
@@ -87,7 +88,9 @@ export function MutableFooter({
           </ul>
         </section>
       </div>
-      <div>Website is maintained from 2021 - {currentYearUpdated}</div>
+      <div>
+        {labels.maintainedInfo} 2021 - {currentYearUpdated}
+      </div>
     </footer>
   );
 }
