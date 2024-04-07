@@ -33,12 +33,19 @@ describe("Footer", () => {
         operatingTime={operatingTime}
         address={address}
         contact={contact}
+        partners={[
+          {
+            url: "https://www.partner.com",
+            imageSrc: "/abc.jpg",
+            alt: "partner",
+          },
+        ]}
       />
     );
   };
 
   it("should render component correctly", () => {
-    const { getByText } = renderFooterComponent({});
+    const { getByText, getByRole } = renderFooterComponent({});
     expect(getByText("© Zoo Negara")).toBeInTheDocument();
     expect(getByText("Monday - Sunday")).toBeInTheDocument();
     expect(getByText("9:00am - 10:00pm")).toBeInTheDocument();
@@ -49,6 +56,10 @@ describe("Footer", () => {
     expect(
       getByText("Phone: +65 999 9999, Fax: +60 999 99999")
     ).toBeInTheDocument();
+    expect(getByRole("link", { name: "partner" })).toHaveAttribute(
+      "href",
+      "https://www.partner.com"
+    );
   });
 
   it("should render component with exceptional operating time", () => {
@@ -79,5 +90,13 @@ describe("Footer", () => {
       },
     });
     expect(getByText("walcoorperation@gmail.com")).toBeInTheDocument();
+  });
+
+  it("should render website is maintained from 2021 till today", () => {
+    const currentYearUpdated = new Date().getFullYear();
+    const { getByText } = renderFooterComponent({});
+    expect(
+      getByText(`Website is maintained from 2021 - ${currentYearUpdated}`)
+    ).toBeInTheDocument();
   });
 });
