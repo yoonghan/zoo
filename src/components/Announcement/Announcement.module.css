@@ -1,7 +1,6 @@
 .announcement {
   background-color: var(--yellow-500);
   color: black;
-  text-align: center;
   display: grid;
   gap: 20px;
   grid-template-columns: 20px 1fr 20px 80px;

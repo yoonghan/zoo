@@ -4,11 +4,7 @@ import userEvent from "@testing-library/user-event";
 import { Announcement } from ".";
 
 describe("Announcement", () => {
-  const announcements = [
-    "announcement 1",
-    "announcement 2",
-    "announcement 3",
-  ];
+  const announcements = ["announcement 1", "announcement 2", "announcement 3"];
 
   const renderAnnouncement = () =>
     render(<Announcement announcements={announcements} />);
@@ -52,15 +48,15 @@ describe("Announcement", () => {
     expect(getByText("announcement 2")).toBeInTheDocument();
   });
 
-  it('should have a label name for close', () => {
-    const { getByLabelText } = renderAnnouncement()
-    expect(getByLabelText("Close Announcement")).toBeInTheDocument()
-  })
+  it("should have a label name for close", () => {
+    const { getByLabelText } = renderAnnouncement();
+    expect(getByLabelText("Close Announcement")).toBeInTheDocument();
+  });
 
-  it('should have a test id for playwright test', () => {
-    const { getByTestId } = renderAnnouncement()
-    expect(getByTestId("announcement")).toBeInTheDocument()
-  })
+  it("should have a test id for playwright test", () => {
+    const { getByTestId } = renderAnnouncement();
+    expect(getByTestId("announcement")).toBeInTheDocument();
+  });
 
   describe("no announcement", () => {
     const renderEmptyAnnouncements = () =>
@@ -77,9 +73,9 @@ describe("Announcement", () => {
     });
   });
 
-  describe("one announcement", () => {
+  describe("one announcement with bolded html", () => {
     const renderEmptyAnnouncements = () =>
-      render(<Announcement announcements={["one announcement"]} />);
+      render(<Announcement announcements={["one *announcement"]} />);
 
     it("should not have navigation buttons", async () => {
       const { queryByRole, getByText } = renderEmptyAnnouncements();
@@ -89,9 +85,7 @@ describe("Announcement", () => {
       expect(
         queryByRole("button", { name: "previous announcement" })
       ).not.toBeInTheDocument();
-      expect(getByText("one announcement").parentElement).toHaveClass(
-        "only-one"
-      );
+      expect(getByText("one").parentElement).toHaveClass("only-one");
     });
   });
 });
