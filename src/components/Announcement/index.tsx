@@ -1,9 +1,9 @@
 "use client";
 
-import { ReactNode, useState } from "react";
+import { useState } from "react";
 import style from "./Announcement.module.css";
 
-export type AnnouncementsType = (string | ReactNode)[];
+export type AnnouncementsType = (string)[];
 
 type AnnouncementProps = { announcements: AnnouncementsType };
 
@@ -49,7 +49,7 @@ export function Announcement({ announcements }: AnnouncementProps) {
               </button>
             )}
             <label htmlFor="close-announcement">
-              <span className={"close"}></span>
+              <span className={"close"} aria-label="Close Announcement" role="button"></span>
             </label>
           </article>
         </>

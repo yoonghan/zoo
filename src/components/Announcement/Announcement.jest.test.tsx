@@ -6,27 +6,27 @@ import { Announcement } from ".";
 describe("Announcement", () => {
   const announcements = [
     "announcement 1",
-    <div key="x">announcement 2</div>,
+    "announcement 2",
     "announcement 3",
   ];
 
-  const renderAccordian = () =>
+  const renderAnnouncement = () =>
     render(<Announcement announcements={announcements} />);
 
   it("should render first component only", () => {
-    const { getByText, queryByText } = renderAccordian();
+    const { getByText, queryByText } = renderAnnouncement();
     expect(getByText("announcement 1")).toBeInTheDocument();
     expect(queryByText("announcement 2")).not.toBeInTheDocument();
   });
 
   it("should render second component if click next", async () => {
-    const { getByText, getByRole } = renderAccordian();
+    const { getByText, getByRole } = renderAnnouncement();
     await userEvent.click(getByRole("button", { name: "next announcement" }));
     expect(getByText("announcement 2")).toBeInTheDocument();
   });
 
   it("should render first component if click next on last element", async () => {
-    const { getByText, getByRole } = renderAccordian();
+    const { getByText, getByRole } = renderAnnouncement();
     for (let cnt = 0; cnt < announcements.length; cnt++) {
       await userEvent.click(getByRole("button", { name: "next announcement" }));
     }
@@ -34,7 +34,7 @@ describe("Announcement", () => {
   });
 
   it("should render last component if click previous", async () => {
-    const { getByText, getByRole } = renderAccordian();
+    const { getByText, getByRole } = renderAnnouncement();
     await userEvent.click(
       getByRole("button", { name: "previous announcement" })
     );
@@ -42,7 +42,7 @@ describe("Announcement", () => {
   });
 
   it("should render second component if click previous is clicked twice", async () => {
-    const { getByText, getByRole } = renderAccordian();
+    const { getByText, getByRole } = renderAnnouncement();
     await userEvent.click(
       getByRole("button", { name: "previous announcement" })
     );
@@ -51,6 +51,11 @@ describe("Announcement", () => {
     );
     expect(getByText("announcement 2")).toBeInTheDocument();
   });
+
+  it('should have a button name for close', () => {
+    const {getByRole} = renderAnnouncement()
+    expect(getByRole("button", {name: "Close Announcement"})).toBeInTheDocument()
+  })
 
   describe("no announcement", () => {
     const renderEmptyAnnouncements = () =>
