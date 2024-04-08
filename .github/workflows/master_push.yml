@@ -49,10 +49,9 @@ jobs:
         with:
           node-version: "20"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps chromium
       - name: Restore cache
         uses: actions/cache@v4
+        id: all-cache
         with:
           path: |
             .next/cache
@@ -61,6 +60,9 @@ jobs:
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
+      - name: Install Playwright Browsers
+        if: steps.all-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
