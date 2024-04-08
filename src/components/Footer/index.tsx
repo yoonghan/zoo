@@ -37,13 +37,10 @@ export function MutableFooter({
   const currentYearUpdated = new Date().getFullYear();
 
   return (
-    <footer>
-      <div>
-        <div className="border-b"></div>
-        <div></div>
-        <div className="border-b"></div>
+    <footer className="p-6 border-t">
+      <section>
         <small>&copy; {companyName}</small>
-        <section>
+        <article className="flex justify-between px-2 mt-6">
           <ul>
             <li>
               <h3>{labels.operationHours}:</h3>
@@ -56,6 +53,7 @@ export function MutableFooter({
             </li>
             {operatingTime.exception && <li> {operatingTime.exception}</li>}
           </ul>
+          <div className="border-2"></div>
           <ul>
             <li>
               <h3>{labels.address}:</h3>
@@ -67,28 +65,31 @@ export function MutableFooter({
               {address.postalCode} {address.country}.
             </li>
           </ul>
+          <div className="border-2"></div>
           <ul>
             <li>
               <h3>{labels.contact}:</h3>
             </li>
-            <li>{contact.phone}</li>
+            <li>
+              <pre>{contact.phone}</pre>
+            </li>
             {contact.email && <li>{contact.email}</li>}
           </ul>
-        </section>
-        <section>
+        </article>
+        <article className="mt-6">
           <h3>{labels.partners}:</h3>
-          <ul>
+          <ul className="flex gap-2">
             {partners.map(({ url, imageSrc, alt }, idx) => (
-              <li key={`foorter-partner-${idx}`}>
+              <li key={`footer-partner-${idx}`}>
                 <a href={url}>
                   <Image src={imageSrc} alt={alt} width={100} height={100} />
                 </a>
               </li>
             ))}
           </ul>
-        </section>
-      </div>
-      <div>
+        </article>
+      </section>
+      <div className="text-center text-sm">
         {labels.maintainedInfo} 2021 - {currentYearUpdated}
       </div>
     </footer>
