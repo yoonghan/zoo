@@ -39,7 +39,6 @@ function MutableMenu({
             subMenuItem.url
           )}
           role="menuitem"
-          aria-hidden={true}
         >
           {subMenuItem.label}
         </a>
@@ -77,7 +76,7 @@ function MutableMenu({
     <div className={style.nav}>
       <input className={style["side-menu"]} type="checkbox" id="side-menu" />
       <div className={style["mobile-menu"]}>
-        <label className={style.hamb} htmlFor="side-menu">
+        <label className={style.hamb} htmlFor="side-menu" aria-label="Main Menu" role="button">
           <span className={style["hamb-line"]}></span>
         </label>
         <a href="/" tabIndex={-1}>
