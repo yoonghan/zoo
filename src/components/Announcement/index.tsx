@@ -19,7 +19,8 @@ export function Announcement({ announcements }: AnnouncementProps) {
   const hasOnly1Announcement = announcements.length === 1;
 
   return (
-      <>{announcements.length > 0 && (
+    <>
+      {announcements.length > 0 && (
         <>
           <input
             className={style["close-announcement"]}
@@ -30,7 +31,7 @@ export function Announcement({ announcements }: AnnouncementProps) {
             role="alert"
             className={`${style.announcement} ${
               hasOnly1Announcement ? style["only-one"] : ""
-            } p-6`}
+            } p-6 md:text-center`}
           >
             {!hasOnly1Announcement && (
               <button onClick={goPrev} className="no-style">
@@ -40,7 +41,9 @@ export function Announcement({ announcements }: AnnouncementProps) {
                 ></i>
               </button>
             )}
-            <p data-testid="announcement">{htmlConvertor(announcements[idx])}</p>
+            <p data-testid="announcement">
+              {htmlConvertor(announcements[idx])}
+            </p>
             {!hasOnly1Announcement && (
               <button onClick={goNext} className="no-style">
                 <i
@@ -50,11 +53,11 @@ export function Announcement({ announcements }: AnnouncementProps) {
               </button>
             )}
             <label htmlFor="close-announcement" className="relative">
-              <span className={"close"}></span>
+              <span className={"close"} aria-label="Close Announcement"></span>
             </label>
           </div>
         </>
-      )
-    }</>
+      )}
+    </>
   );
 }
