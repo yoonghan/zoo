@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { PrimeReactProvider } from "primereact/api";
 import "@/themes/lara-light-green/theme.css";
 import "./main.css";
 
@@ -17,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <PrimeReactProvider>{children}</PrimeReactProvider>
+        {children}
       </body>
     </html>
   );
