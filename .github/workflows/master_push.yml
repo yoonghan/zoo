@@ -141,7 +141,7 @@ jobs:
       - name: 📁 Code coverage report
         uses: irongut/CodeCoverageSummary@v1.3.0
         with:
-          filename: coverage/clover.xml
+          filename: coverage/**/cobertura-coverage.xml
           badge: true
           format: "markdown"
           output: "both"
