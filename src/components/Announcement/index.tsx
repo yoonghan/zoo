@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { htmlConvertor } from "@/util/htmlConvertor";
+import { ReactNode, useState } from "react";
 import style from "./Announcement.module.css";
 
-export type AnnouncementsType = (string)[];
+export type AnnouncementsType = string[];
 
 type AnnouncementProps = { announcements: AnnouncementsType };
 
@@ -18,15 +19,15 @@ export function Announcement({ announcements }: AnnouncementProps) {
   const hasOnly1Announcement = announcements.length === 1;
 
   return (
-    <>
-      {announcements.length > 0 && (
+      <>{announcements.length > 0 && (
         <>
           <input
             className={style["close-announcement"]}
             type="checkbox"
             id="close-announcement"
           />
-          <article
+          <div
+            role="alert"
             className={`${style.announcement} ${
               hasOnly1Announcement ? style["only-one"] : ""
             }`}
@@ -39,7 +40,7 @@ export function Announcement({ announcements }: AnnouncementProps) {
                 ></i>
               </button>
             )}
-            <h4>{announcements[idx]}</h4>
+            <p data-testid="announcement">{htmlConvertor(announcements[idx])}</p>
             {!hasOnly1Announcement && (
               <button onClick={goNext} className="no-style">
                 <i
@@ -51,9 +52,9 @@ export function Announcement({ announcements }: AnnouncementProps) {
             <label htmlFor="close-announcement">
               <span className={"close"} aria-label="Close Announcement" role="button"></span>
             </label>
-          </article>
+          </div>
         </>
-      )}
-    </>
+      )
+    }</>
   );
 }

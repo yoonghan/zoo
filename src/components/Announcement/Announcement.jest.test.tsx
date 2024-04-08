@@ -57,6 +57,11 @@ describe("Announcement", () => {
     expect(getByLabelText("Close Announcement")).toBeInTheDocument()
   })
 
+  it('should have a test id for playwright test', () => {
+    const { getByTestId } = renderAnnouncement()
+    expect(getByTestId("announcement")).toBeInTheDocument()
+  })
+
   describe("no announcement", () => {
     const renderEmptyAnnouncements = () =>
       render(<Announcement announcements={[]} />);

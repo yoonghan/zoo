@@ -9,10 +9,11 @@ test('has title', async ({ page }) => {
 test('has announcement', async({page}) => {
   await page.goto('http://localhost:3000/');
   if(zooAnnouncement.length > 0) {
-    await expect(page.getByText(zooAnnouncement[0])).toBeVisible();
+    const announcement = page.getByTestId("announcement")
+    await expect(announcement).toBeVisible();
 
     await page.getByLabel("Close Announcement").click()
 
-    await expect(page.getByText(zooAnnouncement[0])).not.toBeVisible();
+    await expect(announcement).not.toBeVisible();
   }
 });
