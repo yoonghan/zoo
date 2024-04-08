@@ -39,7 +39,7 @@ export function Announcement({ announcements }: AnnouncementProps) {
                 ></i>
               </button>
             )}
-            <div>{announcements[idx]}</div>
+            <h4>{announcements[idx]}</h4>
             {!hasOnly1Announcement && (
               <button onClick={goNext} className="no-style">
                 <i
