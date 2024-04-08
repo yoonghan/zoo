@@ -11,7 +11,7 @@ test('has announcement', async({page}) => {
   if(zooAnnouncement.length > 0) {
     await expect(page.getByText(zooAnnouncement[0])).toBeVisible();
 
-    await page.getByRole("button", {name: "Close Announcement"}).click()
+    await page.getByLabel("Close Announcement").click()
 
     await expect(page.getByText(zooAnnouncement[0])).not.toBeVisible();
   }

@@ -52,9 +52,9 @@ describe("Announcement", () => {
     expect(getByText("announcement 2")).toBeInTheDocument();
   });
 
-  it('should have a button name for close', () => {
-    const {getByRole} = renderAnnouncement()
-    expect(getByRole("button", {name: "Close Announcement"})).toBeInTheDocument()
+  it('should have a label name for close', () => {
+    const { getByLabelText } = renderAnnouncement()
+    expect(getByLabelText("Close Announcement")).toBeInTheDocument()
   })
 
   describe("no announcement", () => {

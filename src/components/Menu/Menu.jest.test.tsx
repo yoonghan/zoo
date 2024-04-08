@@ -85,8 +85,8 @@ describe("Menu", () => {
     );
   });
 
-  it("should have a main menu button for mobile display", () => {
-    const { getByRole } = renderMenuWithItems();
-    expect(getByRole("button", {name: "Main Menu"})).toBeInTheDocument()
+  it("should have a main menu label for mobile display", () => {
+    const { getByLabelText } = renderMenuWithItems();
+    expect(getByLabelText("Main Menu")).toBeInTheDocument()
   });
 });
