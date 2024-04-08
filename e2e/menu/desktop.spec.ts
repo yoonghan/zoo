@@ -9,14 +9,14 @@ test('has menu', async ({ page, isMobile }) => {
   await page.goto('http://localhost:3000/');
   
   zooMenu.map(async (menu) => {
-    await expect(page.getByRole("menuitem", { name: menu.label })).toBeVisible();
+    await expect(page.getByRole("menuitem", { name: menu.label, exact: true })).toBeVisible();
   })
 
   const firstMenuHoverable = zooMenu.find(menu => (menu.items ?? []).length > 0)
 
   if(firstMenuHoverable !== undefined && firstMenuHoverable.items) {
-    const mainMenuItem = page.getByRole("menuitem", {name: firstMenuHoverable.label})
+    const mainMenuItem = page.getByRole("menuitem", {name: firstMenuHoverable.label, exact: true})
     await mainMenuItem.hover()
-    expect(mainMenuItem.locator("..").getByRole("menuitem", {name: firstMenuHoverable.items[0].label})).toBeVisible()
+    await expect(mainMenuItem.locator("..").getByRole("menuitem", {name: firstMenuHoverable.items[0].label, exact: true})).toBeVisible()
   }
 });
