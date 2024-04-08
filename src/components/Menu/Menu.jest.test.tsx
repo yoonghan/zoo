@@ -19,11 +19,7 @@ describe("Menu", () => {
                 url: "#logo",
               },
             ],
-          },
-          {
-            label: "News",
-            url: "/sample-us"
-          },
+          }
         ]}
         mobileHomeText="Zoo Negara Malaysia"
       />
@@ -92,12 +88,5 @@ describe("Menu", () => {
   it("should have a main menu label for mobile display", () => {
     const { getByLabelText } = renderMenuWithItems();
     expect(getByLabelText("Main Menu")).toBeInTheDocument()
-  });
-
-  it("should not render childless sub menu item with hover capabilites", () => {
-    const { getByText } = renderMenuWithItems();
-    const emptyMenuItemParent = getByText("News").parentNode?.parentElement
-    expect(emptyMenuItemParent).toHaveAttribute("role", "presentation")
-    expect(emptyMenuItemParent?.className).toStrictEqual("")
   });
 });

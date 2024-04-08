@@ -14,6 +14,14 @@ const createJestConfig = nextJest({
 const config: Config = {
   coverageDirectory: "coverage",
   coverageProvider: "v8",
+  coverageThreshold: {
+    global: {
+      branches: 100,
+      functions: 100,
+      lines: 100,
+      statements: 100,
+    },
+  },
   testEnvironment: "@happy-dom/jest-environment",
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1"
