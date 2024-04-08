@@ -17,7 +17,10 @@ const config: Config = {
   testEnvironment: "@happy-dom/jest-environment",
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1"
-  }
+  },
+  testPathIgnorePatterns: [
+    "/e2e/*","/playwright*"
+  ]
 };
 
 export default createJestConfig(config);
