@@ -18,17 +18,17 @@ export const zooProfile: FooterProps = {
   },
   partners: [
     {
-      imageSrc: "/partners/perhilitan.jpg",
+      imageSrc: "/images/partners/perhilitan.jpg",
       url: "https://www.wildlife.gov.my",
       alt: "Perhilitan Hutan",
     },
     {
-      imageSrc: "/partners/dbkl.jpg",
+      imageSrc: "/images/partners/dbkl.jpg",
       url: "https://www.dbkl.my",
       alt: "DBKL",
     },
     {
-      imageSrc: "/partners/tanchong.jpg",
+      imageSrc: "/images/partners/tanchongmotor.jpg",
       url: "https://www.tanchonggroup.com/",
       alt: "Tan Chong Motors",
     },
