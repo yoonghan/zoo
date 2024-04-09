@@ -58,7 +58,7 @@ function MutableMenu({
           <a
             href={topMenuItem.url}
             role="menuitem"
-            className={style["top-menu-link"]}
+            className={hasChild ? style["top-menu-link"] : ""}
           >
             {topMenuItem.label}
           </a>
@@ -76,7 +76,11 @@ function MutableMenu({
     <div className={style.nav}>
       <input className={style["side-menu"]} type="checkbox" id="side-menu" />
       <div className={style["mobile-menu"]}>
-        <label className={style.hamb} htmlFor="side-menu" aria-label="Main Menu">
+        <label
+          className={style.hamb}
+          htmlFor="side-menu"
+          aria-label="Main Menu"
+        >
           <span className={style["hamb-line"]}></span>
         </label>
         <a href="/" tabIndex={-1}>
