@@ -3,7 +3,7 @@ A zoo template website that runs on server rather than just frontend codes.
 ---
 
 [![Build Status][build-badge]][build]
-[![Code Coverage][coverage-badge]][coverage]
+[![codecov](https://codecov.io/gh/yoonghan/zoo/graph/badge.svg?token=0SGU5RSG0Q)](https://codecov.io/gh/yoonghan/zoo)
 
 ## Achievement for
 
@@ -57,5 +57,4 @@ bun dev
 
 [build-badge]: https://img.shields.io/github/actions/workflow/status/yoonghan/zoo/master_merge.yml
 [build]: https://github.com/yoonghan/zoo/actions?query=workflow
-[coverage-badge]: https://img.shields.io/codecov/c/github/yoonghan/zoo.svg?style=flat-square
-[coverage]: https://codecov.io/gh/yoonghan/zoo
+
