@@ -93,7 +93,7 @@ function MutableMenu({
           <li className={style["non-mobile-menu"]}>
             <a href="/">
               <Image
-                src="/home-link.png"
+                src="/images/home-link.png"
                 alt="home link"
                 height={20}
                 width={20}
