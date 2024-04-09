@@ -9,6 +9,18 @@ body {
   margin: 0;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  max-width: 950px;
+  margin: auto;
+  padding: 0;
+}
+
+main > article {
+  margin: 1rem;
+}
+
 .arrow {
   border: solid var(--primary-color-text);
   border-width: 0 2px 2px 0;
