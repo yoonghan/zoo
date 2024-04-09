@@ -79,6 +79,10 @@ input[type="reset"].no-style {
   transform: rotate(45deg);
 }
 
+.secondary-border {
+  border-color: var(--yellow-500);
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

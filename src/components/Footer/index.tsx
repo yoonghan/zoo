@@ -40,10 +40,12 @@ export function MutableFooter({
     <footer className="p-6 border-t">
       <section>
         <small>&copy; {companyName}</small>
-        <article className="flex justify-between px-2 mt-6">
+        <article className="md:flex justify-between mt-6">
           <ul>
             <li>
-              <h3>{labels.operationHours}:</h3>
+              <h3>
+                <strong>{labels.operationHours}:</strong>
+              </h3>
             </li>
             <li>
               {operatingTime.day.from} - {operatingTime.day.to}
@@ -53,10 +55,12 @@ export function MutableFooter({
             </li>
             {operatingTime.exception && <li> {operatingTime.exception}</li>}
           </ul>
-          <div className="border-2"></div>
+          <div className="border-2 secondary-border my-4"></div>
           <ul>
             <li>
-              <h3>{labels.address}:</h3>
+              <h3>
+                <strong>{labels.address}:</strong>
+              </h3>
             </li>
             <li>{address.street},</li>
             {address.city && <li>{address.city},</li>}
@@ -65,10 +69,12 @@ export function MutableFooter({
               {address.postalCode} {address.country}.
             </li>
           </ul>
-          <div className="border-2"></div>
+          <div className="border-2 secondary-border my-4"></div>
           <ul>
             <li>
-              <h3>{labels.contact}:</h3>
+              <h3>
+                <strong>{labels.contact}:</strong>
+              </h3>
             </li>
             <li>
               <pre>{contact.phone}</pre>
@@ -77,8 +83,10 @@ export function MutableFooter({
           </ul>
         </article>
         <article className="mt-6">
-          <h3>{labels.partners}:</h3>
-          <ul className="flex gap-2">
+          <h3 className="mb-4">
+            <strong>{labels.partners}:</strong>
+          </h3>
+          <ul className="flex gap-8">
             {partners.map(({ url, imageSrc, alt }, idx) => (
               <li key={`footer-partner-${idx}`}>
                 <a href={url} target="_blank" rel="external">
@@ -89,7 +97,7 @@ export function MutableFooter({
           </ul>
         </article>
       </section>
-      <div className="text-center text-sm">
+      <div className="text-center text-sm mt-8">
         {labels.maintainedInfo} 2021 - {currentYearUpdated}
       </div>
     </footer>
