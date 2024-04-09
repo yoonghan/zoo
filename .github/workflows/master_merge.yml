@@ -13,6 +13,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  packages: write
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
@@ -78,7 +79,7 @@ jobs:
       - name: Re-Run Unit test with coverage
         run: ${{ steps.detect-package-manager.outputs.manager }} run test:coverage
       - name: 📤 Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
       
 
   # Deployment job
