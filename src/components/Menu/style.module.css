@@ -20,7 +20,7 @@
 }
 
 .menu ul {
-  margin-left: 50px;
+  margin-left: 40px;
 }
 
 .menu ul > li {
@@ -147,5 +147,9 @@
     position: fixed;
     padding: 20px 10px;
     background: var(--primary-color);
+  }
+
+  .subnav-content > ul {
+    margin: 0;
   }
 }
