@@ -55,7 +55,7 @@ bun dev
 1. Nextjs
 2. Vercel
 
-[build-badge]: https://img.shields.io/github/actions/workflow/status/yoonghan/zoo/pull-request.yml
+[build-badge]: https://img.shields.io/github/actions/workflow/status/yoonghan/zoo/master_merge.yml
 [build]: https://github.com/yoonghan/zoo/actions?query=workflow
 [coverage-badge]: https://img.shields.io/codecov/c/github/yoonghan/zoo.svg?style=flat-square
 [coverage]: https://codecov.io/gh/yoonghan/zoo
