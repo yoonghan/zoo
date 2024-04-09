@@ -14,7 +14,9 @@ export const zooProfile: FooterProps = {
     country: "Selangor",
   },
   contact: {
-    phone: "For enquiries\ncall: +603-4108 3422/7/8\nfax: +603-4107 5375.",
+    phone: "+603-4108 3422",
+    phoneExtension: "7/8",
+    fax: "+603-4107 5375",
   },
   partners: [
     {

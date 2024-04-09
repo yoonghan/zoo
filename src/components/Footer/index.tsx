@@ -18,6 +18,8 @@ export type FooterProps = {
   };
   contact: {
     phone: string;
+    phoneExtension?: string;
+    fax?: string;
     email?: string;
   };
   partners: {
@@ -40,7 +42,7 @@ export function MutableFooter({
     <footer className="p-6 border-t">
       <section>
         <small>&copy; {companyName}</small>
-        <article className="md:flex justify-between mt-6">
+        <article className="md:flex justify-between mt-6 md:mx-4">
           <ul>
             <li>
               <h3>
@@ -77,9 +79,23 @@ export function MutableFooter({
               </h3>
             </li>
             <li>
-              <pre>{contact.phone}</pre>
+              {labels.enquiries}:{" "}
+              <a href={`tel:${contact.phone}`}>{contact.phone}</a>
+              {contact.phoneExtension && (
+                <span>{`(${contact.phoneExtension})`}</span>
+              )}
             </li>
-            {contact.email && <li>{contact.email}</li>}
+            {contact.fax && (
+              <li>
+                {labels.fax}: <span>{contact.fax}</span>
+              </li>
+            )}
+            {contact.email && (
+              <li>
+                {labels.email}:{" "}
+                <a href={`mailto:${contact.email}`}>{contact.email}</a>
+              </li>
+            )}
           </ul>
         </article>
         <article className="mt-6">
