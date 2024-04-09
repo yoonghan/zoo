@@ -78,9 +78,10 @@ jobs:
           path: ./out
       - name: Re-Run Unit test with coverage
         run: ${{ steps.detect-package-manager.outputs.manager }} run test:coverage
-      - name: 📤 Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v4
-      
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4.0.1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
 
   # Deployment job
   deploy:
