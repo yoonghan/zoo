@@ -71,6 +71,10 @@ describe("Footer", () => {
       "target",
       "_blank"
     );
+    expect(getByRole("link", { name: "partner" })).toHaveAttribute(
+      "rel",
+      "external"
+    );
   });
 
   it("should be memozied and forever not modified. It's a footer!", async () => {

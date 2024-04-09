@@ -81,7 +81,7 @@ export function MutableFooter({
           <ul className="flex gap-2">
             {partners.map(({ url, imageSrc, alt }, idx) => (
               <li key={`footer-partner-${idx}`}>
-                <a href={url} target="_blank">
+                <a href={url} target="_blank" rel="external">
                   <Image src={imageSrc} alt={alt} width={50} height={50} />
                 </a>
               </li>
