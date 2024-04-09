@@ -20,7 +20,6 @@
 }
 
 .menu ul {
-  list-style: none;
   margin-left: 50px;
 }
 
@@ -134,8 +133,7 @@
   }
 
   .menu ul {
-    padding: 0;
-    margin-left: 0;
+    padding: 0 3px;
   }
 
   .mobile-menu {
