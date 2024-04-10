@@ -4,6 +4,7 @@ const labels = {
   partners: "Partners",
   maintainedInfo: "Website is maintained from",
   contactUs: "Contact Us",
+  careers: "Careers",
 };
 
 export default labels;

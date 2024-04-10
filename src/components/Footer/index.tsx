@@ -85,6 +85,9 @@ export function MutableFooter({
         <li>
           <Link href="/contact-us">{labels.contactUs}</Link>
         </li>
+        <li>
+          <Link href="/careers">{labels.careers}</Link>
+        </li>
       </ul>
       <div className="text-center text-sm mt-8">
         {labels.maintainedInfo} 2021 - {currentYearUpdated}
