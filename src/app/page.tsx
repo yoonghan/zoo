@@ -1,27 +1,43 @@
-"use client";
-
-import { Announcement } from "@/components/Announcement";
-import { Footer } from "@/components/Footer";
-import { Menu } from "@/components/Menu";
-import { zooAnnouncement } from "@/config/announcements";
-import { zooMenu } from "@/config/menu";
-import { zooProfile } from "@/config/profile";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <>
-      <header>
-        <Announcement announcements={zooAnnouncement} />
-        <Menu model={zooMenu} mobileHomeText="Zoo Negara Malaysia" />
-      </header>
-      <main className="flex min-h-screen flex-col items-center justify-between p-24"></main>
-      <Footer
-        operatingTime={zooProfile.operatingTime}
-        contact={zooProfile.contact}
-        address={zooProfile.address}
-        companyName={zooProfile.companyName}
-        partners={zooProfile.partners}
-      />
+      <main>
+        <Image
+          src="/images/header.jpg"
+          width={960}
+          height={130}
+          alt="Zoo logo"
+        />
+        <Image
+          src="/images/home/zoo-negara-lion.jpg"
+          width={960}
+          height={320}
+          alt="Zoo tiger in water"
+        />
+        <article>
+          <h1 className="font-bold text-2xl my-4">Welcome to Zoo Negara</h1>
+
+          <figure>
+            <Image
+              src="/images/home/zoo-negara-entrance.jpg"
+              alt="Zoo Entrance"
+              width={200}
+              height={185}
+              className="m-auto"
+            />
+            <figcaption className="mt-4">
+              Zoo Negara Malaysia is managed by the Malaysian Zoological
+              Society, a non-governmental organization established to create the
+              first local zoo for Malaysians. Zoo Negara was officially opened
+              on 14th November 1963 and has matured into a well-known zoo all
+              around the world. We have a total of over 5137 specimen from 476
+              species of mammals, birds, reptiles, amphibians and fish.
+            </figcaption>
+          </figure>
+        </article>
+      </main>
     </>
   );
 }

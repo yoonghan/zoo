@@ -1,6 +1,15 @@
 import { FooterProps } from "@/components/Footer";
 
-export const zooProfile: FooterProps = {
+type Ticket = {
+  ticket: {
+    admission: {
+      url: string;
+      text: string;
+    };
+  };
+};
+
+export const zooProfile: FooterProps & Ticket = {
   companyName: "Zoo Negara",
   operatingTime: {
     day: { from: "Monday", to: "Sunday" },
@@ -35,4 +44,10 @@ export const zooProfile: FooterProps = {
       alt: "Tan Chong Motors",
     },
   ],
+  ticket: {
+    admission: {
+      url: "https://ticket.zoonegara.my",
+      text: "Buy Ticket",
+    },
+  },
 };

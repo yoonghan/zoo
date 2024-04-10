@@ -1,6 +1,7 @@
-import { memo } from "react";
+import { ReactNode, memo } from "react";
 import style from "./style.module.css";
 import Image from "next/image";
+import { Link } from "../Button";
 
 type TopMenuItem = {
   label: string;
@@ -18,9 +19,11 @@ export type MenuType = TopMenuItem[];
 function MutableMenu({
   model,
   mobileHomeText,
+  shortcutComponent,
 }: {
   model: MenuType;
   mobileHomeText: string;
+  shortcutComponent?: ReactNode;
 }) {
   const replaceWithTopMenuUrlIfAHashlinkOrEmpty = (
     topMenuUrl: string,
@@ -86,14 +89,15 @@ function MutableMenu({
         <a href="/" tabIndex={-1}>
           {mobileHomeText}
         </a>
+        {shortcutComponent && shortcutComponent}
       </div>
 
       <nav role="menubar" className={style.menu}>
         <ul role="menu" aria-orientation="horizontal">
           <li className={style["non-mobile-menu"]}>
-            <a href="/">
+            <a href="/" className={style["home-logo"]}>
               <Image
-                src="/home-link.png"
+                src="/images/home-link.png"
                 alt="home link"
                 height={20}
                 width={20}
@@ -101,6 +105,9 @@ function MutableMenu({
             </a>
           </li>
           {topMenu}
+          <li className={`${style["non-mobile-menu"]}`}>
+            {shortcutComponent && shortcutComponent}
+          </li>
         </ul>
       </nav>
     </div>
