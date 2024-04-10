@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { memo } from "react";
 import labels from "./constant";
+import { Link } from "../Link";
 
 export type FooterProps = {
   companyName: string;
@@ -16,12 +17,6 @@ export type FooterProps = {
     postalCode: string | number;
     country: string;
   };
-  contact: {
-    phone: string;
-    phoneExtension?: string;
-    fax?: string;
-    email?: string;
-  };
   partners: {
     imageSrc: string;
     url: string;
@@ -33,7 +28,6 @@ export function MutableFooter({
   companyName,
   operatingTime,
   address,
-  contact,
   partners,
 }: FooterProps) {
   const currentYearUpdated = new Date().getFullYear();
@@ -42,7 +36,7 @@ export function MutableFooter({
     <footer className="p-6 border-t">
       <section>
         <small>&copy; {companyName}</small>
-        <article className="md:flex justify-between mt-6 md:mx-4">
+        <article className="flex justify-between mt-6 max-w-xl text-center m-auto">
           <ul>
             <li>
               <h3>
@@ -71,48 +65,27 @@ export function MutableFooter({
               {address.postalCode} {address.country}.
             </li>
           </ul>
-          <div className="border-2 secondary-border my-4"></div>
-          <ul>
-            <li>
-              <h3>
-                <strong>{labels.contact}:</strong>
-              </h3>
-            </li>
-            <li>
-              {labels.enquiries}:{" "}
-              <a href={`tel:${contact.phone}`}>{contact.phone}</a>
-              {contact.phoneExtension && (
-                <span>{`(${contact.phoneExtension})`}</span>
-              )}
-            </li>
-            {contact.fax && (
-              <li>
-                {labels.fax}: <span>{contact.fax}</span>
-              </li>
-            )}
-            {contact.email && (
-              <li>
-                {labels.email}:{" "}
-                <a href={`mailto:${contact.email}`}>{contact.email}</a>
-              </li>
-            )}
-          </ul>
         </article>
-        <article className="mt-6">
-          <h3 className="mb-4">
+        <article className="mt-6 m-auto max-w-xl">
+          <h3 className="mb-4 text-center">
             <strong>{labels.partners}:</strong>
           </h3>
-          <ul className="flex gap-8">
+          <ul className="flex gap-8 justify-center">
             {partners.map(({ url, imageSrc, alt }, idx) => (
-              <li key={`footer-partner-${idx}`}>
-                <a href={url} target="_blank" rel="external">
+              <div key={`footer-partner-${idx}`}>
+                <Link href={url} target="_blank" rel="external">
                   <Image src={imageSrc} alt={alt} width={50} height={50} />
-                </a>
-              </li>
+                </Link>
+              </div>
             ))}
           </ul>
         </article>
       </section>
+      <ul className="text-center mt-16 text-sm">
+        <li>
+          <Link href="/contact-us">{labels.contactUs}</Link>
+        </li>
+      </ul>
       <div className="text-center text-sm mt-8">
         {labels.maintainedInfo} 2021 - {currentYearUpdated}
       </div>

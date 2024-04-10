@@ -18,7 +18,7 @@ main {
 }
 
 main > article {
-  margin: 1rem;
+  padding: 2rem;
 }
 
 .arrow {
@@ -93,6 +93,11 @@ input[type="reset"].no-style {
 
 .secondary-border {
   border-color: var(--yellow-500);
+}
+
+article.primary {
+  color: var(--primary-color-text);
+  background-color: var(--primary-color);
 }
 
 :root {

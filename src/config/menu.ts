@@ -221,8 +221,4 @@ export const zooMenu: MenuType = [
       },
     ],
   },
-  {
-    label: "Contact Us",
-    url: "/contact-us",
-  },
 ];

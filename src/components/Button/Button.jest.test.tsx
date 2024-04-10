@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { Button, Link, type ButtonStyles } from ".";
+import { Button, ButtonLink, type ButtonStyles } from ".";
 
 describe("Button", () => {
   const renderButton = ({
@@ -24,13 +24,13 @@ describe("link", () => {
     styling?: ButtonStyles["styling"];
   }) =>
     render(
-      <Link
+      <ButtonLink
         styling={styling}
         href="https://google.com"
         className="external-className"
       >
         I am a Link
-      </Link>
+      </ButtonLink>
     );
 
   it("should render correct link className", () => {
