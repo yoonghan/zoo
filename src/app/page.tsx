@@ -16,18 +16,13 @@ export default function Home() {
           height={320}
           alt="Zoo tiger in water"
         />
-        <article>
-          <h1 className="font-bold text-2xl my-4">Welcome to Zoo Negara</h1>
+        <article className="primary">
+          <h1 className="font-bold text-4xl my-4 text-center">
+            Welcome to Zoo Negara
+          </h1>
 
           <figure>
-            <Image
-              src="/images/home/zoo-negara-entrance.jpg"
-              alt="Zoo Entrance"
-              width={200}
-              height={185}
-              className="m-auto"
-            />
-            <figcaption className="mt-4">
+            <figcaption className="mb-4">
               Zoo Negara Malaysia is managed by the Malaysian Zoological
               Society, a non-governmental organization established to create the
               first local zoo for Malaysians. Zoo Negara was officially opened
@@ -35,6 +30,14 @@ export default function Home() {
               around the world. We have a total of over 5137 specimen from 476
               species of mammals, birds, reptiles, amphibians and fish.
             </figcaption>
+
+            <Image
+              src="/images/home/zoo-negara-entrance.jpg"
+              alt="Zoo Entrance"
+              width={200}
+              height={185}
+              className="m-auto"
+            />
           </figure>
         </article>
       </main>
