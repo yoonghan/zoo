@@ -27,4 +27,11 @@ describe("link", () => {
       "link-secondary"
     );
   });
+
+  it("should render no styling for chosen style is None", () => {
+    const { getByRole } = renderLink({ styling: "None" });
+    expect(getByRole("link", { name: "I am a Link" })).not.toHaveClass(
+      "link-none"
+    );
+  });
 });

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { memo } from "react";
 import labels from "./constant";
+import { Link } from "../Link";
 
 export type FooterProps = {
   companyName: string;
@@ -71,18 +72,18 @@ export function MutableFooter({
           </h3>
           <ul className="flex gap-8 justify-center">
             {partners.map(({ url, imageSrc, alt }, idx) => (
-              <li key={`footer-partner-${idx}`}>
-                <a href={url} target="_blank" rel="external">
+              <div key={`footer-partner-${idx}`}>
+                <Link href={url} target="_blank" rel="external">
                   <Image src={imageSrc} alt={alt} width={50} height={50} />
-                </a>
-              </li>
+                </Link>
+              </div>
             ))}
           </ul>
         </article>
       </section>
       <ul className="text-center mt-16 text-sm">
         <li>
-          <a href="/contact-us">{labels.contactUs}</a>
+          <Link href="/contact-us">{labels.contactUs}</Link>
         </li>
       </ul>
       <div className="text-center text-sm mt-8">

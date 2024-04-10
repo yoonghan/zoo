@@ -1,7 +1,7 @@
 import { ReactNode, memo } from "react";
 import style from "./style.module.css";
 import Image from "next/image";
-import { Link } from "../Button";
+import { Link } from "../Link";
 
 type TopMenuItem = {
   label: string;
@@ -36,7 +36,7 @@ function MutableMenu({
   const subMenu = (subMenu: SubMenuItem[], topMenuUrl: string) =>
     subMenu.map((subMenuItem) => (
       <li key={subMenuItem.label} role="presentation">
-        <a
+        <Link
           href={replaceWithTopMenuUrlIfAHashlinkOrEmpty(
             topMenuUrl,
             subMenuItem.url
@@ -44,7 +44,7 @@ function MutableMenu({
           role="menuitem"
         >
           {subMenuItem.label}
-        </a>
+        </Link>
       </li>
     ));
 
@@ -58,13 +58,13 @@ function MutableMenu({
         className={hasChild ? style.subnav : ""}
       >
         <div>
-          <a
+          <Link
             href={topMenuItem.url}
             role="menuitem"
             className={hasChild ? style["top-menu-link"] : ""}
           >
             {topMenuItem.label}
-          </a>
+          </Link>
           {topMenuItem.items && (
             <div role="presentation" className={style["subnav-content"]}>
               <ul role="menu">{subMenu(topMenuItem.items, topMenuItem.url)}</ul>
@@ -86,23 +86,23 @@ function MutableMenu({
         >
           <span className={style["hamb-line"]}></span>
         </label>
-        <a href="/" tabIndex={-1}>
+        <Link href="/" tabIndex={-1} styling="None">
           {mobileHomeText}
-        </a>
+        </Link>
         {shortcutComponent && shortcutComponent}
       </div>
 
       <nav role="menubar" className={style.menu}>
         <ul role="menu" aria-orientation="horizontal">
           <li className={style["non-mobile-menu"]}>
-            <a href="/" className={style["home-logo"]}>
+            <Link href="/" className={style["home-logo"]}>
               <Image
                 src="/images/home-link.png"
                 alt="home link"
                 height={20}
                 width={20}
               />
-            </a>
+            </Link>
           </li>
           {topMenu}
           <li className={`${style["non-mobile-menu"]}`}>

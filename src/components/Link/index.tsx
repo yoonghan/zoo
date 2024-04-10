@@ -1,7 +1,7 @@
 import style from "./link.module.css";
 
 export type LinkStyles = {
-  styling?: "Primary" | "Secondary";
+  styling?: "Primary" | "Secondary" | "None";
 };
 
 export function Link({
@@ -9,8 +9,9 @@ export function Link({
   className,
   children,
   ...additionalProps
-}: React.LinkHTMLAttributes<HTMLAnchorElement> & LinkStyles) {
-  const buttonStyleClassName = `link-${styling.toLowerCase()}`;
+}: React.AnchorHTMLAttributes<HTMLAnchorElement> & LinkStyles) {
+  const buttonStyleClassName =
+    styling === "None" ? "" : `link-${styling.toLowerCase()}`;
 
   return (
     <a
