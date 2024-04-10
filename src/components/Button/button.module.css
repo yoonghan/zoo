@@ -1,14 +1,33 @@
-.button-info, .button-secondary {
-  color: white;
-  border-radius: 4px;
+.button-info,
+.button-secondary {
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 5px 0 gray;
+  border-radius: 0.5rem;
+  padding: 1rem;
   color: var(--primary-color-text);
+  white-space: nowrap;
+}
+
+.button-info:hover,
+.button-secondary:hover {
+  color: var(--secondary-text-color);
+  box-shadow: 0 0 5px 0 gray;
 }
 
 .button-info {
   background: var(--primary-color);
 }
 
-button.button-secondary {
-  background: var(--yellow-500);
+.button-info:hover {
+  background: var(--primary-700);
+}
+
+.button-secondary {
+  color: var(--secondary-text-color);
+  background: var(--secondary-color);
+}
+
+.button-secondary:hover {
+  color: var(--primary-color-text);
+  background: var(--secondary-hover-color);
 }

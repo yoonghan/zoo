@@ -95,6 +95,13 @@ input[type="reset"].no-style {
   border-color: var(--yellow-500);
 }
 
+:root {
+  --secondary-color: var(--yellow-500);
+  --secondary-hover-color: var(--yellow-700);
+  --secondary-text-color: black;
+  --primary-hover-text: var(--primary-900);
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

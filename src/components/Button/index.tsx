@@ -1,40 +1,47 @@
+import { ReactNode } from "react";
 import style from "./button.module.css";
 
-export type ButtonProps = {
-  text: string;
-  type: "Primary" | "Secondary";
+export type ButtonStyles = {
+  styling: "Primary" | "Secondary";
 };
 
 export function Button({
-  text,
-  type,
-  onClick,
-}: ButtonProps & { onClick: () => void }) {
-  const buttonStyleClassName = `button-${type.toLowerCase()}`;
+  styling,
+  className,
+  children,
+  ...additionalProps
+}: React.ButtonHTMLAttributes<HTMLButtonElement> & ButtonStyles) {
+  const buttonStyleClassName = `button-${styling.toLowerCase()}`;
 
   return (
-    <button className={style[buttonStyleClassName]} onClick={onClick}>
-      {text}
+    <button
+      className={`${style[buttonStyleClassName]} ${className}`}
+      {...additionalProps}
+    >
+      {children}
     </button>
   );
 }
 
 export function Link({
-  text,
-  type,
+  styling,
   href,
   rel,
-}: ButtonProps & { href: string; rel?: string }) {
-  const buttonStyleClassName = `button-${type.toLowerCase()}`;
+  className,
+  children,
+  ...additionalProps
+}: React.LinkHTMLAttributes<HTMLAnchorElement> & ButtonStyles) {
+  const buttonStyleClassName = `button-${styling.toLowerCase()}`;
 
   return (
     <a
       href={href}
       rel={rel}
-      className={style[buttonStyleClassName]}
+      className={`${style[buttonStyleClassName]} ${className}`}
       role="button"
+      {...additionalProps}
     >
-      {text}
+      {children}
     </a>
   );
 }

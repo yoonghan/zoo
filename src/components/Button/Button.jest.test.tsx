@@ -1,18 +1,13 @@
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import userEvent from "@testing-library/user-event";
-import { Button, Link, type ButtonProps } from ".";
+import { Button, Link, type ButtonStyles } from ".";
 
 describe("Button", () => {
   const renderButton = ({
-    text = "I am a Button",
-    type = "Primary",
-    onClick = () => {},
+    styling = "Primary",
   }: {
-    text?: ButtonProps["text"];
-    type?: ButtonProps["type"];
-    onClick?: () => void;
-  }) => render(<Button text={text} type={type} onClick={onClick} />);
+    styling?: ButtonStyles["styling"];
+  }) => render(<Button styling={styling}>I am a Button</Button>);
 
   it("should render correct button className", () => {
     const { getByRole } = renderButton({});
@@ -20,33 +15,28 @@ describe("Button", () => {
       "button-primary"
     );
   });
-
-  it("should be able to click on the button", async () => {
-    const onClickCallback = jest.fn();
-    const { getByRole } = renderButton({ onClick: onClickCallback });
-
-    await userEvent.click(getByRole("button", { name: "I am a Button" }));
-
-    expect(onClickCallback).toHaveBeenCalled();
-  });
 });
 
 describe("link", () => {
-  const renderButton = ({
-    text = "I am a Link",
-    type = "Secondary",
+  const renderLink = ({
+    styling = "Secondary",
   }: {
-    text?: ButtonProps["text"];
-    type?: ButtonProps["type"];
+    styling?: ButtonStyles["styling"];
   }) =>
     render(
-      <Link text={text} type={type} href="https://google.com" rel="external" />
+      <Link
+        styling={styling}
+        href="https://google.com"
+        className="external-className"
+      >
+        I am a Link
+      </Link>
     );
 
   it("should render correct link className", () => {
-    const { getByRole } = renderButton({});
+    const { getByRole } = renderLink({});
     const linkComponent = getByRole("button", { name: "I am a Link" });
     expect(linkComponent).toHaveClass("button-secondary");
-    expect(linkComponent).toHaveAttribute("rel", "external");
+    expect(linkComponent).toHaveClass("external-className");
   });
 });

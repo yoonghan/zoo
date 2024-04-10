@@ -1,9 +1,10 @@
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { Menu } from ".";
+import { ReactNode } from "react";
 
 describe("Menu", () => {
-  const renderMenuWithItems = () =>
+  const renderMenuWithItems = (shortcutComponent: ReactNode = undefined) =>
     render(
       <Menu
         model={[
@@ -26,6 +27,7 @@ describe("Menu", () => {
           },
         ]}
         mobileHomeText="Zoo Negara Malaysia"
+        shortcutComponent={shortcutComponent}
       />
     );
 
@@ -98,10 +100,24 @@ describe("Menu", () => {
     expect(getByLabelText("Main Menu")).toBeInTheDocument();
   });
 
+  it("should have a main menu label for mobile display", () => {
+    const { getByLabelText } = renderMenuWithItems();
+    expect(getByLabelText("Main Menu")).toBeInTheDocument();
+  });
+
   it("should not render childless sub menu with hover capabilites", () => {
     const { getByText } = renderMenuWithItems();
     const emptyMenuItemParent = getByText("News").parentNode?.parentElement;
     expect(emptyMenuItemParent).toHaveAttribute("role", "presentation");
     expect(emptyMenuItemParent?.className).toStrictEqual("");
+  });
+
+  it("should render shortcut components if exist", () => {
+    const { getAllByRole } = renderMenuWithItems(
+      <button>I am a shortcut button</button>
+    );
+    expect(
+      getAllByRole("button", { name: "I am a shortcut button" })
+    ).toHaveLength(2);
   });
 });
