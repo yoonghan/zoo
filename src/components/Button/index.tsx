@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import style from "./button.module.css";
+import { Link } from "../Link";
 
 export type ButtonStyles = {
   styling: "Primary" | "Secondary";
@@ -23,21 +24,24 @@ export function Button({
   );
 }
 
-export function Link({
+export function ButtonLink({
   styling,
   className,
   children,
+  href,
   ...additionalProps
-}: React.LinkHTMLAttributes<HTMLAnchorElement> & ButtonStyles) {
+}: Exclude<React.LinkHTMLAttributes<HTMLAnchorElement>, "href"> &
+  ButtonStyles & { href: string | URL }) {
   const buttonStyleClassName = `button-${styling.toLowerCase()}`;
 
   return (
-    <a
+    <Link
+      href={href}
       className={`${style[buttonStyleClassName]} ${className}`}
       role="button"
       {...additionalProps}
     >
       {children}
-    </a>
+    </Link>
   );
 }

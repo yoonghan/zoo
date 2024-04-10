@@ -7,7 +7,7 @@ import { zooMenu } from "@/config/menu";
 import { zooAnnouncement } from "@/config/announcements";
 import { Footer } from "@/components/Footer";
 import { zooProfile } from "@/config/profile";
-import { Link } from "@/components/Button";
+import { ButtonLink } from "@/components/Button";
 
 export const metadata: Metadata = {
   title: "Zoo Negara Malaysia",
@@ -29,9 +29,12 @@ export default function RootLayout({
             model={zooMenu}
             mobileHomeText="Zoo Negara Malaysia"
             shortcutComponent={
-              <Link styling="Secondary" href={zooProfile.ticket.admission.url}>
+              <ButtonLink
+                styling="Secondary"
+                href={zooProfile.ticket.admission.url}
+              >
                 {zooProfile.ticket.admission.text}
-              </Link>
+              </ButtonLink>
             }
           />
         </header>
