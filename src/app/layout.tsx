@@ -38,7 +38,6 @@ export default function RootLayout({
         {children}
         <Footer
           operatingTime={zooProfile.operatingTime}
-          contact={zooProfile.contact}
           address={zooProfile.address}
           companyName={zooProfile.companyName}
           partners={zooProfile.partners}

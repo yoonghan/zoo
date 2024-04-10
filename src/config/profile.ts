@@ -22,11 +22,6 @@ export const zooProfile: FooterProps & Ticket = {
     state: "Ampang",
     country: "Selangor",
   },
-  contact: {
-    phone: "+603-4108 3422",
-    phoneExtension: "7/8",
-    fax: "+603-4107 5375",
-  },
   partners: [
     {
       imageSrc: "/images/partners/perhilitan.jpg",

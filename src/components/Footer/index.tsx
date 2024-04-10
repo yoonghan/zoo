@@ -16,12 +16,6 @@ export type FooterProps = {
     postalCode: string | number;
     country: string;
   };
-  contact: {
-    phone: string;
-    phoneExtension?: string;
-    fax?: string;
-    email?: string;
-  };
   partners: {
     imageSrc: string;
     url: string;
@@ -33,7 +27,6 @@ export function MutableFooter({
   companyName,
   operatingTime,
   address,
-  contact,
   partners,
 }: FooterProps) {
   const currentYearUpdated = new Date().getFullYear();
@@ -72,31 +65,6 @@ export function MutableFooter({
             </li>
           </ul>
           <div className="border-2 secondary-border my-4"></div>
-          <ul>
-            <li>
-              <h3>
-                <strong>{labels.contact}:</strong>
-              </h3>
-            </li>
-            <li>
-              {labels.enquiries}:{" "}
-              <a href={`tel:${contact.phone}`}>{contact.phone}</a>
-              {contact.phoneExtension && (
-                <span>{`(${contact.phoneExtension})`}</span>
-              )}
-            </li>
-            {contact.fax && (
-              <li>
-                {labels.fax}: <span>{contact.fax}</span>
-              </li>
-            )}
-            {contact.email && (
-              <li>
-                {labels.email}:{" "}
-                <a href={`mailto:${contact.email}`}>{contact.email}</a>
-              </li>
-            )}
-          </ul>
         </article>
         <article className="mt-6">
           <h3 className="mb-4">

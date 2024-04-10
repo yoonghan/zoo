@@ -14,9 +14,6 @@ describe("Footer", () => {
     state: "Ampang",
     country: "Selangor",
   };
-  const defaultContact = {
-    phone: "+65 999 9999",
-  };
   const defaultPartners = [
     {
       url: "https://www.partner.com",
@@ -28,18 +25,15 @@ describe("Footer", () => {
   const renderFooterComponent = ({
     operatingTime = defaultOperatingTime,
     address = defaultAddress,
-    contact = defaultContact,
   }: {
     operatingTime?: FooterProps["operatingTime"];
     address?: FooterProps["address"];
-    contact?: FooterProps["contact"];
   }) => {
     return render(
       <Footer
         companyName="Zoo Negara"
         operatingTime={operatingTime}
         address={address}
-        contact={contact}
         partners={[
           {
             url: "https://www.partner.com",
@@ -60,11 +54,6 @@ describe("Footer", () => {
     expect(getByText("Hulu Kelang,")).toBeInTheDocument();
     expect(getByText("Ampang,")).toBeInTheDocument();
     expect(getByText("68000 Selangor.")).toBeInTheDocument();
-    expect(getByRole("link", { name: "+65 999 9999" })).toHaveAttribute(
-      "href",
-      "tel:+65 999 9999"
-    );
-
     expect(getByRole("link", { name: "partner" })).toHaveAttribute(
       "href",
       "https://www.partner.com"
@@ -87,7 +76,6 @@ describe("Footer", () => {
         companyName="Walcron"
         operatingTime={defaultOperatingTime}
         address={defaultAddress}
-        contact={defaultContact}
         partners={defaultPartners}
       />
     );
@@ -113,40 +101,13 @@ describe("Footer", () => {
     });
     expect(getByText("A city,")).toBeInTheDocument();
   });
-  it("should render component with phone extension, fax and email", () => {
-    const { getByText } = renderFooterComponent({
-      contact: {
-        ...defaultContact,
-        phoneExtension: "7",
-        fax: "+65 332000",
-        email: "walcoorperation@gmail.com",
-      },
-    });
-
-    expect(getByText("(7)")).toBeInTheDocument();
-    expect(getByText("+65 332000")).toBeInTheDocument();
-    expect(getByText("walcoorperation@gmail.com")).toHaveAttribute(
-      "href",
-      "mailto:walcoorperation@gmail.com"
-    );
-  });
 
   it("should render a set of predefined labels and include maintained from 2021 till today", () => {
     const currentYearUpdated = new Date().getFullYear();
 
-    const { getByText } = renderFooterComponent({
-      contact: {
-        ...defaultContact,
-        fax: "+65 332000",
-        email: "walcoorperation@gmail.com",
-      },
-    });
+    const { getByText } = renderFooterComponent({});
     expect(getByText("Operation Hours:")).toBeInTheDocument();
     expect(getByText("Address:")).toBeInTheDocument();
-    expect(getByText("Contact:")).toBeInTheDocument();
-    expect(getByText("For enquiries:")).toBeInTheDocument();
-    expect(getByText("Fax:")).toBeInTheDocument();
-    expect(getByText("Email:")).toBeInTheDocument();
     expect(getByText("Partners:")).toBeInTheDocument();
     expect(
       getByText(`Website is maintained from 2021 - ${currentYearUpdated}`)
