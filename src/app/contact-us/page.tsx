@@ -18,19 +18,21 @@ export default function ContactUs() {
 
   return (
     <main className="my-16">
-      <h1 className="text-xl font-bold">Contact Us</h1>
+      <article>
+        <h1 className="text-xl font-bold">Contact Us</h1>
 
-      <p className="mt-8">
-        For any enquiries, call our general lines{" "}
-        <Link href={`tel:${preDefinedData.phoneNumber1}`}>
-          {preDefinedData.phoneNumber1}
-        </Link>{" "}
-        /{" "}
-        <Link href={`tel:${preDefinedData.phoneNumber2}`}>
-          {preDefinedData.phoneNumber2}
-        </Link>{" "}
-        and ask for the following Department:
-      </p>
+        <p className="mt-8">
+          For any enquiries, call our general lines{" "}
+          <Link href={`tel:${preDefinedData.phoneNumber1}`}>
+            {preDefinedData.phoneNumber1}
+          </Link>{" "}
+          /{" "}
+          <Link href={`tel:${preDefinedData.phoneNumber2}`}>
+            {preDefinedData.phoneNumber2}
+          </Link>{" "}
+          and ask for the following Department:
+        </p>
+      </article>
 
       {preDefinedData.administration.map((administration) => (
         <article key={administration.department}>
