@@ -1,4 +1,5 @@
 import { zooMenu } from "@/config/menu";
+import { zooProfile } from "@/config/profile";
 import { test, expect } from "@playwright/test";
 
 test.use({
@@ -25,12 +26,23 @@ test("has menu", async ({ page }) => {
     });
     await mainMenuItem.hover();
     await expect(
-      mainMenuItem
-        .locator("..")
-        .getByRole("menuitem", {
-          name: firstMenuHoverable.items[0].label,
-          exact: true,
-        })
+      mainMenuItem.locator("..").getByRole("menuitem", {
+        name: firstMenuHoverable.items[0].label,
+        exact: true,
+      })
     ).toBeVisible();
   }
+});
+
+test("can purchase ticket", async ({ page }) => {
+  await page.goto("http://localhost:3000/");
+
+  const ticketUrl = zooProfile.ticket.admission.url;
+
+  await page
+    .getByRole("button", { name: zooProfile.ticket.admission.text })
+    .click();
+  expect(page.url()).toBe(
+    ticketUrl.endsWith("/") ? ticketUrl : ticketUrl + "/"
+  );
 });
