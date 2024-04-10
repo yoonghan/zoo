@@ -25,8 +25,6 @@ export function Button({
 
 export function Link({
   styling,
-  href,
-  rel,
   className,
   children,
   ...additionalProps
@@ -35,8 +33,6 @@ export function Link({
 
   return (
     <a
-      href={href}
-      rel={rel}
       className={`${style[buttonStyleClassName]} ${className}`}
       role="button"
       {...additionalProps}
