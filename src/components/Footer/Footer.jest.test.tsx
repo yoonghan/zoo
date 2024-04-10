@@ -109,6 +109,7 @@ describe("Footer", () => {
     expect(getByText("Operation Hours:")).toBeInTheDocument();
     expect(getByText("Address:")).toBeInTheDocument();
     expect(getByText("Partners:")).toBeInTheDocument();
+    expect(getByText("Contact Us")).toHaveAttribute("href", "/contact-us");
     expect(
       getByText(`Website is maintained from 2021 - ${currentYearUpdated}`)
     ).toBeInTheDocument();

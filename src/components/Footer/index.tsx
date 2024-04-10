@@ -35,7 +35,7 @@ export function MutableFooter({
     <footer className="p-6 border-t">
       <section>
         <small>&copy; {companyName}</small>
-        <article className="md:flex justify-between mt-6 md:mx-4">
+        <article className="flex justify-between mt-6 max-w-xl text-center m-auto">
           <ul>
             <li>
               <h3>
@@ -64,13 +64,12 @@ export function MutableFooter({
               {address.postalCode} {address.country}.
             </li>
           </ul>
-          <div className="border-2 secondary-border my-4"></div>
         </article>
-        <article className="mt-6">
-          <h3 className="mb-4">
+        <article className="mt-6 m-auto max-w-xl">
+          <h3 className="mb-4 text-center">
             <strong>{labels.partners}:</strong>
           </h3>
-          <ul className="flex gap-8">
+          <ul className="flex gap-8 justify-center">
             {partners.map(({ url, imageSrc, alt }, idx) => (
               <li key={`footer-partner-${idx}`}>
                 <a href={url} target="_blank" rel="external">
@@ -81,6 +80,11 @@ export function MutableFooter({
           </ul>
         </article>
       </section>
+      <ul className="text-center mt-16 text-sm">
+        <li>
+          <a href="/contact-us">{labels.contactUs}</a>
+        </li>
+      </ul>
       <div className="text-center text-sm mt-8">
         {labels.maintainedInfo} 2021 - {currentYearUpdated}
       </div>
