@@ -10,6 +10,7 @@ type Administration = {
 export type ContactUsProps = {
   phoneNumber1: string;
   phoneNumber2: string;
+  hrEmail: string;
   administration: Administration[];
 };
 

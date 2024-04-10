@@ -1,6 +1,7 @@
 import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
-import Career, { hrEmail } from "./page";
+import Career from "./page";
+import { zooProfile } from "@/config/profile";
 
 describe("Career", () => {
   it("should contains important keys", () => {
@@ -8,11 +9,12 @@ describe("Career", () => {
     //main
     expect(getByRole("main")).toBeInTheDocument();
     //h1
-    expect(getByRole("heading", { name: "Career" })).toBeInTheDocument();
+    expect(
+      getByRole("heading", { name: "Zoo Negara - Career" })
+    ).toBeInTheDocument();
     //hr email
-    expect(getByRole("link", { name: hrEmail })).toHaveAttribute(
-      "href",
-      `mailto:${hrEmail}`
-    );
+    expect(
+      getByRole("link", { name: zooProfile.contactus.hrEmail })
+    ).toHaveAttribute("href", `mailto:${zooProfile.contactus.hrEmail}`);
   });
 });

@@ -50,6 +50,7 @@ export const zooProfile: FooterProps & Ticket & { contactus: ContactUsProps } =
     contactus: {
       phoneNumber1: "+603-4108 3422",
       phoneNumber2: "+603-4108 3424",
+      hrEmail: "hrd@zoonegaramalaysia.my",
       administration: [
         {
           department: "Administration",

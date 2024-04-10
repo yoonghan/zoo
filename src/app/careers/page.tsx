@@ -1,6 +1,5 @@
 import { Link } from "@/components/Link";
-
-export const hrEmail = "hrd@zoonegaramalaysia.my";
+import { zooProfile } from "@/config/profile";
 
 export default function Carrer() {
   return (
@@ -91,7 +90,10 @@ export default function Carrer() {
       <section>
         Interested applicants should submit a detailed curriculum vitae, recent
         photo, current & expected salary and contact number by email to{" "}
-        <Link href={`mailto:${hrEmail}`}>{hrEmail}</Link>.
+        <Link href={`mailto:${zooProfile.contactus.hrEmail}`}>
+          {zooProfile.contactus.hrEmail}
+        </Link>
+        .
       </section>
     </main>
   );
