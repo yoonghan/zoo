@@ -35,7 +35,6 @@ export function MutableFooter({
   return (
     <footer className="p-6 border-t">
       <section>
-        <small>&copy; {companyName}</small>
         <article className="flex justify-between mt-6 max-w-xl text-center m-auto">
           <ul>
             <li>
@@ -85,9 +84,13 @@ export function MutableFooter({
         <li>
           <Link href="/contact-us">{labels.contactUs}</Link>
         </li>
+        <li>
+          <Link href="/careers">{labels.careers}</Link>
+        </li>
       </ul>
       <div className="text-center text-sm mt-8">
-        {labels.maintainedInfo} 2021 - {currentYearUpdated}
+        <span>&copy; {companyName}</span>{" "}
+        <span>{`- ${currentYearUpdated} ${labels.maintainedInfo}`}</span>
       </div>
     </footer>
   );

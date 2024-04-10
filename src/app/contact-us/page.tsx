@@ -10,6 +10,7 @@ type Administration = {
 export type ContactUsProps = {
   phoneNumber1: string;
   phoneNumber2: string;
+  hrEmail: string;
   administration: Administration[];
 };
 
@@ -17,20 +18,22 @@ export default function ContactUs() {
   const preDefinedData = zooProfile.contactus;
 
   return (
-    <main className="my-16">
-      <h1 className="text-xl font-bold">Contact Us</h1>
+    <main>
+      <article>
+        <h1 className="text-2xl font-bold">Contact Us</h1>
 
-      <p className="mt-8">
-        For any enquiries, call our general lines{" "}
-        <Link href={`tel:${preDefinedData.phoneNumber1}`}>
-          {preDefinedData.phoneNumber1}
-        </Link>{" "}
-        /{" "}
-        <Link href={`tel:${preDefinedData.phoneNumber2}`}>
-          {preDefinedData.phoneNumber2}
-        </Link>{" "}
-        and ask for the following Department:
-      </p>
+        <p className="mt-8">
+          For any enquiries, call our general lines{" "}
+          <Link href={`tel:${preDefinedData.phoneNumber1}`}>
+            {preDefinedData.phoneNumber1}
+          </Link>{" "}
+          /{" "}
+          <Link href={`tel:${preDefinedData.phoneNumber2}`}>
+            {preDefinedData.phoneNumber2}
+          </Link>{" "}
+          and ask for the following Department:
+        </p>
+      </article>
 
       {preDefinedData.administration.map((administration) => (
         <article key={administration.department}>

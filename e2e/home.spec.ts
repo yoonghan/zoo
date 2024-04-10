@@ -24,3 +24,9 @@ test("links for contact us is valid", async ({ page }) => {
   await page.getByRole("link", { name: footerLabel.contactUs }).click();
   await expect(page).toHaveTitle(/Contact Us/);
 });
+
+test("links for career is valid", async ({ page }) => {
+  await page.goto("http://localhost:3000/");
+  await page.getByRole("link", { name: footerLabel.careers }).click();
+  await expect(page).toHaveTitle(/Careers/);
+});

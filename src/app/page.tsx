@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <>
-      <main>
+      <main className="no-margin-y">
         <Image
           src="/images/header.jpg"
           width={960}

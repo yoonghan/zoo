@@ -110,8 +110,9 @@ describe("Footer", () => {
     expect(getByText("Address:")).toBeInTheDocument();
     expect(getByText("Partners:")).toBeInTheDocument();
     expect(getByText("Contact Us")).toHaveAttribute("href", "/contact-us");
+    expect(getByText("Careers")).toHaveAttribute("href", "/careers");
     expect(
-      getByText(`Website is maintained from 2021 - ${currentYearUpdated}`)
+      getByText(`- ${currentYearUpdated} all rights reserved.`)
     ).toBeInTheDocument();
   });
 });
