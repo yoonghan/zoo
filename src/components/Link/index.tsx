@@ -1,4 +1,5 @@
 import style from "./link.module.css";
+import NextLink from "next/link";
 
 export type LinkStyles = {
   styling?: "Primary" | "Secondary" | "None";
@@ -6,19 +7,22 @@ export type LinkStyles = {
 
 export function Link({
   styling = "Primary",
+  href,
   className,
   children,
   ...additionalProps
-}: React.AnchorHTMLAttributes<HTMLAnchorElement> & LinkStyles) {
+}: Exclude<React.AnchorHTMLAttributes<HTMLAnchorElement>, "href"> &
+  LinkStyles & { href: URL | string }) {
   const buttonStyleClassName =
     styling === "None" ? "" : `link-${styling.toLowerCase()}`;
 
   return (
-    <a
+    <NextLink
+      href={href}
       className={`${style[buttonStyleClassName]} ${className}`}
       {...additionalProps}
     >
       {children}
-    </a>
+    </NextLink>
   );
 }
