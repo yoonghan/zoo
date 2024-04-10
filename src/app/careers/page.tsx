@@ -4,7 +4,7 @@ export const hrEmail = "hrd@zoonegaramalaysia.my";
 
 export default function Carrer() {
   return (
-    <main className="my-16">
+    <main>
       <article>
         <h1 className="text-2xl font-bold">Zoo Negara - Career</h1>
 

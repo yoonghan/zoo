@@ -17,9 +17,9 @@ export default function ContactUs() {
   const preDefinedData = zooProfile.contactus;
 
   return (
-    <main className="my-16">
+    <main>
       <article>
-        <h1 className="text-xl font-bold">Contact Us</h1>
+        <h1 className="text-2xl font-bold">Contact Us</h1>
 
         <p className="mt-8">
           For any enquiries, call our general lines{" "}
