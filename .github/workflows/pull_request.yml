@@ -48,7 +48,7 @@ jobs:
             ${{ runner.os }}-all-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install Playwright Browsers
         if: steps.all-cache.outputs.cache-hit != 'true'
-        run: npx playwright install --with-deps chromium
+        run: ${{ steps.detect-package-manager.outputs.runner }}  playwright install --with-deps chromium
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
@@ -68,7 +68,7 @@ jobs:
           recreate: true
           path: code-coverage-results.md
       - name: Run E2E test
-        run: npx playwright test
+        run: ${{ steps.detect-package-manager.outputs.runner }} playwright test
       - uses: actions/upload-artifact@v4
         if: always()
         with:
