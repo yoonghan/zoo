@@ -29,6 +29,7 @@ export function ButtonLink({
   className,
   children,
   href,
+  role,
   ...additionalProps
 }: Exclude<React.LinkHTMLAttributes<HTMLAnchorElement>, "href"> &
   ButtonStyles & { href: string | URL }) {
@@ -37,7 +38,7 @@ export function ButtonLink({
   return (
     <Link
       href={href}
-      className={`${style[buttonStyleClassName]} ${className}`}
+      className={`${style[buttonStyleClassName]} ${className || ''}`}
       role="button"
       {...additionalProps}
     >

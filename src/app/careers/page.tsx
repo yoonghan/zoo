@@ -12,7 +12,7 @@ export default function Carrer() {
 
         <section className="mt-4">
           <strong className="text-lg">Requirements:</strong>
-          <ul className="list-disc mb-2">
+          <ul className="list-disc mb-2 ml-8">
             <li>Minimum SPM holder</li>
             <li>Age 18 years old and above</li>
             <li>
@@ -36,7 +36,7 @@ export default function Carrer() {
 
         <section className="mt-4">
           <strong className="text-lg">Responsibilities:</strong>
-          <ul className="list-disc mb-2">
+          <ul className="list-disc mb-2 ml-8">
             <li>To feed the animals with food provided by the kitchen</li>
             <li>To provide continuous supply of clean water</li>
             <li>To keep animal clean (where it is safe to do)</li>
@@ -76,7 +76,7 @@ export default function Carrer() {
 
         <section className="mt-4">
           <strong className="text-lg">Benefits:</strong>
-          <ul className="list-disc mb-2">
+          <ul className="list-disc mb-2 ml-8">
             <li>Quarters</li>
             <li>Laundry Allowance</li>
             <li>Transportation Allowance</li>

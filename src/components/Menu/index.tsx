@@ -94,7 +94,7 @@ function MutableMenu({
 
       <nav role="menubar" className={style.menu}>
         <ul role="menu" aria-orientation="horizontal">
-          <li className={style["non-mobile-menu"]}>
+          <li className={style["non-mobile-menu"]} role="menuitem">
             <Link href="/" className={style["home-logo"]}>
               <Image
                 src="/images/home-link.png"
