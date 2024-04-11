@@ -28,10 +28,11 @@ export default function RootLayout({
           <Menu
             model={zooMenu}
             mobileHomeText="Zoo Negara Malaysia"
-            shortcutComponent={
+            shortcutComponent={ (environment) => 
               <ButtonLink
                 styling="Secondary"
                 href={zooProfile.ticket.admission.url}
+                role={environment === "mobile"? "button": "menuitem"}
               >
                 {zooProfile.ticket.admission.text}
             </ButtonLink>

@@ -4,7 +4,7 @@ import { Menu } from ".";
 import { ReactNode } from "react";
 
 describe("Menu", () => {
-  const renderMenuWithItems = (shortcutComponent: ReactNode = undefined) =>
+  const renderMenuWithItems = (shortcutComponent: ((env: any) => ReactNode)|undefined = undefined) =>
     render(
       <Menu
         model={[
@@ -113,11 +113,13 @@ describe("Menu", () => {
   });
 
   it("should render shortcut components if exist", () => {
-    const { getAllByRole } = renderMenuWithItems(
-      <button>I am a shortcut button</button>
-    );
+    const mockShortcutComponent = jest.fn()
+    mockShortcutComponent.mockReturnValue(<button>I am a shortcut button</button>)
+    const { getAllByRole } = renderMenuWithItems(mockShortcutComponent);
     expect(
       getAllByRole("button", { name: "I am a shortcut button" })
     ).toHaveLength(2);
+    expect(mockShortcutComponent).toHaveBeenCalledWith("mobile")
+    expect(mockShortcutComponent).toHaveBeenCalledWith("desktop")
   });
 });
