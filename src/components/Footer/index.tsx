@@ -34,37 +34,37 @@ export function MutableFooter({
 
   return (
     <footer className="border-t mb-6">
-      <section className="mx-4">
-        <article className="flex justify-between mt-6 max-w-xl text-center m-auto">
-          <ul>
-            <li>
-              <h4>
-                <strong>{labels.operationHours}:</strong>
-              </h4>
-            </li>
-            <li>
-              {operatingTime.day.from} - {operatingTime.day.to}
-            </li>
-            <li>
-              {operatingTime.time.from} - {operatingTime.time.to}
-            </li>
-            {operatingTime.exception && <li> {operatingTime.exception}</li>}
-          </ul>
+      <div className="mx-4">
+        <section className="flex justify-between mt-6 max-w-xl text-center m-auto">
+          <article>
+            <h4>
+              <strong>{labels.operationHours}:</strong>
+            </h4>
+            <ul>
+              <li>
+                {operatingTime.day.from} - {operatingTime.day.to}
+              </li>
+              <li>
+                {operatingTime.time.from} - {operatingTime.time.to}
+              </li>
+              {operatingTime.exception && <li> {operatingTime.exception}</li>}
+            </ul>
+          </article>
           <div className="border-2 secondary-border my-4"></div>
-          <ul>
-            <li>
-              <h4>
-                <strong>{labels.address}:</strong>
-              </h4>
-            </li>
-            <li>{address.street},</li>
-            {address.city && <li>{address.city},</li>}
-            <li>{address.state},</li>
-            <li>
-              {address.postalCode} {address.country}.
-            </li>
-          </ul>
-        </article>
+          <article>
+            <h4>
+              <strong>{labels.address}:</strong>
+            </h4>
+            <ul>
+              <li>{address.street},</li>
+              {address.city && <li>{address.city},</li>}
+              <li>{address.state},</li>
+              <li>
+                {address.postalCode} {address.country}.
+              </li>
+            </ul>
+          </article>
+        </section>
         <article className="mt-6 m-auto max-w-xl">
           <h4 className="mb-4 text-center">
             <strong>{labels.partners}:</strong>
@@ -79,7 +79,7 @@ export function MutableFooter({
             ))}
           </ul>
         </article>
-      </section>
+      </div>
       <hr className="my-4 border-t"></hr>
       <ul className="text-center text-sm leading-10">
         <li>
