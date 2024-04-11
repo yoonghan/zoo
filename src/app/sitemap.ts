@@ -11,8 +11,6 @@ const getPriorityAndFrequency = (
   switch (path) {
     case "/":
       return { priority: 0.9, changeFrequency: "weekly" };
-    case "/about-us":
-      return { priority: 0.8, changeFrequency: "yearly" };
     default:
       return { priority: 0.3, changeFrequency: "weekly" };
   }
