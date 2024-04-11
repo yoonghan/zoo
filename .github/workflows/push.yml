@@ -3,6 +3,8 @@ name: Validate project
 on:
   # run on any push
   push:
+    branches-ignore:
+      - master
 
 jobs:
   test:
