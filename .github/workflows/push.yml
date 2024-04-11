@@ -1,4 +1,4 @@
-name: Validate project
+name: Push project
 
 on:
   # run on any push
@@ -8,4 +8,11 @@ on:
 
 jobs:
   test:
-    uses: ./.github/workflows/test.yml
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛑 Cancel previous runs
+        uses: styfle/cancel-workflow-action@0.9.1
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: ✅ Verify tests and compilation
+        uses: ./.github/actions/validation
