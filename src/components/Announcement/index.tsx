@@ -1,14 +1,17 @@
 "use client";
 
 import { htmlConvertor } from "@/util/htmlConvertor";
-import { ReactNode, useState } from "react";
+import { useState } from "react";
 import style from "./Announcement.module.css";
 
 export type AnnouncementsType = string[];
 
-type AnnouncementProps = { announcements: AnnouncementsType };
+type AnnouncementProps = { 
+  ariaAnnouncementTitle: string; 
+  announcements: AnnouncementsType 
+};
 
-export function Announcement({ announcements }: AnnouncementProps) {
+export function Announcement({ ariaAnnouncementTitle, announcements }: AnnouncementProps) {
   const [idx, setIdx] = useState(0);
 
   const goPrev = () =>
@@ -29,6 +32,7 @@ export function Announcement({ announcements }: AnnouncementProps) {
           />
           <div
             role="dialog"
+            title={ariaAnnouncementTitle}
             className={`${style.announcement} ${
               hasOnly1Announcement ? style["only-one"] : ""
             } p-6 md:text-center`}

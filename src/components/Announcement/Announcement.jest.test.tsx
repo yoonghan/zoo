@@ -7,7 +7,12 @@ describe("Announcement", () => {
   const announcements = ["announcement 1", "announcement 2", "announcement 3"];
 
   const renderAnnouncement = () =>
-    render(<Announcement announcements={announcements} />);
+    render(<Announcement ariaAnnouncementTitle={"Announcement Title"} announcements={announcements} />);
+
+  it("should be aria friendly", () => {
+    const { getByRole } = renderAnnouncement();
+    expect(getByRole("dialog", {name: "Announcement Title"})).toBeInTheDocument()
+  });
 
   it("should render first component only", () => {
     const { getByText, queryByText } = renderAnnouncement();

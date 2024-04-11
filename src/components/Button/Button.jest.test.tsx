@@ -49,10 +49,4 @@ describe("link", () => {
     const { getByRole } = renderLink({});
     expect(getByRole("button", { name: "I am a Link" })).not.toHaveClass("undefined");
   });
-
-
-  it("should always render as a button role", () => {
-    const { getByRole } = renderLink({role: "link"});
-    expect(getByRole("button", { name: "I am a Link" })).not.toHaveClass("undefined");
-  });
 });

@@ -105,7 +105,7 @@ function MutableMenu({
             </Link>
           </li>
           {topMenu}
-          <li className={`${style["non-mobile-menu"]}`}>
+          <li className={`${style["non-mobile-menu"]}`} role="presentation">
             {shortcutComponent && shortcutComponent}
           </li>
         </ul>
