@@ -28,7 +28,7 @@ export function Announcement({ announcements }: AnnouncementProps) {
             id="close-announcement"
           />
           <div
-            role="alert"
+            role="dialog"
             className={`${style.announcement} ${
               hasOnly1Announcement ? style["only-one"] : ""
             } p-6 md:text-center`}

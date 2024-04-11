@@ -30,6 +30,7 @@ export default function RootLayout({
             mobileHomeText="Zoo Negara Malaysia"
             shortcutComponent={
               <ButtonLink
+                role="menuitem"
                 styling="Secondary"
                 href={zooProfile.ticket.admission.url}
               >
