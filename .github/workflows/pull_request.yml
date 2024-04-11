@@ -4,12 +4,8 @@ on:
   pull_request:
     branches:
       - master
-  push:
-    branches-ignore:
-      - master
 
 jobs:
-  # Test job - might remove if this is included during pullrequest
   test:
     runs-on: ubuntu-latest
     steps:
