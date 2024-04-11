@@ -65,7 +65,7 @@ describe("Announcement", () => {
 
   describe("no announcement", () => {
     const renderEmptyAnnouncements = () =>
-      render(<Announcement announcements={[]} />);
+      render(<Announcement announcements={[]} ariaAnnouncementTitle={""}/>);
 
     it("should not have navigation buttons", async () => {
       const { queryByRole } = renderEmptyAnnouncements();
@@ -80,7 +80,7 @@ describe("Announcement", () => {
 
   describe("one announcement with bolded html", () => {
     const renderEmptyAnnouncements = () =>
-      render(<Announcement announcements={["one *announcement"]} />);
+      render(<Announcement announcements={["one *announcement"]} ariaAnnouncementTitle={""}/>);
 
     it("should not have navigation buttons", async () => {
       const { queryByRole, getByText } = renderEmptyAnnouncements();
