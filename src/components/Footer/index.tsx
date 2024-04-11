@@ -35,7 +35,7 @@ export function MutableFooter({
   return (
     <footer className="border-t mb-6">
       <div className="mx-4">
-        <section className="flex justify-around mt-6 max-w-xl text-center m-auto">
+        <div className="flex justify-around mt-6 max-w-xl text-center m-auto">
           <article>
             <h4>
               <strong>{labels.operationHours}:</strong>
@@ -64,7 +64,7 @@ export function MutableFooter({
               </li>
             </ul>
           </article>
-        </section>
+        </div>
         <article className="mt-6 m-auto max-w-xl">
           <h4 className="mb-4 text-center">
             <strong>{labels.partners}:</strong>
