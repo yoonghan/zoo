@@ -40,8 +40,8 @@
 
 .hamb {
   cursor: pointer;
-  padding: 40px 0;
-} /* Style label tag */
+  padding: 40px 2px;
+} 
 
 .hamb-line {
   background: var(--primary-color-text);
@@ -49,7 +49,7 @@
   height: 2px;
   position: relative;
   width: 24px;
-} /* Style span tag */
+} 
 
 .hamb-line::before,
 .hamb-line::after {

@@ -1,6 +1,6 @@
 .link-primary,
 .link-primary:hover {
-  color: var(--primary-color);
+  color: var(--primary-800);
 }
 
 .link-secondary,

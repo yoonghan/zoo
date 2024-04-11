@@ -35,7 +35,7 @@ export function MutableFooter({
   return (
     <footer className="border-t mb-6">
       <div className="mx-4">
-        <section className="flex justify-between mt-6 max-w-xl text-center m-auto">
+        <section className="flex justify-around mt-6 max-w-xl text-center m-auto">
           <article>
             <h4>
               <strong>{labels.operationHours}:</strong>
