@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <header>
-          <Announcement announcements={zooAnnouncement} />
+          <Announcement announcements={zooAnnouncement} ariaAnnouncementTitle="Zoo Announcement"/>
           <Menu
             model={zooMenu}
             mobileHomeText="Zoo Negara Malaysia"
