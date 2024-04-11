@@ -29,17 +29,17 @@ export function ButtonLink({
   className,
   children,
   href,
-  role,
+  role = "button",
   ...additionalProps
-}: Exclude<React.LinkHTMLAttributes<HTMLAnchorElement>, "href"> &
-  ButtonStyles & { href: string | URL }) {
+}: Exclude<React.LinkHTMLAttributes<HTMLAnchorElement>, ["role"|"href"]> &
+  ButtonStyles & { href: string}){
   const buttonStyleClassName = `button-${styling.toLowerCase()}`;
 
   return (
     <Link
       href={href}
       className={`${style[buttonStyleClassName]} ${className || ''}`}
-      role="button"
+      role={"button"}
       styling="None"
       {...additionalProps}
     >

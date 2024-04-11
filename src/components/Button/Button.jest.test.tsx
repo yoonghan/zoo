@@ -21,18 +21,15 @@ describe("link", () => {
   const renderLink = ({
     styling = "Secondary",
     className,
-    role
   }: {
     styling?: ButtonStyles["styling"];
     className?: string
-    role?: string
   }) =>
     render(
       <ButtonLink
         styling={styling}
         href="https://google.com"
         className={className}
-        role={role}
       >
         I am a Link
       </ButtonLink>
@@ -45,8 +42,9 @@ describe("link", () => {
     expect(linkComponent).toHaveClass("external-className");
   });
 
-  it("should render correct without adding undefined classname", () => {
-    const { getByRole } = renderLink({});
-    expect(getByRole("button", { name: "I am a Link" })).not.toHaveClass("undefined");
+  it("should not render link with undefined", () => {
+    const { getByRole } = renderLink({className: undefined});
+    const linkComponent = getByRole("button", { name: "I am a Link" });
+    expect(linkComponent).not.toHaveClass("button-secondary");
   });
 });

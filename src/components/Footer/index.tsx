@@ -52,9 +52,9 @@ export function MutableFooter({
           </article>
           <div className="border-2 secondary-border my-4"></div>
           <article>
-            <h4>
+            <h5>
               <strong>{labels.address}:</strong>
-            </h4>
+            </h5>
             <ul>
               <li>{address.street},</li>
               {address.city && <li>{address.city},</li>}
