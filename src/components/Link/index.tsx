@@ -14,12 +14,12 @@ export function Link({
 }: Exclude<React.AnchorHTMLAttributes<HTMLAnchorElement>, "href"> &
   LinkStyles & { href: URL | string }) {
   const buttonStyleClassName =
-    styling === "None" ? "" : `link-${styling.toLowerCase()}`;
+    styling === "None" ? "" : style[`link-${styling.toLowerCase()}`];
 
   return (
     <NextLink
       href={href}
-      className={`${style[buttonStyleClassName]} ${className}`}
+      className={`${buttonStyleClassName} ${className || ''}`}
       {...additionalProps}
     >
       {children}

@@ -23,7 +23,7 @@ function MutableMenu({
 }: {
   model: MenuType;
   mobileHomeText: string;
-  shortcutComponent?: ReactNode;
+  shortcutComponent?: (env: "mobile"|"desktop") => ReactNode;
 }) {
   const replaceWithTopMenuUrlIfAHashlinkOrEmpty = (
     topMenuUrl: string,
@@ -89,7 +89,7 @@ function MutableMenu({
         <Link href="/" tabIndex={-1} styling="None">
           {mobileHomeText}
         </Link>
-        {shortcutComponent && shortcutComponent}
+        {shortcutComponent && shortcutComponent("mobile")}
       </div>
 
       <nav role="menubar" className={style.menu}>
@@ -105,8 +105,8 @@ function MutableMenu({
             </Link>
           </li>
           {topMenu}
-          <li className={`${style["non-mobile-menu"]}`} role="presentation">
-            {shortcutComponent && shortcutComponent}
+          <li className={`${style["non-mobile-menu"]}`} role="menuitem">
+            {shortcutComponent && shortcutComponent("desktop")}
           </li>
         </ul>
       </nav>
