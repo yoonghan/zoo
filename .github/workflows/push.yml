@@ -1,0 +1,9 @@
+name: Validate project
+
+on:
+  # run on any push
+  push:
+
+jobs:
+  test:
+    uses: ./.github/workflows/test.yml
