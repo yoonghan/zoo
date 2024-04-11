@@ -38,9 +38,9 @@ export function MutableFooter({
         <article className="flex justify-between mt-6 max-w-xl text-center m-auto">
           <ul>
             <li>
-              <h3>
+              <h4>
                 <strong>{labels.operationHours}:</strong>
-              </h3>
+              </h4>
             </li>
             <li>
               {operatingTime.day.from} - {operatingTime.day.to}
@@ -53,9 +53,9 @@ export function MutableFooter({
           <div className="border-2 secondary-border my-4"></div>
           <ul>
             <li>
-              <h3>
+              <h4>
                 <strong>{labels.address}:</strong>
-              </h3>
+              </h4>
             </li>
             <li>{address.street},</li>
             {address.city && <li>{address.city},</li>}
@@ -66,16 +66,16 @@ export function MutableFooter({
           </ul>
         </article>
         <article className="mt-6 m-auto max-w-xl">
-          <h3 className="mb-4 text-center">
+          <h4 className="mb-4 text-center">
             <strong>{labels.partners}:</strong>
-          </h3>
+          </h4>
           <ul className="flex gap-8 justify-center">
             {partners.map(({ url, imageSrc, alt }, idx) => (
-              <div key={`footer-partner-${idx}`}>
+              <li key={`footer-partner-${idx}`}>
                 <Link href={url} target="_blank" rel="external">
                   <Image src={imageSrc} alt={alt} width={50} height={50} />
                 </Link>
-              </div>
+              </li>
             ))}
           </ul>
         </article>
