@@ -33,8 +33,8 @@ export function MutableFooter({
   const currentYearUpdated = new Date().getFullYear();
 
   return (
-    <footer className="p-6 border-t">
-      <section>
+    <footer className="border-t mb-6">
+      <section className="mx-4">
         <article className="flex justify-between mt-6 max-w-xl text-center m-auto">
           <ul>
             <li>
@@ -80,7 +80,8 @@ export function MutableFooter({
           </ul>
         </article>
       </section>
-      <ul className="text-center mt-16 text-sm">
+      <hr className="my-4 border-t"></hr>
+      <ul className="text-center text-sm leading-10">
         <li>
           <Link href="/contact-us">{labels.contactUs}</Link>
         </li>
@@ -88,7 +89,8 @@ export function MutableFooter({
           <Link href="/careers">{labels.careers}</Link>
         </li>
       </ul>
-      <div className="text-center text-sm mt-8">
+      <hr className="my-4 border-t"></hr>
+      <div className="text-center text-sm mt-4">
         <span>&copy; {companyName}</span>{" "}
         <span>{`- ${currentYearUpdated} ${labels.maintainedInfo}`}</span>
       </div>
