@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import style from "./button.module.css";
 import { Link } from "../Link";
 

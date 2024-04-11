@@ -45,6 +45,6 @@ describe("link", () => {
   it("should not render link with undefined", () => {
     const { getByRole } = renderLink({className: undefined});
     const linkComponent = getByRole("button", { name: "I am a Link" });
-    expect(linkComponent).not.toHaveClass("button-secondary");
+    expect(linkComponent).not.toHaveClass("undefined");
   });
 });
