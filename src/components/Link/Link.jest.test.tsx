@@ -3,12 +3,12 @@ import "@testing-library/jest-dom";
 import { Link, type LinkStyles } from ".";
 
 describe("link", () => {
-  const renderLink = ({ styling }: { styling?: LinkStyles["styling"] }) =>
+  const renderLink = ({ styling, className = "external-className" }: { styling?: LinkStyles["styling"], className?: string }) =>
     render(
       <Link
         styling={styling}
         href="https://google.com"
-        className="external-className"
+        className={className}
       >
         I am a Link
       </Link>
@@ -33,5 +33,10 @@ describe("link", () => {
     expect(getByRole("link", { name: "I am a Link" })).not.toHaveClass(
       "link-none"
     );
+  });
+
+  it("should render correct without adding undefined classname", () => {
+    const { getByRole } = renderLink({className: undefined});
+    expect(getByRole("link", { name: "I am a Link" })).not.toHaveClass("undefined");
   });
 });
