@@ -1,9 +1,10 @@
 name: Validate project
 
 on:
-  pull_request:
-    branches:
-      - master
+  # allow as dispatch call
+  workflow_dispatch:
+
+  workflow_call:
 
 jobs:
   test:
