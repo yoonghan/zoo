@@ -19,11 +19,11 @@ Goal is to replace a website zoonegara.my. The website contains the following
 
 ### UI Issues
 
-1. Not mobile friendly.
-2. Contrast of catchy colors.
-3. Slow loading.
-4. Small fonts.
-5. Images are not lazy loaded and position disoriented.
+1. Not mobile friendly. - DONE
+2. Contrast of catchy colors. - DONE
+3. Slow loading. - DONE
+4. Small fonts. - DONE
+5. Images are not lazy loaded and position disoriented. - Can be improved further
 
 ### Things to keep
 
@@ -35,6 +35,12 @@ Goal is to replace a website zoonegara.my. The website contains the following
 
 1. Ticketing seems to runned by another service.
 2. Having server load might be overkill on this scenario.
+
+### Done
+
+1. Rearrange menu - more.
+2. Add site map.
+3. Add auto deployment and verification workflow.
 
 ## Development
 
@@ -57,4 +63,3 @@ bun dev
 
 [build-badge]: https://img.shields.io/github/actions/workflow/status/yoonghan/zoo/master_merge.yml
 [build]: https://github.com/yoonghan/zoo/actions?query=workflow
-
