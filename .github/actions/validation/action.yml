@@ -1,3 +1,4 @@
+# Deprecated as calling via action converge all steps into a text.
 name: Validate project
 
 runs:
@@ -74,5 +75,3 @@ runs:
           playwright-report/
           coverage/
         retention-days: 30
-
-    

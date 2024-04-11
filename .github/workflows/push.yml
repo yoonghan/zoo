@@ -1,18 +1,11 @@
-name: Push project
+name: Validate each branch changes of project
 
 on:
-  # run on any push
+  # run on any push except merge
   push:
     branches-ignore:
       - master
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: 🛑 Cancel previous runs
-        uses: styfle/cancel-workflow-action@0.12.1
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: ✅ Verify tests and compilation
-        uses: ./.github/actions/validation
+  validate:
+    uses: ./.github/workflows/test.yml

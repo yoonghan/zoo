@@ -31,3 +31,10 @@
   color: var(--primary-color-text);
   background: var(--secondary-hover-color);
 }
+
+@media (max-width: 960px) {
+  .button-info,
+  .button-secondary {
+    padding: 0.5rem;
+  }
+}
