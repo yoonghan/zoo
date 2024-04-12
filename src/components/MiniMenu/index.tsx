@@ -37,7 +37,7 @@ function MiniMenu({ model, onScrollMonitor }: MiniMenuProps) {
   }, [addStickyToScroll]);
 
   return (
-    <nav className="overflow-x-auto" ref={navBar}>
+    <nav className="overflow-x-auto shadow-md" ref={navBar}>
       <div
         className={`${styles.container} flex gap-4 justify-center p-6 min-w-max`}
       >
