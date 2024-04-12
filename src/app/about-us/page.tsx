@@ -14,7 +14,7 @@ export default function About() {
           className="primary anchor-link-header"
           id={miniLinks[0].hashId}
         >
-          <h1 className="text-4xl text-center font-bold ">
+          <h1 className="text-4xl text-center font-bold">
             Zoo Negara - {miniLinks[0].title}
           </h1>
           <p className="mt-10">

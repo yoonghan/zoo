@@ -44,9 +44,7 @@ describe("About Us", () => {
       getByRole("heading", { name: "Journey Through Time" })
     ).toBeInTheDocument();
 
-    expect(
-      getByRole("heading", { name: "Research Papers" })
-    ).toBeInTheDocument();
+    expect(getByRole("heading", { name: "Conservation" })).toBeInTheDocument();
 
     /* End headers from config key */
   });
