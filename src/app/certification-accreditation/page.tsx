@@ -15,8 +15,8 @@ export default function Certification() {
           <table className="w-full mt-4">
             <thead>
               <tr>
-                <th className="text-left">Award</th>
-                <th className="text-left">Download links</th>
+                <th>Award</th>
+                <th>Download links</th>
               </tr>
             </thead>
             <tbody>
@@ -43,8 +43,8 @@ export default function Certification() {
           <table className="w-full mt-4">
             <thead>
               <tr>
-                <th className="text-left">Award</th>
-                <th className="text-left">Download links</th>
+                <th>Award</th>
+                <th>Download links</th>
               </tr>
             </thead>
             <tbody>

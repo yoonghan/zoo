@@ -3,6 +3,7 @@ import { render } from "@testing-library/react";
 import fs from "fs";
 import Certification from "./page";
 import { miniLinks } from "./config";
+import { checkDownloadLinkHasHostAllLocalFiles } from "@/util/fileHelper";
 
 describe("Certification/Accreditation", () => {
   it("should contains important keys", () => {
@@ -36,19 +37,9 @@ describe("Certification/Accreditation", () => {
 
   it("should have valid local download links", () => {
     const result = render(<Certification />);
-    const container = result.container;
-    const allDownloads = Array.from(container.querySelectorAll("a[download]"))
-      .map((elem) => {
-        const fullPath = (elem as HTMLAnchorElement).href;
-        return fullPath.substring("http://localhost/".length, fullPath.length);
-      })
-      .map((link) => {
-        const file = `./public/${link}`;
-        return {
-          status: fs.existsSync(file),
-          file,
-        };
-      });
+    const allDownloads = checkDownloadLinkHasHostAllLocalFiles(
+      result.container
+    );
     expect(allDownloads).toStrictEqual(
       allDownloads.map((link) => ({ ...link, status: true }))
     );
