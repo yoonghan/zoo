@@ -35,7 +35,7 @@ export function MutableFooter({
   return (
     <footer className="border-t mb-6">
       <div className="mx-4">
-        <div className="flex justify-around mt-6 max-w-xl text-center m-auto">
+        <div className="flex flex-col md:flex-row justify-around mt-6 max-w-xl md:text-center m-auto">
           <article>
             <strong>{labels.operationHours}:</strong>
             <ul>
@@ -61,9 +61,9 @@ export function MutableFooter({
             </ul>
           </article>
         </div>
-        <article className="mt-6 m-auto max-w-xl">
+        <article className="mt-10 m-auto max-w-xl md:text-center">
           <strong>{labels.partners}:</strong>
-          <ul className="flex gap-8 justify-center">
+          <ul className="flex gap-8 md:justify-center mt-4">
             {partners.map(({ url, imageSrc, alt }, idx) => (
               <li key={`footer-partner-${idx}`}>
                 <Link href={url} target="_blank" rel="external">
