@@ -19,8 +19,18 @@
   display: flex;
 }
 
-.research figure figcaption,
-.research figure img {
-  flex: 1;
+.research figure figcaption {
+  flex: 2;
   text-align: left;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 960px) {
+  .research figure {
+    flex-direction: column;
+  }
+
+  .research figure img {
+    margin: auto;
+  }
 }

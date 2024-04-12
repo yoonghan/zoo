@@ -1,10 +1,11 @@
-import { render } from "@testing-library/react";
+import { render, within } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { Menu } from ".";
 import { ReactNode } from "react";
+import userEvent from "@testing-library/user-event";
 
 describe("Menu", () => {
-  const renderMenuWithItems = (shortcutComponent: ((env: any) => ReactNode)|undefined = undefined) =>
+  const renderMenuWithItems = (shortcutComponent?: ReactNode) =>
     render(
       <Menu
         model={[
@@ -113,13 +114,55 @@ describe("Menu", () => {
   });
 
   it("should render shortcut components if exist", () => {
-    const mockShortcutComponent = jest.fn()
-    mockShortcutComponent.mockReturnValue(<button>I am a shortcut button</button>)
-    const { getAllByRole } = renderMenuWithItems(mockShortcutComponent);
+    const { getAllByRole, getByRole } = renderMenuWithItems(
+      <button>I am a shortcut button</button>
+    );
     expect(
       getAllByRole("button", { name: "I am a shortcut button" })
     ).toHaveLength(2);
-    expect(mockShortcutComponent).toHaveBeenCalledWith("mobile")
-    expect(mockShortcutComponent).toHaveBeenCalledWith("desktop")
+
+    //one of the button is menu item
+    expect(
+      within(
+        getByRole("menuitem", { name: "I am a shortcut button" })
+      ).getByRole("button", { name: "I am a shortcut button" })
+    ).toBeInTheDocument();
+  });
+
+  describe("Hiding side menu in mobile", () => {
+    it("should uncheck the checkbox of side menu, as mobile have cache to stay on page while render new page", async () => {
+      const { getByRole } = renderMenuWithItems();
+      await userEvent.click(getByRole("checkbox", { name: "Main Menu" }));
+      expect(getByRole("checkbox", { name: "Main Menu" })).toBeChecked();
+
+      await userEvent.click(getByRole("menuitem", { name: "News" }));
+      expect(getByRole("checkbox", { name: "Main Menu" })).not.toBeChecked();
+
+      //retry
+      await userEvent.click(getByRole("menuitem", { name: "News" }));
+      expect(getByRole("checkbox", { name: "Main Menu" })).not.toBeChecked();
+    });
+
+    it("should not uncheck if the clicks are on links that are parent with child", async () => {
+      const { getByRole } = renderMenuWithItems();
+      await userEvent.click(getByRole("checkbox", { name: "Main Menu" }));
+      expect(getByRole("checkbox", { name: "Main Menu" })).toBeChecked();
+
+      await userEvent.click(getByRole("menuitem", { name: "Zoo Negara" }));
+      expect(getByRole("checkbox", { name: "Main Menu" })).toBeChecked();
+    });
+
+    it("should uncheck if the clicks are on child", async () => {
+      const { getByRole } = renderMenuWithItems();
+      await userEvent.click(getByRole("checkbox", { name: "Main Menu" }));
+      expect(getByRole("checkbox", { name: "Main Menu" })).toBeChecked();
+
+      await userEvent.click(getByRole("menuitem", { name: "About Us" }));
+      expect(getByRole("checkbox", { name: "Main Menu" })).not.toBeChecked();
+
+      //retry
+      await userEvent.click(getByRole("menuitem", { name: "About Us" }));
+      expect(getByRole("checkbox", { name: "Main Menu" })).not.toBeChecked();
+    });
   });
 });

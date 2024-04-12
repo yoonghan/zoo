@@ -28,9 +28,8 @@ export function ButtonLink({
   className,
   children,
   href,
-  role = "button",
   ...additionalProps
-}: Exclude<React.AnchorHTMLAttributes<HTMLAnchorElement>, ["role" | "href"]> &
+}: Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, "role"> &
   ButtonStyles & { href: string }) {
   const buttonStyleClassName = `button-${styling.toLowerCase()}`;
 

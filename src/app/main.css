@@ -10,6 +10,7 @@ body {
   scroll-behavior: smooth;
 }
 
+/* main */
 main {
   display: flex;
   flex-direction: column;
@@ -29,6 +30,28 @@ main > section {
 main h1 {
   margin: 1rem 0;
 }
+/* main -end */
+
+/* table */
+tbody tr:nth-child(even) {
+  background-color: var(--bluegray-100);
+}
+
+tbody tr:hover {
+  background-color: var(--bluegray-300);
+}
+
+thead {
+  background-color: var(--bluegray-600);
+  color: white;
+}
+
+th,
+td {
+  padding: 0.75rem;
+}
+
+/* table -end */
 
 .arrow {
   border: solid var(--primary-color-text);

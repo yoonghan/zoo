@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import "@/themes/lara-light-green/theme.css";
 import "./main.css";
 import { Announcement } from "@/components/Announcement";
-import { Menu } from "@/components/Menu";
-import { zooMenu } from "@/config/menu";
 import { zooAnnouncement } from "@/config/announcements";
 import { Footer } from "@/components/Footer";
 import { zooProfile } from "@/config/profile";
+import { Menu } from "@/components/Menu";
+import { zooMenu } from "@/config/menu";
 import { ButtonLink } from "@/components/Button";
 
 export const metadata: Metadata = {
@@ -24,18 +24,20 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <header>
-          <Announcement announcements={zooAnnouncement} ariaAnnouncementTitle="Zoo Announcement"/>
+          <Announcement
+            announcements={zooAnnouncement}
+            ariaAnnouncementTitle="Zoo Announcement"
+          />
           <Menu
             model={zooMenu}
             mobileHomeText="Zoo Negara Malaysia"
-            shortcutComponent={ (environment) => 
+            shortcutComponent={
               <ButtonLink
                 styling="Secondary"
                 href={zooProfile.ticket.admission.url}
-                role={environment === "mobile"? "button": "menuitem"}
               >
                 {zooProfile.ticket.admission.text}
-            </ButtonLink>
+              </ButtonLink>
             }
           />
         </header>
