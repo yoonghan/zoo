@@ -1,0 +1,16 @@
+.five-pillars div {
+  margin-top: 2rem;
+}
+
+.five-pillars div p {
+  margin-top: 0.5rem;
+  margin-left: 1.25rem;
+}
+
+.about-us p {
+  margin-top: 0.5rem;
+}
+
+.about-us p ~ p {
+  margin-top: 2rem;
+}

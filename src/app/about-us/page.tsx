@@ -1,10 +1,9 @@
 import { ButtonLink } from "@/components/Button";
-import { Link } from "@/components/Link";
-import { zooProfile } from "@/config/profile";
+import Styles from "./about-us.module.css";
 
 export default function About() {
   return (
-    <main>
+    <main className={Styles["about-us"]}>
       <article className="primary">
         <h1 className="text-4xl text-center font-bold">
           Zoo Negara - About Us
@@ -17,7 +16,7 @@ export default function About() {
           have a total of over 5137 specimen from 476 species of mammals, birds,
           reptiles, amphibians and fish.
         </p>
-        <p className="mt-6">
+        <p>
           Zoo Negara covers 110 acres of land which is situated only 5km from
           the city of Kuala Lumpur. Over the years, the zoo has transformed
           itself to an open concept zoo with over 90% of its animals being kept
@@ -50,22 +49,22 @@ export default function About() {
         </p>
       </article>
 
-      <article id="five-pillars">
+      <article id="five-pillars" className={Styles["five-pillars"]}>
         <h4 className="text-2xl font-bold">
           Zoo Negara - The Five Pillars We Stand On
         </h4>
-        <div className="mt-4">
+        <div>
           <strong>1) Education</strong>
-          <p className="ml-6 mt-2">
+          <p>
             We believe that education is the only key in creating awareness on
             wildlife conservation. Zoo Negara is an open classroom for young
             minds to learn and nurture their interest and care for wildlife.
             Check out our Education Package for schools and even for you!
           </p>
         </div>
-        <div className="mt-4">
+        <div>
           <strong>2) Conservation</strong>
-          <p className="ml-6 mt-2">
+          <p>
             What will the world be without wildlife? Conserving Malaysian
             wildlife is one of our main missions. Animals such as the False
             Gharial and the Milky Storks are highly endangered wildlife that is
@@ -75,9 +74,9 @@ export default function About() {
             them back into the wild!
           </p>
         </div>
-        <div className="mt-4">
+        <div>
           <strong>3) Research</strong>
-          <p className="ml-6 mt-2">
+          <p>
             Zoo Negara provides a haven knowledge and experience for all.
             Researchers students from the Zoology, Biology and Veterinary fields
             have a multitude of choices when doing their research at the zoo as
@@ -85,10 +84,9 @@ export default function About() {
             (includiing foreigners) to enter our doors of knowledge.
           </p>
         </div>
-
-        <div className="mt-4">
+        <div>
           <strong>4) Recreation</strong>
-          <p className="ml-6 mt-2">
+          <p>
             Entertainment is part of the Malaysian culture and the zoo is not an
             exception. Our animal shows potray the best in animal behaviour, all
             natural. Our animal shows are educational so visitors will be able
@@ -96,10 +94,9 @@ export default function About() {
             circus acts.
           </p>
         </div>
-
-        <div className="mt-4">
+        <div>
           <strong>5) Training</strong>
-          <p className="ml-6 mt-2">
+          <p>
             Zoo Negara strives to provide the very best in assisting other zoos
             in Malaysia through its vast strong knowledge and experience in the
             field of wildlife management. Further more, we are actively involved
@@ -109,9 +106,9 @@ export default function About() {
         </div>
       </article>
 
-      <section id="journey-through-time" className="primary pb-24">
-        <h5 className="text-2xl font-bold mb-4">Journey through time</h5>
-        <p className="mb-8">
+      <section id="journey-through-time" className="primary pb-24 text-center">
+        <h5 className="text-4xl font-bold mb-6">Journey through time</h5>
+        <p className="mb-12">
           If you are interested in our humble beginnings, the research paper
           below is available for download.
         </p>
