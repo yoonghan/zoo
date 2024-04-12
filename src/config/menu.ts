@@ -2,19 +2,6 @@ import { MenuType } from "@/components/Menu";
 
 export const zooMenu: MenuType = [
   {
-    label: "Zoo Negara",
-    url: "/about-us",
-    items: [
-      {
-        label: "About Us",
-      },
-      {
-        label: "Zoo Negara Logo",
-        url: "#logo",
-      },
-    ],
-  },
-  {
     label: "Visitor Info",
     url: "/visitor",
     items: [
@@ -50,6 +37,10 @@ export const zooMenu: MenuType = [
         url: "#rides",
       },
     ],
+  },
+  {
+    label: "Zoo Negara",
+    url: "/about-us",
   },
   {
     label: "Have An Event",
