@@ -1,7 +1,7 @@
 import { Link } from "@/components/Link";
 import { zooProfile } from "@/config/profile";
 
-export default function Carrer() {
+export default function Career() {
   return (
     <main>
       <section>
@@ -16,9 +16,10 @@ export default function Carrer() {
               <li>Minimum SPM holder</li>
               <li>Age 18 years old and above</li>
               <li>
-                Ability to read and write in Bahasa Malaysia to enable understand
-                and follow written instruction and write simple report on his work
-                area including animal behavior and enclosures needs
+                Ability to read and write in Bahasa Malaysia to enable
+                understand and follow written instruction and write simple
+                report on his work area including animal behavior and enclosures
+                needs
               </li>
               <li>
                 Ability to observe animal behavior patterns to enable alert
@@ -41,8 +42,8 @@ export default function Carrer() {
               <li>To provide continuous supply of clean water</li>
               <li>To keep animal clean (where it is safe to do)</li>
               <li>
-                To help safely handle the animals to enable to facilitate feeding,
-                cleaning and administer basic health treatment
+                To help safely handle the animals to enable to facilitate
+                feeding, cleaning and administer basic health treatment
               </li>
               <li>
                 To constantly observe animal behavior and accurately record
@@ -58,8 +59,8 @@ export default function Carrer() {
               </li>
               <li>
                 To inspect animal enclosure, identity areas that require
-                maintenance and repairs, undertake minor repairs and report major
-                discrepancies to the senior keeper
+                maintenance and repairs, undertake minor repairs and report
+                major discrepancies to the senior keeper
               </li>
               <li>To check and securely lock animal enclosures at all times</li>
               <li>To ensure visitors view and observe the animal safely</li>
@@ -68,8 +69,8 @@ export default function Carrer() {
                 assistance
               </li>
               <li>
-                To provide correct information or direct visitors to locations for
-                more complex
+                To provide correct information or direct visitors to locations
+                for more complex
               </li>
             </ul>
           </div>
@@ -88,8 +89,8 @@ export default function Carrer() {
           </div>
         </article>
         <div className="mt-8">
-          Interested applicants should submit a detailed curriculum vitae, recent
-          photo, current & expected salary and contact number by email to{" "}
+          Interested applicants should submit a detailed curriculum vitae,
+          recent photo, current & expected salary and contact number by email to{" "}
           <Link href={`mailto:${zooProfile.contactus.hrEmail}`}>
             {zooProfile.contactus.hrEmail}
           </Link>

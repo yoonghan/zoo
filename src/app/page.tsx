@@ -17,7 +17,7 @@ export default function Home() {
           alt="Zoo tiger in water"
         />
         <article className="primary">
-          <h1 className="font-bold text-4xl my-4 text-center">
+          <h1 className="font-bold text-4xl text-center">
             Welcome to Zoo Negara
           </h1>
 

@@ -94,6 +94,8 @@
   z-index: 1;
   padding: 20px 0;
   display: none;
+  box-shadow: 8px 8px 8px -8px black;
+  border-radius: 0 0 4px 4px;
 }
 .subnav:hover .subnav-content {
   display: block;
@@ -104,6 +106,10 @@
     /*prevents user click on href*/
     pointer-events: none;
     cursor: default;
+  }
+
+  .subnav-content {
+    box-shadow: none;
   }
 
   .menu ul {
