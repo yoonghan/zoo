@@ -30,8 +30,11 @@ export default function About() {
     <>
       <MiniMenu model={miniLinks} />
       <main className={Styles["about-us"]}>
-        <article className="primary" id={miniLinks[0].hashId}>
-          <h1 className="text-4xl text-center font-bold">
+        <article
+          className="primary anchor-link-header"
+          id={miniLinks[0].hashId}
+        >
+          <h1 className="text-4xl text-center font-bold ">
             Zoo Negara - {miniLinks[0].title}
           </h1>
           <p className="mt-10">
@@ -59,8 +62,8 @@ export default function About() {
             ></iframe>
           </center>
         </article>
-        <article>
-          <h2 className="text-xl font-bold" id={miniLinks[1].hashId}>
+        <article className="anchor-link-header" id={miniLinks[1].hashId}>
+          <h2 className="text-xl font-bold">
             Zoo Negara - {miniLinks[1].title}
           </h2>
           <p>
@@ -69,8 +72,11 @@ export default function About() {
             research of various animal and plant species.
           </p>
         </article>
-        <article>
-          <h3 className="text-xl font-bold" id={miniLinks[2].hashId}>
+        <article
+          className="primary anchor-link-header"
+          id={miniLinks[2].hashId}
+        >
+          <h3 className="text-xl font-bold">
             Zoo Negara - {miniLinks[2].title}
           </h3>
           <p>
@@ -89,7 +95,10 @@ export default function About() {
           </p>
         </article>
 
-        <article id={miniLinks[3].hashId} className={Styles["five-pillars"]}>
+        <article
+          id={miniLinks[3].hashId}
+          className={`${Styles["five-pillars"]} anchor-link-header`}
+        >
           <h4 className="text-2xl font-bold">
             Zoo Negara - The {miniLinks[3].title} We Stand On
           </h4>
@@ -147,7 +156,10 @@ export default function About() {
           </div>
         </article>
 
-        <section className="primary pb-24 text-center" id={miniLinks[4].hashId}>
+        <section
+          className="primary pb-24 text-center anchor-link-header"
+          id={miniLinks[4].hashId}
+        >
           <h5 className="text-4xl font-bold mb-6">{miniLinks[4].title}</h5>
           <p className="mb-12">
             If you are interested in our humble beginnings, the research paper
