@@ -1,4 +1,6 @@
-import { ReactNode, memo } from "react";
+"use client";
+
+import { ReactNode, memo, useRef } from "react";
 import style from "./style.module.css";
 import Image from "next/image";
 import { Link } from "../Link";
@@ -23,14 +25,22 @@ function MutableMenu({
 }: {
   model: MenuType;
   mobileHomeText: string;
-  shortcutComponent?: (env: "mobile"|"desktop") => ReactNode;
+  shortcutComponent?: ReactNode;
 }) {
+  const sideMenuRef = useRef<HTMLInputElement>(null);
+
   const replaceWithTopMenuUrlIfAHashlinkOrEmpty = (
     topMenuUrl: string,
     url?: string
   ) => {
     if (url === undefined || url === "") return topMenuUrl;
     return url.replace(/^#/, `${topMenuUrl}#`);
+  };
+
+  const unCheckSideMenu = () => {
+    if (sideMenuRef.current) {
+      sideMenuRef.current.checked = false;
+    }
   };
 
   const subMenu = (subMenu: SubMenuItem[], topMenuUrl: string) =>
@@ -42,6 +52,7 @@ function MutableMenu({
             subMenuItem.url
           )}
           role="menuitem"
+          onClick={unCheckSideMenu}
         >
           {subMenuItem.label}
         </Link>
@@ -62,6 +73,7 @@ function MutableMenu({
             href={topMenuItem.url}
             role="menuitem"
             className={hasChild ? style["top-menu-link"] : ""}
+            onClick={!hasChild ? unCheckSideMenu : () => {}}
           >
             {topMenuItem.label}
           </Link>
@@ -77,7 +89,12 @@ function MutableMenu({
 
   return (
     <div className={style.nav}>
-      <input className={style["side-menu"]} type="checkbox" id="side-menu" />
+      <input
+        className={style["side-menu"]}
+        type="checkbox"
+        id="side-menu"
+        ref={sideMenuRef}
+      />
       <div className={style["mobile-menu"]}>
         <label
           className={style.hamb}
@@ -86,10 +103,10 @@ function MutableMenu({
         >
           <span className={style["hamb-line"]}></span>
         </label>
-        <Link href="/" tabIndex={-1} styling="None">
+        <Link href="/" tabIndex={-1} styling="None" onClick={unCheckSideMenu}>
           {mobileHomeText}
         </Link>
-        {shortcutComponent && shortcutComponent("mobile")}
+        {shortcutComponent && shortcutComponent}
       </div>
 
       <nav role="menubar" className={style.menu}>
@@ -106,7 +123,7 @@ function MutableMenu({
           </li>
           {topMenu}
           <li className={`${style["non-mobile-menu"]}`} role="menuitem">
-            {shortcutComponent && shortcutComponent("desktop")}
+            {shortcutComponent && shortcutComponent}
           </li>
         </ul>
       </nav>
