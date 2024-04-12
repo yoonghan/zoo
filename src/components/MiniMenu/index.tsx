@@ -1,6 +1,6 @@
 "use client";
 
-import React, { memo, useCallback, useEffect, useRef } from "react";
+import React, { memo, useCallback, useEffect, useRef, useState } from "react";
 import styles from "./mini-menu.module.css";
 
 export type MiniMenuItems = {
@@ -16,7 +16,7 @@ type MiniMenuProps = {
 function MiniMenu({ model, onScrollMonitor }: MiniMenuProps) {
   const navBar = useRef<HTMLDivElement>(null);
   /* c8 ignore next */
-  const navBarPosition = navBar.current?.offsetTop || 0;
+  const [navBarPosition, setNavBarPosition] = useState(0);
 
   const addStickyToScroll = useCallback(() => {
     if (onScrollMonitor) {
@@ -32,6 +32,7 @@ function MiniMenu({ model, onScrollMonitor }: MiniMenuProps) {
   }, [navBarPosition, onScrollMonitor]);
 
   useEffect(() => {
+    setNavBarPosition(navBar.current?.offsetHeight || 0);
     window.addEventListener("scroll", addStickyToScroll);
     return () => window.removeEventListener("scroll", addStickyToScroll);
   }, [addStickyToScroll]);
