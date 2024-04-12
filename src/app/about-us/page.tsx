@@ -1,36 +1,19 @@
 import { ButtonLink } from "@/components/Button";
 import Styles from "./about-us.module.css";
-import MiniMenu, { MiniMenuItems } from "@/components/MiniMenu";
-
-const miniLinks: MiniMenuItems[] = [
-  {
-    hashId: "about-us",
-    title: "About Us",
-  },
-  {
-    hashId: "vision",
-    title: "Vision",
-  },
-  {
-    hashId: "mission",
-    title: "Mission",
-  },
-  {
-    hashId: "five-pillars",
-    title: "Five Pillars",
-  },
-  {
-    hashId: "journey-through-time",
-    title: "Journey Through Time",
-  },
-];
+import MiniMenu from "@/components/MiniMenu";
+import Image from "next/image";
+import { Link } from "@/components/Link";
+import { miniLinks } from "./config";
 
 export default function About() {
   return (
     <>
       <MiniMenu model={miniLinks} />
       <main className={Styles["about-us"]}>
-        <article className="primary" id={miniLinks[0].hashId}>
+        <article
+          className="primary anchor-link-header"
+          id={miniLinks[0].hashId}
+        >
           <h1 className="text-4xl text-center font-bold">
             Zoo Negara - {miniLinks[0].title}
           </h1>
@@ -50,17 +33,18 @@ export default function About() {
             are working in making sure that the old zoo concept is changed
             entirely.
           </p>
-          <center className="m-10">
+          <div className="m-10 mx-auto">
             <iframe
+              data-testid="youtube"
               className="aspect-video w-full"
               src="https://www.youtube.com/embed/RSWHGcC-6nE"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen={true}
             ></iframe>
-          </center>
+          </div>
         </article>
-        <article>
-          <h2 className="text-xl font-bold" id={miniLinks[1].hashId}>
+        <article className="anchor-link-header" id={miniLinks[1].hashId}>
+          <h2 className="text-xl font-bold">
             Zoo Negara - {miniLinks[1].title}
           </h2>
           <p>
@@ -69,8 +53,11 @@ export default function About() {
             research of various animal and plant species.
           </p>
         </article>
-        <article>
-          <h3 className="text-xl font-bold" id={miniLinks[2].hashId}>
+        <article
+          className="primary anchor-link-header"
+          id={miniLinks[2].hashId}
+        >
+          <h3 className="text-xl font-bold">
             Zoo Negara - {miniLinks[2].title}
           </h3>
           <p>
@@ -89,7 +76,10 @@ export default function About() {
           </p>
         </article>
 
-        <article id={miniLinks[3].hashId} className={Styles["five-pillars"]}>
+        <article
+          id={miniLinks[3].hashId}
+          className={`${Styles["five-pillars"]} anchor-link-header`}
+        >
           <h4 className="text-2xl font-bold">
             Zoo Negara - The {miniLinks[3].title} We Stand On
           </h4>
@@ -147,22 +137,93 @@ export default function About() {
           </div>
         </article>
 
-        <section className="primary pb-24 text-center" id={miniLinks[4].hashId}>
+        <section
+          className="primary pb-24 text-center anchor-link-header"
+          id={miniLinks[4].hashId}
+        >
           <h5 className="text-4xl font-bold mb-6">{miniLinks[4].title}</h5>
           <p className="mb-12">
             If you are interested in our humble beginnings, the research paper
             below is available for download.
           </p>
-          <center>
-            <ButtonLink
-              href="/docs/zoo-negara-journey-through-time.pdf"
-              download={true}
-              styling="Secondary"
-              target="external"
-            >
-              Download our papers
-            </ButtonLink>
-          </center>
+          <ButtonLink
+            href="/docs/zoo-negara-journey-through-time.pdf"
+            download={true}
+            styling="Secondary"
+            target="external"
+            className="mx-auto"
+          >
+            Download our papers
+          </ButtonLink>
+        </section>
+
+        <section
+          className="pb-24 text-center anchor-link-header"
+          id={miniLinks[5].hashId}
+        >
+          <h6 className="text-4xl font-bold mb-6">{miniLinks[5].title}</h6>
+          <p className="mb-12">
+            Few published research papers on Zoo Negara conservations:
+          </p>
+          <div className={`flex gap-8 flex-col ${Styles["research"]}`}>
+            <figure>
+              <Image
+                src="/images/research/milky-stork.jpg"
+                width={400}
+                height={300}
+                alt="Milky Stork"
+                className="flex-1"
+              />
+              <figcaption>
+                This research is about Captive Breeding of False Gharial
+                (Tomistoma schlegelii) at Zoo Negara, Malaysia. The False
+                Gharial is a large fresh water crocodile. Once widespread
+                species currently can be found only in Peninsular Malaysia, West
+                Borneo, Java and Sumatra. With habitat destruction being the
+                main contributor to their disappearance, it is believed that
+                there are fewer than 2500 individuals left in the wild. The
+                species is listed on Appendix 1 (Endangered) of the Convention
+                of International Trade of Endangered Species (CITES).
+                <p>
+                  <Link
+                    href="/docs/zoo-negara-research-papers-on-milky-stork.pdf"
+                    download={true}
+                    target="_blank"
+                  >
+                    &gt;&gt; Download milky stork papers
+                  </Link>
+                </p>
+              </figcaption>
+            </figure>
+            <figure>
+              <Image
+                src="/images/research/false-gharial.jpg"
+                width={400}
+                height={300}
+                alt="False Gahrial"
+              />
+              <figcaption>
+                This research is about Captive Breeding of Milky Storks (Myctera
+                cinerea) at Zoo Negara, Malaysia. These birds can be found in
+                South East Asia. It forages on tidal mudflats, in saline pools,
+                fresh water marshes, fishponds and rice-fields. Lost of natural
+                habitat and food source has drastic effect on the birds&apos;
+                population. The BirdLife classifies the species as vulnerable on
+                IUCN Red List. This species is also listed on Appendix 1
+                (Endangered) of the Convention of International Trade of
+                Endangered Species (CITES).
+                <p>
+                  <Link
+                    href="/docs/zoo-negara-research-papers-on-false-gharial.pdf"
+                    download={true}
+                    target="_blank"
+                  >
+                    &gt;&gt; Download false gharial papers
+                  </Link>
+                </p>
+              </figcaption>
+            </figure>
+          </div>
         </section>
       </main>
     </>

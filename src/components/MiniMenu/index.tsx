@@ -37,9 +37,9 @@ function MiniMenu({ model, onScrollMonitor }: MiniMenuProps) {
   }, [addStickyToScroll]);
 
   return (
-    <nav className="overflow-x-auto" ref={navBar}>
+    <nav className="overflow-x-auto shadow-md" ref={navBar}>
       <div
-        className={`${styles.container} flex gap-4 justify-center py-8 px-8 min-w-max`}
+        className={`${styles.container} flex gap-4 justify-center p-6 min-w-max`}
       >
         {model.map((item, idx) => (
           <React.Fragment key={item.hashId}>

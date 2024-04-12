@@ -110,6 +110,11 @@ section.primary {
   background-color: var(--primary-700);
 }
 
+.anchor-link-header {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
