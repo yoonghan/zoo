@@ -14,3 +14,13 @@
 .about-us p ~ p {
   margin-top: 2rem;
 }
+
+.research figure {
+  display: flex;
+}
+
+.research figure figcaption,
+.research figure img {
+  flex: 1;
+  text-align: left;
+}

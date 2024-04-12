@@ -39,7 +39,7 @@ export const zooMenu: MenuType = [
     ],
   },
   {
-    label: "Zoo Negara",
+    label: "About Zoo",
     url: "/about-us",
   },
   {
@@ -113,24 +113,6 @@ export const zooMenu: MenuType = [
       {
         label: "Notice",
         url: "#notice",
-      },
-    ],
-  },
-  {
-    label: "Conservation",
-    url: "/conservation",
-    items: [
-      {
-        label: "Animals in CITES",
-        url: "#animals-in-cites",
-      },
-      {
-        label: "Research Papers On Milky Storks",
-        url: "#research-papers-on-milky-storks",
-      },
-      {
-        label: "Research Papers On False Gahrial",
-        url: "#research-papers-on-false-gahrial",
       },
     ],
   },
