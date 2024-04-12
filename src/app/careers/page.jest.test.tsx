@@ -3,6 +3,7 @@ import { render } from "@testing-library/react";
 import Career from "./page";
 import fs from "fs";
 import { zooProfile } from "@/config/profile";
+import { checkDownloadLinkHasHostAllLocalFiles } from "@/util/fileHelper";
 
 describe("Career", () => {
   it("should contains important keys", () => {
@@ -21,19 +22,9 @@ describe("Career", () => {
 
   it("should have valid local download links", () => {
     const result = render(<Career />);
-    const container = result.container;
-    const allDownloads = Array.from(container.querySelectorAll("a[download]"))
-      .map((elem) => {
-        const fullPath = (elem as HTMLAnchorElement).href;
-        return fullPath.substring("http://localhost/".length, fullPath.length);
-      })
-      .map((link) => {
-        const file = `./public/${link}`;
-        return {
-          status: fs.existsSync(file),
-          file,
-        };
-      });
+    const allDownloads = checkDownloadLinkHasHostAllLocalFiles(
+      result.container
+    );
     expect(allDownloads).toStrictEqual(
       allDownloads.map((link) => ({ ...link, status: true }))
     );
