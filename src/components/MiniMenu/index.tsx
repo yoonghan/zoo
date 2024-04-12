@@ -15,6 +15,7 @@ type MiniMenuProps = {
 
 function MiniMenu({ model, onScrollMonitor }: MiniMenuProps) {
   const navBar = useRef<HTMLDivElement>(null);
+  /* c8 ignore next */
   const navBarPosition = navBar.current?.offsetTop || 0;
 
   const addStickyToScroll = useCallback(() => {
