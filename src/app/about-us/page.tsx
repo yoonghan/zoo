@@ -23,6 +23,15 @@ export default function About() {
           in spacious exhibits with landscape befitting its nature. We are
           working in making sure that the old zoo concept is changed entirely.
         </p>
+        <center className="my-10">
+          <iframe
+            width="640"
+            height="355"
+            src="https://www.youtube.com/embed/RSWHGcC-6nE"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen={true}
+          ></iframe>
+        </center>
       </article>
       <article>
         <h2 className="text-xl font-bold">Zoo Negara - Vision</h2>
