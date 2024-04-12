@@ -96,6 +96,33 @@ export default function Career() {
           </Link>
           .
         </div>
+        <hr className="my-8" />
+        <article>
+          <h4 className={"text-xl"}>e-Forms</h4>
+
+          <table className="w-full mt-8">
+            <thead>
+              <tr>
+                <th>Application Forms</th>
+                <th>Download Links</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Employment Application Form</td>
+                <td>
+                  <Link
+                    href="/docs/career/Employment_Application_Form.pdf"
+                    download={true}
+                    target="_blank"
+                  >
+                    Download PDF
+                  </Link>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
       </section>
     </main>
   );
