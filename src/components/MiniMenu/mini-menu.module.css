@@ -1,0 +1,8 @@
+.container {
+  background-color: var(--secondary-color);
+  color: var(--secondary-text-color);
+}
+
+.container .separator {
+  border-color: var(--secondary-text-color);
+}
