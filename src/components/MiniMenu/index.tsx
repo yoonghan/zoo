@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { memo, useCallback, useEffect, useRef } from "react";
 import styles from "./mini-menu.module.css";
 
 export type MiniMenuItems = {
@@ -8,12 +10,34 @@ export type MiniMenuItems = {
 
 type MiniMenuProps = {
   model: MiniMenuItems[];
+  onScrollMonitor?: () => void;
 };
 
-function MiniMenu({ model }: MiniMenuProps) {
+function MiniMenu({ model, onScrollMonitor }: MiniMenuProps) {
+  const navBar = useRef<HTMLDivElement>(null);
+  const navBarPosition = navBar.current?.offsetTop || 0;
+
+  const addStickyToScroll = useCallback(() => {
+    if (onScrollMonitor) {
+      onScrollMonitor(); // use to monitor unmount
+    }
+    if (navBar.current) {
+      if (window.scrollY >= navBarPosition) {
+        navBar.current.classList.add(styles.sticky);
+      } else {
+        navBar.current.classList.remove(styles.sticky);
+      }
+    }
+  }, [navBarPosition, onScrollMonitor]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", addStickyToScroll);
+    return () => window.removeEventListener("scroll", addStickyToScroll);
+  }, [addStickyToScroll]);
+
   return (
-    <div className="overflow-x-auto">
-      <nav
+    <nav className="overflow-x-auto" ref={navBar}>
+      <div
         className={`${styles.container} flex gap-4 justify-center py-8 px-8 min-w-max`}
       >
         {model.map((item, idx) => (
@@ -27,9 +51,9 @@ function MiniMenu({ model }: MiniMenuProps) {
             <a href={`#${item.hashId}`}>{item.title}</a>
           </React.Fragment>
         ))}
-      </nav>
-    </div>
+      </div>
+    </nav>
   );
 }
 
-export default MiniMenu;
+export default memo(MiniMenu, () => true);

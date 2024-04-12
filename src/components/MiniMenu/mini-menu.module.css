@@ -6,3 +6,8 @@
 .container .separator {
   border-color: var(--secondary-text-color);
 }
+
+.sticky {
+  top: 0;
+  position: sticky;
+}
