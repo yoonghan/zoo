@@ -187,7 +187,7 @@ export default function About() {
                 of International Trade of Endangered Species (CITES).
                 <p>
                   <Link
-                    href="/docs/zoo-negara-research-papers-on-milky-stork.pdf"
+                    href="/docs/research/zoo-negara-research-papers-on-milky-stork.pdf"
                     download={true}
                     target="_blank"
                   >
@@ -217,7 +217,7 @@ export default function About() {
                 Endangered Species (CITES).
                 <p>
                   <Link
-                    href="/docs/zoo-negara-research-papers-on-false-gharial.pdf"
+                    href="/docs/research/zoo-negara-research-papers-on-false-gharial.pdf"
                     download={true}
                     target="_blank"
                   >
