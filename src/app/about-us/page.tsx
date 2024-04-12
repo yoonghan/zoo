@@ -167,13 +167,14 @@ export default function About() {
           </p>
           <div className={`flex gap-8 flex-col ${Styles["research"]}`}>
             <figure>
-              <Image
-                src="/images/research/milky-stork.jpg"
-                width={400}
-                height={300}
-                alt="Milky Stork"
-                className="flex-1"
-              />
+              <div>
+                <Image
+                  src="/images/research/milky-stork.jpg"
+                  width={400}
+                  height={300}
+                  alt="Milky Stork"
+                />
+              </div>
               <figcaption>
                 This research is about Captive Breeding of False Gharial
                 (Tomistoma schlegelii) at Zoo Negara, Malaysia. The False
@@ -196,12 +197,14 @@ export default function About() {
               </figcaption>
             </figure>
             <figure>
-              <Image
-                src="/images/research/false-gharial.jpg"
-                width={400}
-                height={300}
-                alt="False Gahrial"
-              />
+              <div>
+                <Image
+                  src="/images/research/false-gharial.jpg"
+                  width={400}
+                  height={300}
+                  alt="False Gahrial"
+                />
+              </div>
               <figcaption>
                 This research is about Captive Breeding of Milky Storks (Myctera
                 cinerea) at Zoo Negara, Malaysia. These birds can be found in
