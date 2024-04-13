@@ -42,6 +42,10 @@ Goal is to replace a website zoonegara.my. The website contains the following
 2. Add site map.
 3. Add auto deployment and verification workflow.
 
+### Things removed
+
+1. Removed zooku (strange annual pass = per entry ticket)
+
 ## Development
 
 First, run the development server:
