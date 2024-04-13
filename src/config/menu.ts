@@ -95,32 +95,6 @@ export const zooMenu: MenuType = [
     ],
   },
   {
-    label: "News",
-    url: "/news",
-    items: [
-      {
-        label: "Newspaper article",
-        url: "#newspaper-article",
-      },
-      {
-        label: "Partnership News Highlight",
-        url: "#partnership-news-highlight",
-      },
-      {
-        label: "Archive",
-        url: "#Archive",
-      },
-      {
-        label: "Notice",
-        url: "#notice",
-      },
-    ],
-  },
-  {
-    label: "Education",
-    url: "/education",
-  },
-  {
     label: "Exhibits",
     url: "/exhibits",
     items: [

@@ -45,6 +45,8 @@ Goal is to replace a website zoonegara.my. The website contains the following
 ### Things removed
 
 1. Removed zooku (strange annual pass = per entry ticket)
+2. Removed news
+3. Merged education in to get involved
 
 ## Development
 
