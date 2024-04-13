@@ -1,7 +1,6 @@
 import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
 import Career from "./page";
-import fs from "fs";
 import { zooProfile } from "@/config/profile";
 import { checkDownloadLinkHasHostAllLocalFiles } from "@/util/fileHelper";
 

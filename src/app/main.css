@@ -139,6 +139,12 @@ section.primary {
   padding-bottom: 6rem;
 }
 
+/* slick carousel button */
+.slick-slider .slick-prev:before,
+.slick-slider .slick-next:before {
+  color: var(--primary-700);
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

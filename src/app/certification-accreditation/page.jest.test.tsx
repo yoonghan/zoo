@@ -1,6 +1,5 @@
 import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
-import fs from "fs";
 import Certification from "./page";
 import { miniLinks } from "./config";
 import { checkDownloadLinkHasHostAllLocalFiles } from "@/util/fileHelper";

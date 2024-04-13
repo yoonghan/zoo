@@ -8,5 +8,10 @@ describe("Main Homepage", () => {
     const { getByRole } = render(<Home />);
     //main
     expect(getByRole("main")).toBeInTheDocument();
+    //headers
+    expect(
+      getByRole("heading", { name: "Welcome to Zoo Negara" })
+    ).toBeInTheDocument();
+    expect(getByRole("heading", { name: "Highlights" })).toBeInTheDocument();
   });
 });

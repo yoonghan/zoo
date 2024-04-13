@@ -5,6 +5,8 @@ export type LinkStyles = {
   styling?: "Primary" | "Secondary" | "None";
 };
 
+const isExternalUrlRegex = new RegExp("^https?://");
+
 export function Link({
   styling = "Primary",
   href,
@@ -16,10 +18,13 @@ export function Link({
   const buttonStyleClassName =
     styling === "None" ? "" : style[`link-${styling.toLowerCase()}`];
 
+  const isExternalLink = isExternalUrlRegex.test(href);
+
   return (
     <NextLink
       href={href}
-      className={`${buttonStyleClassName} ${className || ''}`}
+      className={`${buttonStyleClassName} ${className || ""}`}
+      rel={isExternalLink ? "external" : undefined}
       {...additionalProps}
     >
       {children}

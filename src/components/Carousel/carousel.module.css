@@ -1,0 +1,31 @@
+.card {
+  text-align: center;
+  margin: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.card a {
+  color: var(--orange-500);
+}
+
+.card a:hover {
+  color: var(--orange-500);
+}
+
+.card .label {
+  position: absolute;
+  bottom: -100px;
+  padding: 0.5rem;
+  background-color: rgba(2, 2, 2, 0.8);
+  transition: bottom 0.2s ease-out;
+}
+
+.card img {
+  clear: both;
+}
+
+.card a > img:hover ~ .label,
+.card .label:hover {
+  bottom: 0;
+}

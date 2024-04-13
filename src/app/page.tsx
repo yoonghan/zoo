@@ -1,3 +1,5 @@
+import { Carousel } from "@/components/Carousel";
+import { zooHighlights } from "@/config/highlights";
 import Image from "next/image";
 
 export default function Home() {
@@ -20,7 +22,6 @@ export default function Home() {
           <h1 className="font-bold text-4xl text-center">
             Welcome to Zoo Negara
           </h1>
-
           <figure>
             <figcaption className="mb-4">
               Zoo Negara Malaysia is managed by the Malaysian Zoological
@@ -40,6 +41,10 @@ export default function Home() {
             />
           </figure>
         </article>
+        <section>
+          <h2 className="font-bold text-2xl">Highlights</h2>
+          <Carousel model={zooHighlights} />
+        </section>
       </main>
     </>
   );
