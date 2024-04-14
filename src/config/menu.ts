@@ -17,8 +17,8 @@ export const zooMenu: MenuType = [
         url: "/visitor-info/zoo-map",
       },
       {
-        label: "Things to do",
-        url: "/visitor-info/things-to-do",
+        label: "Kiosks And Facilities",
+        url: "/visitor-info/kiosks-n-facilities",
       },
     ],
   },
