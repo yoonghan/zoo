@@ -18,6 +18,7 @@ export type FooterProps = {
     state: string;
     postalCode: string | number;
     country: string;
+    googleMaps: string;
   };
   partners: {
     imageSrc: string;

@@ -9,24 +9,16 @@ export const zooMenu: MenuType = [
         label: "Opening Hours And Rates",
       },
       {
-        label: "Animal Shows",
-        url: "#animal-show",
+        label: "Getting There",
+        url: "/visitor-info/getting-there",
       },
       {
         label: "Zoo Map",
-        url: "#zoo-map",
+        url: "/visitor-info/zoo-map",
       },
       {
-        label: "Getting There",
-        url: "#getting-there",
-      },
-      {
-        label: "Food & Soveniour Kiosk",
-        url: "#food-n-sovenior-kiosk",
-      },
-      {
-        label: "Other Facilities",
-        url: "#other-facilities",
+        label: "Things to do",
+        url: "/visitor-info/things-to-do",
       },
     ],
   },
