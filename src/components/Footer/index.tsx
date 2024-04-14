@@ -9,8 +9,6 @@ export type FooterProps = {
     day: { from: string; to: string };
     time: { from: string; to: string };
     exception?: string;
-    shows: string[];
-    animalFeeding: string[];
   };
   address: {
     street: string;
@@ -48,7 +46,9 @@ export function MutableFooter({
               <li>
                 {operatingTime.time.from} - {operatingTime.time.to}
               </li>
-              {operatingTime.exception && <li> {operatingTime.exception}</li>}
+              {operatingTime.exception && (
+                <li className="text-sm"> ({operatingTime.exception})</li>
+              )}
             </ul>
           </article>
           <div className="border-2 secondary-border my-4"></div>
