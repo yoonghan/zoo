@@ -56,9 +56,9 @@ export default function GettingThere() {
           className="anchor-link-header text-left"
           id={miniLinks[1].hashId}
         >
-          <h2 className="text-2xl font-bold text-center">
+          <h3 className="text-2xl font-bold text-center">
             {miniLinks[1].title}
-          </h2>
+          </h3>
           <div className="mt-4">
             The nearest transport is via{" "}
             <strong>Light Rail Transit System (LRT)</strong>:
@@ -77,9 +77,9 @@ export default function GettingThere() {
           className="anchor-link-header text-left primary"
           id={miniLinks[2].hashId}
         >
-          <h2 className="text-2xl font-bold text-center">
+          <h4 className="text-2xl font-bold text-center">
             {miniLinks[2].title}
-          </h2>
+          </h4>
           <div className="mt-4">
             <strong>Rapid KL is a</strong>:
             <ol className="list-decimal text-left mt-2 ml-6">
