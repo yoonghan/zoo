@@ -3,10 +3,14 @@ import { MenuType } from "@/components/Menu";
 export const zooMenu: MenuType = [
   {
     label: "Visitor Info",
-    url: "/visitor",
+    url: "/visitor-info",
     items: [
       {
         label: "Opening Hours And Rates",
+      },
+      {
+        label: "Animal Shows",
+        url: "#animal-show",
       },
       {
         label: "Zoo Map",
@@ -23,18 +27,6 @@ export const zooMenu: MenuType = [
       {
         label: "Other Facilities",
         url: "#other-facilities",
-      },
-      {
-        label: "Show Times",
-        url: "#show-times",
-      },
-      {
-        label: "Animal Feeding",
-        url: "#animal-feeding",
-      },
-      {
-        label: "Rides",
-        url: "#rides",
       },
     ],
   },

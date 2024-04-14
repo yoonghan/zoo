@@ -9,6 +9,8 @@ export type FooterProps = {
     day: { from: string; to: string };
     time: { from: string; to: string };
     exception?: string;
+    shows: string[];
+    animalFeeding: string[];
   };
   address: {
     street: string;

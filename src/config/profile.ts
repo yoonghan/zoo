@@ -16,6 +16,15 @@ export const zooProfile: FooterProps & Ticket & { contactus: ContactUsProps } =
     operatingTime: {
       day: { from: "Monday", to: "Sunday" },
       time: { from: "9:00am", to: "5:00pm" },
+      shows: [
+        "Saturday to Thursday: 11:00am and 3:00pm",
+        "Our Multi-animal Show is *CLOSED on Friday *EXCEPT school holidays & public holidays.",
+      ],
+      animalFeeding: [
+        "Only on Weekends and Public Holidays",
+        "Children's World : 12.00 pm - 1.00 pm",
+        "Javan Deer : 2.00 pm - 3.00 pm",
+      ],
     },
     address: {
       street: "Zoo Negara",

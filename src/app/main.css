@@ -33,6 +33,10 @@ main h1 {
 /* main -end */
 
 /* table */
+table {
+  border-bottom: 1px solid;
+}
+
 tbody tr:nth-child(even) {
   background-color: var(--bluegray-100);
 }
