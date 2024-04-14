@@ -16,3 +16,6 @@ export const checkDownloadLinkHasHostAllLocalFiles = (
       };
     });
 };
+
+export const checkForImageExist = (imgSrcWithoutImageFolder: string) =>
+  fs.existsSync(`./public/${imgSrcWithoutImageFolder}`);
