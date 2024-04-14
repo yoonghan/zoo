@@ -1,5 +1,8 @@
 import { render } from "@testing-library/react";
-import { checkDownloadLinkHasHostAllLocalFiles } from "./fileHelper";
+import {
+  checkDownloadLinkHasHostAllLocalFiles,
+  checkForImageExist,
+} from "./fileHelper";
 
 describe("fileHelper", () => {
   describe("checkDownloadLinkHasHostAllLocalFiles", () => {
@@ -31,6 +34,12 @@ describe("fileHelper", () => {
           status: false,
         },
       ]);
+    });
+  });
+
+  describe("checkForImageExist", () => {
+    it("should show true as image of Map should exist in public folder", () => {
+      expect(checkForImageExist("zoo-negara-map.jpg")).toBeTruthy;
     });
   });
 });

@@ -1,4 +1,4 @@
-.button-info,
+.button-primary,
 .button-secondary {
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   box-shadow: 1px 1px 5px 0 gray;
@@ -8,17 +8,17 @@
   white-space: nowrap;
 }
 
-.button-info:hover,
+.button-primary:hover,
 .button-secondary:hover {
   color: var(--secondary-text-color);
   box-shadow: 0 0 5px 0 gray;
 }
 
-.button-info {
+.button-primary {
   background: var(--primary-color);
 }
 
-.button-info:hover {
+.button-primary:hover {
   background: var(--primary-700);
 }
 

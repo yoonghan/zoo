@@ -13,6 +13,7 @@ describe("Footer", () => {
     postalCode: 68000,
     state: "Ampang",
     country: "Selangor",
+    googleMaps: "https://maps.google.com",
   };
   const defaultPartners = [
     {
@@ -89,7 +90,7 @@ describe("Footer", () => {
         exception: "Not open on public holidays",
       },
     });
-    expect(getByText("Not open on public holidays")).toBeInTheDocument();
+    expect(getByText("(Not open on public holidays)")).toBeInTheDocument();
   });
 
   it("should render component with city", () => {

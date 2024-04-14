@@ -16,6 +16,7 @@ export const zooProfile: FooterProps & Ticket & { contactus: ContactUsProps } =
     operatingTime: {
       day: { from: "Monday", to: "Sunday" },
       time: { from: "9:00am", to: "5:00pm" },
+      exception: "Last Admission at 4:00pm"
     },
     address: {
       street: "Zoo Negara",
@@ -23,6 +24,8 @@ export const zooProfile: FooterProps & Ticket & { contactus: ContactUsProps } =
       postalCode: 68000,
       state: "Ampang",
       country: "Selangor",
+      googleMaps:
+        "https://www.google.com.my/maps?f=q&source=embed&hl=en&geocode&q=zoo+negara&sll=4.109495,109.101269&sspn=33.65185,57.084961&ie=UTF8&hq=Zoo+Negara&hnear=Zoo+Negara&ll=3.210945,101.758093&spn=0.016154,0.027874&z=14&iwloc=A&cid=12699137066735775727",
     },
     partners: [
       {

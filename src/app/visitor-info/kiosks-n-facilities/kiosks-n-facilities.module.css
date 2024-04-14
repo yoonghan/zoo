@@ -1,0 +1,41 @@
+.kiosks ul li {
+  padding: 1rem 0;
+  border-bottom: 1px solid;
+}
+
+.kiosks ul li p {
+  margin-top: 1rem;
+}
+
+.kiosks {
+  text-align: left;
+  margin-top: 2rem;
+}
+
+.facilities figure {
+  padding: 1rem 0;
+  border-bottom: 1px solid;
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  text-align: left;
+  gap: 0.5rem;
+}
+
+.facilities figure figcaption {
+  margin-top: 0.5rem;
+}
+
+.facilities figure figcaption p {
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 960px) {
+  .facilities figure {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+  }
+  .facilities figure img {
+    margin: auto;
+  }
+}

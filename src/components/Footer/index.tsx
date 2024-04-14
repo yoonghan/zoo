@@ -16,6 +16,7 @@ export type FooterProps = {
     state: string;
     postalCode: string | number;
     country: string;
+    googleMaps: string;
   };
   partners: {
     imageSrc: string;
@@ -45,7 +46,9 @@ export function MutableFooter({
               <li>
                 {operatingTime.time.from} - {operatingTime.time.to}
               </li>
-              {operatingTime.exception && <li> {operatingTime.exception}</li>}
+              {operatingTime.exception && (
+                <li className="text-sm"> ({operatingTime.exception})</li>
+              )}
             </ul>
           </article>
           <div className="border-2 secondary-border my-4"></div>
