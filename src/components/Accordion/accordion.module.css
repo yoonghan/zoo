@@ -1,5 +1,5 @@
 .accordion {
-  border: 2px solid var(--primary-color);
+  border: 2px solid var(--primary-700);
   border-radius: 0.5rem;
   overflow: hidden;
 }
@@ -22,7 +22,7 @@
 
 .tab-label {
   display: flex;
-  background: var(--primary-color);
+  background: var(--primary-700);
   color: var(--primary-color-text);
   cursor: pointer;
   justify-content: space-between;
