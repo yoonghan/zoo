@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Image from "next/image";
 import { Link } from "../Link";
-import styles from "./carousel.module.css";
+import style from "./carousel.module.css";
 
 export type CardItem = {
   link: string;
@@ -23,7 +23,7 @@ type CarouselProp = {
 
 function Card({ shortDescription, img, link }: CardItem) {
   return (
-    <div className={styles.card}>
+    <div className={style.card}>
       <Link href={link}>
         <Image
           src={img.src}
@@ -31,7 +31,7 @@ function Card({ shortDescription, img, link }: CardItem) {
           height={img.height}
           alt={img.alt}
         />
-        <div className={styles.label}>{shortDescription}</div>
+        <div className={style.label}>{shortDescription}</div>
       </Link>
     </div>
   );

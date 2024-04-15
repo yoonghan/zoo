@@ -7,7 +7,7 @@ A zoo template website that runs on server rather than just frontend codes.
 
 ## Achievement for
 
-Goal is to replace a website zoonegara.my. The website contains the following
+Goal is to replace a website zoonegara.my. Zoo Negara is a non-government organization.
 
 ### UX Issues
 
@@ -62,10 +62,10 @@ pnpm dev
 bun dev
 ```
 
-## Code Engine
+## Attribution to
 
-1. Nextjs
-2. Vercel
+1. Nextjs (with React)
+2. Font Awesome by Dave Gandy - http://fontawesome.io
 
 [build-badge]: https://img.shields.io/github/actions/workflow/status/yoonghan/zoo/master_merge.yml
 [build]: https://github.com/yoonghan/zoo/actions?query=workflow

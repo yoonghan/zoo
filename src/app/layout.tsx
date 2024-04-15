@@ -8,6 +8,8 @@ import { zooProfile } from "@/config/profile";
 import { Menu } from "@/components/Menu";
 import { zooMenu } from "@/config/menu";
 import { ButtonLink } from "@/components/Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTicket } from "@fortawesome/free-solid-svg-icons";
 
 export const metadata: Metadata = {
   title: "Zoo Negara Malaysia",
@@ -33,10 +35,10 @@ export default function RootLayout({
             mobileHomeText="Zoo Negara Malaysia"
             shortcutComponent={
               <ButtonLink
-                styling="Secondary"
+                styling="BuyNow"
                 href={zooProfile.ticket.admission.url}
               >
-                {zooProfile.ticket.admission.text}
+                <FontAwesomeIcon icon={faTicket} className="inline mr-2 rotate-45" width={20}/>{zooProfile.ticket.admission.text}
               </ButtonLink>
             }
           />

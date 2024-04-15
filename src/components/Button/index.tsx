@@ -2,7 +2,7 @@ import style from "./button.module.css";
 import { Link } from "../Link";
 
 export type ButtonStyles = {
-  styling: "Primary" | "Secondary";
+  styling: "Primary" | "Secondary" | "BuyNow";
 };
 
 export function Button({
@@ -36,7 +36,7 @@ export function ButtonLink({
   return (
     <Link
       href={href}
-      className={`${style[buttonStyleClassName]} ${className || ""}`}
+      className={`${style.button} ${style[buttonStyleClassName]} ${className || ""}`}
       role={"button"}
       styling="None"
       {...additionalProps}

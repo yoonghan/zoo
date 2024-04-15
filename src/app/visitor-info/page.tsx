@@ -1,7 +1,10 @@
 import { ButtonLink } from "@/components/Button";
 import MiniMenu, { MiniMenuItems } from "@/components/MiniMenu";
 import { zooProfile } from "@/config/profile";
+import { faTicket } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
+import React from "react";
 import styles from "./visitor-info.module.css";
 
 const miniLinks: MiniMenuItems[] = [
@@ -28,9 +31,7 @@ export default function VisitorInfo() {
     <>
       <MiniMenu model={miniLinks} />
       <main>
-        <h1 className="text-4xl text-center font-bold">Visitor Info</h1>
-
-        <hr className="mt-8" />
+        <h1 className="text-4xl text-center font-bold my-10">Visitor Info</h1>
 
         <article
           className="anchor-link-header text-center primary"
@@ -57,14 +58,14 @@ export default function VisitorInfo() {
           className="anchor-link-header text-center"
           id={miniLinks[1].hashId}
         >
-          <h3 className="text-2xl font-bold mt-8">{miniLinks[1].title}</h3>
+          <h3 className="text-2xl font-bold">{miniLinks[1].title}</h3>
           <p>Please get your admission ticket valid</p>
           <div className="mt-8">
             <ButtonLink
               href={zooProfile.ticket.admission.url}
-              styling="Primary"
+              styling="BuyNow"
             >
-              {zooProfile.ticket.admission.text}
+              <FontAwesomeIcon icon={faTicket} className="inline mr-4 rotate-45 " width={20}/>{zooProfile.ticket.admission.text}
             </ButtonLink>
           </div>
           <div className="mt-16 text-left">
@@ -94,7 +95,7 @@ export default function VisitorInfo() {
           className="anchor-link-header text-center primary"
           id={miniLinks[2].hashId}
         >
-          <h4 className="text-2xl font-bold mt-8">{miniLinks[2].title}</h4>
+          <h4 className="text-2xl font-bold">{miniLinks[2].title}</h4>
 
           <div className={styles.rental}>
             <figure>
