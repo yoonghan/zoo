@@ -2,6 +2,11 @@ import { ButtonLink } from "@/components/Button";
 import MiniMenu, { MiniMenuItems } from "@/components/MiniMenu";
 import { zooProfile } from "@/config/profile";
 
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBus, faTrain } from '@fortawesome/free-solid-svg-icons'
+import { faMap } from '@fortawesome/free-regular-svg-icons'
+
 const miniLinks: MiniMenuItems[] = [
   {
     title: "Address",
@@ -46,7 +51,7 @@ export default function GettingThere() {
                 styling={"Secondary"}
                 rel="external"
               >
-                View In Google Maps
+              <FontAwesomeIcon icon={faMap} width="20" className="mr-2 inline"/>  View In Google Maps
               </ButtonLink>
             </div>
           </div>
@@ -59,9 +64,9 @@ export default function GettingThere() {
           <h3 className="text-2xl font-bold text-center">
             {miniLinks[1].title}
           </h3>
+            <FontAwesomeIcon icon={faTrain} width={50} className="mx-auto mt-4"/>
           <div className="mt-4">
-            The nearest transport is via{" "}
-            <strong>Light Rail Transit System (LRT)</strong>:
+            <strong>via Light Rail Transit System (LRT)</strong>:
             <ol className="list-decimal text-left mt-2 ml-6">
               <li>Alight at Wangsa Maju Station, Kelana Jaya Line.</li>
               <li>Board a taxi to Zoo Negara.</li>
@@ -80,8 +85,9 @@ export default function GettingThere() {
           <h4 className="text-2xl font-bold text-center">
             {miniLinks[2].title}
           </h4>
+          <FontAwesomeIcon icon={faBus} width={50} className="mx-auto mt-4"/>
           <div className="mt-4">
-            <strong>Rapid KL is a</strong>:
+            <strong>via Bus</strong>:
             <ol className="list-decimal text-left mt-2 ml-6">
               <li>
                 Rapid KL number <strong>253</strong> from Wangsa Maju Station,
