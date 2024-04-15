@@ -1,6 +1,4 @@
-.button-primary,
-.button-secondary,
-.button-buynow {
+.button {
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   box-shadow: 1px 1px 5px 0 gray;
   border-radius: 0.5rem;
@@ -9,9 +7,7 @@
   white-space: nowrap;
 }
 
-.button-primary:hover,
-.button-secondary:hover,
-.button-buynow:hover {
+.button:hover {
   color: var(--secondary-text-color);
   box-shadow: 0 0 5px 0 gray;
 }
@@ -45,9 +41,7 @@
 }
 
 @media (max-width: 960px) {
-  .button-primary,
-  .button-secondary,
-  .button-buynow {
+  .button {
     padding: 0.75rem;
   }
 }
