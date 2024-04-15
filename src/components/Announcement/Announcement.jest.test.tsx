@@ -7,11 +7,18 @@ describe("Announcement", () => {
   const announcements = ["announcement 1", "announcement 2", "announcement 3"];
 
   const renderAnnouncement = () =>
-    render(<Announcement ariaAnnouncementTitle={"Announcement Title"} announcements={announcements} />);
+    render(
+      <Announcement
+        ariaAnnouncementTitle={"Announcement Title"}
+        announcements={announcements}
+      />
+    );
 
   it("should be aria friendly", () => {
     const { getByRole } = renderAnnouncement();
-    expect(getByRole("dialog", {name: "Announcement Title"})).toBeInTheDocument()
+    expect(
+      getByRole("dialog", { name: "Announcement Title" })
+    ).toBeInTheDocument();
   });
 
   it("should render first component only", () => {
@@ -65,7 +72,7 @@ describe("Announcement", () => {
 
   describe("no announcement", () => {
     const renderEmptyAnnouncements = () =>
-      render(<Announcement announcements={[]} ariaAnnouncementTitle={""}/>);
+      render(<Announcement announcements={[]} ariaAnnouncementTitle={""} />);
 
     it("should not have navigation buttons", async () => {
       const { queryByRole } = renderEmptyAnnouncements();
@@ -80,7 +87,12 @@ describe("Announcement", () => {
 
   describe("one announcement with bolded html", () => {
     const renderEmptyAnnouncements = () =>
-      render(<Announcement announcements={["one *announcement"]} ariaAnnouncementTitle={""}/>);
+      render(
+        <Announcement
+          announcements={["one *announcement"]}
+          ariaAnnouncementTitle={""}
+        />
+      );
 
     it("should not have navigation buttons", async () => {
       const { queryByRole, getByText } = renderEmptyAnnouncements();
@@ -91,6 +103,7 @@ describe("Announcement", () => {
         queryByRole("button", { name: "previous announcement" })
       ).not.toBeInTheDocument();
       expect(getByText("one").parentElement).toHaveClass("only-one");
+      expect(getByText("announcement").tagName).toBe("STRONG");
     });
   });
 });

@@ -6,6 +6,7 @@ const labels = {
   contactUs: "Contact Us",
   careers: "Careers",
   certificates: "Accreditation / Certification",
+  faq: "FAQ",
 };
 
 export default labels;

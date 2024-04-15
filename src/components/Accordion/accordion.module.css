@@ -1,0 +1,54 @@
+.accordion {
+  border: 2px solid var(--primary-color);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.tab input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+.tab-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.35s;
+}
+
+.tab input:checked ~ .tab-content {
+  max-height: 20rem;
+}
+
+.tab-label {
+  display: flex;
+  background: var(--primary-color);
+  color: var(--primary-color-text);
+  cursor: pointer;
+  justify-content: space-between;
+  padding: 1rem;
+  font-weight: bold;
+  border-bottom: 1px solid;
+}
+
+.tab:last-child .tab-label {
+  border-bottom: 0;
+}
+
+.tab-label::after {
+  content: "\276F";
+  width: 1rem;
+  text-align: center;
+  transform: rotate(90deg);
+  transition: all 0.35s;
+}
+
+.tab input:checked + .tab-label::after {
+  transform: rotate(270deg);
+}
+
+.tab-content p {
+  margin: 0;
+  padding: 1rem;
+  background: #fff;
+}
