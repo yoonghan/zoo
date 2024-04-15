@@ -1,7 +1,10 @@
 import { ButtonLink } from "@/components/Button";
 import MiniMenu, { MiniMenuItems } from "@/components/MiniMenu";
 import { zooProfile } from "@/config/profile";
+import { faTicket } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
+import React from "react";
 import styles from "./visitor-info.module.css";
 
 const miniLinks: MiniMenuItems[] = [
@@ -64,7 +67,7 @@ export default function VisitorInfo() {
               href={zooProfile.ticket.admission.url}
               styling="Primary"
             >
-              {zooProfile.ticket.admission.text}
+              <FontAwesomeIcon icon={faTicket} className="inline mr-4 rotate-45 " width={20}/>{zooProfile.ticket.admission.text}
             </ButtonLink>
           </div>
           <div className="mt-16 text-left">
