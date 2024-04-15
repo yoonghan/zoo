@@ -1,12 +1,33 @@
 import { Link } from "@/components/Link";
 import React from "react";
 
-export function htmlConvertor(text: string) {
-  const unbreakableSpaceTextReplacement = "\n";
+const unbreakableSpaceTextReplacement = "\n";
+const regexAcceptableEndSymbol = "[\\.|,]";
+const regExpOfWordHasClosingAnchorBracket = new RegExp(
+  `.*\\]${regexAcceptableEndSymbol}?$`
+);
+const regExpOfClosingAnchorBracket = new RegExp(
+  `\\]${regexAcceptableEndSymbol}?$`,
+  "g"
+);
+const regExpEndsWithAcceptableEndSymbol = new RegExp(
+  `${regexAcceptableEndSymbol}$`
+);
 
+export function htmlConvertor(text: string) {
   function substituteAnchorWithLink(word: string, parentKey: number) {
-    if (word.endsWith("]") && word.indexOf("|") > -1) {
-      const wordsWithNoBrackets = word.substring(1, word.length - 1);
+    if (
+      word.match(regExpOfWordHasClosingAnchorBracket) &&
+      word.indexOf("|") > -1
+    ) {
+      const wordWifCloseBracket = word.replaceAll(
+        regExpOfClosingAnchorBracket,
+        "]"
+      );
+      const wordsWithNoBrackets = wordWifCloseBracket.substring(
+        1,
+        wordWifCloseBracket.length - 1
+      );
       const linkWordPair = wordsWithNoBrackets.split("|");
       const link = linkWordPair[0];
       const text = linkWordPair[1].replaceAll(
@@ -14,9 +35,12 @@ export function htmlConvertor(text: string) {
         " "
       );
       return (
-        <Link href={link} key={parentKey}>
-          {text}
-        </Link>
+        <React.Fragment key={parentKey}>
+          <Link href={link}>{text}</Link>
+          {word.match(regExpEndsWithAcceptableEndSymbol)
+            ? `${word.slice(-1)}`
+            : ""}
+        </React.Fragment>
       );
     }
     return word;

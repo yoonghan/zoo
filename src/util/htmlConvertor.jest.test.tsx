@@ -31,7 +31,7 @@ describe("HTML Convertor", () => {
 
   describe("change square bracket to anchor link", () => {
     it("will render normal link correctly", () => {
-      const { getByRole } = render(
+      const { getByRole, getByText } = render(
         htmlConvertor("[https://www.google.com|Google]")
       );
       expect(getByRole("link", { name: "Google" })).toHaveAttribute(
@@ -67,6 +67,25 @@ describe("HTML Convertor", () => {
       expect(
         getByRole("link", { name: "*world i know is the best" })
       ).toHaveAttribute("href", "/link");
+    });
+
+    it("can render link that ends with ,(comma) and .(dot)", () => {
+      const component = render(
+        htmlConvertor("Let's [/link1|here], or [/link2|there] or [/link3|end].")
+      );
+      expect(
+        component.getByRole("link", {
+          name: "here",
+        })
+      ).toHaveAttribute("href", "/link1");
+      expect(
+        component.getByRole("link", {
+          name: "there",
+        })
+      ).toHaveAttribute("href", "/link2");
+      expect(component.baseElement.innerText).toBe(
+        "Let's here, or there or end."
+      );
     });
   });
 });
