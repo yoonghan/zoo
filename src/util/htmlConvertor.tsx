@@ -44,7 +44,9 @@ export function htmlConvertor(text: string) {
       );
       return (
         <React.Fragment key={parentKey}>
-          <Link href={link}>{text}</Link>
+          <Link href={link} className="underline">
+            {text}
+          </Link>
           {word.match(regExpEndsWithAcceptableEndSymbol)
             ? `${word.slice(-1)}`
             : ""}
