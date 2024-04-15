@@ -1,7 +1,7 @@
 "use client";
 
 import React, { memo, useCallback, useEffect, useRef, useState } from "react";
-import styles from "./mini-menu.module.css";
+import style from "./mini-menu.module.css";
 
 export type MiniMenuItems = {
   hashId: string;
@@ -24,9 +24,9 @@ function MiniMenu({ model, onScrollMonitor }: MiniMenuProps) {
     }
     if (navBar.current) {
       if (window.scrollY >= navBarPosition) {
-        navBar.current.classList.add(styles.sticky);
+        navBar.current.classList.add(style.sticky);
       } else {
-        navBar.current.classList.remove(styles.sticky);
+        navBar.current.classList.remove(style.sticky);
       }
     }
   }, [navBarPosition, onScrollMonitor]);
@@ -40,13 +40,13 @@ function MiniMenu({ model, onScrollMonitor }: MiniMenuProps) {
   return (
     <nav className="overflow-x-auto shadow-md" ref={navBar}>
       <div
-        className={`${styles.container} flex gap-4 justify-center p-6 min-w-max`}
+        className={`${style.container} flex gap-4 justify-center p-6 min-w-max`}
       >
         {model.map((item, idx) => (
           <React.Fragment key={item.hashId}>
             {idx !== 0 && (
               <div
-                className={`${styles.separator} border-r border-1`}
+                className={`${style.separator} border-r border-1`}
                 role="separator"
               ></div>
             )}
