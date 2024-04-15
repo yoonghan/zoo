@@ -156,73 +156,35 @@ export default function VisitorInfo() {
           <h4 className="text-2xl font-bold">{miniLinks[3].title}</h4>
 
           <div className="mt-4">
-            <strong>Tram Station 1</strong>
+            <strong>Tram Station Price</strong>
             <table className="mt-2 w-full">
               <thead>
                 <tr>
                   <th>Category</th>
-                  <th>Malaysian</th>
-                  <th>Residence *</th>
-                  <th>Foreigner</th>
+                  <th>With MyKad</th>
+                  <th>Without MyKad</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>Adults</td>
-                  <td>10.90</td>
-                  <td>14.90</td>
-                  <td>14.90</td>
+                  <td>MYR 10.90</td>
+                  <td>MYR 14.90</td>
                 </tr>
                 <tr>
                   <td>
                     Children <br />
                     <i>(3 to 12 years old)</i>
                   </td>
-                  <td>6.90</td>
-                  <td>11.90</td>
-                  <td>11.90</td>
+                  <td>MYR 6.90</td>
+                  <td>MYR 11.90</td>
                 </tr>
               </tbody>
             </table>
-          </div>
-
-          <div className="mt-6">
-            <strong>Tram Station 2</strong>
-            <table className="mt-2 w-full">
-              <thead>
-                <tr>
-                  <th>Category</th>
-                  <th>Malaysian</th>
-                  <th>Residence</th>
-                  <th>Foreigner</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Adults</td>
-                  <td>6.90</td>
-                  <td>11.90</td>
-                  <td>11.90</td>
-                </tr>
-                <tr>
-                  <td>
-                    Children <br />
-                    <i>(3 to 12 years old)</i>
-                  </td>
-                  <td>6.90</td>
-                  <td>11.90</td>
-                  <td>11.90</td>
-                </tr>
-              </tbody>
-            </table>
-
             <div className="mt-8">
               <strong>Additional Information:</strong>
               <ol className="list-decimal ml-6">
-                <li>
-                  <i>* Residence</i> - include for i-Kad, Working Permit,
-                  Dependant pass holders.
-                </li>
+                <li>Tickets can be purchased at the zoo.</li>
                 <li>
                   OKU - 10% discounted price (Please show a valid OKU card).
                 </li>
