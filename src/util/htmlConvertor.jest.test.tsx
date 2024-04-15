@@ -88,4 +88,13 @@ describe("HTML Convertor", () => {
       );
     });
   });
+
+  describe("change any new lines into new lines!", () => {
+    it("will change any ! into line break", () => {
+      const component = render(htmlConvertor("Hi there !! How are you?"));
+      expect(component.baseElement.innerHTML).toBe(
+        "<div>Hi there <br> How are you?</div>"
+      );
+    });
+  });
 });

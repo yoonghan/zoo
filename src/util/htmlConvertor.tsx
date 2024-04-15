@@ -1,6 +1,14 @@
 import { Link } from "@/components/Link";
 import React from "react";
 
+/*
+Usage
+
+!! - with spaces between means new line.
+[url|description] - creates link with description.
+* - any words followed by * is bold, i.e. *I am *BOLD!
+*/
+
 const unbreakableSpaceTextReplacement = "\n";
 const regexAcceptableEndSymbol = "[\\.|,]";
 const regExpOfWordHasClosingAnchorBracket = new RegExp(
@@ -75,6 +83,8 @@ export function htmlConvertor(text: string) {
       return <strong key={idx}>{word.substring(1, word.length)}</strong>;
     } else if (word.startsWith("[")) {
       return substituteAnchorWithLink(word, idx);
+    } else if (word === "!!") {
+      return <br key={idx} />;
     } else {
       return word.replaceAll(unbreakableSpaceTextReplacement, " ");
     }
