@@ -150,6 +150,11 @@ section.primary {
   color: var(--primary-700);
 }
 
+/* for htmlConvertor */
+a.underline {
+  text-decoration: underline;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -7,6 +7,7 @@ describe("ID Generator", () => {
       expect(formatStringAsId("hello   world")).toBe("hello-world");
       expect(formatStringAsId("hello   world    ")).toBe("hello-world");
       expect(formatStringAsId("   hello   world    ")).toBe("hello-world");
+      expect(formatStringAsId("A few spaces should do")).toBe("a-few-spaces-should-do");
     });
 
     it("should all to lower space", () => {
