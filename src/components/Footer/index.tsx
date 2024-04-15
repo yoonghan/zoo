@@ -88,6 +88,9 @@ export function MutableFooter({
         <li>
           <Link href="/certification-accreditation">{labels.certificates}</Link>
         </li>
+        <li>
+          <Link href="/frequent-asked-questions">{labels.faq}</Link>
+        </li>
       </ul>
       <hr className="my-4 border-t"></hr>
       <div className="text-center text-sm mt-4">

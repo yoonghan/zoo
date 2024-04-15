@@ -112,6 +112,10 @@ describe("Footer", () => {
     expect(getByText("Partners:")).toBeInTheDocument();
     expect(getByText("Contact Us")).toHaveAttribute("href", "/contact-us");
     expect(getByText("Careers")).toHaveAttribute("href", "/careers");
+    expect(getByText("FAQ")).toHaveAttribute(
+      "href",
+      "/frequent-asked-questions"
+    );
     expect(
       getByText(`- ${currentYearUpdated} all rights reserved.`)
     ).toBeInTheDocument();
