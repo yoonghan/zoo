@@ -77,14 +77,14 @@
 .side-menu:checked ~ nav {
   max-height: 100%;
 }
-.side-menu:checked ~ .hamb .hamb-line {
+.side-menu:checked ~ .mobile-menu .hamb .hamb-line {
   background: transparent;
 }
-.side-menu:checked ~ .hamb .hamb-line::before {
+.side-menu:checked ~ .mobile-menu .hamb .hamb-line::before {
   transform: rotate(-45deg);
   top: 0;
 }
-.side-menu:checked ~ .hamb .hamb-line::after {
+.side-menu:checked ~ .mobile-menu .hamb .hamb-line::after {
   transform: rotate(45deg);
   top: 0;
 }
@@ -155,6 +155,7 @@
     position: fixed;
     padding: 20px 10px;
     background: var(--primary-700);
+    top: 120px; /* to prevent user scroll */
   }
 
   .subnav-content > ul {
