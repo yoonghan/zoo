@@ -134,7 +134,7 @@
   .menu {
     max-height: none;
     top: 0;
-    position: relative;
+    position: static;
     overflow-y: hidden;
   }
 
@@ -152,10 +152,9 @@
     width: auto;
     height: auto;
     display: flex;
-    position: fixed;
+    position: absolute;
     padding: 20px 10px;
     background: var(--primary-700);
-    top: 120px; /* to prevent user scroll */
   }
 
   .subnav-content > ul {
