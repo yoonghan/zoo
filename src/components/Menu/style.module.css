@@ -155,6 +155,7 @@
     position: fixed;
     padding: 20px 10px;
     background: var(--primary-700);
+    top: 120px; /* to prevent user scroll */
   }
 
   .subnav-content > ul {
