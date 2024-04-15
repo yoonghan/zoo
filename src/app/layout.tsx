@@ -35,7 +35,7 @@ export default function RootLayout({
             mobileHomeText="Zoo Negara Malaysia"
             shortcutComponent={
               <ButtonLink
-                styling="Secondary"
+                styling="BuyNow"
                 href={zooProfile.ticket.admission.url}
               >
                 <FontAwesomeIcon icon={faTicket} className="inline mr-2 rotate-45" width={20}/>{zooProfile.ticket.admission.text}

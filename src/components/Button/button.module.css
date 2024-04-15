@@ -1,5 +1,6 @@
 .button-primary,
-.button-secondary {
+.button-secondary,
+.button-buynow {
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   box-shadow: 1px 1px 5px 0 gray;
   border-radius: 0.5rem;
@@ -9,7 +10,8 @@
 }
 
 .button-primary:hover,
-.button-secondary:hover {
+.button-secondary:hover,
+.button-buynow:hover {
   color: var(--secondary-text-color);
   box-shadow: 0 0 5px 0 gray;
 }
@@ -32,9 +34,20 @@
   background: var(--secondary-hover-color);
 }
 
+.button-buynow {
+  color: #fff;
+  background-color: #b3a373; /*specially written to follow ticket 2u*/
+}
+
+.button-buynow:hover {
+  color: #fff;
+  background-color: #212529;
+}
+
 @media (max-width: 960px) {
   .button-primary,
-  .button-secondary {
+  .button-secondary,
+  .button-buynow {
     padding: 0.75rem;
   }
 }

@@ -63,7 +63,7 @@ export default function VisitorInfo() {
           <div className="mt-8">
             <ButtonLink
               href={zooProfile.ticket.admission.url}
-              styling="Primary"
+              styling="BuyNow"
             >
               <FontAwesomeIcon icon={faTicket} className="inline mr-4 rotate-45 " width={20}/>{zooProfile.ticket.admission.text}
             </ButtonLink>

@@ -2,7 +2,7 @@ import style from "./button.module.css";
 import { Link } from "../Link";
 
 export type ButtonStyles = {
-  styling: "Primary" | "Secondary";
+  styling: "Primary" | "Secondary" | "BuyNow";
 };
 
 export function Button({
