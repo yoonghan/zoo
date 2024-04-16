@@ -4,7 +4,9 @@ export default function GetInvolved() {
   return (
     <>
       <main>
-        <h1 className="text-4xl text-center font-bold my-10">Get Involved</h1>
+        <h1 className="text-4xl text-center font-bold my-10">
+          Getting Involved
+        </h1>
         <article>
           <h2 className="text-2xl text-center">What you&apos;re meant to us</h2>
           <p>

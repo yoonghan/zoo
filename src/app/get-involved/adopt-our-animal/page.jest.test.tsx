@@ -9,7 +9,7 @@ describe("Adopt Our Animal", () => {
     expect(getByRole("main")).toBeInTheDocument();
     //h1
     expect(
-      getByRole("heading", { name: "Adopt Our Animal" })
+      getByRole("heading", { name: "Adopt Our Animals" })
     ).toBeInTheDocument();
   });
 });
