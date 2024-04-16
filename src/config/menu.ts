@@ -58,7 +58,7 @@ export const zooMenu: MenuType = [
     items: [
       {
         label: "Adopt Our Animals",
-        url: "#adopt-our-animal",
+        url: "/get-involved/adopt-our-animal",
       },
       {
         label: "List Of Donors And Sponsors",
