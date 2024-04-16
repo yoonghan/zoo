@@ -38,7 +38,12 @@ export default function RootLayout({
                 styling="BuyNow"
                 href={zooProfile.ticket.admission.url}
               >
-                <FontAwesomeIcon icon={faTicket} className="inline mr-2 rotate-45" width={20}/>{zooProfile.ticket.admission.text}
+                <FontAwesomeIcon
+                  icon={faTicket}
+                  className="inline mr-2"
+                  width={20}
+                />
+                {zooProfile.ticket.admission.text}
               </ButtonLink>
             }
           />

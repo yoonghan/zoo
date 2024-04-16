@@ -155,6 +155,11 @@ a.underline {
   text-decoration: underline;
 }
 
+/* font awesome */
+svg[data-icon="ticket"] {
+  transform: rotate(-45deg);
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
