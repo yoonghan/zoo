@@ -130,53 +130,66 @@ describe("Menu", () => {
   });
 
   describe("Hiding side menu in mobile", () => {
-    it("should uncheck the checkbox of side menu, as mobile have cache to stay on page while render new page", async () => {
+    const renderMenuItemAndGetCheckBox = () => {
       const { getByRole } = renderMenuWithItems();
-      await userEvent.click(getByRole("checkbox", { name: "Main Menu" }));
-      expect(getByRole("checkbox", { name: "Main Menu" })).toBeChecked();
+      return {
+        sideMenuCheckBox: getByRole("checkbox", { name: "Main Menu" }),
+        getByRole,
+      };
+    };
+
+    const assertIsSideMenuUncheck = (element: Element) => {
+      expect(element).not.toBeChecked();
+      expect(document.body.style.overflow).toBe("auto");
+    };
+
+    it("should uncheck the checkbox of side menu, as mobile have cache to stay on page while render new page", async () => {
+      const { sideMenuCheckBox, getByRole } = renderMenuItemAndGetCheckBox();
+
+      await userEvent.click(sideMenuCheckBox);
+      expect(sideMenuCheckBox).toBeChecked();
 
       await userEvent.click(getByRole("menuitem", { name: "News" }));
-      expect(getByRole("checkbox", { name: "Main Menu" })).not.toBeChecked();
+      assertIsSideMenuUncheck(sideMenuCheckBox);
 
       //retry
       await userEvent.click(getByRole("menuitem", { name: "News" }));
-      expect(getByRole("checkbox", { name: "Main Menu" })).not.toBeChecked();
+      assertIsSideMenuUncheck(sideMenuCheckBox);
     });
 
     it("should not uncheck if the clicks are on links that are parent with child", async () => {
-      const { getByRole } = renderMenuWithItems();
-      await userEvent.click(getByRole("checkbox", { name: "Main Menu" }));
-      expect(getByRole("checkbox", { name: "Main Menu" })).toBeChecked();
+      const { sideMenuCheckBox, getByRole } = renderMenuItemAndGetCheckBox();
+      await userEvent.click(sideMenuCheckBox);
+      expect(sideMenuCheckBox).toBeChecked();
 
       await userEvent.click(getByRole("menuitem", { name: "Zoo Negara" }));
-      expect(getByRole("checkbox", { name: "Main Menu" })).toBeChecked();
+      expect(sideMenuCheckBox).toBeChecked();
     });
 
     it("should uncheck if the clicks are on child", async () => {
-      const { getByRole } = renderMenuWithItems();
-      await userEvent.click(getByRole("checkbox", { name: "Main Menu" }));
-      expect(getByRole("checkbox", { name: "Main Menu" })).toBeChecked();
+      const { getByRole, sideMenuCheckBox } = renderMenuItemAndGetCheckBox();
+      await userEvent.click(sideMenuCheckBox);
+      expect(sideMenuCheckBox).toBeChecked();
 
       await userEvent.click(getByRole("menuitem", { name: "About Us" }));
-      expect(getByRole("checkbox", { name: "Main Menu" })).not.toBeChecked();
+      expect(sideMenuCheckBox).not.toBeChecked();
 
       //retry
       await userEvent.click(getByRole("menuitem", { name: "About Us" }));
-      expect(getByRole("checkbox", { name: "Main Menu" })).not.toBeChecked();
+      expect(sideMenuCheckBox).not.toBeChecked();
     });
 
     it("should set body disable from scrolling if checked", async () => {
-      const { getByRole } = renderMenuWithItems();
+      const { sideMenuCheckBox } = renderMenuItemAndGetCheckBox();
 
       //check
-      await userEvent.click(getByRole("checkbox", { name: "Main Menu" }));
-      expect(getByRole("checkbox", { name: "Main Menu" })).toBeChecked();
+      await userEvent.click(sideMenuCheckBox);
+      expect(sideMenuCheckBox).toBeChecked();
       expect(document.body.style.overflow).toBe("hidden");
 
       //uncheck
-      await userEvent.click(getByRole("checkbox", { name: "Main Menu" }));
-      expect(getByRole("checkbox", { name: "Main Menu" })).not.toBeChecked();
-      expect(document.body.style.overflow).toBe("auto");
+      await userEvent.click(sideMenuCheckBox);
+      assertIsSideMenuUncheck(sideMenuCheckBox);
     });
   });
 });
