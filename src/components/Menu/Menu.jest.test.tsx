@@ -164,5 +164,19 @@ describe("Menu", () => {
       await userEvent.click(getByRole("menuitem", { name: "About Us" }));
       expect(getByRole("checkbox", { name: "Main Menu" })).not.toBeChecked();
     });
+
+    it("should set body disable from scrolling if checked", async () => {
+      const { getByRole } = renderMenuWithItems();
+
+      //check
+      await userEvent.click(getByRole("checkbox", { name: "Main Menu" }));
+      expect(getByRole("checkbox", { name: "Main Menu" })).toBeChecked();
+      expect(document.body.style.overflow).toBe("hidden");
+
+      //uncheck
+      await userEvent.click(getByRole("checkbox", { name: "Main Menu" }));
+      expect(getByRole("checkbox", { name: "Main Menu" })).not.toBeChecked();
+      expect(document.body.style.overflow).toBe("auto");
+    });
   });
 });

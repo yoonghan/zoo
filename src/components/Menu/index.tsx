@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, memo, useRef } from "react";
+import { ChangeEvent, ReactNode, memo, useEffect, useRef } from "react";
 import style from "./style.module.css";
 import Image from "next/image";
 import { Link } from "../Link";
@@ -41,6 +41,11 @@ function MutableMenu({
     if (sideMenuRef.current) {
       sideMenuRef.current.checked = false;
     }
+  };
+
+  const onSideMenuChange = (event: ChangeEvent<HTMLInputElement>) => {
+    //TODO: If user opens menu in mobile then resize to desktop, the screen freezes.
+    document.body.style.overflow = event.target.checked ? "hidden" : "auto";
   };
 
   const subMenu = (subMenu: SubMenuItem[], topMenuUrl: string) =>
@@ -94,6 +99,7 @@ function MutableMenu({
         type="checkbox"
         id="side-menu"
         ref={sideMenuRef}
+        onChange={onSideMenuChange}
       />
       <div className={style["mobile-menu"]}>
         <label
