@@ -58,7 +58,7 @@ export const zooMenu: MenuType = [
     items: [
       {
         label: "Adopt Our Animals",
-        url: "#adopt-our-animal",
+        url: "/get-involved/adopt-our-animal",
       },
       {
         label: "List Of Donors And Sponsors",
@@ -75,80 +75,6 @@ export const zooMenu: MenuType = [
       {
         label: "CSR Programme",
         url: "#csr-programme",
-      },
-    ],
-  },
-  {
-    label: "Exhibits",
-    url: "/exhibits",
-    items: [
-      {
-        label: "Giant Panda Conservation Centre",
-        url: "#giant-panda-conservation-center",
-      },
-      {
-        label: "Rimba Biodiversiti",
-        url: "#rimba-biodiversiti",
-      },
-      {
-        label: "Hornbill Centre",
-        url: "#hornbill-centre",
-      },
-      {
-        label: "Reptile House",
-        url: "#reptile-house",
-      },
-      {
-        label: "Malaysian Elephants",
-        url: "#malaysian-elephants",
-      },
-      {
-        label: "Lake Birds",
-        url: "#lake-birds",
-      },
-      {
-        label: "Bird Aviary",
-        url: "#bird-aviary",
-      },
-      {
-        label: "Australian Plain",
-        url: "#australian-plain",
-      },
-      {
-        label: "Humboldt Penguin",
-        url: "#humboldt-penguin",
-      },
-      {
-        label: "Children's World",
-        url: "#childrens-world",
-      },
-      {
-        label: "Bear Complex",
-        url: "#bear-complex",
-      },
-      {
-        label: "Savannah Walk",
-        url: "#savannah-walk",
-      },
-      {
-        label: "Hippopotamus",
-        url: "#hippopotamus",
-      },
-      {
-        label: "Mammal Kingdom",
-        url: "#mamal-kingdom",
-      },
-      {
-        label: "Tunku Abdul Rahman Aquarium",
-        url: "#tunku-abdul-rahman-aquarium",
-      },
-      {
-        label: "Cat Walk",
-        url: "#cat-walk",
-      },
-      {
-        label: "Ape Centre",
-        url: "#ape-centre",
       },
     ],
   },

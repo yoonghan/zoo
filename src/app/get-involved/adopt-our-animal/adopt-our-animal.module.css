@@ -1,0 +1,9 @@
+.donation__price {
+  font-size: 1.25rem;
+  color: var(--yellow-300);
+}
+
+.donation__price strong {
+  font-size: 1.5rem;
+  color: var(--yellow-400);
+}

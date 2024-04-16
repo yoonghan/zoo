@@ -129,6 +129,7 @@
 @media (min-width: 960px) {
   .nav {
     padding: 0 2rem;
+    z-index: 999;
   }
 
   .menu {
