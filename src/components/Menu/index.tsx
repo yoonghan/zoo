@@ -40,6 +40,7 @@ function MutableMenu({
   const unCheckSideMenu = () => {
     if (sideMenuRef.current) {
       sideMenuRef.current.checked = false;
+      document.body.style.overflow = "auto";
     }
   };
 
