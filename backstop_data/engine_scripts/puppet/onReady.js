@@ -5,5 +5,9 @@ module.exports = async (page, scenario, vp) => {
           elem.lazy = "eager";
           elem.decoding = "sync"
         });
+        
+        document.querySelectorAll('iframe').forEach((elem) => {
+            elem.src = "about:blank"
+        })
     });
 };
