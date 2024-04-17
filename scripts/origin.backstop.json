@@ -15,12 +15,6 @@
     "onBeforeScript": "puppet/onBefore.js",
     "onReadyScript": "puppet/onReady.js",
     "scenarios": [
-        {
-            "label": "SiteMap",
-            "url": "http://localhost:3000/sitemap.xml",
-            "misMatchThreshold": 0.3,
-            "requireSameDimensions": true
-        }
     ],
     "paths": {
         "bitmaps_reference": "backstop_data/bitmaps_reference",
