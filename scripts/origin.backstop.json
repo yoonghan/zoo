@@ -14,7 +14,6 @@
     ],
     "onBeforeScript": "puppet/onBefore.js",
     "onReadyScript": "puppet/onReady.js",
-    "delay": 3000,
     "scenarios": [
         {
             "label": "SiteMap",
@@ -38,7 +37,8 @@
         "args": [
             "--no-sandbox"
         ],  
-        "headless": "new"
+        "headless": "new",
+        "gotoParameters": { "waitUntil": "networkidle2" }
     },
     "asyncCaptureLimit": 5,
     "asyncCompareLimit": 50,

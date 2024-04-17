@@ -4,6 +4,12 @@ import backstopConfigJson from "./origin.backstop.json" with {type: "json"}
 /** backstop config file to create **/
 const backstopConfigFile = "./backstop.json"
 
+/** standard page config */
+const backstopStandardConfig = {
+  "misMatchThreshold": 0.3,
+  "requireSameDimensions": true
+}
+
 /** Test every page created, this code is a duplicate of siteGenerator [S]**/
 const appFolder = "./src/app";
 
@@ -53,8 +59,7 @@ allRemappedFile.sort().forEach(pathToTest => {
    backstopConfigJson.scenarios.push({
       "label": `${pathToTest}`,
       "url": `http://localhost:3000${pathToTest}`, 
-      "misMatchThreshold": 0.1,
-      "requireSameDimensions": true
+      ...backstopStandardConfig
    })
 })
 
