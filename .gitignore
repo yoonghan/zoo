@@ -41,3 +41,8 @@ next-env.d.ts
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+# backstop
+/backstop_data/bitmaps_test
+/backstop_data/html_report
+backstop.json
