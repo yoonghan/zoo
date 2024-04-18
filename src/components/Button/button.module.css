@@ -5,6 +5,7 @@
   padding: 1rem;
   color: var(--primary-color-text);
   white-space: nowrap;
+  font-weight: bold;
 }
 
 .button:hover {
