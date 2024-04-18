@@ -1,11 +1,11 @@
 name: Rewrite backstop url
 inputs:
   deployed_url:
-    description: Reference url with http:// to test
+    description: Deployed domain url (https://zoo.walcron.com)
     required: true
     type: string
   backstop_url:
-    description: Backstop defined url with http:// to test
+    description: Override domain url of origin.backstop.json
     default: 'http://localhost:3000'
     required: true
     type: string
@@ -18,6 +18,6 @@ runs:
       run: |
         TEST_URL=${{ inputs.deployed_url }}
         DEFAULT_TEST_URL=${{ inputs.backstop_url }}
-        sed -i "s/${DEFAULT_TEST_URL}/${TEST_URL}/g" /scripts/origin.backstop.json
-        cat origin.backstop.json
+        sed -i "s|${DEFAULT_TEST_URL}|${TEST_URL}|g" ./scripts/generate-backstop-config.mjs
+        grep http ./scripts/generate-backstop-config.mjs
       shell: bash

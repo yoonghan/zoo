@@ -1,46 +1,54 @@
-name: Validate UI is presented correctly
+name: Snapshot Validate
 
 on:
   workflow_dispatch:
     inputs:
-      branch:
-        description: Branchname to execute
-        type: string
-        required: true
       deployed_url:
-        description: Which url to validate, include http://
+        description: Deployed domain url
+        default: https://zoo.walcron.com
         type: string
         required: true
   workflow_call:
     inputs:
-      branch:
-        description: Branchname to execute
-        type: string
       deployed_url:
-        description: Which url to validate, include http://
+        description: Deployed domain url
+        default: https://zoo.walcron.com
         type: string
     secrets:
       PAT:
         description: Checkout secret.
-        outputs:
 
 jobs:
-  auto_approve:
+  validate:
     runs-on: ubuntu-latest
     outputs:
       changes_detected: ${{ steps.auto-commit-action.outputs.changes_detected }}
     steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Detect package manager
+        id: detect-package-manager
+        run: |
+          if [ -f "${{ github.workspace }}/yarn.lock" ]; then
+            echo "manager=yarn" >> $GITHUB_OUTPUT
+            echo "command=install" >> $GITHUB_OUTPUT
+            echo "runner=yarn" >> $GITHUB_OUTPUT
+            exit 0
+          elif [ -f "${{ github.workspace }}/package.json" ]; then
+            echo "manager=npm" >> $GITHUB_OUTPUT
+            echo "command=ci" >> $GITHUB_OUTPUT
+            echo "runner=npx" >> $GITHUB_OUTPUT
+            exit 0
+          else
+            echo "Unable to determine package manager"
+            exit 1
+          fi
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
-      - name: ⬇️ Checkout repo
-        uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.PAT }}
-          ref: ${{ inputs.branch }}
-
       - name: Restore cache
         uses: actions/cache@v4
         id: all-cache
@@ -53,6 +61,7 @@ jobs:
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
             ${{ runner.os }}-all-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
+            
       - name: Install Playwright Browsers
         if: steps.all-cache.outputs.cache-hit != 'true'
         run: ${{ steps.detect-package-manager.outputs.runner }}  playwright install --with-deps chromium
@@ -61,21 +70,21 @@ jobs:
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.manager }} run build
 
-      - name: ✅ Validate Backstop
+      - name: ▶️ Update Backstop Urls
         uses: ./.github/actions/backstop/rewrite
         with:
           deployed_url: ${{ inputs.deployed_url }}
 
-      - name: ▶️ Run page rendering check
+      - name: ✅ Validate snapshot check
         shell: bash
         continue-on-error: true
-        run: npm run backstop
+        run: npm run snapshot
 
       - name: ⬆️ Upload snapshot artifacts
         uses: actions/upload-artifact@v3
         with:
           name: backstop-artifact
-          path: backstop_data/html_report
+          path: backstop_data
 
       - name: ✅ Validate backstopjs snapshot is valid
         run: chmod a+x ./.github/scripts/snapshot-check.sh && ./.github/scripts/snapshot-check.sh
