@@ -4,13 +4,15 @@ on:
   workflow_dispatch:
     inputs:
       deployed_url:
-        description: Deployed domain url (https://zoo.walcron.com)
+        description: Deployed domain url
+        default: https://zoo.walcron.com
         type: string
         required: true
   workflow_call:
     inputs:
       deployed_url:
-        description: Deployed domain url (https://zoo.walcron.com)
+        description: Deployed domain url
+        default: https://zoo.walcron.com
         type: string
     secrets:
       PAT:
