@@ -104,4 +104,4 @@ jobs:
     uses: ./.github/workflows/snapshot_validation.yml
     with:
       deployed_url: ${{ needs.deploy.outputs.page_url }}
-      should_fail: false
+      continue_on_fail: true
