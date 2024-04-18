@@ -68,12 +68,12 @@ jobs:
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.manager }} run build
 
-      - name: ✅ Validate Backstop
+      - name: ▶️ Update Backstop Urls
         uses: ./.github/actions/backstop/rewrite
         with:
           deployed_url: ${{ inputs.deployed_url }}
 
-      - name: ▶️ Run page rendering check
+      - name: ✅ Validate backstop check
         shell: bash
         continue-on-error: true
         run: npm run backstop
