@@ -56,7 +56,7 @@ export function Announcement({ ariaAnnouncementTitle, announcements }: Announcem
                 ></i>
               </button>
             )}
-            <label htmlFor="close-announcement" className="relative" tabIndex={1}>
+            <label htmlFor="close-announcement" className="relative">
               <span className={"close"} aria-label="Close Announcement"></span>
             </label>
           </div>
