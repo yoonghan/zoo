@@ -1,0 +1,82 @@
+name: Validate UI is presented correctly
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: Branchname to execute
+        type: string
+        required: true
+      deployed_url:
+        description: Which url to validate, include http://
+        type: string
+        required: true
+  workflow_call:
+    inputs:
+      branch:
+        description: Branchname to execute
+        type: string
+      deployed_url:
+        description: Which url to validate, include http://
+        type: string
+    secrets:
+      PAT:
+        description: Checkout secret.
+        outputs:
+
+jobs:
+  auto_approve:
+    runs-on: ubuntu-latest
+    outputs:
+      changes_detected: ${{ steps.auto-commit-action.outputs.changes_detected }}
+    steps:
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: ${{ steps.detect-package-manager.outputs.manager }}
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT }}
+          ref: ${{ inputs.branch }}
+
+      - name: Restore cache
+        uses: actions/cache@v4
+        id: all-cache
+        with:
+          path: |
+            .next/cache
+            ~/.cache/ms-playwright
+          # Generate a new cache whenever packages or source files change.
+          key: ${{ runner.os }}-all-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          # If source files changed but packages didn't, rebuild from a prior cache.
+          restore-keys: |
+            ${{ runner.os }}-all-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
+      - name: Install Playwright Browsers
+        if: steps.all-cache.outputs.cache-hit != 'true'
+        run: ${{ steps.detect-package-manager.outputs.runner }}  playwright install --with-deps chromium
+      - name: Install dependencies
+        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      - name: Build with Next.js
+        run: ${{ steps.detect-package-manager.outputs.manager }} run build
+
+      - name: ✅ Validate Backstop
+        uses: ./.github/actions/backstop/rewrite
+        with:
+          deployed_url: ${{ inputs.deployed_url }}
+
+      - name: ▶️ Run page rendering check
+        shell: bash
+        continue-on-error: true
+        run: npm run backstop
+
+      - name: ⬆️ Upload snapshot artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: backstop-artifact
+          path: backstop_data/html_report
+
+      - name: ✅ Validate backstopjs snapshot is valid
+        run: chmod a+x ./.github/scripts/snapshot-check.sh && ./.github/scripts/snapshot-check.sh
+        shell: bash

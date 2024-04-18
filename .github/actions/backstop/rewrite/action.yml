@@ -1,0 +1,23 @@
+name: Rewrite backstop url
+inputs:
+  deployed_url:
+    description: Reference url with http:// to test
+    required: true
+    type: string
+  backstop_url:
+    description: Backstop defined url with http:// to test
+    default: 'http://localhost:3000'
+    required: true
+    type: string
+
+runs:
+  using: "composite"
+
+  steps:
+    - name: Update to vercel deployed branch version
+      run: |
+        TEST_URL=${{ inputs.deployed_url }}
+        DEFAULT_TEST_URL=${{ inputs.backstop_url }}
+        sed -i "s/${DEFAULT_TEST_URL}/${TEST_URL}/g" /scripts/origin.backstop.json
+        cat origin.backstop.json
+      shell: bash
