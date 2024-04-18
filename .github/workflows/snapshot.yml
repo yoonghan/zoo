@@ -114,9 +114,9 @@ jobs:
         run: npm run snapshot
 
       - name: ⬆️ Upload snapshot artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: backstop-artifact
+          name: snapshot-artifact
           path: backstop_data
 
       - name: ✅ Validate backstopjs snapshot is valid
