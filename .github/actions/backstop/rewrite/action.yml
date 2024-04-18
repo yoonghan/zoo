@@ -18,6 +18,6 @@ runs:
       run: |
         TEST_URL=${{ inputs.deployed_url }}
         DEFAULT_TEST_URL=${{ inputs.backstop_url }}
-        sed -i "s|${DEFAULT_TEST_URL}|${TEST_URL}|g" ./scripts/origin.backstop.json
-        cat ./scripts/origin.backstop.json
+        sed -i "s|${DEFAULT_TEST_URL}|${TEST_URL}|g" ./scripts/generate-backstop-config.mjs
+        cat ./scripts/generate-backstop-config.mjs
       shell: bash
