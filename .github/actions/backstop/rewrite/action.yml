@@ -19,5 +19,5 @@ runs:
         TEST_URL=${{ inputs.deployed_url }}
         DEFAULT_TEST_URL=${{ inputs.backstop_url }}
         sed -i "s|${DEFAULT_TEST_URL}|${TEST_URL}|g" ./scripts/generate-backstop-config.mjs
-        grep "${DEFAULT_TEST_URL}" ./scripts/generate-backstop-config.mjs
+        grep http ./scripts/generate-backstop-config.mjs
       shell: bash
