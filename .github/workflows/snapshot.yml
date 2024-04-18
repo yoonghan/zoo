@@ -116,7 +116,7 @@ jobs:
       - name: ⬆️ Upload snapshot artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: snapshot-artifact
+          name: snapshot-report
           path: backstop_data
 
       - name: ✅ Validate backstopjs snapshot is valid

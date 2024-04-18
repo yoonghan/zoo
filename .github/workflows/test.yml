@@ -53,8 +53,10 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.runner }}  playwright install --with-deps chromium
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.manager }} run build
+
       - name: Run Unit test with coverage
         run: ${{ steps.detect-package-manager.outputs.manager }} run test:coverage
       - name: 📁 Code coverage report
@@ -69,11 +71,13 @@ jobs:
         with:
           recreate: true
           path: code-coverage-results.md
+          
       - name: Run E2E test
         run: ${{ steps.detect-package-manager.outputs.runner }} playwright test
+
       - uses: actions/upload-artifact@v4
         with:
-          name: playwright-report
+          name: test-report
           path: |
             playwright-report/
             coverage/
