@@ -4,10 +4,7 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["master"]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
+    
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
@@ -101,10 +98,10 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-
   # Smoketest on url change
   smoke-test:
     needs: deploy
     uses: ./.github/workflows/snapshot_validation.yml
     with:
       deployed_url: ${{ needs.deploy.outputs.page_url }}
+      should_fail: false
