@@ -30,6 +30,7 @@ jobs:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v3
         with:
+          # personal profile -> Developer Settings -> Fine Grain Token -> Actions(R)/Commit Statues(RW)/Contents(RW)/Metadata(R)
           token: ${{ secrets.PAT }}
           ref: ${{ github.head_ref }}
           

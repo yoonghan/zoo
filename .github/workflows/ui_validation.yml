@@ -29,9 +29,6 @@ jobs:
           cache: ${{ steps.detect-package-manager.outputs.manager }}
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.PAT }}
-          ref: ${{ github.head_ref }}
 
       - name: Restore cache
         uses: actions/cache@v4
