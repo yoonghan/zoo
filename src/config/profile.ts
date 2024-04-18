@@ -102,8 +102,10 @@ export const zooProfile: FooterProps &
     phoneNumber1: "+603-4108 3422",
     phoneNumber2: "+603-4108 3424",
     hrEmail: "hrd@zoonegaramalaysia.my",
+    eventNumber: "+603-41069146",
     marketingEmail: "marketing@zoonegaramalaysia.my",
     donationEmail: "donation@zoonegaramalaysia.my",
+    customerserviceEmail: "customerservice@zoonegaramalaysia.my",
     administration: [
       {
         department: "Administration",

@@ -28,11 +28,11 @@ export const zooMenu: MenuType = [
   },
   {
     label: "Have An Event",
-    url: "/event",
+    url: "/have-an-event",
     items: [
       {
         label: "Birthday",
-        url: "#birthday",
+        url: "/have-an-event/birthday",
       },
       {
         label: "Family Day",

@@ -61,7 +61,7 @@ export default function GetInvolved() {
         <article className="anchor-link-header" id={miniLinks[1].hashId}>
           <h3 className="text-2xl font-bold">{miniLinks[1].title}</h3>
           <p>
-            You contributions helps contribute financially to support the care
+            Your contributions helps contribute financially to support the care
             of our animal family:
           </p>
           <ul className="list-disc ml-4">

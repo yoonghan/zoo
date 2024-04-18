@@ -1,4 +1,3 @@
-import { MiniMenuItems } from "@/components/MiniMenu";
 import Image from "next/image";
 
 export default function Highlights() {

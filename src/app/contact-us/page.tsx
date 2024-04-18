@@ -14,6 +14,8 @@ export type ContactUsProps = {
   marketingEmail: string;
   donationEmail: string;
   administration: Administration[];
+  eventNumber: string;
+  customerserviceEmail: string;
 };
 
 export default function ContactUs() {
