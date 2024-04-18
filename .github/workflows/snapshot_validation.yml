@@ -8,7 +8,7 @@ on:
         default: https://zoo.walcron.com
         type: string
         required: true
-      should_fail:
+      continue_on_fail:
         description: Should mark as failed
         default: true
         type: boolean
@@ -18,7 +18,7 @@ on:
         description: Deployed domain url
         default: https://zoo.walcron.com
         type: string
-      should_fail:
+      continue_on_fail:
         description: Should mark as failed
         default: true
         type: boolean
@@ -95,6 +95,6 @@ jobs:
           path: backstop_data
 
       - name: ✅ Validate backstopjs snapshot is valid
-        continue-on-error: ${{ inputs.should_fail }}
+        continue-on-error: ${{ inputs.continue_on_fail }}
         run: chmod a+x ./.github/scripts/snapshot-check.sh && ./.github/scripts/snapshot-check.sh
         shell: bash

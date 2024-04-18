@@ -4,6 +4,9 @@ import backstopConfigJson from "./origin.backstop.json" with {type: "json"}
 /** backstop config file to create **/
 const backstopConfigFile = "./backstop.json"
 
+/** base url */
+const baseUrl = "http://localhost:3000/".replace(/\/$/,"")
+
 /** standard page config */
 const backStopConfigFor = (page) => {
   return {
@@ -60,7 +63,7 @@ const allRemappedFile = remapAppFiles(allAppFiles);
 allRemappedFile.sort().forEach(pathToTest => {
    backstopConfigJson.scenarios.push({
       "label": `${pathToTest}`,
-      "url": `http://localhost:3000${pathToTest}`, 
+      "url": `${baseUrl}${pathToTest}`, 
       ...backStopConfigFor(pathToTest)
    })
 })
