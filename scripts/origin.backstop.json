@@ -1,10 +1,10 @@
 {
-    "id": "backstop_default",
+    "id": "backstop_zoo",
     "viewports": [
         {
             "label": "phone",
-            "width": 320,
-            "height": 480
+            "width": 480,
+            "height": 720
         },
         {
             "label": "tablet",
@@ -12,8 +12,8 @@
             "height": 768
         }
     ],
-    "onBeforeScript": "puppet/onBefore.js",
-    "onReadyScript": "puppet/onReady.js",
+    "onBeforeScript": "playwright/onBefore.js",
+    "onReadyScript": "playwright/onReady.js",
     "scenarios": [
     ],
     "paths": {
@@ -26,13 +26,8 @@
     "report": [
         "browser"
     ],
-    "engine": "puppeteer",
+    "engine": "playwright",
     "engineOptions": {
-        "args": [
-            "--no-sandbox"
-        ],  
-        "headless": "new",
-        "gotoParameters": { "waitUntil": "networkidle2" }
     },
     "asyncCaptureLimit": 5,
     "asyncCompareLimit": 50,

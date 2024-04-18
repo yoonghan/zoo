@@ -1,8 +1,8 @@
 module.exports = async (page, scenario, vp) => {
-  await page.waitFor(() => {
-    return document.fonts.ready.then(() => {
-      console.log('Fonts loaded');
-      return true;
-    });
-  });
+  await page.evaluate((scrollToSelector) => {
+    document.querySelectorAll(scrollToSelector).forEach(elem => {
+      elem.loading = 'eager',
+      elem.decoding = 'sync'
+    })
+  }, '[loading="lazy"]')
 };
