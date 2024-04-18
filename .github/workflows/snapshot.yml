@@ -1,4 +1,4 @@
-name: Snapshot Validate
+name: Snapshot Validate and Approve
 
 on:
   workflow_dispatch:
@@ -9,8 +9,12 @@ on:
         type: string
         required: true
       continue_on_fail:
-        description: Should mark as failed
-        default: true
+        description: Continue on fail
+        default: false
+        type: boolean
+      should_approve:
+        description: Should do auto approval
+        default: false
         type: boolean
   workflow_call:
     inputs:
@@ -19,15 +23,19 @@ on:
         default: https://zoo.walcron.com
         type: string
       continue_on_fail:
-        description: Should mark as failed
-        default: true
+        description: Continue on fail
+        default: false
+        type: boolean
+      should_approve:
+        description: Should do auto approval
+        default: false
         type: boolean
     secrets:
       PAT:
         description: Checkout secret.
 
 jobs:
-  validate:
+  snapshot:
     runs-on: ubuntu-latest
     outputs:
       changes_detected: ${{ steps.auto-commit-action.outputs.changes_detected }}
@@ -81,9 +89,28 @@ jobs:
         with:
           deployed_url: ${{ inputs.deployed_url }}
 
-      - name: ✅ Validate snapshot check
+      - name: ▶️ Validate snapshot check
         shell: bash
         continue-on-error: true
+        run: npm run snapshot
+
+      - name: ✅ Approve all snapshots
+        if: ${{ inputs.should_approve }}
+        shell: bash
+        continue-on-error: true
+        run: npm run snapshot:approve
+
+      - name: 💼 Commit on approved snapshot
+        if: ${{ inputs.should_approve }}
+        uses: stefanzweifel/git-auto-commit-action@v4
+        id: auto-commit-action
+        with:
+          commit_message: Update snapshot with auto approval
+          file_pattern: "backstop_data/bitmaps_reference/*.png" 
+
+      - name: ▶️ Re-Validate snapshot
+        if: ${{ inputs.should_approve }}
+        shell: bash
         run: npm run snapshot
 
       - name: ⬆️ Upload snapshot artifacts
@@ -93,6 +120,7 @@ jobs:
           path: backstop_data
 
       - name: ✅ Validate backstopjs snapshot is valid
+        if: ${{ inputs.should_approve != true }}
         continue-on-error: ${{ inputs.continue_on_fail }}
         run: chmod a+x ./.github/scripts/snapshot-check.sh && ./.github/scripts/snapshot-check.sh
         shell: bash
