@@ -4,18 +4,17 @@ on:
   workflow_dispatch:
     inputs:
       deployed_url:
-        description: Which url to validate, include http://
+        description: Which domain to validate, http protocol required.
         type: string
         required: true
   workflow_call:
     inputs:
       deployed_url:
-        description: Which url to validate, include http://
+        description: Which domain to validate, http protocol required.
         type: string
     secrets:
       PAT:
         description: Checkout secret.
-        outputs:
 
 jobs:
   auto_approve:
