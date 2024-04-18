@@ -17,7 +17,7 @@ on:
         description: Checkout secret.
 
 jobs:
-  auto_approve:
+  validate:
     runs-on: ubuntu-latest
     outputs:
       changes_detected: ${{ steps.auto-commit-action.outputs.changes_detected }}
