@@ -11,15 +11,16 @@
   ```
  *
  */
-const IMAGE_URL_RE = /\.gif|\.jpg|\.png/i;
-const HEADERS_STUB = {};
-
-module.exports = async function (page, scenario) {
-  page.route(IMAGE_URL_RE, route => {
-    route.fulfill({
-      body: 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=',
-      headers: HEADERS_STUB,
-      status: 200
+  const IMAGE_URL_RE = /youtube\.com/i;
+  const HEADERS_STUB = {};
+  
+  module.exports = async function (page, scenario) {
+    page.route(IMAGE_URL_RE, route => {
+      route.fulfill({
+        body: 'movie',
+        headers: HEADERS_STUB,
+        status: 200
+      });
     });
-  });
-};
+  };
+  

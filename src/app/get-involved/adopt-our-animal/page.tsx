@@ -96,7 +96,7 @@ export default function GetInvolved() {
           ))}
           <figure className="p-3 mt-8">
             <Image
-              src="/images/getting-involved/adopt-our-animal/gift.jpeg"
+              src="/images/getting-involved/adopt-our-animal/gift.jpg"
               alt="Samples of adoption gifts"
               width={1350}
               height={1350}
