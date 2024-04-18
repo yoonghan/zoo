@@ -101,7 +101,8 @@ jobs:
   # Smoketest on url change
   smoke-test:
     needs: deploy
-    uses: ./.github/workflows/snapshot_validation.yml
+    uses: ./.github/workflows/snapshot.yml
     with:
       deployed_url: ${{ needs.deploy.outputs.page_url }}
       continue_on_fail: true
+      should_approve: false
