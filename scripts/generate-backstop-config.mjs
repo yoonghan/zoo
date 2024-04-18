@@ -5,7 +5,7 @@ import backstopConfigJson from "./origin.backstop.json" with {type: "json"}
 const backstopConfigFile = "./backstop.json"
 
 /** base url */
-const baseUrl = "http://localhost:3000/".replace(/\/$/,"")
+const baseUrl = "http://localhost:3000".replace(/\/$/,"")
 
 /** standard page config */
 const backStopConfigFor = (page) => {
