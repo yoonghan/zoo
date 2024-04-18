@@ -75,23 +75,23 @@ jobs:
         with:
           deployed_url: ${{ inputs.deployed_url }}
 
-      - name: ▶️ Do a backstop test with failure
+      - name: ▶️ Do a snapshot test with failure
         shell: bash
         continue-on-error: true
-        run: npm run backstop
+        run: npm run snapshot
 
       - name: ✅ Approve all snapshots
         shell: bash
         continue-on-error: true
-        run: npm run backstop:approve
+        run: npm run snapshot:approve
 
-      - name: ✅ Re-Validate backstop
+      - name: ✅ Re-Validate snapshot
         shell: bash
-        run: npm run backstop
+        run: npm run snapshot
 
-      - name: 💼 Auto commit on approved backstop
+      - name: 💼 Auto commit on approved snapshot
         uses: stefanzweifel/git-auto-commit-action@v4
         id: auto-commit-action
         with:
-          commit_message: Update backstop with auto approval
+          commit_message: Update snapshot with auto approval
           file_pattern: "backstop_data/bitmaps_reference/*.png"
