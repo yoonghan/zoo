@@ -107,5 +107,5 @@ jobs:
     needs: deploy
     continue-on-error: true
     uses: ./.github/workflows/snapshot_validation.yml
-      with:
-        deployed_url: ${{ needs.deploy.outputs.page_url }}
+    with:
+      deployed_url: ${{ needs.deploy.outputs.page_url }}
