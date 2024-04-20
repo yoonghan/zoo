@@ -73,7 +73,7 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
         run: |
-          export RELEASE_VERSION="${{ GITHUB_RUN_ID }}-zoo"
+          export RELEASE_VERSION="${{ github.run_id }}-zoo"
           ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Upload artifact for GH pages
         uses: actions/upload-pages-artifact@v3
