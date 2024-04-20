@@ -96,7 +96,7 @@ export function MutableFooter({
       <div className="text-center text-sm mt-4">
         <span>&copy; {companyName}</span>{" "}
         <span>{`- ${currentYearUpdated} ${labels.maintainedInfo}`}</span>
-        <span>(ver. {process.env.RELEASE_VERSION || 'local'})</span>
+        <div>(ver. {process.env.RELEASE_VERSION || 'local'})</div>
       </div>
     </footer>
   );
