@@ -120,4 +120,19 @@ describe("Footer", () => {
       getByText(`- ${currentYearUpdated} all rights reserved.`)
     ).toBeInTheDocument();
   });
+
+  it("should have a release version", () => {
+    const { getByText } = renderFooterComponent({});
+    expect(getByText("(ver. local)")).toBeInTheDocument();
+  });
+
+  it("should have a release of process env version", () => {
+    const original_val = process.env.RELEASE_VERSION
+
+    process.env.RELEASE_VERSION = "30101010-zoo"
+    const { getByText } = renderFooterComponent({});
+    expect(getByText("(ver. 30101010-zoo)")).toBeInTheDocument();
+
+    process.env.RELEASE_VERSION = original_val
+  });
 });
