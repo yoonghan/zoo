@@ -1,0 +1,9 @@
+name: Validate each branch changes of project
+
+on:
+  # required as snapshot update does do a pull-request
+  pull-request:
+
+jobs:
+  validate:
+    uses: ./.github/workflows/test.yml
