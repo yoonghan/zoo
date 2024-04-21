@@ -62,19 +62,19 @@ export const zooMenu: MenuType = [
       },
       {
         label: "List Of Donors And Sponsors",
-        url: "#list-of-donors-and-sponsors",
+        url: "/get-involved",
       },
       {
         label: "KeeperKu Programme",
-        url: "#keepersku-programme",
+        url: "/get-involved",
       },
       {
         label: "Student Training",
-        url: "#student-training",
+        url: "/get-involved",
       },
       {
         label: "CSR Programme",
-        url: "#csr-programme",
+        url: "/get-involved",
       },
     ],
   },
