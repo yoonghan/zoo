@@ -1,7 +1,7 @@
 {
   "ignore": [
-    "e2e/*",
-    "backstop_data/engine_scripts/playwright/*",
+    "e2e/**",
+    "backstop_data/**",
     "__mocks__/*"
   ],
   "ignoreDependencies": [

@@ -1,19 +1,32 @@
-name: Test project
+name: Performance validation
 
 on:
-  # allow as dispatch call
   workflow_dispatch:
-
+    inputs:
+      deployed_url:
+        description: Deployed domain url
+        default: https://zoo.walcron.com
+        type: string
+        required: true
   workflow_call:
+    inputs:
+      deployed_url:
+        description: Deployed domain url
+        default: https://zoo.walcron.com
+        type: string
 
 jobs:
-  test:
+  snapshot:
     runs-on: ubuntu-latest
     steps:
-      - name: 🛑 Cancel previous runs
-        uses: styfle/cancel-workflow-action@0.12.1
-      - name: Checkout
+      - name: ⬇️ Checkout repo required to commit and PAT Is required to retrigger pipeline
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT }}
+
+      - name: ⬇️ Checkout repo without commit
+        uses: actions/checkout@v4
+
       - name: Detect package manager
         id: detect-package-manager
         run: |
@@ -48,38 +61,15 @@ jobs:
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
             ${{ runner.os }}-all-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
+
       - name: Install Playwright Browsers
         if: steps.all-cache.outputs.cache-hit != 'true'
         run: ${{ steps.detect-package-manager.outputs.runner }}  playwright install --with-deps chrome
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
 
-      - name: Build with Next.js
-        run: ${{ steps.detect-package-manager.outputs.manager }} run build
-
-      - name: Run Unit test with coverage
-        run: ${{ steps.detect-package-manager.outputs.manager }} run test:coverage
-      - name: 📁 Code coverage report
-        uses: irongut/CodeCoverageSummary@v1.3.0
-        with:
-          filename: coverage/**/cobertura-coverage.xml
-          badge: true
-          format: "markdown"
-          output: "both"
-      - name: + Add Coverage PR Comment
-        uses: marocchino/sticky-pull-request-comment@v2
-        with:
-          recreate: true
-          path: code-coverage-results.md
-
-      - name: Run E2E test
-        run: ${{ steps.detect-package-manager.outputs.runner }} playwright test
-
-      - uses: actions/upload-artifact@v4
-        if: github.ref == 'refs/heads/master'
-        with:
-          name: test-report
-          path: |
-            playwright-report/
-            coverage/
-          retention-days: 30
+      - name: ✅ Performance check
+        run: |
+          TEST_URL=${{ inputs.deployed_url }}
+          ${{ steps.detect-package-manager.outputs.manager }} run e2e:smoke
+        continue-on-error: true
