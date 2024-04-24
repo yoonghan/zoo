@@ -70,11 +70,28 @@ const checkPerformance = async (page: Page) => {
   await Promise.all([CLS, LCP, FCP]);
 };
 
-test("homepage", async ({ context }) => {
-  const page = await context.newPage();
-
+test("homepage", async ({ page }) => {
   await page.goto("/");
-  await page.goto("/about-us");
+  await checkPerformance(page);
+});
+
+test("contact-us", async ({ page }) => {
+  await page.goto("/contact-us");
+  await checkPerformance(page);
+});
+
+test("about-us", async ({ page }) => {
+  const IMAGE_URL_RE = /youtube\.com/i;
+  const HEADERS_STUB = {};
+  page.route(IMAGE_URL_RE, (route) => {
+    route.fulfill({
+      body: "movie",
+      headers: HEADERS_STUB,
+      status: 200,
+    });
+  });
+
+  await page.goto("/contact-us");
 
   await checkPerformance(page);
 });
