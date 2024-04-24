@@ -8,8 +8,5 @@
     "@happy-dom/jest-environment",
     "happy-dom",
     "jest-environment-jsdom"
-  ],
-  "ignoreBinaries": [
-    "export"
   ]
 }

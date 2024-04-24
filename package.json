@@ -13,7 +13,6 @@
     "e2e:ui": "playwright test --ui",
     "snapshot": "node ./scripts/generate-backstop-config.mjs && backstop test",
     "snapshot:approve": "backstop approve",
-    "dependency:analyze": "export ANALYZE=true && next build",
     "dependency:check": "knip"
   },
   "dependencies": {
@@ -21,7 +20,6 @@
     "@fortawesome/free-regular-svg-icons": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@next/bundle-analyzer": "^14.2.2",
     "next": "14.1.4",
     "react": "^18",
     "react-dom": "^18",
