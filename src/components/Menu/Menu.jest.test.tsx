@@ -33,7 +33,7 @@ describe("Menu", () => {
     );
 
   it("should will display mobile home text that links to home", () => {
-    const { getByRole } = renderMenuWithItems();
+    const { getByRole, getByText } = renderMenuWithItems();
     expect(getByRole("link", { name: "Zoo Negara Malaysia" })).toHaveAttribute(
       "href",
       "/"
@@ -42,6 +42,8 @@ describe("Menu", () => {
       "href",
       "/"
     );
+
+    expect(getByText("Hamburger Menu")).toHaveClass("visually-hidden");
   });
 
   it("should will display a main logo", () => {

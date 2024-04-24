@@ -109,6 +109,7 @@ function MutableMenu({
           aria-label="Main Menu"
         >
           <span className={style["hamb-line"]}></span>
+          <span className={"visually-hidden"}>Hamburger Menu</span>
         </label>
         <Link href="/" tabIndex={-1} styling="None" onClick={unCheckSideMenu}>
           {mobileHomeText}
