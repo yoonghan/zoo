@@ -100,24 +100,6 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-  # Tag release
-  tag-release:
-    needs: deploy
-    runs-on: ubuntu-latest
-    steps:
-      - name: Tag Release
-        id: tag-release
-        uses: actions/create-release@latest
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          body: |
-            Production release "${{ github.run_id }}-zn"
-          draft: false
-          prerelease: false
-
   # Smoketest on url change
   smoke-test-snapshot:
     needs: deploy
