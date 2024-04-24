@@ -65,8 +65,9 @@ jobs:
           args: >
             --failOnCVSS 7
             --enableRetired
-      - name: Upload Test results
+      - name: Upload Dependency Check results # only uploads if it's on master
         uses: actions/upload-artifact@master
+        if: github.ref == 'refs/heads/master'
         with:
           name: Compliance report
           path: ${{github.workspace}}/reports
