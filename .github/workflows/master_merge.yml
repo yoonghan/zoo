@@ -101,10 +101,18 @@ jobs:
         uses: actions/deploy-pages@v4
 
   # Smoketest on url change
-  smoke-test:
+  smoke-test-snapshot:
     needs: deploy
     uses: ./.github/workflows/snapshot.yml
     with:
       deployed_url: ${{ needs.deploy.outputs.page_url }}
       continue_on_fail: true
       should_approve: false
+
+  # Smoketest on url change
+  smoke-test-performance:
+    needs: deploy
+    uses: ./.github/workflows/performance.yml
+    with:
+      deployed_url: ${{ needs.deploy.outputs.page_url }}
+      continue_on_fail: true
