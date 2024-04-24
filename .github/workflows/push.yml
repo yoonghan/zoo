@@ -5,6 +5,8 @@ on:
   push:
     branches-ignore:
       - master
+  # for retriggering
+  workflow_call:
 
 jobs:
   validate:
