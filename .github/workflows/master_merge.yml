@@ -115,4 +115,3 @@ jobs:
     uses: ./.github/workflows/performance.yml
     with:
       deployed_url: ${{ needs.deploy.outputs.page_url }}
-      continue_on_fail: true
