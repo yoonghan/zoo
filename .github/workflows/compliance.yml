@@ -1,4 +1,4 @@
-name: Validate libraries used
+name: Validate libraries used are compliant
 
 on:
   # allow as dispatch call
@@ -7,7 +7,7 @@ on:
   workflow_call:
 
 jobs:
-  libraries:
+  compliance:
     runs-on: ubuntu-latest
     steps:
       - name: 🛑 Cancel previous runs
