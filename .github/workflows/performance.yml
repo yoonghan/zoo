@@ -16,14 +16,9 @@ on:
         type: string
 
 jobs:
-  snapshot:
+  performance:
     runs-on: ubuntu-latest
     steps:
-      - name: ⬇️ Checkout repo required to commit and PAT Is required to retrigger pipeline
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.PAT }}
-
       - name: ⬇️ Checkout repo without commit
         uses: actions/checkout@v4
 
