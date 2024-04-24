@@ -40,8 +40,10 @@ jobs:
     outputs:
       changes_detected: ${{ steps.auto-commit-action.outputs.changes_detected }}
     steps:
-      - name: ⬇️ Checkout repo
+      - name: ⬇️ Checkout repo # checkout with PAT, so approval will recursively call a new update.
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT }}
 
       - name: Detect package manager
         id: detect-package-manager
@@ -77,7 +79,7 @@ jobs:
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
             ${{ runner.os }}-all-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
-            
+
       - name: Install Playwright Browsers
         if: steps.all-cache.outputs.cache-hit != 'true'
         run: ${{ steps.detect-package-manager.outputs.runner }}  playwright install --with-deps chromium
@@ -106,7 +108,7 @@ jobs:
         id: auto-commit-action
         with:
           commit_message: Update snapshot with auto approval
-          file_pattern: "backstop_data/bitmaps_reference/*.png" 
+          file_pattern: "backstop_data/bitmaps_reference/*.png"
 
       - name: ▶️ Re-Validate snapshot
         if: ${{ inputs.should_approve }}
