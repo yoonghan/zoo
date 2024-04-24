@@ -8,22 +8,25 @@ on:
         default: https://zoo.walcron.com
         type: string
         required: true
+      continue_on_fail:
+        description: Continue on fail
+        default: false
+        type: boolean
   workflow_call:
     inputs:
       deployed_url:
         description: Deployed domain url
         default: https://zoo.walcron.com
         type: string
+      continue_on_fail:
+        description: Continue on fail
+        default: false
+        type: boolean
 
 jobs:
-  snapshot:
+  performance:
     runs-on: ubuntu-latest
     steps:
-      - name: ⬇️ Checkout repo required to commit and PAT Is required to retrigger pipeline
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.PAT }}
-
       - name: ⬇️ Checkout repo without commit
         uses: actions/checkout@v4
 
@@ -70,6 +73,6 @@ jobs:
 
       - name: ✅ Performance check
         run: |
-          TEST_URL=${{ inputs.deployed_url }}
+          PERFORMANCE_TEST_URL=${{ inputs.deployed_url }}
           ${{ steps.detect-package-manager.outputs.manager }} run e2e:smoke
-        continue-on-error: true
+        continue-on-error: ${{ inputs.continue_on_fail }}
