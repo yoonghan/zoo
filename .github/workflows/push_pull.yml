@@ -9,4 +9,5 @@ on:
 jobs:
   validate:
     uses: ./.github/workflows/test.yml
-
+  compliance:
+    uses: ./.github/workflows/check_libraries.yml

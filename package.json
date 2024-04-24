@@ -13,7 +13,8 @@
     "e2e:ui": "playwright test --ui",
     "snapshot": "node ./scripts/generate-backstop-config.mjs && backstop test",
     "snapshot:approve": "backstop approve",
-    "dependency:analyze": "export ANALYZE=true && next build"
+    "dependency:analyze": "export ANALYZE=true && next build",
+    "dependency:check": "knip"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
