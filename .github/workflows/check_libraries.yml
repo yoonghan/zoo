@@ -7,7 +7,7 @@ on:
   workflow_call:
 
 jobs:
-  test:
+  libraries:
     runs-on: ubuntu-latest
     steps:
       - name: 🛑 Cancel previous runs
@@ -53,3 +53,20 @@ jobs:
 
       - name: Dependency checks
         run: ${{ steps.detect-package-manager.outputs.manager }} run dependency:check
+
+      - name: Owasp Depcheck
+        uses: dependency-check/Dependency-Check_Action@main
+        id: Depcheck
+        with:
+          project: "Zoo Negara Project"
+          path: "./package-lock.json"
+          format: "HTML"
+          out: "reports" # this is the default, no need to specify unless you wish to override it
+          args: >
+            --failOnCVSS 7
+            --enableRetired
+      - name: Upload Test results
+        uses: actions/upload-artifact@master
+        with:
+          name: Depcheck report
+          path: ${{github.workspace}}/reports
