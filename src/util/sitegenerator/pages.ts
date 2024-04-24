@@ -1,6 +1,6 @@
 import fs from "fs";
 
-export type PageConfig = {
+type PageConfig = {
   path: string;
   display: string;
 };
@@ -43,5 +43,5 @@ const remapAppFiles = (files: string[]) => {
     .map((file) => removePage(removeExtension(removeRootPath(file))));
 };
 
-export const allAppFiles = getRecursiveFiles(appFolder);
+const allAppFiles = getRecursiveFiles(appFolder);
 export const allRemappedFile = remapAppFiles(allAppFiles);

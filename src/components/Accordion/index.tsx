@@ -8,7 +8,7 @@ type AccordionItem = {
   content: string;
 };
 
-export type AccordionProps = AccordionItem[];
+type AccordionProps = AccordionItem[];
 
 export function Accordion({
   model,
