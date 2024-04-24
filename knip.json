@@ -1,0 +1,15 @@
+{
+  "ignore": [
+    "e2e/*",
+    "backstop_data/engine_scripts/playwright/*",
+    "__mocks__/*"
+  ],
+  "ignoreDependencies": [
+    "@happy-dom/jest-environment",
+    "happy-dom",
+    "jest-environment-jsdom"
+  ],
+  "ignoreBinaries": [
+    "export"
+  ]
+}

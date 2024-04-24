@@ -25,7 +25,7 @@ export type FooterProps = {
   }[];
 };
 
-export function MutableFooter({
+function MutableFooter({
   companyName,
   operatingTime,
   address,
