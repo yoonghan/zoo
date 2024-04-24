@@ -40,10 +40,15 @@ jobs:
     outputs:
       changes_detected: ${{ steps.auto-commit-action.outputs.changes_detected }}
     steps:
-      - name: ⬇️ Checkout repo # checkout with PAT, so approval will recursively call a new update.
+      - name: ⬇️ Checkout repo required to commit and PAT Is required to retrigger pipeline
+        if: ${{ inputs.should_approve }}
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.PAT }}
+
+      - name: ⬇️ Checkout repo without commit
+        if: ${{ inputs.should_approve != true }}
+        uses: actions/checkout@v4
 
       - name: Detect package manager
         id: detect-package-manager
