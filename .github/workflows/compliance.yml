@@ -9,6 +9,8 @@ on:
 jobs:
   compliance:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     steps:
       - name: 🛑 Cancel previous runs
         uses: styfle/cancel-workflow-action@0.12.1
