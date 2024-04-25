@@ -96,11 +96,11 @@ jobs:
       page_url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
+    permissions:
+      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
       - name: Generate release
         id: generate-release
         run: |
@@ -117,6 +117,7 @@ jobs:
           echo "tag=$NEW_TAG" >> $GITHUB_OUTPUT
       - name: Push Tag
         run: |
+          echo '${{ steps.generate-release.outputs.tag }}'
           git config user.name "Github Actions"
           git config user.email "walcoorperation@gmail.com"
           git tag ${{ steps.generate-release.outputs.tag }}
