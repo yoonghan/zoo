@@ -8,12 +8,31 @@ on:
   # for retriggering
   workflow_call:
 
+permissions:
+  pull-requests: write
+
 jobs:
-  validate:
+  test:
+    runs-on: ubuntu-latest
     permissions:
-      pull-requests: write
-    uses: ./.github/workflows/test.yml
-  check:
-    permissions:
-      pull-requests: write
-    uses: ./.github/workflows/compliance.yml
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Generate release
+        id: generate-release
+        run: |
+          VERSION_PREFIX="v"
+          VERSION_MAJOR="1"
+          VERSION_MAJOR_MINOR=$(git tag --list "${VERSION_PREFIX}${VERSION_MAJOR}.*" --sort=-version:refname | head -n 1 | grep -oE '[0-9]+\.[0-9]+')
+          if [ -z "$VERSION_MAJOR_MINOR" ]; then
+            VERSION_MINOR=0
+          else
+            VERSION_MINOR="${VERSION_MAJOR_MINOR//$VERSION_MAJOR./}"
+            VERSION_MINOR=$((VERSION_MINOR + 1))
+          fi
+          NEW_TAG="${VERSION_PREFIX}${VERSION_MAJOR}.${VERSION_MINOR}"
+          echo "Generated new tag: $NEW_TAG"
+          echo "tag=$NEW_TAG" >> $GITHUB_OUTPUT
