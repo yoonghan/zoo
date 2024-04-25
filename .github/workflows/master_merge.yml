@@ -22,6 +22,7 @@ jobs:
   # Re-run push
   merge:
     uses: ./.github/workflows/push.yml
+
   # Build job
   build:
     runs-on: ubuntu-latest
@@ -96,9 +97,49 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Generate release
+        id: generate-release
+        run: |
+          VERSION_PREFIX="v"
+          VERSION_MAJOR="1"
+          VERSION_MINOR=$(git tag --list "${VERsION_PREFIX}${VERSION_MAJOR}.*" --sort=-version:refname | head -n 1 | grep -oE '[0-9]+$')
+          if [ -z "VERSION_MINOR" ]; then
+            VERSION_MINOR = 0
+          else
+            VERSION_MINOR=$((VERSION_PATCH + 1))
+          fi
+          NEW_TAG="${VERSION_PREFIX}${VERSION_MAJOR}.${VERSION_MINOR}"
+          echo "Generated new tag: $NEW_TAG"
+          echo "newTag=$NEW_TAG" >> $GITHUB_OUTPUT
+      - name: Push Tag
+        run: |
+          git config user.name "Github Actions"
+          git config user.email "walcoorperation@gmail.com"
+          git tag ${{ steps.generate-release.outputs.newTag }}
+          git push origin $NEW_TAG
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Get last commit message
+        run: |
+          LAST_COMMIT=$(git log -1)
+          echo "lastCommit=$LAST_COMMIT" >> $GITHUB_OUTPUT
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: ${{ steps.generate-release.outputs.newTag }}
+          release_name: Release ${{ github.ref }} - ${{ steps.generate-release.outputs.NEW_TAG }}
+          body: |
+            ${{ steps.generate-release.outputs.lastCommit }}
+          draft: false
+          prerelease: false
 
   # Smoketest on url change
   smoke-test-snapshot:
