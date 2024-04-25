@@ -108,7 +108,7 @@ jobs:
         run: |
           VERSION_PREFIX="v"
           VERSION_MAJOR="1"
-          VERSION_MINOR=$(git tag --list "${VERSION_PREFIX}${VERSION_MAJOR}.*" --sort=-version:refname | head -n 1 | grep -oE '[0-9]+$')
+          VERSION_MINOR=$(git tag --list "${VERSION_PREFIX}${VERSION_MAJOR}.*" --sort=-version:refname | head -n 1)
           if [ -z "VERSION_MINOR" ]; then
             VERSION_MINOR = 0
           else
