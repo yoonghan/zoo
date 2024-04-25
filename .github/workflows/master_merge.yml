@@ -101,12 +101,15 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Generate release
         id: generate-release
         run: |
           VERSION_PREFIX="v"
           VERSION_MAJOR="1"
-          VERSION_MINOR=$(git tag --list "${VERSION_PREFIX}${VERSION_MAJOR}.*" --sort=-version:refname | head -n 1)
+          VERSION_MAJOR_MINOR=$(git tag --list "${VERSION_PREFIX}${VERSION_MAJOR}.*" --sort=-version:refname | head -n 1 | grep -oE '[0-9]+\.[0-9]+')
+          VERSION_MINOR=${VERSION_MAJOR_MINOR//$VERSION_MAJOR./}
           if [ -z "VERSION_MINOR" ]; then
             VERSION_MINOR = 0
           else
