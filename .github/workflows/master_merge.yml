@@ -14,6 +14,8 @@ concurrency:
 jobs:
   # Re-run push
   merge:
+    permissions:
+      pull-requests: write
     uses: ./.github/workflows/push.yml
 
   # Build job
@@ -142,6 +144,8 @@ jobs:
 
   # Smoketest on url change
   smoke-test-snapshot:
+    permissions:
+      pull-requests: write
     needs: deploy
     uses: ./.github/workflows/snapshot.yml
     with:
