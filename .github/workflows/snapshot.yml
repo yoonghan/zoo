@@ -39,6 +39,8 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       changes_detected: ${{ steps.auto-commit-action.outputs.changes_detected }}
+    permissions:
+      pull-requests: write
     steps:
       - name: ⬇️ Checkout repo required to commit and PAT Is required to retrigger pipeline
         if: ${{ inputs.should_approve }}
