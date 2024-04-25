@@ -8,6 +8,9 @@ on:
   # for retriggering
   workflow_call:
 
+permissions:
+  pull-requests: write
+
 jobs:
   validate:
     uses: ./.github/workflows/test.yml
