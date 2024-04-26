@@ -1,0 +1,39 @@
+.scroller {
+  right: 1rem;
+  position: fixed;
+  bottom: 1rem;
+  cursor: pointer;
+  color: #fff;
+  visibility: visible;
+  opacity: 1;
+  padding: 1.5rem 1rem 1rem 1rem;
+  border-radius: 3px;
+  z-index: 999;
+  background: var(--scroll-color);
+  box-shadow: 2px 2px 3px #000;
+  transition: opacity 0.3s, visibility 0.3s ease-in-out;
+}
+
+.scroller.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.scroller:before {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  left: 1.5rem;
+  width: 0;
+  height: 0;
+  border-bottom: solid 0.5rem #fff;
+  border-left: solid 0.5rem transparent;
+  border-right: solid 0.5rem transparent;
+}
+
+@media only screen and (max-width: 480px) {
+  .scroller {
+    bottom: 0;
+    right: 0;
+  }
+}

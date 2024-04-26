@@ -10,6 +10,7 @@ import { zooMenu } from "@/config/menu";
 import { ButtonLink } from "@/components/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTicket } from "@fortawesome/free-solid-svg-icons";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export const metadata: Metadata = {
   title: "Zoo Negara Malaysia",
@@ -49,6 +50,7 @@ export default function RootLayout({
           />
         </header>
         {children}
+        <ScrollToTop />
         <Footer
           operatingTime={zooProfile.operatingTime}
           address={zooProfile.address}
