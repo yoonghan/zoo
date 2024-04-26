@@ -14,7 +14,9 @@ type MiniMenuProps = {
 };
 
 function MiniMenu({ model, onScrollMonitor }: MiniMenuProps) {
+  const [selected, setSelected] = useState(0);
   const navBar = useRef<HTMLDivElement>(null);
+
   /* c8 ignore next */
   const [navBarPosition, setNavBarPosition] = useState(0);
 
@@ -38,8 +40,9 @@ function MiniMenu({ model, onScrollMonitor }: MiniMenuProps) {
   }, [addStickyToScroll]);
 
   const scrollIntoView =
-    (id: string) => (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    (idx: number) => (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
       e.currentTarget.scrollIntoView({ behavior: "instant", inline: "center" });
+      setSelected(idx);
     };
 
   return (
@@ -57,7 +60,8 @@ function MiniMenu({ model, onScrollMonitor }: MiniMenuProps) {
             )}
             <a
               href={`#${item.hashId}`}
-              onClick={scrollIntoView(`#${item.hashId}`)}
+              onClick={scrollIntoView(idx)}
+              className={idx === selected ? "underline italic" : undefined}
             >
               {item.title}
             </a>

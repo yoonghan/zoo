@@ -100,5 +100,18 @@ describe("MiniMenu", () => {
 
       scrollIntoViewCall.mockReset();
     });
+
+    it("should underline and italize which anchor is selected", async () => {
+      const { getByRole } = renderComponent();
+
+      //first gets italized
+      expect(getByRole("link", { name: "About Us" })).toHaveClass(
+        "italic underline"
+      );
+
+      const nextLink = getByRole("link", { name: "Five Pillars" });
+      await userEvent.click(nextLink);
+      expect(nextLink).toHaveClass("italic underline");
+    });
   });
 });
