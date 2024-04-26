@@ -1,10 +1,26 @@
 import "@testing-library/jest-dom";
-import { fireEvent, render } from "@testing-library/react";
+import { act, fireEvent, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import ScrollToTopWithNoSSR from "./ScrollToTopNoSSR";
 
 describe("ScrollToTop", () => {
   const scrollPoint = 501;
+
+  beforeAll(() => {
+    jest.useFakeTimers();
+  });
+
+  afterAll(() => {
+    jest.runOnlyPendingTimers();
+    jest.useRealTimers();
+  });
+
+  const advanceScroll = () => {
+    fireEvent.scroll(window, {});
+    act(() => {
+      jest.advanceTimersByTime(51);
+    });
+  };
 
   it("should render scroller when the right location is met", async () => {
     const { getByText } = render(<ScrollToTopWithNoSSR />);
@@ -14,12 +30,16 @@ describe("ScrollToTop", () => {
     expect(scrollButton).toHaveClass("hidden");
 
     window.scrollTo(0, scrollPoint);
-    fireEvent.scroll(window, {});
+    advanceScroll();
     expect(scrollButton).not.toHaveClass("hidden");
 
-    await userEvent.click(scrollButton);
+    //test return
+    const timedUserEvent = userEvent.setup({
+      advanceTimers: jest.advanceTimersByTime,
+    });
+    await timedUserEvent.click(scrollButton);
     expect(window.scrollY).toBe(0);
-    fireEvent.scroll(window, {});
+    advanceScroll();
     expect(scrollButton).toHaveClass("hidden");
   });
 
