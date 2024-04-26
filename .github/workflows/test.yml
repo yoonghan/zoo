@@ -57,7 +57,7 @@ jobs:
         if: steps.all-cache.outputs.cache-hit != 'true'
         run: |
           echo ${{steps.all-cache.outputs.cache-hit}}
-          ${{ steps.detect-package-manager.outputs.runner }}  playwright install --with-deps chrome
+          ${{ steps.detect-package-manager.outputs.runner }}  playwright install chromium
 
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.manager }} run build
