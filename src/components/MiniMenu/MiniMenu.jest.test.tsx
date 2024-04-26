@@ -1,6 +1,7 @@
 import { fireEvent, render } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import MiniMenu from ".";
+import userEvent from "@testing-library/user-event";
 
 describe("MiniMenu", () => {
   const renderComponent = () =>
@@ -79,6 +80,25 @@ describe("MiniMenu", () => {
       window.scrollTo(0, 200);
       fireEvent.scroll(window, {});
       expect(scrollMonitorFn).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe("link click", () => {
+    it("should call scrollToView to horizontally scroll to itself", async () => {
+      const { getByRole } = renderComponent();
+      const fivePillarsElem = getByRole("link", { name: "Five Pillars" });
+      const scrollIntoViewCall = jest
+        .spyOn(fivePillarsElem, "scrollIntoView")
+        .mockImplementation(() => {});
+
+      await userEvent.click(fivePillarsElem);
+
+      expect(scrollIntoViewCall).toHaveBeenCalledWith({
+        behavior: "instant",
+        inline: "center",
+      });
+
+      scrollIntoViewCall.mockReset();
     });
   });
 });

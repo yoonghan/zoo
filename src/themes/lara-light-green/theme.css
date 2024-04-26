@@ -165,10 +165,11 @@
 :root {
   --text-color: #4b5563;
   --text-color-secondary: #6b7280;
-  --primary-color: #10b981;
+  --primary-color: rgb(16, 185, 129);
   --primary-color-text: #ffffff;
   --primary-hover-text: var(--primary-900);
   --secondary-color: var(--yellow-500);
   --secondary-hover-color: var(--yellow-700);
   --secondary-text-color: black;
+  --scroll-color: rgba(30, 185, 129, 0.8);
 }
