@@ -45,7 +45,7 @@ runs:
       shell: bash
     - name: Install Playwright Browsers
       if: steps.all-cache.outputs.cache-hit != 'true'
-      run: ${{ steps.detect-package-manager.outputs.runner }}  playwright install --with-deps chrome
+      run: ${{ steps.detect-package-manager.outputs.runner }}  playwright install chromium
       shell: bash
     - name: Build with Next.js
       run: ${{ steps.detect-package-manager.outputs.manager }} run build
