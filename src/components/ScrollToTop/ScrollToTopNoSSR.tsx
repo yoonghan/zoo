@@ -4,7 +4,7 @@ import { memo, useEffect, useState, useRef } from "react";
 import style from "./ScrollToTop.module.css";
 import { debounce } from "lodash";
 
-export interface ScrollToTopStates {
+interface ScrollToTopStates {
   visible: boolean;
 }
 
