@@ -37,6 +37,11 @@ function MiniMenu({ model, onScrollMonitor }: MiniMenuProps) {
     return () => window.removeEventListener("scroll", addStickyToScroll);
   }, [addStickyToScroll]);
 
+  const scrollIntoView =
+    (id: string) => (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+      e.currentTarget.scrollIntoView({ behavior: "instant", inline: "center" });
+    };
+
   return (
     <nav className="overflow-x-auto shadow-md" ref={navBar}>
       <div
@@ -50,7 +55,12 @@ function MiniMenu({ model, onScrollMonitor }: MiniMenuProps) {
                 role="separator"
               ></div>
             )}
-            <a href={`#${item.hashId}`}>{item.title}</a>
+            <a
+              href={`#${item.hashId}`}
+              onClick={scrollIntoView(`#${item.hashId}`)}
+            >
+              {item.title}
+            </a>
           </React.Fragment>
         ))}
       </div>
