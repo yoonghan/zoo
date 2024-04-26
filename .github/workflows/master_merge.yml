@@ -125,7 +125,6 @@ jobs:
           git config user.email "walcoorperation@gmail.com"
           git tag ${{ steps.generate-release.outputs.tag }}
           git push origin ${{ steps.generate-release.outputs.tag }}
-          echo "Will tag ${{ github.event.head_commit.message }} after deployment."
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
