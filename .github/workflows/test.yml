@@ -50,13 +50,14 @@ jobs:
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
             ${{ runner.os }}-all-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
+
+      - name: Install dependencies
+        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Install Playwright Browsers
         if: steps.all-cache.outputs.cache-hit != 'true'
         run: |
           echo ${{steps.all-cache.outputs.cache-hit}}
           ${{ steps.detect-package-manager.outputs.runner }}  playwright install --with-deps chrome
-      - name: Install dependencies
-        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
 
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.manager }} run build
