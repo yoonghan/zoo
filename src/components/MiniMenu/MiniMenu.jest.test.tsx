@@ -102,6 +102,7 @@ describe("MiniMenu", () => {
     });
 
     it("should underline and italize which anchor is selected", async () => {
+      window.location.hash = "";
       const { getByRole } = renderComponent();
 
       //first gets italized
@@ -112,6 +113,17 @@ describe("MiniMenu", () => {
       const nextLink = getByRole("link", { name: "Five Pillars" });
       await userEvent.click(nextLink);
       expect(nextLink).toHaveClass("italic underline");
+    });
+
+    it("should select the right link base on # value on load", () => {
+      window.location.hash = "five-pillars";
+      const { getByRole } = renderComponent();
+
+      expect(getByRole("link", { name: "Five Pillars" })).toHaveClass(
+        "italic underline"
+      );
+
+      window.location.hash = "";
     });
   });
 });

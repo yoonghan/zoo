@@ -14,7 +14,16 @@ type MiniMenuProps = {
 };
 
 function MiniMenu({ model, onScrollMonitor }: MiniMenuProps) {
-  const [selected, setSelected] = useState(0);
+  const getIndexByWindowHash = useCallback(() => {
+    const hashId = window.location.hash;
+    const selectedIndex = model.findIndex(
+      (item) => `#${item.hashId}` === hashId
+    );
+    return selectedIndex < 0 ? 0 : selectedIndex;
+  }, [model]);
+
+  const [selected, setSelected] = useState(getIndexByWindowHash());
+  const anchorRef = useRef<(HTMLAnchorElement | null)[]>([]);
   const navBar = useRef<HTMLDivElement>(null);
 
   /* c8 ignore next */
@@ -39,11 +48,19 @@ function MiniMenu({ model, onScrollMonitor }: MiniMenuProps) {
     return () => window.removeEventListener("scroll", addStickyToScroll);
   }, [addStickyToScroll]);
 
-  const scrollIntoView =
-    (idx: number) => (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-      e.currentTarget.scrollIntoView({ behavior: "instant", inline: "center" });
-      setSelected(idx);
-    };
+  useEffect(() => {
+    const elem = anchorRef.current[selected];
+    if (elem !== null) {
+      elem.scrollIntoView({
+        behavior: "instant",
+        inline: "center",
+      });
+    }
+  }, [selected]);
+
+  const scrollIntoView = (idx: number) => () => {
+    setSelected(idx);
+  };
 
   return (
     <nav className="overflow-x-auto shadow-md" ref={navBar}>
@@ -60,6 +77,9 @@ function MiniMenu({ model, onScrollMonitor }: MiniMenuProps) {
             )}
             <a
               href={`#${item.hashId}`}
+              ref={(el) => {
+                anchorRef.current[idx] = el;
+              }}
               onClick={scrollIntoView(idx)}
               className={idx === selected ? "underline italic" : undefined}
             >
