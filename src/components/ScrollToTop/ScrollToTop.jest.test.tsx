@@ -18,7 +18,7 @@ describe("ScrollToTop", () => {
   const advanceScroll = () => {
     fireEvent.scroll(window, {});
     act(() => {
-      jest.advanceTimersByTime(51);
+      jest.runOnlyPendingTimers();
     });
   };
 
