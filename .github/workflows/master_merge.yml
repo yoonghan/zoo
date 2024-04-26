@@ -110,8 +110,8 @@ jobs:
           VERSION_MAJOR="1"
           VERSION_MAJOR_MINOR=$(git tag --list "${VERSION_PREFIX}${VERSION_MAJOR}.*" --sort=-version:refname | head -n 1 | grep -oE '[0-9]+\.[0-9]+')
           VERSION_MINOR=${VERSION_MAJOR_MINOR//$VERSION_MAJOR./}
-          if [ -z "VERSION_MINOR" ]; then
-            VERSION_MINOR = 0
+          if [ -z "$VERSION_MINOR" ]; then
+            VERSION_MINOR=0
           else
             VERSION_MINOR=$((VERSION_MINOR + 1))
           fi
@@ -125,13 +125,10 @@ jobs:
           git config user.email "walcoorperation@gmail.com"
           git tag ${{ steps.generate-release.outputs.tag }}
           git push origin ${{ steps.generate-release.outputs.tag }}
+          echo "Will tag ${{ github.event.head_commit.message }} after deployment."
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-      - name: Get last commit message
-        run: |
-          LAST_COMMIT=$(git log -1 --pretty=%B)
-          echo "lastCommit=$LAST_COMMIT" >> $GITHUB_OUTPUT
       - name: Create Release
         id: create_release
         uses: actions/create-release@latest
@@ -141,7 +138,7 @@ jobs:
           tag_name: ${{ steps.generate-release.outputs.tag }}
           release_name: Release ${{ github.ref }} - ${{ steps.generate-release.outputs.tag }}
           body: |
-            ${{ steps.generate-release.outputs.lastCommit }}
+            ${{ github.event.head_commit.message }}
           draft: false
           prerelease: false
 
