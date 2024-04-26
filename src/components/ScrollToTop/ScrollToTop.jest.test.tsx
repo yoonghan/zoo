@@ -43,20 +43,45 @@ describe("ScrollToTop", () => {
     expect(scrollButton).toHaveClass("hidden");
   });
 
-  it("should unmount gracefully", async () => {
-    const adder = jest
-      .spyOn(window, "addEventListener")
-      .mockImplementation(() => {});
-    const remover = jest
-      .spyOn(window, "removeEventListener")
-      .mockImplementation(() => {});
+  describe("listener mounting", () => {
+    var adder: jest.SpyInstance, remover: jest.SpyInstance;
 
-    const { unmount } = render(<ScrollToTopWithNoSSR />);
+    beforeEach(() => {
+      adder = jest
+        .spyOn(window, "addEventListener")
+        .mockImplementation(() => {});
+      remover = jest
+        .spyOn(window, "removeEventListener")
+        .mockImplementation(() => {});
+    });
 
-    expect(adder).toHaveBeenCalledWith("scroll", expect.anything());
+    afterEach(() => {
+      if (adder) {
+        adder.mockReset();
+      }
+      if (remover) {
+        remover.mockReset();
+      }
+    });
 
-    unmount();
+    it("should unmount gracefully", async () => {
+      const { unmount } = render(<ScrollToTopWithNoSSR />);
 
-    expect(remover).toHaveBeenCalledWith("scroll", expect.anything());
+      expect(adder).toHaveBeenCalledWith("scroll", expect.anything());
+
+      unmount();
+
+      expect(remover).toHaveBeenCalledWith("scroll", expect.anything());
+    });
+
+    it("should just mount once", async () => {
+      const { rerender } = render(<ScrollToTopWithNoSSR />);
+
+      expect(adder).toHaveBeenCalledTimes(1);
+
+      rerender(<ScrollToTopWithNoSSR />);
+
+      expect(adder).toHaveBeenCalledTimes(1);
+    });
   });
 });
