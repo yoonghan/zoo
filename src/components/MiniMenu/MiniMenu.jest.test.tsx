@@ -34,13 +34,6 @@ describe("MiniMenu", () => {
     );
   });
 
-  it("should be memozied and forever not modified. It's a menu!", () => {
-    const { rerender, getByText } = renderComponent();
-    expect(getByText("About Us")).toBeVisible();
-    rerender(<MiniMenu model={[]} />);
-    expect(getByText("About Us")).toBeVisible();
-  });
-
   describe("sticky menu", () => {
     const renderComponentWithContainer = (scrollMonitorFn = jest.fn()) =>
       render(

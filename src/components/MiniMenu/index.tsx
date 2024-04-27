@@ -19,19 +19,10 @@ function MiniMenu({
   onScrollMonitor,
   onScrollIntoViewMonitor,
 }: MiniMenuProps) {
-  const getIndexByWindowHash = useCallback(() => {
-    const hashId = window.location.hash;
-    const selectedIndex = model.findIndex(
-      (item) => `#${item.hashId}` === hashId
-    );
-    return selectedIndex < 0 ? 0 : selectedIndex;
-  }, [model]);
-
-  const [selected, setSelected] = useState(getIndexByWindowHash());
+  const [selected, setSelected] = useState(0);
   const anchorRef = useRef<(HTMLAnchorElement | null)[]>([]);
   const navBar = useRef<HTMLDivElement>(null);
 
-  /* c8 ignore next */
   const [navBarPosition, setNavBarPosition] = useState(0);
 
   const addStickyToScroll = useCallback(() => {
@@ -46,6 +37,14 @@ function MiniMenu({
       }
     }
   }, [navBarPosition, onScrollMonitor]);
+
+  useEffect(() => {
+    const hashId = window?.location?.hash;
+    const selectedIndex = model.findIndex(
+      (item) => `#${item.hashId}` === hashId
+    );
+    setSelected(selectedIndex < 0 ? 0 : selectedIndex);
+  }, [model]);
 
   useEffect(() => {
     setNavBarPosition(navBar.current?.offsetHeight || 0);
@@ -100,4 +99,4 @@ function MiniMenu({
   );
 }
 
-export default memo(MiniMenu, () => true);
+export default MiniMenu;

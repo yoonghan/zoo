@@ -111,7 +111,7 @@ export default function About() {
               Researchers students from the Zoology, Biology and Veterinary
               fields have a multitude of choices when doing their research at
               the zoo as we have more than 400 species to choose from. We
-              welcome everybody (includiing foreigners) to enter our doors of
+              welcome everybody (including foreigners) to enter our doors of
               knowledge.
             </p>
           </div>
