@@ -10,10 +10,15 @@ export type MiniMenuItems = {
 
 type MiniMenuProps = {
   model: MiniMenuItems[];
-  onScrollMonitor?: () => void;
+  onScrollMonitor?: () => void; // use to monitor unmount
+  onScrollIntoViewMonitor?: () => void; // use to monitor unmount
 };
 
-function MiniMenu({ model, onScrollMonitor }: MiniMenuProps) {
+function MiniMenu({
+  model,
+  onScrollMonitor,
+  onScrollIntoViewMonitor,
+}: MiniMenuProps) {
   const getIndexByWindowHash = useCallback(() => {
     const hashId = window.location.hash;
     const selectedIndex = model.findIndex(
@@ -31,7 +36,7 @@ function MiniMenu({ model, onScrollMonitor }: MiniMenuProps) {
 
   const addStickyToScroll = useCallback(() => {
     if (onScrollMonitor) {
-      onScrollMonitor(); // use to monitor unmount
+      onScrollMonitor();
     }
     if (navBar.current) {
       if (window.scrollY >= navBarPosition) {
@@ -50,13 +55,16 @@ function MiniMenu({ model, onScrollMonitor }: MiniMenuProps) {
 
   useEffect(() => {
     const elem = anchorRef.current[selected];
-    if (elem !== null) {
+    if (elem !== null && window.location.hash !== "") {
+      if (onScrollIntoViewMonitor) {
+        onScrollIntoViewMonitor();
+      }
       elem.scrollIntoView({
         behavior: "instant",
         inline: "center",
       });
     }
-  }, [selected]);
+  }, [selected, onScrollIntoViewMonitor]);
 
   const scrollIntoView = (idx: number) => () => {
     setSelected(idx);
