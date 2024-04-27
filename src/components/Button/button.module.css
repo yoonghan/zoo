@@ -32,13 +32,13 @@
 }
 
 .button-buynow {
-  color: #000;
-  background-color: #b3a373; /*specially written to follow ticket 2u*/
+  color: var(--buy-text-color);
+  background: var(--buy-color);
 }
 
 .button-buynow:hover {
-  color: #fff;
-  background-color: #212529;
+  color: var(--buy-color);
+  background: var(--buy-text-color);
 }
 
 @media (max-width: 960px) {
