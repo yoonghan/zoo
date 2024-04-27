@@ -100,17 +100,18 @@
   opacity: 0;
   width: 0;
   z-index: 1;
-  transition: opacity 0.5s ease-out;
+  overflow: hidden;
   box-shadow: 8px 8px 8px -8px black;
 }
 
 .subnav:hover .subnav-content {
   display: block;
   opacity: 1;
+  width: auto;
   height: auto;
-  width: 100%;
   padding: 0 0 10px 0;
   border-radius: 0 0 4px 4px;
+  animation: grow 0.2s ease-out;
 }
 
 @media (max-width: 960px) {
@@ -167,7 +168,6 @@
   }
 
   .subnav:hover .subnav-content {
-    width: auto;
     position: absolute;
     padding: 10px;
     background: var(--primary-700);
@@ -180,5 +180,16 @@
 
   .menu > ul li:last-child {
     margin-left: auto;
+  }
+}
+
+@keyframes grow {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 200px;
+    opacity: 1;
   }
 }
