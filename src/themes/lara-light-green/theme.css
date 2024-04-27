@@ -172,4 +172,6 @@
   --secondary-hover-color: var(--yellow-700);
   --secondary-text-color: black;
   --scroll-color: rgba(30, 185, 129, 0.8);
+  --buy-color: #f1e4bc; /*specially written to follow ticket 2u*/
+  --buy-text-color: #222;
 }

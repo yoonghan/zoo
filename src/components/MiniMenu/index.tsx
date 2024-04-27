@@ -10,17 +10,24 @@ export type MiniMenuItems = {
 
 type MiniMenuProps = {
   model: MiniMenuItems[];
-  onScrollMonitor?: () => void;
+  onScrollMonitor?: () => void; // use to monitor unmount
+  onScrollIntoViewMonitor?: () => void; // use to monitor unmount
 };
 
-function MiniMenu({ model, onScrollMonitor }: MiniMenuProps) {
+function MiniMenu({
+  model,
+  onScrollMonitor,
+  onScrollIntoViewMonitor,
+}: MiniMenuProps) {
+  const [selected, setSelected] = useState(0);
+  const anchorRef = useRef<(HTMLAnchorElement | null)[]>([]);
   const navBar = useRef<HTMLDivElement>(null);
-  /* c8 ignore next */
+
   const [navBarPosition, setNavBarPosition] = useState(0);
 
   const addStickyToScroll = useCallback(() => {
     if (onScrollMonitor) {
-      onScrollMonitor(); // use to monitor unmount
+      onScrollMonitor();
     }
     if (navBar.current) {
       if (window.scrollY >= navBarPosition) {
@@ -32,15 +39,35 @@ function MiniMenu({ model, onScrollMonitor }: MiniMenuProps) {
   }, [navBarPosition, onScrollMonitor]);
 
   useEffect(() => {
+    const hashId = window?.location?.hash;
+    const selectedIndex = model.findIndex(
+      (item) => `#${item.hashId}` === hashId
+    );
+    setSelected(selectedIndex < 0 ? 0 : selectedIndex);
+  }, [model]);
+
+  useEffect(() => {
     setNavBarPosition(navBar.current?.offsetHeight || 0);
     window.addEventListener("scroll", addStickyToScroll);
     return () => window.removeEventListener("scroll", addStickyToScroll);
   }, [addStickyToScroll]);
 
-  const scrollIntoView =
-    (id: string) => (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-      e.currentTarget.scrollIntoView({ behavior: "instant", inline: "center" });
-    };
+  useEffect(() => {
+    const elem = anchorRef.current[selected];
+    if (elem !== null && window.location.hash !== "") {
+      if (onScrollIntoViewMonitor) {
+        onScrollIntoViewMonitor();
+      }
+      elem.scrollIntoView({
+        behavior: "instant",
+        inline: "center",
+      });
+    }
+  }, [selected, onScrollIntoViewMonitor]);
+
+  const scrollIntoView = (idx: number) => () => {
+    setSelected(idx);
+  };
 
   return (
     <nav className="overflow-x-auto shadow-md" ref={navBar}>
@@ -57,7 +84,11 @@ function MiniMenu({ model, onScrollMonitor }: MiniMenuProps) {
             )}
             <a
               href={`#${item.hashId}`}
-              onClick={scrollIntoView(`#${item.hashId}`)}
+              ref={(el) => {
+                anchorRef.current[idx] = el;
+              }}
+              onClick={scrollIntoView(idx)}
+              className={idx === selected ? "underline italic" : undefined}
             >
               {item.title}
             </a>
@@ -68,4 +99,4 @@ function MiniMenu({ model, onScrollMonitor }: MiniMenuProps) {
   );
 }
 
-export default memo(MiniMenu, () => true);
+export default MiniMenu;

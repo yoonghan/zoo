@@ -1,12 +1,22 @@
 .nav {
   background: var(--primary-700);
   color: var(--primary-color-text);
+  border-bottom-width: 1px;
+  box-shadow: 2px 2px 2px -4px black;
 }
 
 .nav a[role="menuitem"] {
   text-decoration: none;
   color: var(--primary-color-text);
-  padding: 10px;
+  padding: 10px 10px;
+}
+
+.nav img {
+  display: inline;
+}
+
+.menu > ul > li a {
+  display: block;
 }
 
 .menu .home-logo {
@@ -21,10 +31,6 @@
   max-height: 0;
   transition: max-height 0.5s ease-out;
   background: var(--primary-700);
-}
-
-.menu ul > li {
-  padding: 5px 0;
 }
 
 .menu a[role="menuitem"]:hover {
@@ -90,15 +96,22 @@
 }
 
 .subnav-content {
-  width: 100%;
+  height: 0;
+  opacity: 0;
+  width: 0;
   z-index: 1;
-  padding: 20px 0;
-  display: none;
+  overflow: hidden;
   box-shadow: 8px 8px 8px -8px black;
-  border-radius: 0 0 4px 4px;
 }
+
 .subnav:hover .subnav-content {
   display: block;
+  opacity: 1;
+  width: auto;
+  height: auto;
+  padding: 0 0 10px 0;
+  border-radius: 0 0 4px 4px;
+  animation: grow 0.2s ease-out;
 }
 
 @media (max-width: 960px) {
@@ -108,12 +121,8 @@
     cursor: default;
   }
 
-  .subnav-content {
-    box-shadow: none;
-  }
-
   .menu ul {
-    margin-left: 4rem;
+    margin-left: 2rem;
   }
 
   .menu .non-mobile-menu {
@@ -122,14 +131,17 @@
 
   header:has(.side-menu:checked) {
     position: sticky;
-    top: 0;
+  }
+
+  .subnav-content {
+    display: none;
+    box-shadow: none;
   }
 }
 
 @media (min-width: 960px) {
   .nav {
     padding: 0 2rem;
-    z-index: 999;
   }
 
   .menu {
@@ -145,17 +157,20 @@
     align-items: center;
   }
 
+  .menu > ul > li > div > a[role="menuitem"] {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
   .mobile-menu {
     display: none;
   }
 
   .subnav:hover .subnav-content {
-    width: auto;
-    height: auto;
-    display: flex;
     position: absolute;
-    padding: 20px 10px;
+    padding: 10px;
     background: var(--primary-700);
+    border-width: 0 1px 1px 1px;
   }
 
   .subnav-content > ul {
@@ -164,5 +179,16 @@
 
   .menu > ul li:last-child {
     margin-left: auto;
+  }
+}
+
+@keyframes grow {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 200px;
+    opacity: 1;
   }
 }

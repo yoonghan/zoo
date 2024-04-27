@@ -2,7 +2,7 @@
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   box-shadow: 1px 1px 5px 0 gray;
   border-radius: 0.5rem;
-  padding: 1rem;
+  padding: 0.75rem;
   color: var(--primary-color-text);
   white-space: nowrap;
   font-weight: bold;
@@ -32,17 +32,11 @@
 }
 
 .button-buynow {
-  color: #000;
-  background-color: #b3a373; /*specially written to follow ticket 2u*/
+  color: var(--buy-text-color);
+  background: var(--buy-color);
 }
 
 .button-buynow:hover {
-  color: #fff;
-  background-color: #212529;
-}
-
-@media (max-width: 960px) {
-  .button {
-    padding: 0.75rem;
-  }
+  color: var(--buy-color);
+  background: var(--buy-text-color);
 }
