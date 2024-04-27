@@ -1,6 +1,13 @@
 "use client";
 
-import React, { memo, useCallback, useEffect, useRef, useState } from "react";
+import React, {
+  memo,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import style from "./mini-menu.module.css";
 
 export type MiniMenuItems = {
@@ -38,7 +45,7 @@ function MiniMenu({
     }
   }, [navBarPosition, onScrollMonitor]);
 
-  useEffect(() => {
+  const recalculateSelection = useCallback(() => {
     const hashId = window?.location?.hash;
     const selectedIndex = model.findIndex(
       (item) => `#${item.hashId}` === hashId
@@ -46,11 +53,12 @@ function MiniMenu({
     setSelected(selectedIndex < 0 ? 0 : selectedIndex);
   }, [model]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    recalculateSelection();
     setNavBarPosition(navBar.current?.offsetHeight || 0);
     window.addEventListener("scroll", addStickyToScroll);
     return () => window.removeEventListener("scroll", addStickyToScroll);
-  }, [addStickyToScroll]);
+  }, [addStickyToScroll, recalculateSelection]);
 
   useEffect(() => {
     const elem = anchorRef.current[selected];
@@ -64,10 +72,6 @@ function MiniMenu({
       });
     }
   }, [selected, onScrollIntoViewMonitor]);
-
-  const scrollIntoView = (idx: number) => () => {
-    setSelected(idx);
-  };
 
   return (
     <nav className="overflow-x-auto shadow-md" ref={navBar}>
@@ -87,7 +91,9 @@ function MiniMenu({
               ref={(el) => {
                 anchorRef.current[idx] = el;
               }}
-              onClick={scrollIntoView(idx)}
+              onClick={() => {
+                setSelected(idx);
+              }}
               className={idx === selected ? "underline italic" : undefined}
             >
               {item.title}
