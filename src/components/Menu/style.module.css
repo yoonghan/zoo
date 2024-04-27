@@ -1,6 +1,8 @@
 .nav {
   background: var(--primary-700);
   color: var(--primary-color-text);
+  border-bottom-width: 1px;
+  box-shadow: 2px 2px 2px -4px black;
 }
 
 .nav a[role="menuitem"] {
@@ -94,15 +96,21 @@
 }
 
 .subnav-content {
-  width: 100%;
+  height: 0;
+  opacity: 0;
+  width: 0;
   z-index: 1;
-  padding: 0 0 10px 0;
-  display: none;
+  transition: opacity 0.5s ease-out;
   box-shadow: 8px 8px 8px -8px black;
-  border-radius: 0 0 4px 4px;
 }
+
 .subnav:hover .subnav-content {
   display: block;
+  opacity: 1;
+  height: auto;
+  width: 100%;
+  padding: 0 0 10px 0;
+  border-radius: 0 0 4px 4px;
 }
 
 @media (max-width: 960px) {
@@ -110,10 +118,6 @@
     /*prevents user click on href*/
     pointer-events: none;
     cursor: default;
-  }
-
-  .subnav-content {
-    box-shadow: none;
   }
 
   .menu ul {
@@ -126,6 +130,11 @@
 
   header:has(.side-menu:checked) {
     position: sticky;
+  }
+
+  .subnav-content {
+    display: none;
+    box-shadow: none;
   }
 }
 
@@ -159,11 +168,10 @@
 
   .subnav:hover .subnav-content {
     width: auto;
-    height: auto;
-    display: flex;
     position: absolute;
     padding: 10px;
     background: var(--primary-700);
+    border-width: 0 1px 1px 1px;
   }
 
   .subnav-content > ul {
