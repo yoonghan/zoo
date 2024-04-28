@@ -1,6 +1,6 @@
 "use client";
 
-import React, { memo, useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useLayoutEffect, useRef, useState } from "react";
 import style from "./mini-menu.module.css";
 
 export type MiniMenuItems = {
@@ -38,36 +38,37 @@ function MiniMenu({
     }
   }, [navBarPosition, onScrollMonitor]);
 
-  useEffect(() => {
+  const recalculateSelection = useCallback(() => {
     const hashId = window?.location?.hash;
     const selectedIndex = model.findIndex(
       (item) => `#${item.hashId}` === hashId
     );
-    setSelected(selectedIndex < 0 ? 0 : selectedIndex);
+    if (selectedIndex >= 0) {
+      anchorRef.current[selectedIndex]?.click();
+    }
   }, [model]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    recalculateSelection();
     setNavBarPosition(navBar.current?.offsetHeight || 0);
     window.addEventListener("scroll", addStickyToScroll);
     return () => window.removeEventListener("scroll", addStickyToScroll);
-  }, [addStickyToScroll]);
+  }, [addStickyToScroll, recalculateSelection]);
 
-  useEffect(() => {
-    const elem = anchorRef.current[selected];
-    if (elem !== null && window.location.hash !== "") {
-      if (onScrollIntoViewMonitor) {
-        onScrollIntoViewMonitor();
-      }
-      elem.scrollIntoView({
-        behavior: "instant",
-        inline: "center",
-      });
-    }
-  }, [selected, onScrollIntoViewMonitor]);
-
-  const scrollIntoView = (idx: number) => () => {
-    setSelected(idx);
-  };
+  const onAnchorClick = useCallback(
+    (idx: number) =>
+      (elem: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+        if (onScrollIntoViewMonitor) {
+          onScrollIntoViewMonitor();
+        }
+        elem.currentTarget.scrollIntoView({
+          behavior: "instant",
+          inline: "center",
+        });
+        setSelected(idx);
+      },
+    [onScrollIntoViewMonitor]
+  );
 
   return (
     <nav className="overflow-x-auto shadow-md" ref={navBar}>
@@ -87,7 +88,7 @@ function MiniMenu({
               ref={(el) => {
                 anchorRef.current[idx] = el;
               }}
-              onClick={scrollIntoView(idx)}
+              onClick={onAnchorClick(idx)}
               className={idx === selected ? "underline italic" : undefined}
             >
               {item.title}
