@@ -94,48 +94,54 @@ function MutableMenu({
   });
 
   return (
-    <div className={style.nav}>
-      <input
-        className={style["side-menu"]}
-        type="checkbox"
-        id="side-menu"
-        ref={sideMenuRef}
-        onChange={onSideMenuChange}
-      />
-      <div className={style["mobile-menu"]}>
-        <label
-          className={style.hamb}
-          htmlFor="side-menu"
-          aria-label="Main Menu"
-        >
-          <span className={style["hamb-line"]}></span>
-          <span className={"visually-hidden"}>Hamburger Menu</span>
-        </label>
-        <Link href="/" tabIndex={-1} styling="None" onClick={unCheckSideMenu}>
-          {mobileHomeText}
-        </Link>
-        {shortcutComponent && shortcutComponent}
+    <>
+      <div className={style.mobile__nav}>
+        <input
+          className={style["side-menu"]}
+          type="checkbox"
+          id="side-menu"
+          ref={sideMenuRef}
+          onChange={onSideMenuChange}
+        />
+        <div className={style["mobile-menu"]}>
+          <label
+            className={style.hamb}
+            htmlFor="side-menu"
+            aria-label="Main Menu"
+          >
+            <span className={style["hamb-line"]}></span>
+            <span className={"visually-hidden"}>Hamburger Menu</span>
+          </label>
+          <Link href="/" tabIndex={-1} styling="None" onClick={unCheckSideMenu}>
+            {mobileHomeText}
+          </Link>
+          {shortcutComponent && shortcutComponent}
+        </div>
+        <nav role="menubar" className={style.menu}>
+          <ul role="menu" aria-orientation="horizontal">
+            {topMenu}
+          </ul>
+        </nav>
       </div>
-
-      <nav role="menubar" className={style.menu}>
-        <ul role="menu" aria-orientation="horizontal">
-          <li className={style["non-mobile-menu"]} role="menuitem">
-            <Link href="/" className={style["home-logo"]}>
-              <Image
-                src="/images/home-link.png"
-                alt="home link"
-                height={20}
-                width={20}
-              />
-            </Link>
-          </li>
-          {topMenu}
-          <li className={`${style["non-mobile-menu"]}`} role="menuitem">
-            {shortcutComponent && shortcutComponent}
-          </li>
-        </ul>
-      </nav>
-    </div>
+      <div className={style.desktop__nav}>
+        <nav role="menubar" className={style.menu}>
+          <ul role="menu" aria-orientation="horizontal">
+            <li role="menuitem">
+              <Link href="/" className={style["home-logo"]}>
+                <Image
+                  src="/images/home-link.png"
+                  alt="home link"
+                  height={20}
+                  width={20}
+                />
+              </Link>
+            </li>
+            {topMenu}
+            <li role="menuitem">{shortcutComponent && shortcutComponent}</li>
+          </ul>
+        </nav>
+      </div>
+    </>
   );
 }
 
