@@ -11,14 +11,9 @@ export type MiniMenuItems = {
 type MiniMenuProps = {
   model: MiniMenuItems[];
   onScrollMonitor?: () => void; // use to monitor unmount
-  onScrollIntoViewMonitor?: () => void; // use to monitor unmount
 };
 
-function MiniMenu({
-  model,
-  onScrollMonitor,
-  onScrollIntoViewMonitor,
-}: MiniMenuProps) {
+function MiniMenu({ model, onScrollMonitor }: MiniMenuProps) {
   const [selected, setSelected] = useState(0);
   const anchorRef = useRef<(HTMLAnchorElement | null)[]>([]);
   const navBar = useRef<HTMLDivElement>(null);
@@ -58,16 +53,13 @@ function MiniMenu({
   const onAnchorClick = useCallback(
     (idx: number) =>
       (elem: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-        if (onScrollIntoViewMonitor) {
-          onScrollIntoViewMonitor();
-        }
         elem.currentTarget.scrollIntoView({
           behavior: "instant",
           inline: "center",
         });
         setSelected(idx);
       },
-    [onScrollIntoViewMonitor]
+    []
   );
 
   return (

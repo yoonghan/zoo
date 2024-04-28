@@ -77,21 +77,8 @@ describe("MiniMenu", () => {
   });
 
   describe("link click", () => {
-    const renderScrollIntoViewComponent = (
-      onScrollIntoViewMonitor = () => {}
-    ) =>
-      render(
-        <MiniMenu
-          model={[
-            { hashId: "about-us", title: "About Us" },
-            { hashId: "five-pillars", title: "Five Pillars" },
-          ]}
-          onScrollIntoViewMonitor={onScrollIntoViewMonitor}
-        />
-      );
-
-    it("should call scrollToView to horizontally scroll to itself", async () => {
-      const { getByRole } = renderScrollIntoViewComponent();
+    it("should call scrollToView to horizontally scroll to itself and italize it", async () => {
+      const { getByRole } = renderComponent();
       const fivePillarsElem = getByRole("link", { name: "Five Pillars" });
       const scrollIntoViewCall = jest
         .spyOn(fivePillarsElem, "scrollIntoView")
@@ -104,26 +91,14 @@ describe("MiniMenu", () => {
         inline: "center",
       });
 
+      expect(fivePillarsElem).toHaveClass("italic underline");
+
       scrollIntoViewCall.mockReset();
-    });
-
-    it("should underline and italize which anchor is selected", async () => {
-      window.location.hash = "";
-      const { getByRole } = renderScrollIntoViewComponent();
-
-      //first gets italized
-      expect(getByRole("link", { name: "About Us" })).toHaveClass(
-        "italic underline"
-      );
-
-      const nextLink = getByRole("link", { name: "Five Pillars" });
-      await userEvent.click(nextLink);
-      expect(nextLink).toHaveClass("italic underline");
     });
 
     it("should select the right link base on # value on load", () => {
       window.location.hash = "five-pillars";
-      const { getByRole } = renderScrollIntoViewComponent();
+      const { getByRole } = renderComponent();
 
       expect(getByRole("link", { name: "Five Pillars" })).toHaveClass(
         "italic underline"
@@ -132,18 +107,16 @@ describe("MiniMenu", () => {
       window.location.hash = "";
     });
 
-    it("should not trigger scrollIntoView if hash is empty to minimenu to be in focus during load", async () => {
-      const onScrollIntoViewMonitorFn = jest.fn();
-      window.location.hash = "";
-      const { getByRole } = renderScrollIntoViewComponent(
-        onScrollIntoViewMonitorFn
+    it("should default to 0 if hash is not valid", async () => {
+      window.location.hash = "#not-valid";
+      const { getByRole } = renderComponent();
+
+      //first gets italized
+      expect(getByRole("link", { name: "About Us" })).toHaveClass(
+        "italic underline"
       );
 
-      expect(onScrollIntoViewMonitorFn).not.toHaveBeenCalled();
-
-      await userEvent.click(getByRole("link", { name: "Five Pillars" }));
-
-      expect(onScrollIntoViewMonitorFn).toHaveBeenCalled();
+      window.location.hash = "";
     });
   });
 });
