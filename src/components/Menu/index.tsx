@@ -1,9 +1,16 @@
 "use client";
 
-import { ChangeEvent, ReactNode, memo, useEffect, useRef } from "react";
+import {
+  CSSProperties,
+  ChangeEvent,
+  ReactNode,
+  memo,
+  useRef,
+} from "react";
 import style from "./style.module.css";
 import Image from "next/image";
 import { Link } from "../Link";
+import { formatStringAsId } from "@/util/idGenerator";
 
 type TopMenuItem = {
   label: string;
@@ -22,10 +29,14 @@ function MutableMenu({
   model,
   mobileHomeText,
   shortcutComponent,
+  mobileStyle = {},
+  desktopStyle = {},
 }: {
   model: MenuType;
   mobileHomeText: string;
   shortcutComponent?: ReactNode;
+  mobileStyle?: CSSProperties;
+  desktopStyle?: CSSProperties;
 }) {
   const sideMenuRef = useRef<HTMLInputElement>(null);
 
@@ -45,7 +56,6 @@ function MutableMenu({
   };
 
   const onSideMenuChange = (event: ChangeEvent<HTMLInputElement>) => {
-    //TODO: If user opens menu in mobile then resize to desktop, the screen freezes.
     document.body.style.overflow = event.target.checked ? "hidden" : "auto";
   };
 
@@ -65,7 +75,7 @@ function MutableMenu({
       </li>
     ));
 
-  const topMenu = model.map((topMenuItem) => {
+  const desktopTopMenu = model.map((topMenuItem) => {
     const hasChild = topMenuItem.items;
 
     return (
@@ -75,12 +85,7 @@ function MutableMenu({
         className={hasChild ? style.subnav : ""}
       >
         <div>
-          <Link
-            href={topMenuItem.url}
-            role="menuitem"
-            className={hasChild ? style["top-menu-link"] : ""}
-            onClick={!hasChild ? unCheckSideMenu : () => {}}
-          >
+          <Link href={topMenuItem.url} role="menuitem">
             {topMenuItem.label}
           </Link>
           {topMenuItem.items && (
@@ -93,49 +98,97 @@ function MutableMenu({
     );
   });
 
-  return (
-    <div className={style.nav}>
-      <input
-        className={style["side-menu"]}
-        type="checkbox"
-        id="side-menu"
-        ref={sideMenuRef}
-        onChange={onSideMenuChange}
-      />
-      <div className={style["mobile-menu"]}>
-        <label
-          className={style.hamb}
-          htmlFor="side-menu"
-          aria-label="Main Menu"
-        >
-          <span className={style["hamb-line"]}></span>
-          <span className={"visually-hidden"}>Hamburger Menu</span>
-        </label>
-        <Link href="/" tabIndex={-1} styling="None" onClick={unCheckSideMenu}>
-          {mobileHomeText}
-        </Link>
-        {shortcutComponent && shortcutComponent}
-      </div>
+  const mobileTopMenu = model.map((topMenuItem) => {
+    const hasChild = topMenuItem.items;
 
-      <nav role="menubar" className={style.menu}>
-        <ul role="menu" aria-orientation="horizontal">
-          <li className={style["non-mobile-menu"]} role="menuitem">
-            <Link href="/" className={style["home-logo"]}>
-              <Image
-                src="/images/home-link.png"
-                alt="home link"
-                height={20}
-                width={20}
-              />
+    return (
+      <li
+        key={topMenuItem.label}
+        role="presentation"
+        className={hasChild ? style.subnav : ""}
+      >
+        <div>
+          <input
+            className={style["top-menu"]}
+            type="radio"
+            name="top-menu"
+            id={formatStringAsId(topMenuItem.label)}
+          />
+          {hasChild ? (
+            <label
+              role="menuitem"
+              htmlFor={formatStringAsId(topMenuItem.label)}
+            >
+              {topMenuItem.label}
+            </label>
+          ) : (
+            <Link
+              href={topMenuItem.url}
+              role="menuitem"
+              onClick={unCheckSideMenu}
+            >
+              {topMenuItem.label}
             </Link>
-          </li>
-          {topMenu}
-          <li className={`${style["non-mobile-menu"]}`} role="menuitem">
-            {shortcutComponent && shortcutComponent}
-          </li>
-        </ul>
-      </nav>
-    </div>
+          )}
+          {topMenuItem.items && (
+            <div role="presentation" className={style["subnav-content"]}>
+              <ul role="menu">{subMenu(topMenuItem.items, topMenuItem.url)}</ul>
+            </div>
+          )}
+        </div>
+      </li>
+    );
+  });
+
+  return (
+    <>
+      <div className={style.mobile__nav} style={mobileStyle}>
+        <input
+          className={style["side-menu"]}
+          type="checkbox"
+          id="side-menu"
+          ref={sideMenuRef}
+          onChange={onSideMenuChange}
+        />
+        <div className={style["mobile-menu"]}>
+          <label
+            className={style.hamb}
+            htmlFor="side-menu"
+            aria-label="Main Menu"
+          >
+            <span className={style["hamb-line"]}></span>
+            <span className={"visually-hidden"}>Hamburger Menu</span>
+          </label>
+          <Link href="/" tabIndex={-1} styling="None" onClick={unCheckSideMenu}>
+            {mobileHomeText}
+          </Link>
+          {shortcutComponent && shortcutComponent}
+        </div>
+        <nav role="menubar" className={style.menu}>
+          <ul role="menu" aria-orientation="horizontal">
+            {mobileTopMenu}
+          </ul>
+        </nav>
+      </div>
+      <div className={style.desktop__nav} style={desktopStyle}>
+        <nav role="menubar" className={style.menu}>
+          <ul role="menu" aria-orientation="horizontal">
+            <li role="menuitem">
+              <Link href="/" className={style["home-logo"]}>
+                <Image
+                  src="/images/home-link.png"
+                  alt="home link"
+                  height={20}
+                  width={20}
+                />
+              </Link>
+            </li>
+            {desktopTopMenu}
+            <li role="menuitem">{shortcutComponent && shortcutComponent}</li>
+          </ul>
+        </nav>
+      </div>
+    </>
   );
 }
 
