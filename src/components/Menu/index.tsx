@@ -1,6 +1,12 @@
 "use client";
 
-import { ChangeEvent, ReactNode, memo, useEffect, useRef } from "react";
+import {
+  CSSProperties,
+  ChangeEvent,
+  ReactNode,
+  memo,
+  useRef,
+} from "react";
 import style from "./style.module.css";
 import Image from "next/image";
 import { Link } from "../Link";
@@ -23,10 +29,14 @@ function MutableMenu({
   model,
   mobileHomeText,
   shortcutComponent,
+  mobileStyle = {},
+  desktopStyle = {},
 }: {
   model: MenuType;
   mobileHomeText: string;
   shortcutComponent?: ReactNode;
+  mobileStyle?: CSSProperties;
+  desktopStyle?: CSSProperties;
 }) {
   const sideMenuRef = useRef<HTMLInputElement>(null);
 
@@ -132,7 +142,7 @@ function MutableMenu({
 
   return (
     <>
-      <div className={style.mobile__nav}>
+      <div className={style.mobile__nav} style={mobileStyle}>
         <input
           className={style["side-menu"]}
           type="checkbox"
@@ -160,7 +170,7 @@ function MutableMenu({
           </ul>
         </nav>
       </div>
-      <div className={style.desktop__nav}>
+      <div className={style.desktop__nav} style={desktopStyle}>
         <nav role="menubar" className={style.menu}>
           <ul role="menu" aria-orientation="horizontal">
             <li role="menuitem">
