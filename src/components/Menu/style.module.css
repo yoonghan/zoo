@@ -114,7 +114,8 @@
   background: var(--primary-700);
 }
 
-.mobile__nav a[role="menuitem"] {
+.mobile__nav a[role="menuitem"],
+.mobile__nav label {
   text-decoration: none;
   color: var(--primary-color-text);
   padding: 10px 10px;
@@ -168,6 +169,7 @@
   top: -8px;
 }
 
+.mobile__nav .top-menu,
 .mobile__nav .side-menu {
   display: none;
 } /* Hide checkbox */
@@ -188,6 +190,17 @@
   top: 0;
 }
 
+/* Toggle top menu */
+.mobile__nav .top-menu:checked ~ .subnav-content {
+  display: block;
+  opacity: 1;
+  width: auto;
+  height: auto;
+  padding: 0 0 10px 0;
+  border-radius: 0 0 4px 4px;
+  animation: grow 0.2s ease-out;
+}
+
 .mobile__nav .subnav-content {
   height: 0;
   opacity: 0;
@@ -197,19 +210,18 @@
   box-shadow: none;
 }
 
-.mobile__nav .subnav:hover .subnav-content {
-  display: block;
-  opacity: 1;
-  width: auto;
-  height: auto;
-  padding: 0 0 10px 0;
-  border-radius: 0 0 4px 4px;
+.mobile__nav label {
+  cursor: pointer;
 }
 
-.mobile__nav .menu .top-menu-link {
-  /*prevents user click on href*/
-  pointer-events: none;
-  cursor: default;
+.mobile__nav label[role="menuitem"]::before {
+  content: "+";
+  display: inline-block;
+  padding-right: 0.5rem;
+}
+
+.mobile__nav .top-menu:checked ~ label[role="menuitem"]::before {
+  content: "-";
 }
 
 header:has(.side-menu:checked) {

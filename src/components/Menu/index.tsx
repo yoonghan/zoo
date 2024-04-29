@@ -4,6 +4,7 @@ import { ChangeEvent, ReactNode, memo, useEffect, useRef } from "react";
 import style from "./style.module.css";
 import Image from "next/image";
 import { Link } from "../Link";
+import { formatStringAsId } from "@/util/idGenerator";
 
 type TopMenuItem = {
   label: string;
@@ -65,7 +66,7 @@ function MutableMenu({
       </li>
     ));
 
-  const topMenu = model.map((topMenuItem) => {
+  const desktopTopMenu = model.map((topMenuItem) => {
     const hasChild = topMenuItem.items;
 
     return (
@@ -75,14 +76,51 @@ function MutableMenu({
         className={hasChild ? style.subnav : ""}
       >
         <div>
-          <Link
-            href={topMenuItem.url}
-            role="menuitem"
-            className={hasChild ? style["top-menu-link"] : ""}
-            onClick={!hasChild ? unCheckSideMenu : () => {}}
-          >
+          <Link href={topMenuItem.url} role="menuitem">
             {topMenuItem.label}
           </Link>
+          {topMenuItem.items && (
+            <div role="presentation" className={style["subnav-content"]}>
+              <ul role="menu">{subMenu(topMenuItem.items, topMenuItem.url)}</ul>
+            </div>
+          )}
+        </div>
+      </li>
+    );
+  });
+
+  const mobileTopMenu = model.map((topMenuItem) => {
+    const hasChild = topMenuItem.items;
+
+    return (
+      <li
+        key={topMenuItem.label}
+        role="presentation"
+        className={hasChild ? style.subnav : ""}
+      >
+        <div>
+          <input
+            className={style["top-menu"]}
+            type="radio"
+            name="top-menu"
+            id={formatStringAsId(topMenuItem.label)}
+          />
+          {hasChild ? (
+            <label
+              role="menuitem"
+              htmlFor={formatStringAsId(topMenuItem.label)}
+            >
+              {topMenuItem.label}
+            </label>
+          ) : (
+            <Link
+              href={topMenuItem.url}
+              role="menuitem"
+              onClick={unCheckSideMenu}
+            >
+              {topMenuItem.label}
+            </Link>
+          )}
           {topMenuItem.items && (
             <div role="presentation" className={style["subnav-content"]}>
               <ul role="menu">{subMenu(topMenuItem.items, topMenuItem.url)}</ul>
@@ -119,7 +157,7 @@ function MutableMenu({
         </div>
         <nav role="menubar" className={style.menu}>
           <ul role="menu" aria-orientation="horizontal">
-            {topMenu}
+            {mobileTopMenu}
           </ul>
         </nav>
       </div>
@@ -136,7 +174,7 @@ function MutableMenu({
                 />
               </Link>
             </li>
-            {topMenu}
+            {desktopTopMenu}
             <li role="menuitem">{shortcutComponent && shortcutComponent}</li>
           </ul>
         </nav>
