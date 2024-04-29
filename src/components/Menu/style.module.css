@@ -204,7 +204,7 @@
   max-height: 0;
   overflow-y: hidden;
   transition-property: max-height, opacity;
-  transition-duration: 0.3s;
+  transition-duration: 0.5s;
   transition-timing-function: cubic-bezier(1, 0, 0, 1);
 }
 
