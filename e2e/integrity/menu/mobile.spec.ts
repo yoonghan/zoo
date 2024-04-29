@@ -24,36 +24,52 @@ test("has menu", async ({ page }) => {
 
     await expect(firstTopMenuItem).toBeVisible();
 
-    // hover should work in desktop, hence not covered.
-
     await hamburgerMenu.click();
 
     await expect(firstTopMenuItem).not.toBeVisible();
   }
 });
 
-test("menu that has no child can be clicked", async ({ page }) => {
+test("menu that has child will be expanded (with +) and child is clickable", async ({
+  page,
+}) => {
   await page.goto("http://localhost:3000/");
 
   await page.getByLabel("Main Menu").click();
 
-  const firstMenuWithItemsAreNotClickable = zooMenu.find(
+  const firstMenuWithItemsAreNotLinkable = zooMenu.find(
     (menu) => (menu.items ?? []).length > 0
   );
+
+  if (firstMenuWithItemsAreNotLinkable) {
+    await page
+      .getByRole("menuitem", {
+        name: `+ ${firstMenuWithItemsAreNotLinkable.label}`,
+        exact: true,
+      })
+      .click();
+
+    const items = firstMenuWithItemsAreNotLinkable.items;
+    if (items !== undefined) {
+      await page
+        .getByRole("menuitem", {
+          name: items[0].label,
+          exact: true,
+        })
+        .click();
+      expect(page.url, items[0].url);
+    }
+  }
+});
+
+test("menu that had no child can be clicked", async ({ page }) => {
+  await page.goto("http://localhost:3000/");
+
+  await page.getByLabel("Main Menu").click();
 
   const firstMenuWithNoItemsClickable = zooMenu.find(
     (menu) => (menu.items ?? []).length === 0
   );
-
-  if (firstMenuWithItemsAreNotClickable) {
-    await page
-      .getByRole("menuitem", {
-        name: firstMenuWithItemsAreNotClickable.label,
-        exact: true,
-      })
-      .click({ force: true });
-    expect(page.url, "https://localhost:3000");
-  }
 
   if (firstMenuWithNoItemsClickable) {
     await page
