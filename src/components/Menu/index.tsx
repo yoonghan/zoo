@@ -46,7 +46,6 @@ function MutableMenu({
   };
 
   const onSideMenuChange = (event: ChangeEvent<HTMLInputElement>) => {
-    //TODO: If user opens menu in mobile then resize to desktop, the screen freezes.
     document.body.style.overflow = event.target.checked ? "hidden" : "auto";
   };
 
