@@ -36,29 +36,23 @@
   padding: 0 2rem;
 }
 
-.desktop__nav a[role="menuitem"] {
-  text-decoration: none;
-  color: var(--primary-color-text);
-  padding: 10px 10px;
-  display: block;
-}
-
-.desktop__nav img {
+.desktop__nav .home-logo {
   display: inline;
-}
-
-.desktop__nav .menu .home-logo {
   padding: 10px;
 }
 
 .desktop__nav .menu {
   width: 100%;
   height: 100%;
-  position: fixed;
-  overflow-y: scroll;
-  max-height: 0;
-  transition: max-height 0.5s ease-out;
+  position: static;
   background: var(--primary-700);
+}
+
+.desktop__nav a[role="menuitem"] {
+  text-decoration: none;
+  color: var(--primary-color-text);
+  padding: 10px 10px;
+  display: block;
 }
 
 .desktop__nav .menu a[role="menuitem"]:hover {
@@ -79,16 +73,12 @@
   opacity: 1;
   width: auto;
   height: auto;
-  padding: 0 0 10px 0;
   border-radius: 0 0 4px 4px;
   animation: grow 0.2s ease-out;
-}
-
-.desktop__nav .menu {
-  max-height: none;
-  top: 0;
-  position: static;
-  overflow-y: hidden;
+  position: absolute;
+  padding: 10px;
+  background: var(--primary-700);
+  border-width: 0 1px 1px 1px;
 }
 
 .desktop__nav .menu > ul {
@@ -100,17 +90,6 @@
 .desktop__nav .menu > ul > li > div > a[role="menuitem"] {
   padding-top: 20px;
   padding-bottom: 20px;
-}
-
-.desktop__nav .subnav:hover .subnav-content {
-  position: absolute;
-  padding: 10px;
-  background: var(--primary-700);
-  border-width: 0 1px 1px 1px;
-}
-
-.desktop__nav .subnav-content > ul {
-  margin: 0;
 }
 
 .desktop__nav .menu > ul li:last-child {
@@ -125,13 +104,6 @@
   box-shadow: 2px 2px 2px -4px black;
 }
 
-.mobile__nav a[role="menuitem"] {
-  text-decoration: none;
-  color: var(--primary-color-text);
-  padding: 10px 10px;
-  display: block;
-}
-
 .mobile__nav .menu {
   width: 100%;
   height: 100%;
@@ -142,8 +114,19 @@
   background: var(--primary-700);
 }
 
+.mobile__nav a[role="menuitem"] {
+  text-decoration: none;
+  color: var(--primary-color-text);
+  padding: 10px 10px;
+  display: block;
+}
+
 .mobile__nav .menu a[role="menuitem"]:hover {
   color: var(--primary-hover-text);
+}
+
+.mobile__nav .menu ul {
+  margin-left: 2rem;
 }
 
 .mobile__nav .mobile-menu {
@@ -227,10 +210,6 @@
   /*prevents user click on href*/
   pointer-events: none;
   cursor: default;
-}
-
-.mobile__nav .menu ul {
-  margin-left: 2rem;
 }
 
 header:has(.side-menu:checked) {
