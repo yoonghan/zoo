@@ -192,22 +192,20 @@
 
 /* Toggle top menu */
 .mobile__nav .top-menu:checked ~ .subnav-content {
-  display: block;
   opacity: 1;
-  width: auto;
-  height: auto;
+  max-height: 640px;
   padding: 0 0 10px 0;
   border-radius: 0 0 4px 4px;
-  animation: grow 0.2s ease-out;
 }
 
 .mobile__nav .subnav-content {
-  height: 0;
   opacity: 0;
-  width: 0;
   z-index: 1;
-  overflow: hidden;
-  box-shadow: none;
+  max-height: 0;
+  overflow-y: hidden;
+  transition-property: max-height, opacity;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(1, 0, 0, 1);
 }
 
 .mobile__nav label {
