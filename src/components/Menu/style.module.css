@@ -193,7 +193,7 @@
 /* Toggle top menu */
 .mobile__nav .top-menu:checked ~ .subnav-content {
   opacity: 1;
-  max-height: 640px;
+  max-height: 320px;
   padding: 0 0 10px 0;
   border-radius: 0 0 4px 4px;
 }
