@@ -205,7 +205,7 @@
   overflow-y: hidden;
   transition-property: max-height, opacity;
   transition-duration: 0.5s;
-  transition-timing-function: cubic-bezier(1, 0, 0, 1);
+  transition-timing-function: ease-out;
 }
 
 .mobile__nav label {
