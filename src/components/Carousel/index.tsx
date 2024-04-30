@@ -37,28 +37,28 @@ function Card({ shortDescription, img, link }: CardItem) {
   );
 }
 
-export function Carousel({ model }: CarouselProp) {
-  var settings = {
-    dots: false,
-    arrows: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 2,
-    slidesToScroll: 2,
-    responsive: [
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true,
-          arrows: true,
-        },
+const settings = {
+  dots: false,
+  arrows: false,
+  infinite: false,
+  speed: 500,
+  slidesToShow: 2,
+  slidesToScroll: 2,
+  responsive: [
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: true,
+        arrows: true,
       },
-    ],
-  };
+    },
+  ],
+};
 
+export function Carousel({ model }: CarouselProp) {
   return (
     <div className="pb-10 px-10">
       <Slider {...settings}>
