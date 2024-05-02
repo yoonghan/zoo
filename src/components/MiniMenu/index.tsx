@@ -16,7 +16,7 @@ type MiniMenuProps = {
 function MiniMenu({ model, onScrollMonitor }: MiniMenuProps) {
   const [selected, setSelected] = useState(0);
   const anchorRef = useRef<(HTMLAnchorElement | null)[]>([]);
-  const navBar = useRef<HTMLDivElement>(null);
+  const navBarRef = useRef<HTMLDivElement>(null);
 
   const [navBarPosition, setNavBarPosition] = useState(0);
 
@@ -24,46 +24,62 @@ function MiniMenu({ model, onScrollMonitor }: MiniMenuProps) {
     if (onScrollMonitor) {
       onScrollMonitor();
     }
-    if (navBar.current) {
+    if (navBarRef.current) {
       if (window.scrollY >= navBarPosition) {
-        navBar.current.classList.add(style.sticky);
+        navBarRef.current.classList.add(style.sticky);
       } else {
-        navBar.current.classList.remove(style.sticky);
+        navBarRef.current.classList.remove(style.sticky);
       }
     }
   }, [navBarPosition, onScrollMonitor]);
 
-  const recalculateSelection = useCallback(() => {
-    const hashId = window?.location?.hash;
-    const selectedIndex = model.findIndex(
-      (item) => `#${item.hashId}` === hashId
+  const addMutationObserver = useCallback(() => {
+    const observer = new IntersectionObserver(
+      (intersections: IntersectionObserverEntry[]) => {
+        const target = intersections[0].target;
+        const idx = model.findIndex((item) => {
+          return item.hashId === target.id;
+        });
+
+        const validIdx = idx < 0 ? 0 : idx;
+        const anchor = anchorRef.current[validIdx];
+
+        if (anchor !== null && intersections[0].isIntersecting) {
+          (anchor as any).scrollIntoViewIfNeeded({
+            behavior: "instant",
+            inline: "center",
+          });
+          setSelected(validIdx);
+        }
+      },
+      {
+        threshold: 0.3,
+      }
     );
-    if (selectedIndex >= 0) {
-      anchorRef.current[selectedIndex]?.click();
-    }
+    model.forEach((menuItem) => {
+      const elem = document.getElementById(menuItem.hashId);
+      if (elem !== null) observer.observe(elem);
+    });
+
+    return observer;
   }, [model]);
 
   useLayoutEffect(() => {
-    recalculateSelection();
-    setNavBarPosition(navBar.current?.offsetHeight || 0);
+    const observer = addMutationObserver();
+    setNavBarPosition(navBarRef.current?.offsetHeight || 0);
     window.addEventListener("scroll", addStickyToScroll);
-    return () => window.removeEventListener("scroll", addStickyToScroll);
-  }, [addStickyToScroll, recalculateSelection]);
-
-  const onAnchorClick = useCallback(
-    (idx: number) =>
-      (elem: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-        elem.currentTarget.scrollIntoView({
-          behavior: "instant",
-          inline: "center",
-        });
-        setSelected(idx);
-      },
-    []
-  );
+    return () => {
+      window.removeEventListener("scroll", addStickyToScroll);
+      observer.disconnect();
+    };
+  }, [addStickyToScroll, addMutationObserver]);
 
   return (
-    <nav className="overflow-x-auto shadow-md" ref={navBar}>
+    <nav
+      className="overflow-x-auto shadow-md"
+      ref={navBarRef}
+      id="mini-menu-nav"
+    >
       <div
         className={`${style.container} flex gap-4 justify-center p-6 min-w-max`}
       >
@@ -80,7 +96,6 @@ function MiniMenu({ model, onScrollMonitor }: MiniMenuProps) {
               ref={(el) => {
                 anchorRef.current[idx] = el;
               }}
-              onClick={onAnchorClick(idx)}
               className={idx === selected ? "underline italic" : undefined}
             >
               {item.title}

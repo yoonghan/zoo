@@ -22,6 +22,7 @@ const config: Config = {
       statements: 100,
     },
   },
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   coverageReporters: ["text", "cobertura"],
   testEnvironment: "@happy-dom/jest-environment",
   moduleNameMapper: {
