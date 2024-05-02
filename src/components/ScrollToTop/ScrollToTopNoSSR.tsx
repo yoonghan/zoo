@@ -4,10 +4,6 @@ import { memo, useEffect, useState, useRef } from "react";
 import style from "./ScrollToTop.module.css";
 import { debounce } from "lodash";
 
-interface ScrollToTopStates {
-  visible: boolean;
-}
-
 const _isOverTheBar = () => {
   const currentScrollPos = window.scrollY;
   return currentScrollPos > 500;

@@ -1,7 +1,7 @@
-import { fireEvent, render } from "@testing-library/react";
+import { act, fireEvent, render } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import MiniMenu from ".";
-import userEvent from "@testing-library/user-event";
+import { disconnect, intersectionFn } from "@/__mocks__/intersectionObserver";
 
 describe("MiniMenu", () => {
   const renderComponent = () =>
@@ -81,42 +81,80 @@ describe("MiniMenu", () => {
       const { getByRole } = renderComponent();
       const fivePillarsElem = getByRole("link", { name: "Five Pillars" });
       const scrollIntoViewCall = jest
-        .spyOn(fivePillarsElem, "scrollIntoView")
+        .spyOn(fivePillarsElem as any, "scrollIntoViewIfNeeded")
         .mockImplementation(() => {});
 
-      await userEvent.click(fivePillarsElem);
+      act(() => {
+        intersectionFn([
+          {
+            target: { id: "five-pillars" },
+            isIntersecting: true,
+            boundingClientRect: {
+              top: 0,
+              left: 0,
+            },
+          },
+        ]);
+      });
+
+      expect(fivePillarsElem).toHaveClass("italic underline");
 
       expect(scrollIntoViewCall).toHaveBeenCalledWith({
         behavior: "instant",
         inline: "center",
       });
 
-      expect(fivePillarsElem).toHaveClass("italic underline");
-
       scrollIntoViewCall.mockReset();
     });
 
-    it("should select the right link base on # value on load", () => {
-      window.location.hash = "five-pillars";
-      const { getByRole } = renderComponent();
-
-      expect(getByRole("link", { name: "Five Pillars" })).toHaveClass(
-        "italic underline"
-      );
-
-      window.location.hash = "";
-    });
-
     it("should default to 0 if hash is not valid", async () => {
-      window.location.hash = "#not-valid";
       const { getByRole } = renderComponent();
+
+      act(() => {
+        intersectionFn([
+          {
+            target: { id: "not-valid" },
+            isIntersecting: true,
+            boundingClientRect: {
+              top: 0,
+              left: 0,
+            },
+          },
+        ]);
+      });
 
       //first gets italized
       expect(getByRole("link", { name: "About Us" })).toHaveClass(
         "italic underline"
       );
+    });
 
-      window.location.hash = "";
+    it("should not trigger update if the top has reached above the screen due to 1.0(full) threshold", async () => {
+      const { getByRole } = renderComponent();
+
+      act(() => {
+        intersectionFn([
+          {
+            target: { id: "five-pillars" },
+            isIntersecting: true,
+            boundingClientRect: {
+              top: -10,
+              left: 0,
+            },
+          },
+        ]);
+      });
+
+      //first gets italized
+      expect(getByRole("link", { name: "About Us" })).toHaveClass(
+        "italic underline"
+      );
+    });
+
+    it("should disconnect when unmount", () => {
+      const { unmount } = renderComponent();
+      unmount();
+      expect(disconnect).toHaveBeenCalledTimes(1);
     });
   });
 });
