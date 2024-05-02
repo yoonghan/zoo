@@ -10,13 +10,14 @@ export default function About() {
     <>
       <MiniMenu model={miniLinks} />
       <main className={Styles["about-us"]}>
+        <h1 className="text-4xl text-center font-bold my-10">About Us</h1>
         <article
           className="primary anchor-link-header"
           id={miniLinks[0].hashId}
         >
-          <h1 className="text-4xl text-center font-bold">
+          <h2 className="text-4xl text-center font-bold">
             Zoo Negara - {miniLinks[0].title}
-          </h1>
+          </h2>
           <p className="mt-10">
             Zoo Negara Malaysia is managed by the Malaysian Zoological Society,
             a non-governmental organization established to create the first
@@ -44,9 +45,9 @@ export default function About() {
           </div>
         </article>
         <article className="anchor-link-header" id={miniLinks[1].hashId}>
-          <h2 className="text-xl font-bold">
+          <h3 className="text-xl font-bold">
             Zoo Negara - {miniLinks[1].title}
-          </h2>
+          </h3>
           <p>
             To be one of the world’s premier zoological park and aquaria
             dedicated to conservation, recreation, education, training and
@@ -57,9 +58,9 @@ export default function About() {
           className="primary anchor-link-header"
           id={miniLinks[2].hashId}
         >
-          <h3 className="text-xl font-bold">
+          <h4 className="text-xl font-bold">
             Zoo Negara - {miniLinks[2].title}
-          </h3>
+          </h4>
           <p>
             To provide an outstanding and dynamic habitat for animals and plant
             life and incorporating high quality animal health care and
@@ -80,9 +81,9 @@ export default function About() {
           id={miniLinks[3].hashId}
           className={`${Styles["five-pillars"]} anchor-link-header`}
         >
-          <h4 className="text-2xl font-bold">
+          <h5 className="text-2xl font-bold">
             Zoo Negara - The {miniLinks[3].title} We Stand On
-          </h4>
+          </h5>
           <div>
             <strong>1) Education</strong>
             <p>
@@ -141,7 +142,7 @@ export default function About() {
           className="primary pb-24 text-center anchor-link-header"
           id={miniLinks[4].hashId}
         >
-          <h5 className="text-4xl font-bold mb-6">{miniLinks[4].title}</h5>
+          <h6 className="text-4xl font-bold mb-6">{miniLinks[4].title}</h6>
           <p className="mb-12">
             If you are interested in our humble beginnings, the research paper
             below is available for download.

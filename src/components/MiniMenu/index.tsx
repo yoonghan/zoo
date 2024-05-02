@@ -43,11 +43,7 @@ function MiniMenu({ model, onScrollMonitor }: MiniMenuProps) {
 
         const validIdx = idx < 0 ? 0 : idx;
         const anchor = anchorRef.current[validIdx];
-        if (
-          anchor !== null &&
-          intersections[0].isIntersecting &&
-          intersections[0].boundingClientRect.top > -1
-        ) {
+        if (anchor !== null && intersections[0].isIntersecting) {
           (anchor as any).scrollIntoViewIfNeeded({
             behavior: "instant",
             inline: "center",
@@ -56,7 +52,7 @@ function MiniMenu({ model, onScrollMonitor }: MiniMenuProps) {
         }
       },
       {
-        threshold: [0.3, 1.0],
+        threshold: [0.3], //never accurate but it's the best
       }
     );
     model.forEach((menuItem) => {

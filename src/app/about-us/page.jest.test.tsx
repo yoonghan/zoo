@@ -22,6 +22,8 @@ describe("About Us", () => {
     expect(getByRole("main")).toBeInTheDocument();
 
     /* Start headers from config key */
+    expect(getByRole("heading", { name: "About Us" })).toBeInTheDocument();
+
     expect(
       getByRole("heading", { name: "Zoo Negara - About Us" })
     ).toBeInTheDocument();
