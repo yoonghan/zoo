@@ -1,22 +1,20 @@
 import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
-import BirthdayEvent from "./page";
+import FamilyEvent from "./page";
 import { checkForImageExist } from "@/util/fileHelper";
-import { birthdayImages } from "./config";
+import { familyEventImages } from "./config";
 
-describe("Birthday Event", () => {
+describe("Family Event", () => {
   it("should contains important keys", () => {
-    const { getByRole } = render(<BirthdayEvent />);
+    const { getByRole } = render(<FamilyEvent />);
     //main
     expect(getByRole("main")).toBeInTheDocument();
     //h1
-    expect(
-      getByRole("heading", { name: "Birthday Event" })
-    ).toBeInTheDocument();
+    expect(getByRole("heading", { name: "Family Event" })).toBeInTheDocument();
   });
 
   it("should have valid image links", () => {
-    const allLocalImages = birthdayImages
+    const allLocalImages = familyEventImages
       .map((image) => image.url)
       .filter((url) => url.startsWith("/"));
 

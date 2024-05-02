@@ -36,7 +36,7 @@ export const zooMenu: MenuType = [
       },
       {
         label: "Family Day",
-        url: "#family-day",
+        url: "/have-an-event/family-day",
       },
       {
         label: "Scenic Point & Function",
