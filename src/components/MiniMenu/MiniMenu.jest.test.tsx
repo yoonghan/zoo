@@ -86,7 +86,14 @@ describe("MiniMenu", () => {
 
       act(() => {
         intersectionFn([
-          { target: { id: "five-pillars" }, isIntersecting: true },
+          {
+            target: { id: "five-pillars" },
+            isIntersecting: true,
+            boundingClientRect: {
+              top: 0,
+              left: 0,
+            },
+          },
         ]);
       });
 
@@ -104,7 +111,38 @@ describe("MiniMenu", () => {
       const { getByRole } = renderComponent();
 
       act(() => {
-        intersectionFn([{ target: { id: "not-valid" }, isIntersecting: true }]);
+        intersectionFn([
+          {
+            target: { id: "not-valid" },
+            isIntersecting: true,
+            boundingClientRect: {
+              top: 0,
+              left: 0,
+            },
+          },
+        ]);
+      });
+
+      //first gets italized
+      expect(getByRole("link", { name: "About Us" })).toHaveClass(
+        "italic underline"
+      );
+    });
+
+    it("should not trigger update if the top has reached above the screen due to 1.0(full) threshold", async () => {
+      const { getByRole } = renderComponent();
+
+      act(() => {
+        intersectionFn([
+          {
+            target: { id: "five-pillars" },
+            isIntersecting: true,
+            boundingClientRect: {
+              top: -10,
+              left: 0,
+            },
+          },
+        ]);
       });
 
       //first gets italized

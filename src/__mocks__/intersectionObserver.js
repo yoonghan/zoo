@@ -1,5 +1,5 @@
-export const observe = jest.fn();
-export const unobserve = jest.fn();
+const observe = jest.fn();
+const unobserve = jest.fn();
 export const disconnect = jest.fn();
 export var intersectionFn = jest.fn();
 
