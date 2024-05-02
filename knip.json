@@ -2,7 +2,7 @@
   "ignore": [
     "e2e/**",
     "backstop_data/**",
-    "__mocks__/*"
+    "__mocks__/**"
   ],
   "ignoreDependencies": [
     "@happy-dom/jest-environment",
