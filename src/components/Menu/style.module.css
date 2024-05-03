@@ -108,7 +108,7 @@
   width: 100%;
   height: 100%;
   position: fixed;
-  overflow-y: scroll;
+  overflow-y: hidden;
   max-height: 0;
   transition: max-height 0.5s ease-out;
   background: var(--primary-700);
@@ -128,6 +128,11 @@
 
 .mobile__nav .menu ul {
   margin-left: 2rem;
+}
+
+.mobile__nav .menu > ul {
+  overflow-y: auto;
+  height: 90%;
 }
 
 .mobile__nav .mobile-menu {
@@ -176,7 +181,7 @@
 
 /* Toggle menu icon */
 .mobile__nav .side-menu:checked ~ nav {
-  max-height: 100%;
+  max-height: calc(100% - 80px);
 }
 .mobile__nav .side-menu:checked ~ .mobile-menu .hamb .hamb-line {
   background: transparent;
