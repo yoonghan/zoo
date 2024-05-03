@@ -24,15 +24,15 @@ export default function ZooMap() {
             <Image
               src="/images/zoo-negara-map-web-1.jpg"
               alt="Zoo Negara Map"
-              width={1100}
-              height={2200}
+              width={2200}
+              height={1100}
               className="clear-both"
             />
             <Image
               src="/images/zoo-negara-map-web-2.jpg"
               alt="Zoo Negara Map"
-              width={1227}
-              height={2200}
+              width={2200}
+              height={1227}
               className="clear-both"
             />
           </div>
