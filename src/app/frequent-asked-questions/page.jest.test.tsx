@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
 import Faq from "./page";
 
-describe("Highlights", () => {
+describe("Frequent Asked Questions", () => {
   it("should contains important keys", () => {
     const { getByRole } = render(<Faq />);
     //main
