@@ -13,11 +13,6 @@ type Programmes = {
       text: string;
     };
   };
-  adoption: {
-    url: string;
-    text: string;
-    donations: Donation[];
-  };
 };
 
 export const zooProfile: FooterProps &
