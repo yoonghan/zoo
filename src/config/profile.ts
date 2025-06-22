@@ -38,23 +38,7 @@ export const zooProfile: FooterProps &
       "https://www.google.com.my/maps?f=q&source=embed&hl=en&geocode&q=zoo+negara&sll=4.109495,109.101269&sspn=33.65185,57.084961&ie=UTF8&hq=Zoo+Negara&hnear=Zoo+Negara&ll=3.210945,101.758093&spn=0.016154,0.027874&z=14&iwloc=A&cid=12699137066735775727",
   },
   careerLink: "https://zoonegara.my/jobs.html",
-  partners: [
-    {
-      imageSrc: "/images/partners/perhilitan.jpg",
-      url: "https://www.wildlife.gov.my",
-      alt: "Perhilitan Hutan",
-    },
-    {
-      imageSrc: "/images/partners/dbkl.jpg",
-      url: "https://www.dbkl.my",
-      alt: "DBKL",
-    },
-    {
-      imageSrc: "/images/partners/tanchongmotor.jpg",
-      url: "https://www.tanchonggroup.com/",
-      alt: "Tan Chong Motors",
-    },
-  ],
+  partners: [],
   ticket: {
     admission: {
       url: "https://ticket.zoonegara.my",
