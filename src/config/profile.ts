@@ -45,44 +45,6 @@ export const zooProfile: FooterProps &
       text: "Buy Ticket",
     },
   },
-  adoption: {
-    url: "https://www.ticket2u.com.my/event/18171/zoo-negara-adoption-package",
-    text: "Donate and Contribute",
-    donations: [
-      {
-        price: "RM 50",
-        gifts: [
-          "Adoption Certificate",
-          "1 Kids Face Masks",
-          "1 Zoo Negara Voucher !! (1 child accompanied by 1 paying adult)",
-        ],
-      },
-      {
-        price: "RM 100",
-        gifts: [
-          "Adoption Certificate",
-          "Zoo Negara Fridge Magnet",
-          "2 Zoo Negara Voucher !! (1 child accompanied by 1 paying adult)",
-        ],
-      },
-      {
-        price: "RM 200",
-        gifts: [
-          "Adoption Certificate",
-          "Zoo Negara Merchandise - Coloring Book",
-          "4 Zoo Negara Voucher !! (1 child accompanied by 1 paying adult)",
-        ],
-      },
-      {
-        price: "RM 500",
-        gifts: [
-          "Adoption Certificate",
-          "Zoo Negara Merchandise - Flipper Cap",
-          "2 Zoo Negara Adult Tickets",
-        ],
-      },
-    ],
-  },
   contactus: {
     phoneNumber1: "+603-4108 3422",
     phoneNumber2: "+603-4108 3424",
