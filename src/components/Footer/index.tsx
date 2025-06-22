@@ -86,9 +86,6 @@ function MutableFooter({
           <Link href="/careers">{labels.careers}</Link>
         </li>
         <li>
-          <Link href="/certification-accreditation">{labels.certificates}</Link>
-        </li>
-        <li>
           <Link href="/frequent-asked-questions">{labels.faq}</Link>
         </li>
       </ul>

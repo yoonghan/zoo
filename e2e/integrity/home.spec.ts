@@ -31,12 +31,6 @@ test("links for career is valid", async ({ page }) => {
   await expect(page).toHaveTitle(/Careers/);
 });
 
-test("links for certificates is valid", async ({ page }) => {
-  await page.goto("http://localhost:3000/");
-  await page.getByRole("link", { name: footerLabel.certificates }).click();
-  await expect(page).toHaveTitle(/Accreditation \/ Certification/);
-});
-
 test("links for faq is valid", async ({ page }) => {
   await page.goto("http://localhost:3000/");
   await page.getByRole("link", { name: footerLabel.faq }).click();

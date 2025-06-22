@@ -15,17 +15,7 @@ describe("Career", () => {
     ).toBeInTheDocument();
     //hr email
     expect(
-      getByRole("link", { name: zooProfile.contactus.hrEmail })
-    ).toHaveAttribute("href", `mailto:${zooProfile.contactus.hrEmail}`);
-  });
-
-  it("should have valid local download links", () => {
-    const result = render(<Career />);
-    const allDownloads = checkDownloadLinkHasHostAllLocalFiles(
-      result.container
-    );
-    expect(allDownloads).toStrictEqual(
-      allDownloads.map((link) => ({ ...link, status: true }))
-    );
+      getByRole("link", { name: "Official Zoo Negara Careers" })
+    ).toHaveAttribute("href", zooProfile.careerLink);
   });
 });

@@ -13,15 +13,10 @@ type Programmes = {
       text: string;
     };
   };
-  adoption: {
-    url: string;
-    text: string;
-    donations: Donation[];
-  };
 };
 
 export const zooProfile: FooterProps &
-  Programmes & { contactus: ContactUsProps } = {
+  Programmes & { contactus: ContactUsProps } & { careerLink: string } = {
   companyName: "Zoo Negara",
   operatingTime: {
     day: { from: "Monday", to: "Sunday" },
@@ -37,66 +32,13 @@ export const zooProfile: FooterProps &
     googleMaps:
       "https://www.google.com.my/maps?f=q&source=embed&hl=en&geocode&q=zoo+negara&sll=4.109495,109.101269&sspn=33.65185,57.084961&ie=UTF8&hq=Zoo+Negara&hnear=Zoo+Negara&ll=3.210945,101.758093&spn=0.016154,0.027874&z=14&iwloc=A&cid=12699137066735775727",
   },
-  partners: [
-    {
-      imageSrc: "/images/partners/perhilitan.jpg",
-      url: "https://www.wildlife.gov.my",
-      alt: "Perhilitan Hutan",
-    },
-    {
-      imageSrc: "/images/partners/dbkl.jpg",
-      url: "https://www.dbkl.my",
-      alt: "DBKL",
-    },
-    {
-      imageSrc: "/images/partners/tanchongmotor.jpg",
-      url: "https://www.tanchonggroup.com/",
-      alt: "Tan Chong Motors",
-    },
-  ],
+  careerLink: "https://zoonegara.my/jobs.html",
+  partners: [],
   ticket: {
     admission: {
       url: "https://ticket.zoonegara.my",
       text: "Buy Ticket",
     },
-  },
-  adoption: {
-    url: "https://www.ticket2u.com.my/event/18171/zoo-negara-adoption-package",
-    text: "Donate and Contribute",
-    donations: [
-      {
-        price: "RM 50",
-        gifts: [
-          "Adoption Certificate",
-          "1 Kids Face Masks",
-          "1 Zoo Negara Voucher !! (1 child accompanied by 1 paying adult)",
-        ],
-      },
-      {
-        price: "RM 100",
-        gifts: [
-          "Adoption Certificate",
-          "Zoo Negara Fridge Magnet",
-          "2 Zoo Negara Voucher !! (1 child accompanied by 1 paying adult)",
-        ],
-      },
-      {
-        price: "RM 200",
-        gifts: [
-          "Adoption Certificate",
-          "Zoo Negara Merchandise - Coloring Book",
-          "4 Zoo Negara Voucher !! (1 child accompanied by 1 paying adult)",
-        ],
-      },
-      {
-        price: "RM 500",
-        gifts: [
-          "Adoption Certificate",
-          "Zoo Negara Merchandise - Flipper Cap",
-          "2 Zoo Negara Adult Tickets",
-        ],
-      },
-    ],
   },
   contactus: {
     phoneNumber1: "+603-4108 3422",

@@ -1,5 +1,3 @@
-import { Carousel } from "@/components/Carousel";
-import { zooHighlights } from "@/config/highlights";
 import Image from "next/image";
 
 export default function Home() {
@@ -41,10 +39,6 @@ export default function Home() {
             />
           </figure>
         </article>
-        <section>
-          <h2 className="font-bold text-2xl">Highlights</h2>
-          <Carousel model={zooHighlights} />
-        </section>
       </main>
     </>
   );
