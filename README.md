@@ -1,6 +1,6 @@
 A zoo template website that runs on server rather than just frontend codes.
 
-This site is an assistant page from the original Zoo Negara website.
+This site is an assistant page from the original Zoo Negara website. Please refer to original Zoo Negara website.
 
 ---
 
