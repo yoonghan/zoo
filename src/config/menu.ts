@@ -27,32 +27,6 @@ export const zooMenu: MenuType = [
     url: "/about-us",
   },
   {
-    label: "Have An Event",
-    url: "/have-an-event",
-    items: [
-      {
-        label: "Birthday",
-        url: "/have-an-event/birthday",
-      },
-      {
-        label: "Family Day",
-        url: "/have-an-event/family-day",
-      },
-      {
-        label: "Scenic Point & Function",
-        url: "#scenic-point-and-function",
-      },
-      {
-        label: "Kancil Hall",
-        url: "#kancil-hall",
-      },
-      {
-        label: "Tunku Abdul Rahman Theather",
-        url: "#tunku-abdul-rahman-theater",
-      },
-    ],
-  },
-  {
     label: "Get Involved",
     url: "/get-involved",
     items: [
