@@ -26,30 +26,4 @@ export const zooMenu: MenuType = [
     label: "About Zoo",
     url: "/about-us",
   },
-  {
-    label: "Get Involved",
-    url: "/get-involved",
-    items: [
-      {
-        label: "Adopt Our Animals",
-        url: "/get-involved/adopt-our-animal",
-      },
-      {
-        label: "List Of Donors And Sponsors",
-        url: "/get-involved",
-      },
-      {
-        label: "KeeperKu Programme",
-        url: "/get-involved",
-      },
-      {
-        label: "Student Training",
-        url: "/get-involved",
-      },
-      {
-        label: "CSR Programme",
-        url: "/get-involved",
-      },
-    ],
-  },
 ];
