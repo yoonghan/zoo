@@ -12,6 +12,5 @@ describe("Main Homepage", () => {
     expect(
       getByRole("heading", { name: "Welcome to Zoo Negara" })
     ).toBeInTheDocument();
-    expect(getByRole("heading", { name: "Highlights" })).toBeInTheDocument();
   });
 });

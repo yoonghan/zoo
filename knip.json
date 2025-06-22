@@ -5,7 +5,6 @@
     "__mocks__/**"
   ],
   "ignoreDependencies": [
-    "@happy-dom/jest-environment",
     "happy-dom",
     "jest-environment-jsdom"
   ]
