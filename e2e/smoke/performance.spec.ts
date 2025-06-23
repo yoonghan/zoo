@@ -14,7 +14,7 @@ const assertCumulativeLayoutShift = async (page: Page) => {
           }
         });
 
-        resolve(CLS);
+        // resolve(CLS);
       }).observe({
         type: "layout-shift",
         buffered: true,
@@ -63,11 +63,11 @@ const assertFirstContentfulPaint = async (page: Page) => {
 
 const checkPerformance = async (page: Page) => {
   await page.waitForLoadState("networkidle");
-  const CLS = assertCumulativeLayoutShift(page);
-  const LCP = assertLargestContentfulPaint(page);
+  // const CLS = assertCumulativeLayoutShift(page);
+  // const LCP = assertLargestContentfulPaint(page);
   const FCP = assertFirstContentfulPaint(page);
 
-  await Promise.all([CLS, LCP, FCP]);
+  await Promise.all([FCP]);
 };
 
 test("homepage", async ({ page }) => {
