@@ -2,9 +2,9 @@
 
 import { useDisableVersioning } from "../util/hook/disableVersioning/useDisableVersioning"
 
-export const Version = () => {
+export const Version = ({version}: {version: string}) => {
 
   const { isVersioned } = useDisableVersioning()
 
-  return <div className={isVersioned?"block":"hidden"}>(ver. {process.env.RELEASE_VERSION || 'local'})</div>
+  return <div className={isVersioned?"block":"hidden"}>(ver. {version})</div>
 }
