@@ -65,6 +65,7 @@ export default function RootLayout({
         {children}
         <ScrollToTop />
         <Footer
+          language={lng}
           operatingTime={zooProfile.operatingTime}
           address={zooProfile.address}
           companyName={zooProfile.companyName}
