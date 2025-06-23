@@ -1,5 +1,8 @@
 name: Performance validation
 
+permissions:
+  contents: read
+
 on:
   workflow_dispatch:
     inputs:
