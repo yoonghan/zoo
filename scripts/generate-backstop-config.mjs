@@ -16,7 +16,7 @@ const backStopConfigFor = (page) => {
 }
 
 /** Test every page created, this code is a duplicate of siteGenerator [S]**/
-const appFolder = "./src/app";
+const appFolder = "./src/app/en";
 
 const getRecursiveFiles = (srcpath) => {
   return fs
