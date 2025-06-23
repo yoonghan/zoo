@@ -10,7 +10,7 @@ const _isOverTheBar = () => {
 };
 
 const ScrollToTopNoSSR = () => {
-  const [visible, setVisible] = useState(_isOverTheBar());
+  const [visible, setVisible] = useState(false);
   const scrollerRef = useRef(
     debounce(() => {
       setVisible(_isOverTheBar());
