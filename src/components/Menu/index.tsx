@@ -28,12 +28,14 @@ export type MenuType = TopMenuItem[];
 function MutableMenu({
   model,
   mobileHomeText,
+  language,
   shortcutComponent,
   mobileStyle = {},
   desktopStyle = {},
 }: {
   model: MenuType;
   mobileHomeText: string;
+  language: string;
   shortcutComponent?: ReactNode;
   mobileStyle?: CSSProperties;
   desktopStyle?: CSSProperties;
@@ -63,10 +65,10 @@ function MutableMenu({
     subMenu.map((subMenuItem) => (
       <li key={subMenuItem.label} role="presentation">
         <Link
-          href={replaceWithTopMenuUrlIfAHashlinkOrEmpty(
+          href={`/${language}${replaceWithTopMenuUrlIfAHashlinkOrEmpty(
             topMenuUrl,
             subMenuItem.url
-          )}
+          )}`}
           role="menuitem"
           onClick={unCheckSideMenu}
         >
@@ -85,7 +87,7 @@ function MutableMenu({
         className={hasChild ? style.subnav : ""}
       >
         <div>
-          <Link href={topMenuItem.url} role="menuitem">
+          <Link href={`/${language}${topMenuItem.url}`} role="menuitem">
             {topMenuItem.label}
           </Link>
           {topMenuItem.items && (
@@ -123,7 +125,7 @@ function MutableMenu({
             </label>
           ) : (
             <Link
-              href={topMenuItem.url}
+              href={`/${language}${topMenuItem.url}`}
               role="menuitem"
               onClick={unCheckSideMenu}
             >
@@ -159,7 +161,7 @@ function MutableMenu({
             <span className={style["hamb-line"]}></span>
             <span className={"visually-hidden"}>Hamburger Menu</span>
           </label>
-          <Link href="/" tabIndex={-1} styling="None" onClick={unCheckSideMenu}>
+          <Link href={`/${language}`} tabIndex={-1} styling="None" onClick={unCheckSideMenu}>
             {mobileHomeText}
           </Link>
           {shortcutComponent && shortcutComponent}
@@ -174,7 +176,7 @@ function MutableMenu({
         <nav role="menubar" className={style.menu}>
           <ul role="menu" aria-orientation="horizontal">
             <li role="menuitem">
-              <Link href="/" className={style["home-logo"]}>
+              <Link href={`/${language}`} className={style["home-logo"]}>
                 <Image
                   src="/images/home-link.png"
                   alt="home link"

@@ -32,6 +32,7 @@ describe("Footer", () => {
   }) => {
     return render(
       <Footer
+        language="en"
         companyName="Zoo Negara"
         operatingTime={operatingTime}
         address={address}
@@ -110,11 +111,11 @@ describe("Footer", () => {
     expect(getByText("Operation Hours:")).toBeInTheDocument();
     expect(getByText("Address:")).toBeInTheDocument();
     expect(getByText("Partners:")).toBeInTheDocument();
-    expect(getByText("Contact Us")).toHaveAttribute("href", "/contact-us");
-    expect(getByText("Careers")).toHaveAttribute("href", "/careers");
+    expect(getByText("Contact Us")).toHaveAttribute("href", "/en/contact-us");
+    expect(getByText("Careers")).toHaveAttribute("href", "/en/careers");
     expect(getByText("FAQ")).toHaveAttribute(
       "href",
-      "/frequent-asked-questions"
+      "/en/frequent-asked-questions"
     );
     expect(
       getByText(`- ${currentYearUpdated} all rights reserved.`)

@@ -46,6 +46,7 @@ export default function RootLayout({
           <Menu
             model={zooMenu}
             mobileHomeText="Zoo Negara Malaysia"
+            language={lng}
             shortcutComponent={
               <ButtonLink
                 styling="BuyNow"

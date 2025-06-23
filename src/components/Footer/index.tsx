@@ -5,6 +5,7 @@ import { Link } from "../Link";
 import { Version } from "./Version";
 
 export type FooterProps = {
+  language: string;
   companyName: string;
   operatingTime: {
     day: { from: string; to: string };
@@ -27,6 +28,7 @@ export type FooterProps = {
 };
 
 function MutableFooter({
+  language,
   companyName,
   operatingTime,
   address,
@@ -82,13 +84,13 @@ function MutableFooter({
       <hr className="my-4 border-t"></hr>
       <ul className="text-center text-sm leading-10">
         <li>
-          <Link href="/contact-us">{labels.contactUs}</Link>
+          <Link href={`/${language}/contact-us`}>{labels.contactUs}</Link>
         </li>
         <li>
-          <Link href="/careers">{labels.careers}</Link>
+          <Link href={`/${language}/careers`}>{labels.careers}</Link>
         </li>
         <li>
-          <Link href="/frequent-asked-questions">{labels.faq}</Link>
+          <Link href={`/${language}/frequent-asked-questions`}>{labels.faq}</Link>
         </li>
       </ul>
       <hr className="my-4 border-t"></hr>

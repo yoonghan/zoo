@@ -34,6 +34,7 @@ describe("Menu", () => {
         shortcutComponent={shortcutComponent}
         mobileStyle={!isDesktop ? { display: "block" } : { display: "none" }}
         desktopStyle={isDesktop ? { display: "block" } : { display: "none" }}
+        language="en"
       />
     );
 
@@ -41,7 +42,7 @@ describe("Menu", () => {
     const { getByRole, getByText, getByLabelText } = renderMenuWithItems();
     expect(getByRole("link", { name: "Zoo Negara Malaysia" })).toHaveAttribute(
       "href",
-      "/"
+      "/en"
     );
     expect(getByText("Hamburger Menu")).toHaveClass("visually-hidden");
     expect(getByLabelText("Main Menu")).toBeInTheDocument();
@@ -56,7 +57,7 @@ describe("Menu", () => {
     const { getByRole } = renderMenuWithItems(true);
     expect(getByRole("link", { name: "home link" })).toHaveAttribute(
       "href",
-      "/"
+      "/en"
     );
 
     expect(getByRole("menuitem", { name: "Zoo Negara" })).toBeVisible();
@@ -73,7 +74,7 @@ describe("Menu", () => {
 
   it("should replace submenu with main menu's root if url of submenu is missing", async () => {
     const { getByRole, getByText } = renderMenuWithItems(true);
-    const expectedRootUrl = "/about-us";
+    const expectedRootUrl = "/en/about-us";
     expect(getByRole("menuitem", { name: "Zoo Negara" })).toHaveAttribute(
       "href",
       expectedRootUrl
@@ -88,7 +89,7 @@ describe("Menu", () => {
     const { getByRole } = renderMenuWithItems(true);
     expect(getByRole("menuitem", { name: "Zoo Negara Logo" })).toHaveAttribute(
       "href",
-      "/about-us#logo"
+      "/en/about-us#logo"
     );
   });
 
