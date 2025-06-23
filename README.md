@@ -64,6 +64,8 @@ pnpm dev
 bun dev
 ```
 
+Remove versioning from page with querystring, ?version=none
+
 ## Attribution to
 
 1. Nextjs (with React)
