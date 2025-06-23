@@ -1,5 +1,5 @@
 import { systemConfig } from "@/config/system";
-import Sitemap from "./sitemap";
+import Sitemap, { dynamic } from "./sitemap";
 
 describe("Sitemap XML", () => {
   it("should contains main and defined correctly", () => {
@@ -9,5 +9,9 @@ describe("Sitemap XML", () => {
     expect(main).toHaveLength(1);
     expect(main[0].priority).toBe(0.9);
     expect(main[0].changeFrequency).toBe("weekly");
+  });
+
+  it("should contain force-static export", () => {
+    expect(dynamic).toBe("force-static");
   });
 });

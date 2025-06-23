@@ -2,6 +2,8 @@ import { systemConfig } from "@/config/system";
 import { allRemappedFile } from "@/util/sitegenerator/pages";
 import { MetadataRoute } from "next";
 
+export const dynamic = "force-static"
+
 const getPriorityAndFrequency = (
   path: string
 ): {
