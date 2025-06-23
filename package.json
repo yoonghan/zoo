@@ -38,7 +38,7 @@
     "@types/jest": "^29.5.12",
     "@types/lodash": "^4.17.0",
     "@types/node": "^20.12.7",
-    "@types/react": "^18",
+    "@types/react": "^19",
     "@types/react-dom": "^18",
     "@types/react-slick": "^0.23.13",
     "autoprefixer": "^10.0.1",
