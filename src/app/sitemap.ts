@@ -11,7 +11,8 @@ const getPriorityAndFrequency = (
   changeFrequency: "weekly" | "yearly";
 } => {
   switch (path) {
-    case "/":
+    case "/en/":
+    case "/bm/":
       return { priority: 0.9, changeFrequency: "weekly" };
     default:
       return { priority: 0.3, changeFrequency: "weekly" };
@@ -27,6 +28,11 @@ const generatedSiteMap = allRemappedFile.sort().map((sortedSiteMapPages) => {
     changeFrequency,
     priority,
   };
+}).concat({
+  url: `${systemConfig.url}/`,
+  lastModified: new Date(),
+  changeFrequency: "weekly",
+  priority: 0.9,
 });
 
 const handler = (): MetadataRoute.Sitemap => generatedSiteMap;

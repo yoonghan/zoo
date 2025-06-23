@@ -12,8 +12,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTicket } from "@fortawesome/free-solid-svg-icons";
 import ScrollToTop from "@/components/ScrollToTop";
 import { dir } from 'i18next'
-import { languages } from '../i18n/settings'
+import { languages } from '../../i18n/settings'
 import { Usable, use } from 'react'
+import { PageParams } from "@/typings/params";
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }))
@@ -30,11 +31,9 @@ export default function RootLayout({
   params
 }: Readonly<{
   children: React.ReactNode;
-  params: Usable<{
-    lng: string
-  }>
+  params: Usable<{ lng: string }>
 }>) {
-  const { lng } = use<{lng: string}>(params)
+  const { lng } = use(params)
 
   return (
     <html lang={lng} dir={dir(lng)}>

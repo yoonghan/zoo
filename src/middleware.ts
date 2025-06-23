@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import acceptLanguage from 'accept-language'
-import { fallbackLng, languages, cookieName } from './app/i18n/settings'
+import { fallbackLng, languages, cookieName } from './i18n/settings'
 
 acceptLanguage.languages(languages)
 
@@ -18,7 +18,9 @@ export function middleware(req:any) {
   // Redirect if lng in path is not supported
   if (
     !languages.some(loc => req.nextUrl.pathname.startsWith(`/${loc}`)) &&
-    !req.nextUrl.pathname.startsWith('/_next') && !req.nextUrl.pathname.startsWith('/images')
+    !req.nextUrl.pathname.startsWith('/_next') && 
+    !req.nextUrl.pathname.startsWith('/images') &&
+    !req.nextUrl.pathname.startsWith('/sitemap.xml')
   ) {
     return NextResponse.redirect(new URL(`/${lng}${req.nextUrl.pathname}`, req.url))
   }

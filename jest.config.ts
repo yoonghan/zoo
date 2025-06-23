@@ -28,7 +28,11 @@ const config: Config = {
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
   },
-  testPathIgnorePatterns: ["/e2e/*", "/playwright*"],
+  testPathIgnorePatterns: ["/e2e/*", "/playwright*", "/src/app/[lng]/layout.tsx"],
+  coveragePathIgnorePatterns: [
+    "layout.tsx",
+    "/node_modules/",
+  ],
 };
 
 export default createJestConfig(config);

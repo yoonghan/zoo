@@ -1,3 +1,4 @@
+import { languages } from "@/i18n/settings";
 import fs from "fs";
 
 type PageConfig = {
@@ -5,7 +6,7 @@ type PageConfig = {
   display: string;
 };
 
-const appFolder = "./src/app";
+const appFolder = "./src/app/[lng]";
 
 const getRecursiveFiles = (srcpath: string): string[] => {
   return fs
@@ -36,11 +37,15 @@ const remapAppFiles = (files: string[]) => {
     return filePath === "" ? "/" : filePath;
   };
 
-  return files
+  const rootFiles = files
     .filter((file: string) => file.indexOf("/.") === -1) //remove all hidden files, like .DS_Store
     .filter((file: string) => file.lastIndexOf(".test.") === -1) //remove all test files
     .filter((file) => file.endsWith(appLayoutFile))
     .map((file) => removePage(removeExtension(removeRootPath(file))));
+
+  return languages.flatMap((lng) => {
+    return rootFiles.map((file) => `/${lng}${file}`);
+  });
 };
 
 const allAppFiles = getRecursiveFiles(appFolder);
