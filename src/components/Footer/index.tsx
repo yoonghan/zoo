@@ -2,6 +2,7 @@ import Image from "next/image";
 import { memo } from "react";
 import labels from "./constant";
 import { Link } from "../Link";
+import { Version } from "./Version";
 
 export type FooterProps = {
   companyName: string;
@@ -31,6 +32,7 @@ function MutableFooter({
   address,
   partners,
 }: FooterProps) {
+  
   const currentYearUpdated = new Date().getFullYear();
 
   return (
@@ -93,7 +95,7 @@ function MutableFooter({
       <div className="text-center text-sm mt-4">
         <span>&copy; {companyName}</span>{" "}
         <span>{`- ${currentYearUpdated} ${labels.maintainedInfo}`}</span>
-        <div>(ver. {process.env.RELEASE_VERSION || 'local'})</div>
+        <Version />
       </div>
     </footer>
   );
