@@ -63,7 +63,7 @@ const allRemappedFile = remapAppFiles(allAppFiles);
 allRemappedFile.sort().forEach(pathToTest => {
    backstopConfigJson.scenarios.push({
       "label": `${pathToTest}`,
-      "url": `${baseUrl}${pathToTest}?version=false`, 
+      "url": `${baseUrl}${pathToTest}?version=none`, 
       ...backStopConfigFor(pathToTest)
    })
 })
