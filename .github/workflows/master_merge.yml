@@ -151,7 +151,7 @@ jobs:
     uses: ./.github/workflows/snapshot.yml
     with:
       deployed_url: ${{ needs.deploy.outputs.page_url }}
-      continue_on_fail: true
+      continue_on_fail: false
       should_approve: false
 
   # Smoketest on url change
@@ -162,4 +162,4 @@ jobs:
     uses: ./.github/workflows/performance.yml
     with:
       deployed_url: ${{ needs.deploy.outputs.page_url }}
-      continue_on_fail: true
+      continue_on_fail: false
