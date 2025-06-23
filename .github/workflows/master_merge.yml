@@ -157,6 +157,8 @@ jobs:
   # Smoketest on url change
   smoke-test-performance:
     needs: deploy
+    permissions:
+      contents: read
     uses: ./.github/workflows/performance.yml
     with:
       deployed_url: ${{ needs.deploy.outputs.page_url }}
