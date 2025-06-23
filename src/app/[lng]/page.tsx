@@ -1,8 +1,12 @@
+import { PageParams } from "@/typings/params";
 import Image from "next/image";
+import { use, Suspense } from "react";
+import LanguageLoader from "@/components/LanguageLoader";
 
-export default function Home() {
+export default function Home({params}: PageParams) {
+  const { lng } = use(params);
+  
   return (
-    <>
       <main className="no-margin-y">
         <Image
           src="/images/header.jpg"
@@ -18,7 +22,7 @@ export default function Home() {
         />
         <article className="primary">
           <h1 className="font-bold text-4xl text-center">
-            Welcome to Zoo Negara
+            <LanguageLoader language={lng} label="welcome"/>
           </h1>
           <figure>
             <figcaption className="mb-4">
@@ -40,6 +44,5 @@ export default function Home() {
           </figure>
         </article>
       </main>
-    </>
   );
 }

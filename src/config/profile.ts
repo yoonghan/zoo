@@ -1,4 +1,4 @@
-import { ContactUsProps } from "@/app/contact-us/page";
+import { ContactUsProps } from "@/app/[lng]/contact-us/page";
 import { FooterProps } from "@/components/Footer";
 
 type Donation = {
