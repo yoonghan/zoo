@@ -22,7 +22,7 @@ const miniLinks: MiniMenuItems[] = [
   },
 ];
 
-export default function GettingThere({ params: { lng } }: { params: { lng: string } }) {
+export default function GettingThere() {
   return (
     <>
       <MiniMenu model={miniLinks} />

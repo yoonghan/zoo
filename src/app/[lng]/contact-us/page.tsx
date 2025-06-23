@@ -18,7 +18,7 @@ export type ContactUsProps = {
   customerserviceEmail: string;
 };
 
-export default function ContactUs({ params: { lng } }: { params: { lng: string } }) {
+export default function ContactUs() {
   const preDefinedData = zooProfile.contactus;
 
   return (

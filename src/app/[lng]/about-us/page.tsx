@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Link } from "@/components/Link";
 import { miniLinks } from "./config";
 
-export default function About({ params: { lng } }: { params: { lng: string } }) {
+export default function About() {
   return (
     <>
       <MiniMenu model={miniLinks} />

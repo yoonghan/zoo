@@ -1,6 +1,12 @@
+import { PageParams } from "@/typings/params";
 import Image from "next/image";
+import { use } from "react";
+import { useTranslation } from "../i18n";
 
-export default function Home({ params }: { params: { lng: string } }) {
+export default function Home({params}: PageParams) {
+  const { lng } = use(params)
+  const { t } = use(useTranslation(lng))
+
   return (
     <>
       <main className="no-margin-y">
@@ -18,7 +24,7 @@ export default function Home({ params }: { params: { lng: string } }) {
         />
         <article className="primary">
           <h1 className="font-bold text-4xl text-center">
-            Welcome to Zoo Negara
+            {t("welcome")}
           </h1>
           <figure>
             <figcaption className="mb-4">

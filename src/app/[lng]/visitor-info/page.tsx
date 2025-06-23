@@ -26,7 +26,7 @@ const miniLinks: MiniMenuItems[] = [
   },
 ];
 
-export default function VisitorInfo({ params: { lng } }: { params: { lng: string } }) {
+export default function VisitorInfo() {
   return (
     <>
       <MiniMenu model={miniLinks} />

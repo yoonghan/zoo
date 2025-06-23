@@ -1,7 +1,7 @@
 import { Link } from "@/components/Link";
 import { zooProfile } from "@/config/profile";
 
-export default function Career({ params: { lng } }: { params: { lng: string } }) {
+export default function Career() {
   return (
     <main>
       <section>

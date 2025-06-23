@@ -1,7 +1,7 @@
 import { ButtonLink } from "@/components/Button";
 import Image from "next/image";
 
-export default function ZooMap({ params: { lng } }: { params: { lng: string } }) {
+export default function ZooMap() {
   return (
     <>
       <main>
