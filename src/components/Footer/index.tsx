@@ -95,7 +95,7 @@ function MutableFooter({
       <div className="text-center text-sm mt-4">
         <span>&copy; {companyName}</span>{" "}
         <span>{`- ${currentYearUpdated} ${labels.maintainedInfo}`}</span>
-        <Version />
+        <Version version={process.env.RELEASE_VERSION || 'local'}/>
       </div>
     </footer>
   );
