@@ -1,11 +1,4 @@
-/*
-Content can be styled with command
-!! - new line
-[url|text] - will render as link with text to url, e.g. [https://google.com|Show me]
-* - bold any words that prefix with *, i.e. *I am *Bold
-*/
-
-export const zooFaq = [
+const zooFaq = [
   {
     label: "How to reach Zoo Negara?",
     content:
@@ -137,3 +130,5 @@ export const zooFaq = [
       "The easiest and quickest way is to click on [https://www.ticket2u.com.my/event/18171/zoo-negara-adoption-package|onTicket2u website]. When you reach the adoption pages, click on ‘Adopt Me’ next to the animal you want to adopt and you will then be asked to login, or register if you don’t have an account yet.",
   },
 ];
+
+export default zooFaq;
