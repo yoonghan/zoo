@@ -91,7 +91,7 @@ test("about-us", async ({ page }) => {
     });
   });
 
-  await page.goto("/contact-us");
+  await page.goto("/about-us");
 
   await checkPerformance(page);
 });
