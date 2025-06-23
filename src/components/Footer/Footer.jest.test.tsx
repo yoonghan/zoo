@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { queryByText, render } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { Footer, FooterProps } from ".";
 
@@ -18,7 +18,7 @@ describe("Footer", () => {
   const defaultPartners = [
     {
       url: "https://www.partner.com",
-      imageSrc: "/abc.jpg",
+      imageSrc: "https://www.image.com/abc.jpg",
       alt: "partner",
     },
   ];
@@ -131,8 +131,27 @@ describe("Footer", () => {
 
     process.env.RELEASE_VERSION = "30101010-zoo"
     const { getByText } = renderFooterComponent({});
-    expect(getByText("(ver. 30101010-zoo)")).toBeInTheDocument();
+    expect(getByText("(ver. 30101010-zoo)")).toHaveClass("block");
 
     process.env.RELEASE_VERSION = original_val
+  });
+
+
+  it("should hide versioning if parameter contains version=none", () => {
+    const originalLocation = window.location;
+
+    Object.defineProperty(window, "location", {
+      value: new URL("https://www.google.com?version=none"),
+      writable: true,
+    })
+
+    process.env.RELEASE_VERSION = "30101010-zoo"
+    const { getByText } = renderFooterComponent({});
+    expect(getByText("(ver. 30101010-zoo)")).toHaveClass("hidden");
+
+    Object.defineProperty(window, "location", {
+      value: originalLocation,
+      writable: true,
+    })
   });
 });
