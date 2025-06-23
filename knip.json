@@ -6,6 +6,8 @@
   ],
   "ignoreDependencies": [
     "happy-dom",
-    "jest-environment-jsdom"
+    "jest-environment-jsdom",
+    "eslint-config-next",
+    "eslint"
   ]
 }
