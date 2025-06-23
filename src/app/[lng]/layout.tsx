@@ -11,6 +11,13 @@ import { ButtonLink } from "@/components/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTicket } from "@fortawesome/free-solid-svg-icons";
 import ScrollToTop from "@/components/ScrollToTop";
+import { dir } from 'i18next'
+import { languages } from '../i18n/settings'
+import { Usable, use } from 'react'
+
+export async function generateStaticParams() {
+  return languages.map((lng) => ({ lng }))
+}
 
 export const metadata: Metadata = {
   title: "Zoo Negara Malaysia",
@@ -20,11 +27,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params
 }: Readonly<{
   children: React.ReactNode;
+  params: Usable<{
+    lng: string
+  }>
 }>) {
+  const { lng } = use<{lng: string}>(params)
+
   return (
-    <html lang="en">
+    <html lang={lng} dir={dir(lng)}>
       <body>
         <header>
           <Announcement

@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function Home() {
+export default function Home({ params }: { params: { lng: string } }) {
   return (
     <>
       <main className="no-margin-y">

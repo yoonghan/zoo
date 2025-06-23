@@ -18,7 +18,7 @@ const miniLinks: MiniMenuItems[] = [
   },
 ];
 
-export default function KiosksAndFacilities() {
+export default function KiosksAndFacilities({ params: { lng } }: { params: { lng: string } }) {
   return (
     <>
       <MiniMenu model={miniLinks} />

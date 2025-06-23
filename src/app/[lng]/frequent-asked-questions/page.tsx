@@ -1,7 +1,7 @@
 import { Accordion } from "@/components/Accordion";
 import { zooFaq } from "@/config/faq";
 
-export default function Faq() {
+export default function Faq({ params: { lng } }: { params: { lng: string } }) {
   return (
     <>
       <main>
