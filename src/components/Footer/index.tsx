@@ -5,7 +5,6 @@ import { Link } from "../Link";
 import { Version } from "./Version";
 
 export type FooterProps = {
-  language: string;
   companyName: string;
   operatingTime: {
     day: { from: string; to: string };
@@ -33,7 +32,7 @@ function MutableFooter({
   operatingTime,
   address,
   partners,
-}: FooterProps) {
+}: FooterProps & { language: string }) {
   
   const currentYearUpdated = new Date().getFullYear();
 
