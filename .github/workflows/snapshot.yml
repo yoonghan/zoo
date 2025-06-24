@@ -118,6 +118,7 @@ jobs:
           file_pattern: "backstop_data/bitmaps_reference/*.png"
 
       - name: ▶️ Re-Validate snapshot
+        continue-on-error: ${{ inputs.continue_on_fail }}
         if: ${{ inputs.should_approve }}
         shell: bash
         run: npm run snapshot
