@@ -11,7 +11,8 @@ const baseUrl = "http://localhost:3000".replace(/\/$/,"")
 const backStopConfigFor = (page) => {
   return {
     "misMatchThreshold": 0.3,
-    "requireSameDimensions": false
+    "requireSameDimensions": false,
+    "delay": 500,
   }
 }
 
