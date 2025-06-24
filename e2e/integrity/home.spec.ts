@@ -7,6 +7,13 @@ test("has title", async ({ page }) => {
   await expect(page).toHaveTitle(/Zoo Negara/);
 });
 
+test("can switch language", async ({ page }) => {
+  await page.goto("http://localhost:3000/en");
+  await expect(page.getByRole("heading", {name: /Welcome to Zoo Negara/})).toBeVisible();
+  await page.getByRole("link", { name: "BM" }).click();
+  await expect(page.getByRole("heading", {name: /Selamat datang ke Zoo Negara/})).toBeVisible();
+});
+
 test("has announcement", async ({ page }) => {
   await page.goto("http://localhost:3000/");
   if (zooAnnouncement.length > 0) {

@@ -1,4 +1,8 @@
-body > header {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body>header {
   box-shadow: 1px 1px 5px 0px var(--gray);
   width: 100%;
   z-index: 999;
@@ -17,6 +21,7 @@ body {
   0% {
     opacity: 0;
   }
+
   50% {
     opacity: 1;
   }
@@ -35,14 +40,15 @@ main.no-margin-y {
   margin: 0 auto;
 }
 
-main > article,
-main > section {
+main>article,
+main>section {
   padding: 1.5rem 1rem;
 }
 
 main h1 {
   margin: 1rem 0;
 }
+
 /* main -end */
 
 /* table */
@@ -134,9 +140,11 @@ input[type="reset"].no-style {
   transition: all 0.2s ease-out;
   width: 100%;
 }
+
 .close::before {
   transform: rotate(-45deg);
 }
+
 .close::after {
   transform: rotate(45deg);
 }
@@ -181,21 +189,15 @@ svg[data-icon="ticket"] {
   height: 1px;
   width: 1px;
   overflow: hidden;
-  clip: rect(
-    1px 1px 1px 1px
-  ); /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
-  clip: rect(
-    1px,
-    1px,
-    1px,
-    1px
-  ); /*maybe deprecated but we need to support legacy browsers */
-  clip-path: inset(
-    50%
-  ); /*modern browsers, clip-path works inwards from each corner*/
-  white-space: nowrap; /* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+  clip: rect(1px,
+      1px,
+      1px,
+      1px);
+  /*maybe deprecated but we need to support legacy browsers */
+  clip-path: inset(50%);
+  /*modern browsers, clip-path works inwards from each corner*/
+  white-space: nowrap;
+  /* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;

@@ -9,7 +9,7 @@ test.use({
 test("has menu", async ({ page }) => {
   await page.goto("http://localhost:3000/");
   await expect(
-    page.getByRole("link", { name: "Zoo Negara Malaysia" })
+    page.getByRole("link", { name: "Zoo Negara" })
   ).toBeVisible();
 
   if (zooMenu.length > 0) {
