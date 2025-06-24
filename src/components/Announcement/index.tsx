@@ -4,7 +4,7 @@ import { htmlConvertor } from "@/util/htmlConvertor";
 import { useState } from "react";
 import style from "./Announcement.module.css";
 
-export type AnnouncementsType = string[];
+type AnnouncementsType = string[];
 
 type AnnouncementProps = { 
   ariaAnnouncementTitle: string; 
