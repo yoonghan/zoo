@@ -11,7 +11,8 @@ const baseUrl = "http://localhost:3000".replace(/\/$/,"")
 const backStopConfigFor = (page) => {
   return {
     "misMatchThreshold": 0.3,
-    "requireSameDimensions": false
+    "requireSameDimensions": false,
+    "delay": 500,
   }
 }
 
@@ -63,7 +64,7 @@ const allRemappedFile = remapAppFiles(allAppFiles);
 allRemappedFile.sort().forEach(pathToTest => {
    backstopConfigJson.scenarios.push({
       "label": `${pathToTest}`,
-      "url": `${baseUrl}/en${pathToTest}?version=none`, 
+      "url": `${baseUrl}/en${pathToTest === "/"? "":pathToTest}?version=none`, 
       ...backStopConfigFor(pathToTest)
    })
 })
