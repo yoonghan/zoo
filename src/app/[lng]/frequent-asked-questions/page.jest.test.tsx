@@ -1,15 +1,21 @@
 import "@testing-library/jest-dom";
-import { render } from "@testing-library/react";
+import { render, screen, act } from "@testing-library/react";
 import Faq from "./page";
 
 describe("Frequent Asked Questions", () => {
-  it("should contains important keys", () => {
-    const { getByRole } = render(<Faq />);
+  it("should contains important keys", async () => {
+    await act(async ( ) => {
+      render(<Faq params={Promise.resolve({lng: "en"})}/>);
+    })
     //main
-    expect(getByRole("main")).toBeInTheDocument();
+    expect(screen.getByRole("main")).toBeInTheDocument();
     //h1
     expect(
-      getByRole("heading", { name: "Frequent Asked Questions" })
+      screen.getByRole("heading", { name: "Frequent Asked Questions" })
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByText("How to reach Zoo Negara?")
     ).toBeInTheDocument();
   });
 });

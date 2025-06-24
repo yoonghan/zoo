@@ -1,15 +1,8 @@
-/*
-Content can be styled with command
-!! - new line
-[url|text] - will render as link with text to url, e.g. [https://google.com|Show me]
-* - bold any words that prefix with *, i.e. *I am *Bold
-*/
-
-export const zooFaq = [
+const zooFaq = [
   {
     label: "How to reach Zoo Negara?",
     content:
-      "We have provided the info in [/visitor-info/getting-there|Getting There] section.",
+      "We have provided the info in [/bm/visitor-info/getting-there|Getting There] section.",
   },
   {
     label: "What are the admission rates?",
@@ -19,25 +12,21 @@ export const zooFaq = [
   {
     label:
       "I'm a teacher and planning to bring my students to zoo. Do you offer any school concession rates?",
-    content: "Yes, please [/contact-us|Contact Us].",
-  },
-  {
-    label: "Can you organize a birthday party?",
-    content: "Yes, check it out in our [/events|Event] section.",
+    content: "Yes, please [/bm/contact-us|Contact Us].",
   },
   {
     label: "What are the opening hours?",
-    content: "Yes, check it out in our [/visitor-info|Visitor Info] section.",
+    content: "Yes, check it out in our [/bm/visitor-info|Visitor Info] section.",
   },
   {
     label: "Is there any restaurant or food kiosk?",
     content:
-      "Yes, check it out in our [/visitor-info/kiosks-n-facilities|Kiosk] section.",
+      "Yes, check it out in our [/bm/visitor-info/kiosks-n-facilities|Kiosk] section.",
   },
   {
     label: "Is there an easy way to find restrooms inside?",
     content:
-      "Yes, our restrooms are indicated in the [/visitor-info/zoo-map|Zoo Map].",
+      "Yes, our restrooms are indicated in the [/bm/visitor-info/zoo-map|Zoo Map].",
   },
   {
     label: "Are pets allowed into the zoo?",
@@ -51,23 +40,18 @@ export const zooFaq = [
   {
     label: "What are the times for the shows?",
     content:
-      "Check it out in our [/visitor-info/zoo-map|Zoo Map's Show time] section. Don't miss it out!",
+      "Check it out in our [/bm/visitor-info/zoo-map|Zoo Map's Show time] section. Don't miss it out!",
   },
   {
     label:
       "I love to take photos with animals. Do you have a schedule for this activity?",
     content:
-      "Check it out in [/visitor-info/zoo-map|Zoo Map's Feeding Time] section. Have a great picture time!",
+      "Check it out in [/bm/visitor-info/zoo-map|Zoo Map's Feeding Time] section. Have a great picture time!",
   },
   {
     label:
       "How do I get my free guide map in the zoo area just incase if I lost my way?",
-    content: "[/visitor-info/zoo-map|Download] it from the website.",
-  },
-  {
-    label:
-      "Do you have any programs or educational package for school children?",
-    content: "Check it out at [/get-involved|Get Involved] section.",
+    content: "[/bm/visitor-info/zoo-map|Download] it from the website.",
   },
   {
     label: "How long does it take to walk around the zoo?",
@@ -137,3 +121,5 @@ export const zooFaq = [
       "The easiest and quickest way is to click on [https://www.ticket2u.com.my/event/18171/zoo-negara-adoption-package|onTicket2u website]. When you reach the adoption pages, click on ‘Adopt Me’ next to the animal you want to adopt and you will then be asked to login, or register if you don’t have an account yet.",
   },
 ];
+
+export default zooFaq;

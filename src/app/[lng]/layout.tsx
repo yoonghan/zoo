@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "@/themes/lara-light-green/theme.css";
 import "./main.css";
 import { Announcement } from "@/components/Announcement";
-import { zooAnnouncement } from "@/config/announcements";
 import { Footer } from "@/components/Footer";
 import { zooProfile } from "@/config/profile";
 import { Menu } from "@/components/Menu";
@@ -35,6 +34,8 @@ export default function RootLayout({
 }>) {
   const { lng } = use(params)
 
+  const zooAnnouncement = require(`../../i18n/locales/${lng}/announcements`).default
+
   return (
     <html lang={lng} dir={dir(lng)}>
       <body>
@@ -46,6 +47,7 @@ export default function RootLayout({
           <Menu
             model={zooMenu}
             mobileHomeText="Zoo Negara Malaysia"
+            language={lng}
             shortcutComponent={
               <ButtonLink
                 styling="BuyNow"
@@ -64,6 +66,7 @@ export default function RootLayout({
         {children}
         <ScrollToTop />
         <Footer
+          language={lng}
           operatingTime={zooProfile.operatingTime}
           address={zooProfile.address}
           companyName={zooProfile.companyName}

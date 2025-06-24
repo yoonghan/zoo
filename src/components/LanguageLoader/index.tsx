@@ -6,7 +6,7 @@ function Loader({languagePromise, label }:{languagePromise: Promise<any>, label:
   return t(label);
 }
 
-export default function PromiseLoader({ language, label } : {language: string, label: string }) {
+export default function LanguageLoader({ language, label } : { language: string, label: string }) {
   const languagePromise = useTranslation(language);
   return <Suspense><Loader languagePromise={languagePromise} label={label}/></Suspense>
 }

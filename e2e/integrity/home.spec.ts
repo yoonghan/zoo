@@ -1,4 +1,4 @@
-import { zooAnnouncement } from "@/config/announcements";
+import zooAnnouncement from "@/i18n/locales/en/announcements";
 import { test, expect } from "@playwright/test";
 import footerLabel from "@/components/Footer/constant";
 

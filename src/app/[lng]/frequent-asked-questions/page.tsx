@@ -1,7 +1,12 @@
 import { Accordion } from "@/components/Accordion";
-import { zooFaq } from "@/config/faq";
+import { use } from "react";
+import { PageParams } from "@/typings/params";
 
-export default function Faq() {
+export default function Faq({params}: PageParams) {
+  const { lng } = use(params);
+  
+  const faq = require(`../../../i18n/locales/${lng}/faq`).default
+
   return (
     <>
       <main>
@@ -10,7 +15,7 @@ export default function Faq() {
             Frequent Asked Questions
           </h1>
           <div className="mt-8">
-            <Accordion model={zooFaq} groupName="faq" />
+            <Accordion model={faq} groupName="faq"/>
           </div>
         </article>
       </main>
