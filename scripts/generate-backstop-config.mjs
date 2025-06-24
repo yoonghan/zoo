@@ -16,7 +16,7 @@ const backStopConfigFor = (page) => {
 }
 
 /** Test every page created, this code is a duplicate of siteGenerator [S]**/
-const appFolder = "./src/app/en";
+const appFolder = "./src/app/[lng]";
 
 const getRecursiveFiles = (srcpath) => {
   return fs
@@ -63,7 +63,7 @@ const allRemappedFile = remapAppFiles(allAppFiles);
 allRemappedFile.sort().forEach(pathToTest => {
    backstopConfigJson.scenarios.push({
       "label": `${pathToTest}`,
-      "url": `${baseUrl}${pathToTest}?version=none`, 
+      "url": `${baseUrl}/en${pathToTest}?version=none`, 
       ...backStopConfigFor(pathToTest)
    })
 })
