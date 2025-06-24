@@ -5,7 +5,7 @@ import { PageParams } from "@/typings/params";
 export default function Faq({params}: PageParams) {
   const { lng } = use(params);
   
-  const faq = require(`../../../i18n/locales/${lng}/faq.js`).default
+  const faq = require(`../../../i18n/locales/${lng}/faq`).default
 
   return (
     <>
