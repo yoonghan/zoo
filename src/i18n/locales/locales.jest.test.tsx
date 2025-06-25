@@ -1,17 +1,17 @@
-import bm from "./bm/translation.json";
+import ms from "./ms/translation.json";
 import en from "./en/translation.json";
 
 import zooAnnouncementEN from "./en/announcements";
-import zooAnnouncementBM from "./bm/announcements";
+import zooAnnouncementBM from "./ms/announcements";
 
 import zooFaqEN from "./en/faq";
-import zooFaqBM from "./bm/faq";
+import zooFaqMS from "./ms/faq";
 
 describe("i18n locales", () => {
-  it("all bm should have all en fields", () => {
+  it("all ms should have all en fields", () => {
     const enKeys = Object.keys(en);
-    const bmKeys = Object.keys(bm);
-    expect(bmKeys).toEqual(expect.arrayContaining(enKeys));
+    const msKeys = Object.keys(ms);
+    expect(msKeys).toEqual(expect.arrayContaining(enKeys));
   });
 
   it("all announcement should be defined in both languages", () => {
@@ -19,6 +19,6 @@ describe("i18n locales", () => {
   })
 
   it("all faq should be defined in both languages", () => {
-    expect(zooFaqEN.length).toBe(zooFaqBM.length);
+    expect(zooFaqEN.length).toBe(zooFaqMS.length);
   })
 });
