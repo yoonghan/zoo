@@ -10,11 +10,9 @@ const getPriorityAndFrequency = (
   priority: number;
   changeFrequency: "weekly" | "yearly";
 } => {
-  switch (path) {
-    case "/en/":
-    case "/bm/":
-      return { priority: 0.9, changeFrequency: "weekly" };
-    default:
+  if(/^\/\w{2}\/$/.test(path)) {
+    return { priority: 0.9, changeFrequency: "weekly" };
+  } else {
       return { priority: 0.3, changeFrequency: "weekly" };
   }
 };

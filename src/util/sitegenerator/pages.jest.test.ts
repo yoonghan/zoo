@@ -6,6 +6,6 @@ describe("all sites are defined", () => {
 
     expect(allApp.filter((app) => app === "/en/careers")).toHaveLength(1);
     expect(allApp.filter((app) => app === "/en/")).toHaveLength(1);
-    expect(allApp.filter((app) => app === "/bm/")).toHaveLength(1);
+    expect(allApp.filter((app) => app === "/ms/")).toHaveLength(1);
   });
 });
