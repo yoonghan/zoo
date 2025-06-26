@@ -55,7 +55,7 @@ export default function RootLayout({
                   <span key={language} className={language === lng ? "hidden sm:inline" : ""}>
                     {idx !== 1 || <span className={"hidden sm:inline -mx-2"}> | </span>}
                     <Link href={`/${language}`} className={language === lng ? "hidden sm:inline underline mx-4" : "mx-4"}> 
-                      {language.toUpperCase()}
+                      {language === "ms" ? "BM" : language.toUpperCase()}
                     </Link>
                   </span>
                 ))}
