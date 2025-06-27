@@ -19,12 +19,12 @@ export function withTranslator(
     return <Suspense><WrappedComponent t={t} params={params} /></Suspense>;
   }
 
-  const WithTranslation: React.FC<PageParams> = ({ params }) => {
+  const WithTranslator: React.FC<PageParams> = ({ params }) => {
     const { lng } = use(params);
     const translator = useTranslation(lng)
 
     return <Suspense><Loader translator={translator} params={params}/></Suspense>;
   };
 
-  return WithTranslation;
+  return WithTranslator;
 }
