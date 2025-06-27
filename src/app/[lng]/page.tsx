@@ -1,10 +1,7 @@
-import { PageParams } from "@/typings/params";
 import Image from "next/image";
-import { use, Suspense } from "react";
-import LanguageLoader from "@/components/LanguageLoader";
+import { withTranslator, WithTranslatorProps } from "@/components/util/hook/disableVersioning/hoc/withTranslator";
 
-export default function Home({params}: PageParams) {
-  const { lng } = use(params);
+function Home({t}: WithTranslatorProps) {
   
   return (
       <main className="no-margin-y">
@@ -22,7 +19,7 @@ export default function Home({params}: PageParams) {
         />
         <article className="primary">
           <h1 className="font-bold text-4xl text-center">
-            <LanguageLoader language={lng} label="welcome"/>
+              {t('welcome')}
           </h1>
           <figure>
             <figcaption className="mb-4">
@@ -46,3 +43,5 @@ export default function Home({params}: PageParams) {
       </main>
   );
 }
+
+export default withTranslator(Home)
