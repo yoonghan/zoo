@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "@/themes/lara-light-green/theme.css";
 import "../main.css";
-import { Announcement } from "@/components/Announcement";
 import { Footer } from "@/components/Footer";
 import { zooProfile } from "@/config/profile";
 import { Menu } from "@/components/Menu";
@@ -12,12 +11,9 @@ import { faTicket } from "@fortawesome/free-solid-svg-icons";
 import ScrollToTop from "@/components/ScrollToTop";
 import { dir, TFunction } from 'i18next'
 import { languages } from '../../i18n/settings'
-import { Usable, use } from 'react'
-import { PageParams } from "@/typings/params";
+import { use } from 'react'
 import Link from "next/link";
-import { withComponentTranslator } from "@/components/util/hook/disableVersioning/hoc/withComponentTranslator";
-import { withTranslation } from "react-i18next";
-import { withTranslator } from "@/components/util/hook/disableVersioning/hoc/withTranslator";
+import { TranslatedAnnouncement } from "./TranslatedAnnouncement";
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }))
@@ -28,16 +24,6 @@ export const metadata: Metadata = {
   description:
     "A non-governmental organization established to create the first local zoo for Malaysians.",
 };
-
-const TranslatedAnnouncement = withComponentTranslator(({t}: {t: TFunction<string, string>}) => {
-  const zooAnnouncement: string[] = t('announcements', {returnObjects: true}) as string[]
-  return <Announcement
-            announcements={zooAnnouncement}
-            ariaAnnouncementTitle="Zoo Announcement"
-          />
-})
-
-const TranslatedAnnouncementWrapper = withTranslator(({t}: {t: TFunction<string, string>}) => <TranslatedAnnouncement t={t} />)
 
 export default function RootLayout({
   children,
@@ -52,7 +38,7 @@ export default function RootLayout({
     <html lang={lng} dir={dir(lng)}>
       <body>
         <header>
-          <TranslatedAnnouncementWrapper params={params}/>
+          <TranslatedAnnouncement params={params}/>
           <Menu
             model={zooMenu}
             mobileHomeText="Zoo Negara"

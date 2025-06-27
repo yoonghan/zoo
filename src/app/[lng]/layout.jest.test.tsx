@@ -1,4 +1,3 @@
-import "@testing-library/jest-dom";
 import { metadata } from "./layout";
 
 /** Testing is limited for layout, as it renders whole html. The only best solution is via e2e test. */

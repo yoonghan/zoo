@@ -2,6 +2,7 @@ import "@testing-library/jest-dom";
 import {render, screen, act} from "@testing-library/react";
 import { withTranslator } from "./withTranslator";
 import { TFunction } from "i18next";
+import en from "@/i18n/locales/en/translation.json"
 
 describe('withTranslator', () => {
 
@@ -13,12 +14,13 @@ describe('withTranslator', () => {
   });
 
   it('should return a component that renders the original component', async () => {
-    const TestComponent = ({t}: {t: TFunction<string, string>}) => <div>{t('welcome')}</div>
+    const keyword = 'welcome'
+    const TestComponent = ({t}: {t: TFunction<string, string>}) => <div>{t(keyword)}</div>
 
     const TranslatedComponent = withTranslator(TestComponent);
     await act(async () => {
       render(<TranslatedComponent params={Promise.resolve({lng: "en"})}/>);
     })
-    expect(await screen.findByText('Welcome to Zoo Negara')).toBeInTheDocument();
+    expect(await screen.findByText(en[keyword])).toBeInTheDocument();
   });
 });
