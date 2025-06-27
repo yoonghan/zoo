@@ -4,7 +4,7 @@ import { i18n, TFunction } from "i18next";
 import { Suspense, use } from "react";
 
 export interface WithTranslatorProps extends PageParams {
-  t: (key: string) => string;
+  t: TFunction<string, string>;
 }
 
 export function withTranslator(

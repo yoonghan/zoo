@@ -10,11 +10,14 @@ import { ButtonLink } from "@/components/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTicket } from "@fortawesome/free-solid-svg-icons";
 import ScrollToTop from "@/components/ScrollToTop";
-import { dir } from 'i18next'
+import { dir, TFunction } from 'i18next'
 import { languages } from '../../i18n/settings'
 import { Usable, use } from 'react'
 import { PageParams } from "@/typings/params";
 import Link from "next/link";
+import { withComponentTranslator } from "@/components/util/hook/disableVersioning/hoc/withComponentTranslator";
+import { withTranslation } from "react-i18next";
+import { withTranslator } from "@/components/util/hook/disableVersioning/hoc/withTranslator";
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }))
@@ -26,25 +29,30 @@ export const metadata: Metadata = {
     "A non-governmental organization established to create the first local zoo for Malaysians.",
 };
 
+const TranslatedAnnouncement = withComponentTranslator(({t}: {t: TFunction<string, string>}) => {
+  const zooAnnouncement: string[] = t('announcements', {returnObjects: true}) as string[]
+  return <Announcement
+            announcements={zooAnnouncement}
+            ariaAnnouncementTitle="Zoo Announcement"
+          />
+})
+
+const TranslatedAnnouncementWrapper = withTranslator(({t}: {t: TFunction<string, string>}) => <TranslatedAnnouncement t={t} />)
+
 export default function RootLayout({
   children,
   params
 }: Readonly<{
   children: React.ReactNode;
-  params: Usable<{ lng: string }>
+  params: Promise<{ lng: string }>
 }>) {
   const { lng } = use(params)
-
-  const zooAnnouncement = require(`../../i18n/locales/${lng}/announcements`).default
 
   return (
     <html lang={lng} dir={dir(lng)}>
       <body>
         <header>
-          <Announcement
-            announcements={zooAnnouncement}
-            ariaAnnouncementTitle="Zoo Announcement"
-          />
+          <TranslatedAnnouncementWrapper params={params}/>
           <Menu
             model={zooMenu}
             mobileHomeText="Zoo Negara"

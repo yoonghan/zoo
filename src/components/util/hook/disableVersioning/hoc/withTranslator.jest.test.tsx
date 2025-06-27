@@ -1,6 +1,7 @@
 import "@testing-library/jest-dom";
 import {render, screen, act} from "@testing-library/react";
 import { withTranslator } from "./withTranslator";
+import { TFunction } from "i18next";
 
 describe('withTranslator', () => {
 
@@ -12,7 +13,7 @@ describe('withTranslator', () => {
   });
 
   it('should return a component that renders the original component', async () => {
-    const TestComponent = ({t}: {t: (label: string) => string}) => <div>{t('welcome')}</div>
+    const TestComponent = ({t}: {t: TFunction<string, string>}) => <div>{t('welcome')}</div>
 
     const TranslatedComponent = withTranslator(TestComponent);
     await act(async () => {
