@@ -47,11 +47,7 @@ export default function VisitorInfo() {
             ({zooProfile.operatingTime.time.from} to{" "}
             {zooProfile.operatingTime.time.to})
           </div>
-          {zooProfile.operatingTime.exception && (
-            <div className="italic text-sm mt-8">
-              (* {zooProfile.operatingTime.exception})
-            </div>
-          )}
+          <div className="italic text-sm mt-8">(* {zooProfile.operatingTime.lastAdmissionTime})</div>
         </article>
 
         <article
