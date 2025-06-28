@@ -1,5 +1,4 @@
 import { act, fireEvent, render } from "@testing-library/react";
-import "@testing-library/jest-dom";
 import MiniMenu from ".";
 import { disconnect, intersectionFn } from "@/__mocks__/intersectionObserver";
 
@@ -82,7 +81,7 @@ describe("MiniMenu", () => {
       const fivePillarsElem = getByRole("link", { name: "Five Pillars" });
       const scrollIntoViewCall = jest
         .spyOn(fivePillarsElem as any, "scrollIntoViewIfNeeded")
-        .mockImplementation(() => {});
+        .mockImplementation(() => { });
 
       act(() => {
         intersectionFn([
