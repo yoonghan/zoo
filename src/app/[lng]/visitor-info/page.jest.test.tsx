@@ -1,20 +1,20 @@
 import "@testing-library/jest-dom";
-import { render } from "@testing-library/react";
+import { render, screen, act } from "@testing-library/react";
 import VisitorInfo from "./page";
 
 describe("Visitor Info", () => {
-  it("should contains important keys", () => {
-    const { getByRole } = render(<VisitorInfo />);
+  it("should contains important keys", async () => {
+    await act(async () => {
+      render(<VisitorInfo params={Promise.resolve({ lng: "en" })} />);
+    })
     //main
-    expect(getByRole("main")).toBeInTheDocument();
+    expect(await screen.findByRole("main")).toBeInTheDocument();
     //h1
-    expect(getByRole("heading", { name: "Visitor Info" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Visitor Info" })).toBeInTheDocument();
 
-    expect(getByRole("heading", { name: "Opening Hours" })).toBeInTheDocument();
-    expect(
-      getByRole("heading", { name: "Admission Ticket" })
-    ).toBeInTheDocument();
-    expect(getByRole("heading", { name: "Rental" })).toBeInTheDocument();
-    expect(getByRole("heading", { name: "Tram Ride" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Opening Hours" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Admission Ticket" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Rental" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Tram Ride" })).toBeInTheDocument();
   });
 });

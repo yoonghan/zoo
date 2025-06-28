@@ -10,7 +10,6 @@ type Programmes = {
   ticket: {
     admission: {
       url: string;
-      text: string;
     };
   };
 };
@@ -21,7 +20,7 @@ export const zooProfile: FooterProps &
   operatingTime: {
     day: { from: "Monday", to: "Sunday" },
     time: { from: "9:00am", to: "5:00pm" },
-    exception: "Last Admission at 4:00pm",
+    lastAdmissionTime: "4:00pm",
   },
   address: {
     street: "Zoo Negara",
@@ -36,8 +35,7 @@ export const zooProfile: FooterProps &
   partners: [],
   ticket: {
     admission: {
-      url: "https://ticket.zoonegara.my",
-      text: "Buy Ticket",
+      url: "https://ticket.zoonegara.my"
     },
   },
   contactus: {

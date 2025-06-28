@@ -1,6 +1,5 @@
 import zooAnnouncement from "@/i18n/locales/en/announcements";
 import { test, expect } from "@playwright/test";
-import footerLabel from "@/components/Footer/constant";
 
 test("has title", async ({ page }) => {
   await page.goto("http://localhost:3000/");
@@ -9,9 +8,9 @@ test("has title", async ({ page }) => {
 
 test("can switch language", async ({ page }) => {
   await page.goto("http://localhost:3000/en");
-  await expect(page.getByRole("heading", {name: /Welcome to Zoo Negara/})).toBeVisible();
+  await expect(page.getByRole("heading", { name: /Welcome to Zoo Negara/ })).toBeVisible();
   await page.getByRole("link", { name: "BM" }).click();
-  await expect(page.getByRole("heading", {name: /Selamat datang ke Zoo Negara/})).toBeVisible();
+  await expect(page.getByRole("heading", { name: /Selamat datang ke Zoo Negara/ })).toBeVisible();
 });
 
 test("has announcement", async ({ page }) => {
@@ -28,18 +27,18 @@ test("has announcement", async ({ page }) => {
 
 test("links for contact us is valid", async ({ page }) => {
   await page.goto("http://localhost:3000/");
-  await page.getByRole("link", { name: footerLabel.contactUs }).click();
+  await page.getByRole("link", { name: "Contact Us" }).click();
   await expect(page).toHaveTitle(/Contact Us/);
 });
 
 test("links for career is valid", async ({ page }) => {
   await page.goto("http://localhost:3000/");
-  await page.getByRole("link", { name: footerLabel.careers }).click();
+  await page.getByRole("link", { name: "Careers" }).click();
   await expect(page).toHaveTitle(/Careers/);
 });
 
 test("links for faq is valid", async ({ page }) => {
   await page.goto("http://localhost:3000/");
-  await page.getByRole("link", { name: footerLabel.faq }).click();
+  await page.getByRole("link", { name: "FAQ" }).click();
   await expect(page).toHaveTitle(/Frequent Asked Questions/);
 });
