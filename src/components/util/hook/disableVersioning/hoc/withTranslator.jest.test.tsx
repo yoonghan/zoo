@@ -1,7 +1,6 @@
 import "@testing-library/jest-dom";
-import {render, screen, act} from "@testing-library/react";
-import { withTranslator } from "./withTranslator";
-import { TFunction } from "i18next";
+import { render, screen, act } from "@testing-library/react";
+import { TranslatorProps, withTranslator } from "./withTranslator";
 import en from "@/i18n/locales/en/translation.json"
 
 describe('withTranslator', () => {
@@ -15,12 +14,12 @@ describe('withTranslator', () => {
 
   it('should return a component that renders the original component', async () => {
     const keyword = 'welcome'
-    const TestComponent = ({t}: {t: TFunction<string, string>}) => <div>{t(keyword)}</div>
+    const TestComponent = ({ t, lng }: TranslatorProps) => <div>{lng}, {t(keyword)}</div>
 
     const TranslatedComponent = withTranslator(TestComponent);
     await act(async () => {
-      render(<TranslatedComponent params={Promise.resolve({lng: "en"})}/>);
+      render(<TranslatedComponent params={Promise.resolve({ lng: "en" })} />);
     })
-    expect(await screen.findByText(en[keyword])).toBeInTheDocument();
+    expect(await screen.findByText(`en, ${en[keyword]}`)).toBeInTheDocument();
   });
 });

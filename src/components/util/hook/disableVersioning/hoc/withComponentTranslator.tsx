@@ -1,15 +1,12 @@
-import { TFunction } from "i18next";
+import { TranslatorProps } from "./withTranslator";
 
-interface WithComponentTranslatorProps {
-  t: TFunction<string, string>
-}
 
 export function withComponentTranslator(
-  WrappedComponent: React.ComponentType<WithComponentTranslatorProps>,
-): React.FC<WithComponentTranslatorProps> {
+  WrappedComponent: React.ComponentType<TranslatorProps>,
+): React.FC<TranslatorProps> {
 
-  const WithComponentTranslator: React.FC<WithComponentTranslatorProps> = ({ t }) => {
-    return <WrappedComponent t={t}/>;
+  const WithComponentTranslator: React.FC<TranslatorProps> = ({ t, lng }) => {
+    return <WrappedComponent t={t} lng={lng} />;
   };
 
   return WithComponentTranslator;
