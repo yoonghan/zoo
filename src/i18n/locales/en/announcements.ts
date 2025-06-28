@@ -1,6 +1,0 @@
-const zooAnnouncement = [
-  "This is *NOT the official website of the zoo. Please visit the official website zoonegara.my for more information.",
-  "Our Multi-animal Show will be *CLOSED on Friday *EXCEPT school holidays & public holidays.",
-];
-
-export default zooAnnouncement
