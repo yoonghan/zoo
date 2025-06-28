@@ -10,7 +10,6 @@ type Programmes = {
   ticket: {
     admission: {
       url: string;
-      text: string;
     };
   };
 };
@@ -36,8 +35,7 @@ export const zooProfile: FooterProps &
   partners: [],
   ticket: {
     admission: {
-      url: "https://ticket.zoonegara.my",
-      text: "Buy Ticket",
+      url: "https://ticket.zoonegara.my"
     },
   },
   contactus: {

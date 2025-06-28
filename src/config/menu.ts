@@ -2,28 +2,28 @@ import { MenuType } from "@/components/Menu";
 
 export const zooMenu: MenuType = [
   {
-    label: "Visitor Info",
+    label: "menu.visitor-info",
     url: "/visitor-info",
     items: [
       {
-        label: "Opening Hours And Rates",
+        label: "menu.opening-and-rates",
       },
       {
-        label: "Getting There",
+        label: "menu.getting-there",
         url: "/visitor-info/getting-there",
       },
       {
-        label: "Zoo Map",
+        label: "menu.zoo-map",
         url: "/visitor-info/zoo-map",
       },
       {
-        label: "Kiosks And Facilities",
+        label: "menu.kiosk-and-facilities",
         url: "/visitor-info/kiosks-n-facilities",
       },
     ],
   },
   {
-    label: "About Zoo",
+    label: "menu.about-us",
     url: "/about-us",
   },
 ];
