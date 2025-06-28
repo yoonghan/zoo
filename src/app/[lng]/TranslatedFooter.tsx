@@ -19,7 +19,7 @@ const TranslatedFooterComponent = withComponentTranslator(({ t, lng }: Translato
         language={lng}
         operatingTime={translateOperatingTime(t)}
         address={zooProfile.address}
-        companyName={zooProfile.companyName}
+        companyName={"Walcron"}
         partners={zooProfile.partners}
         labels={
             {
