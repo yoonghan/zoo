@@ -1,4 +1,4 @@
-{
+const translation = {
     "Monday": "Isnin",
     "Tuesday": "Selasa",
     "Wednesday": "Rabu",
@@ -32,3 +32,5 @@
         "faq": "Soalan Lazim"
     }
 }
+
+export default translation

@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import { act, render, screen } from "@testing-library/react";
 import { TranslatedAnnouncement } from "./TranslatedAnnouncement";
-import en from "@/i18n/locales/en/translation.json"
+import en from "@/i18n/locales/en/translation"
 
 describe("TranslatedAnnouncement", () => {
   it('should be able to translate announcement', async () => {

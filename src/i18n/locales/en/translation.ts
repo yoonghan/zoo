@@ -1,4 +1,4 @@
-{
+const translations = {
     "Monday": "Monday",
     "Tuesday": "Tuesday",
     "Wednesday": "Wednesday",
@@ -32,3 +32,5 @@
         "faq": "FAQ"
     }
 }
+
+export default translations
