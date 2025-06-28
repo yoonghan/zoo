@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import "@/themes/lara-light-green/theme.css";
 import "../main.css";
-import { Footer } from "@/components/Footer";
-import { zooProfile } from "@/config/profile";
 import ScrollToTop from "@/components/ScrollToTop";
 import { dir } from 'i18next'
 import { languages } from '../../i18n/settings'

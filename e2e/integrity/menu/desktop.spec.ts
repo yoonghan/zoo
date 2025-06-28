@@ -1,17 +1,23 @@
 import { zooMenu } from "@/config/menu";
 import { zooProfile } from "@/config/profile";
 import { test, expect } from "@playwright/test";
+import en from "@/i18n/locales/en/translation.json";
 
 test.use({
   viewport: { width: 1600, height: 1200 },
 });
 
+const convertToMenuLabel = (menuLabel: string) => {
+  const label = menuLabel.replace("menu.", "")
+  return (en["menu"] as any)[label]
+}
+
 test("has menu", async ({ page }) => {
   await page.goto("http://localhost:3000/");
 
-  zooMenu.map(async (menu) => {
+  zooMenu.forEach(async (menu) => {
     await expect(
-      page.getByRole("menuitem", { name: menu.label, exact: true })
+      page.getByRole("menuitem", { name: convertToMenuLabel(menu.label), exact: true })
     ).toBeVisible();
   });
 
@@ -21,13 +27,13 @@ test("has menu", async ({ page }) => {
 
   if (firstMenuHoverable !== undefined && firstMenuHoverable.items) {
     const mainMenuItem = page.getByRole("menuitem", {
-      name: firstMenuHoverable.label,
+      name: convertToMenuLabel(firstMenuHoverable.label),
       exact: true,
     });
     await mainMenuItem.hover();
     await expect(
       mainMenuItem.locator("..").getByRole("menuitem", {
-        name: firstMenuHoverable.items[0].label,
+        name: convertToMenuLabel(firstMenuHoverable.items[0].label),
         exact: true,
       })
     ).toBeVisible();
@@ -40,7 +46,7 @@ test("can purchase ticket", async ({ page }) => {
   const ticketUrl = zooProfile.ticket.admission.url;
 
   await page
-    .getByRole("button", { name: zooProfile.ticket.admission.text })
+    .getByRole("button", { name: en["menu"]["Buy Ticket"] })
     .click();
   expect(page.url()).toBe(
     ticketUrl.endsWith("/") ? ticketUrl : ticketUrl + "/"

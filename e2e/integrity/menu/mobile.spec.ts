@@ -1,10 +1,17 @@
 import { zooMenu } from "@/config/menu";
 import { zooProfile } from "@/config/profile";
 import { test, expect } from "@playwright/test";
+import en from "@/i18n/locales/en/translation.json";
 
 test.use({
   viewport: { width: 900, height: 1200 },
 });
+
+const convertToMenuLabel = (menuLabel: string) => {
+  const label = menuLabel.replace("menu.", "")
+  return (en["menu"] as any)[label]
+}
+
 
 test("has menu", async ({ page }) => {
   await page.goto("http://localhost:3000/");
@@ -14,7 +21,7 @@ test("has menu", async ({ page }) => {
 
   if (zooMenu.length > 0) {
     const firstTopMenuItem = page
-      .getByRole("menuitem", { name: zooMenu[0].label })
+      .getByRole("menuitem", { name: convertToMenuLabel(zooMenu[0].label) })
       .locator("../../../..");
     const hamburgerMenu = page.getByLabel("Main Menu");
 
@@ -44,7 +51,7 @@ test("menu that has child will be expanded (with +) and child is clickable", asy
   if (firstMenuWithItemsAreNotLinkable) {
     await page
       .getByRole("menuitem", {
-        name: `+ ${firstMenuWithItemsAreNotLinkable.label}`,
+        name: `+ ${convertToMenuLabel(firstMenuWithItemsAreNotLinkable.label)}`,
         exact: true,
       })
       .click();
@@ -53,7 +60,7 @@ test("menu that has child will be expanded (with +) and child is clickable", asy
     if (items !== undefined) {
       await page
         .getByRole("menuitem", {
-          name: items[0].label,
+          name: convertToMenuLabel(items[0].label),
           exact: true,
         })
         .click();
@@ -74,7 +81,7 @@ test("menu that had no child can be clicked", async ({ page }) => {
   if (firstMenuWithNoItemsClickable) {
     await page
       .getByRole("menuitem", {
-        name: firstMenuWithNoItemsClickable.label,
+        name: convertToMenuLabel(firstMenuWithNoItemsClickable.label),
         exact: true,
       })
       .click();
@@ -88,7 +95,7 @@ test("can purchase ticket", async ({ page }) => {
   const ticketUrl = zooProfile.ticket.admission.url;
 
   await page
-    .getByRole("button", { name: zooProfile.ticket.admission.text })
+    .getByRole("button", { name: "Buy Ticket" })
     .click();
   expect(page.url()).toBe(
     ticketUrl.endsWith("/") ? ticketUrl : ticketUrl + "/"
