@@ -9,6 +9,7 @@ import { languages } from '../../i18n/settings'
 import { use } from 'react'
 import { TranslatedAnnouncement } from "./TranslatedAnnouncement";
 import { TranslatedMenu } from "./TranslatedMenu";
+import { TranslatedFooter } from "./TranslatedFooter";
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }))
@@ -38,13 +39,7 @@ export default function RootLayout({
         </header>
         {children}
         <ScrollToTop />
-        <Footer
-          language={lng}
-          operatingTime={zooProfile.operatingTime}
-          address={zooProfile.address}
-          companyName={zooProfile.companyName}
-          partners={zooProfile.partners}
-        />
+        <TranslatedFooter params={params} />
       </body>
     </html>
   );

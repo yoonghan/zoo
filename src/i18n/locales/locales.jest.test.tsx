@@ -21,4 +21,10 @@ describe("i18n locales", () => {
   it("all faq should be defined in both languages", () => {
     expect(zooFaqEN.length).toBe(zooFaqMS.length);
   })
+
+  it('should contain {{time}} handlebar', () => {
+    [ms, en].forEach(lngJson => {
+      expect(lngJson["footer"]["lastAdmission"]).toContain("{{time}}")
+    })
+  })
 });

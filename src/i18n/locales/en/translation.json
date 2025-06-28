@@ -1,4 +1,11 @@
 {
+    "Monday": "Monday",
+    "Tuesday": "Tuesday",
+    "Wednesday": "Wednesday",
+    "Thursday": "Thursday",
+    "Friday": "Friday",
+    "Saturday": "Saturday",
+    "Sunday": "Sunday",
     "welcome": "Welcome to Zoo Negara",
     "announcements": [
         "This is *NOT the official website of the zoo. Please visit the official website zoonegara.my for more information.",
@@ -13,5 +20,15 @@
         "zoo-map": "Zoo Map",
         "kiosk-and-facilities": "Kiosks And Facilities",
         "Buy Ticket": "Buy Ticket"
+    },
+    "footer": {
+        "lastAdmission": "Last Admission at {{time}}",
+        "operationHours": "Operation Hours",
+        "address": "Address",
+        "partners": "Partners",
+        "maintainedInfo": "all rights reserved.",
+        "contactUs": "Contact Us",
+        "careers": "Careers",
+        "faq": "FAQ"
     }
 }

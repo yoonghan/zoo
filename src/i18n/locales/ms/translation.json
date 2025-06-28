@@ -1,4 +1,11 @@
 {
+    "Monday": "Isnin",
+    "Tuesday": "Selasa",
+    "Wednesday": "Rabu",
+    "Thursday": "Khamis",
+    "Friday": "Jumaat",
+    "Saturday": "Sabtu",
+    "Sunday": "Ahad",
     "welcome": "Selamat datang ke Zoo Negara",
     "announcements": [
         "Laman ini *BUKAN laman official. Untuk maklumat lanjut sila melawat zoonegara.my.",
@@ -13,5 +20,15 @@
         "zoo-map": "Peta Zoo",
         "kiosk-and-facilities": "Kiosk Dan Kemudahan",
         "Buy Ticket": "Beli Tiket"
+    },
+    "footer": {
+        "lastAdmission": "Kemasukan terakhir pada {{time}}",
+        "operationHours": "Waktu Operasi",
+        "address": "Alamat",
+        "partners": "Partners",
+        "maintainedInfo": "all rights reserved.",
+        "contactUs": "Hubungi Kami",
+        "careers": "Kerjaya",
+        "faq": "Soalan Lazim"
     }
 }

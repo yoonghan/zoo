@@ -20,7 +20,7 @@ export const zooProfile: FooterProps &
   operatingTime: {
     day: { from: "Monday", to: "Sunday" },
     time: { from: "9:00am", to: "5:00pm" },
-    exception: "Last Admission at 4:00pm",
+    lastAdmissionTime: "4:00pm",
   },
   address: {
     street: "Zoo Negara",

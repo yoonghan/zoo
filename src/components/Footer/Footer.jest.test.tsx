@@ -1,4 +1,4 @@
-import { queryByText, render } from "@testing-library/react";
+import { queryByText, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { Footer, FooterProps } from ".";
 
@@ -6,6 +6,7 @@ describe("Footer", () => {
   const defaultOperatingTime = {
     day: { from: "Monday", to: "Sunday" },
     time: { from: "9:00am", to: "10:00pm" },
+    lastAdmissionTime: "Last admission time at 4.00pm",
   };
   const defaultAddress = {
     street: "Zoo Negara",
@@ -26,9 +27,17 @@ describe("Footer", () => {
   const renderFooterComponent = ({
     operatingTime = defaultOperatingTime,
     address = defaultAddress,
+    partners = [
+      {
+        url: "https://www.partner.com",
+        imageSrc: "/abc.jpg",
+        alt: "partner",
+      },
+    ]
   }: {
     operatingTime?: FooterProps["operatingTime"];
     address?: FooterProps["address"];
+    partners?: FooterProps["partners"];
   }) => {
     return render(
       <Footer
@@ -36,13 +45,18 @@ describe("Footer", () => {
         companyName="Zoo Negara"
         operatingTime={operatingTime}
         address={address}
-        partners={[
+        partners={partners}
+        labels={
           {
-            url: "https://www.partner.com",
-            imageSrc: "/abc.jpg",
-            alt: "partner",
-          },
-        ]}
+            operationHours: "Operation Hours",
+            address: "Address",
+            partners: "Partners",
+            maintainedInfo: "all rights reserved.",
+            contactUs: "Contact Us",
+            careers: "Careers",
+            faq: "FAQ",
+          }
+        }
       />
     );
   };
@@ -52,6 +66,7 @@ describe("Footer", () => {
     expect(getByText("© Zoo Negara")).toBeInTheDocument();
     expect(getByText("Monday - Sunday")).toBeInTheDocument();
     expect(getByText("9:00am - 10:00pm")).toBeInTheDocument();
+    expect(getByText("(Last admission time at 4.00pm)")).toBeInTheDocument();
     expect(getByText("Zoo Negara,")).toBeInTheDocument();
     expect(getByText("Hulu Kelang,")).toBeInTheDocument();
     expect(getByText("Ampang,")).toBeInTheDocument();
@@ -75,23 +90,25 @@ describe("Footer", () => {
     expect(getByText("© Zoo Negara")).toBeVisible();
     rerender(
       <Footer
+        language="en"
         companyName="Walcron"
         operatingTime={defaultOperatingTime}
         address={defaultAddress}
         partners={defaultPartners}
+        labels={
+          {
+            operationHours: "Operation Hours",
+            address: "Address",
+            partners: "Partners",
+            maintainedInfo: "all rights reserved.",
+            contactUs: "Contact Us",
+            careers: "Careers",
+            faq: "FAQ",
+          }
+        }
       />
     );
     expect(getByText("© Zoo Negara")).toBeVisible();
-  });
-
-  it("should render component with exceptional operating time", () => {
-    const { getByText } = renderFooterComponent({
-      operatingTime: {
-        ...defaultOperatingTime,
-        exception: "Not open on public holidays",
-      },
-    });
-    expect(getByText("(Not open on public holidays)")).toBeInTheDocument();
   });
 
   it("should render component with city", () => {
@@ -120,6 +137,13 @@ describe("Footer", () => {
     expect(
       getByText(`- ${currentYearUpdated} all rights reserved.`)
     ).toBeInTheDocument();
+  });
+
+  it("should should not render partners section if partners are empty", () => {
+    const currentYearUpdated = new Date().getFullYear();
+
+    renderFooterComponent({ partners: [] });
+    expect(screen.queryByText("Partners:")).not.toBeInTheDocument();
   });
 
   it("should have a release version", () => {

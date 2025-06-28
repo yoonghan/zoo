@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { memo } from "react";
-import labels from "./constant";
 import { Link } from "../Link";
 import { Version } from "./Version";
 
@@ -9,7 +8,7 @@ export type FooterProps = {
   operatingTime: {
     day: { from: string; to: string };
     time: { from: string; to: string };
-    exception?: string;
+    lastAdmissionTime: string;
   };
   address: {
     street: string;
@@ -32,8 +31,19 @@ function MutableFooter({
   operatingTime,
   address,
   partners,
-}: FooterProps & { language: string }) {
-  
+  labels
+}: FooterProps & {
+  language: string, labels: {
+    operationHours: string,
+    address: string,
+    partners: string,
+    maintainedInfo: string,
+    contactUs: string,
+    careers: string,
+    faq: string,
+  }
+}) {
+
   const currentYearUpdated = new Date().getFullYear();
 
   return (
@@ -49,9 +59,7 @@ function MutableFooter({
               <li>
                 {operatingTime.time.from} - {operatingTime.time.to}
               </li>
-              {operatingTime.exception && (
-                <li className="text-sm"> ({operatingTime.exception})</li>
-              )}
+              <li className="text-sm">({operatingTime.lastAdmissionTime})</li>
             </ul>
           </article>
           <div className="border-2 secondary-border my-4"></div>
@@ -67,7 +75,7 @@ function MutableFooter({
             </ul>
           </article>
         </div>
-        <article className="mt-10 m-auto max-w-xl md:text-center">
+        {partners.length > 0 && <article className="mt-10 m-auto max-w-xl md:text-center">
           <strong>{labels.partners}:</strong>
           <ul className="flex gap-8 md:justify-center mt-4">
             {partners.map(({ url, imageSrc, alt }, idx) => (
@@ -78,7 +86,7 @@ function MutableFooter({
               </li>
             ))}
           </ul>
-        </article>
+        </article>}
       </div>
       <hr className="my-4 border-t"></hr>
       <ul className="text-center text-sm leading-10">
@@ -96,7 +104,7 @@ function MutableFooter({
       <div className="text-center text-sm mt-4">
         <span>&copy; {companyName}</span>{" "}
         <span>{`- ${currentYearUpdated} ${labels.maintainedInfo}`}</span>
-        <Version version={process.env.RELEASE_VERSION || 'local'}/>
+        <Version version={process.env.RELEASE_VERSION || 'local'} />
       </div>
     </footer>
   );
