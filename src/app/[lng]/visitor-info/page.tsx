@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import React from "react";
 import styles from "./visitor-info.module.css";
+import { withTranslator, TranslatorProps } from "@/components/util/hook/disableVersioning/hoc/withTranslator";
 
 const miniLinks: MiniMenuItems[] = [
   {
@@ -26,7 +27,7 @@ const miniLinks: MiniMenuItems[] = [
   },
 ];
 
-export default function VisitorInfo() {
+function VisitorInfo({ t }: TranslatorProps) {
   return (
     <>
       <MiniMenu model={miniLinks} />
@@ -47,7 +48,7 @@ export default function VisitorInfo() {
             ({zooProfile.operatingTime.time.from} to{" "}
             {zooProfile.operatingTime.time.to})
           </div>
-          <div className="italic text-sm mt-8">(* {zooProfile.operatingTime.lastAdmissionTime})</div>
+          <div className="italic text-sm mt-8">(* {t('footer.lastAdmission', { "time": zooProfile.operatingTime.lastAdmissionTime })})</div>
         </article>
 
         <article
@@ -63,7 +64,7 @@ export default function VisitorInfo() {
                 className="inline mr-4"
                 width={20}
               />
-              {zooProfile.ticket.admission.text}
+              {t("Buy Ticket")}
             </ButtonLink>
           </div>
           <div className="mt-16 text-left">
@@ -197,3 +198,5 @@ export default function VisitorInfo() {
     </>
   );
 }
+
+export default withTranslator(VisitorInfo)
