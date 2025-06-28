@@ -8,9 +8,9 @@ describe("TranslatedAnnouncement", () => {
     const keyword = "announcements"
 
     await act(async () => {
-      render(<TranslatedAnnouncement params={Promise.resolve({lng: "en"})} />)
+      render(<TranslatedAnnouncement params={Promise.resolve({ lng: "en" })} />)
     })
 
-    expect((await screen.findByTestId("announcement")).textContent).toBe(en[keyword][0].replace('*',''))
+    expect((await screen.findByTestId("announcement")).textContent).toBe(en[keyword][0].replace('*', ''))
   })
 });

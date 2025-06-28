@@ -1,5 +1,4 @@
 import { render, within } from "@testing-library/react";
-import "@testing-library/jest-dom";
 import { Menu } from ".";
 import { ReactNode } from "react";
 import userEvent from "@testing-library/user-event";
