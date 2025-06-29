@@ -1,6 +1,7 @@
 import { systemConfig } from "@/config/system";
 import { allRemappedFile } from "@/util/sitegenerator/pages";
 import { MetadataRoute } from "next";
+import { languages } from "@/i18n/settings";
 
 export const dynamic = "force-static"
 
@@ -10,28 +11,46 @@ const getPriorityAndFrequency = (
   priority: number;
   changeFrequency: "weekly" | "yearly";
 } => {
-  if(/^\/\w{2}\/$/.test(path)) {
+  if (/^\/\w{2}\/$/.test(path)) {
     return { priority: 0.9, changeFrequency: "weekly" };
   } else {
-      return { priority: 0.3, changeFrequency: "weekly" };
+    return { priority: 0.3, changeFrequency: "weekly" };
   }
 };
 
-const generatedSiteMap = allRemappedFile.sort().map((sortedSiteMapPages) => {
-  const { priority, changeFrequency } =
-    getPriorityAndFrequency(sortedSiteMapPages);
-  return {
-    url: `${systemConfig.url}${sortedSiteMapPages}`,
-    lastModified: new Date(),
-    changeFrequency,
-    priority,
-  };
-}).concat({
-  url: `${systemConfig.url}/`,
-  lastModified: new Date(),
-  changeFrequency: "weekly",
-  priority: 0.9,
-});
+const generatedSiteMap: MetadataRoute.Sitemap = allRemappedFile.sort()
+  .map((sortedSiteMapPages) => {
+    const { priority, changeFrequency } =
+      getPriorityAndFrequency(sortedSiteMapPages);
+    if (sortedSiteMapPages === "/") {
+      return {
+        url: `${systemConfig.url}/`,
+        lastModified: new Date(),
+        changeFrequency: "weekly",
+        priority: 0.9,
+        alternates: {
+          languages: languages.reduce((a, language) => ({
+            ...a,
+            [language]: `${systemConfig.url}/${language}`
+          }), {})
+        }
+      }
+    }
+
+    return {
+      url: `${systemConfig.url}/${languages[0]}${sortedSiteMapPages}`,
+      lastModified: new Date(),
+      changeFrequency,
+      priority,
+      alternates: {
+        languages: languages.reduce((a, language) => ({
+          ...a,
+          [language]: `${systemConfig.url}/${language}${sortedSiteMapPages}`
+        }), {})
+
+      }
+    };
+  });
 
 const handler = (): MetadataRoute.Sitemap => generatedSiteMap;
 

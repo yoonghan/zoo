@@ -1,4 +1,3 @@
-import { languages } from "@/i18n/settings";
 import fs from "fs";
 
 type PageConfig = {
@@ -43,9 +42,7 @@ const remapAppFiles = (files: string[]) => {
     .filter((file) => file.endsWith(appLayoutFile))
     .map((file) => removePage(removeExtension(removeRootPath(file))));
 
-  return languages.flatMap((lng) => {
-    return rootFiles.map((file) => `/${lng}${file}`);
-  });
+  return rootFiles.map((file) => `${file}`);
 };
 
 const allAppFiles = getRecursiveFiles(appFolder);

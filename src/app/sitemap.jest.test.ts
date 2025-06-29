@@ -4,21 +4,34 @@ import { languages } from "@/i18n/settings";
 
 describe("Sitemap XML", () => {
   it("should contains main and defined correctly for main", () => {
-    languages.forEach((lng) => {
-      const main = Sitemap().filter(
-        (path) => path.url === `${systemConfig.url}/${lng}/`
-      );
-      expect(main[0].priority).toBe(0.9);
-      expect(main[0].changeFrequency).toBe("weekly");
+    const main = Sitemap().filter(
+      (path) => path.url === `${systemConfig.url}/`
+    );
+    expect(main[0].priority).toBe(0.9);
+    expect(main[0].changeFrequency).toBe("weekly");
+    expect(main[0].alternates?.languages).toEqual({
+      "en": `${systemConfig.url}/en`,
+      "ms": `${systemConfig.url}/ms`
     });
   });
 
-  it("should contain default without language", () => {
+  it("should contain about us with corrected languages", () => {
     const main = Sitemap().filter(
-        (path) => path.url === `${systemConfig.url}/`
-      );
-      expect(main[0].priority).toBe(0.9);
-      expect(main[0].changeFrequency).toBe("weekly");
+      (path) => path.url === `${systemConfig.url}/en/about-us`
+    );
+    expect(main[0].priority).toBe(0.3);
+    expect(main[0].changeFrequency).toBe("weekly");
+    expect(main[0].alternates?.languages).toEqual({
+      "en": `${systemConfig.url}/en/about-us`,
+      "ms": `${systemConfig.url}/ms/about-us`
+    });
+  });
+
+  it("should not contain site with /", () => {
+    const main = Sitemap().filter(
+      (path) => path.url === `${systemConfig.url}/en/`
+    );
+    expect(main.length).toBe(0)
   });
 
   it("should contain force-static export", () => {
