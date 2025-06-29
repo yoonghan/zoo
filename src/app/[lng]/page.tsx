@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { withTranslator, TranslatorProps } from "@/components/util/hook/disableVersioning/hoc/withTranslator";
+import { withTranslator, TranslatorProps } from "@/components/util/hoc/withTranslator";
 
 function Home({ t }: TranslatorProps) {
 

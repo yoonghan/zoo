@@ -1,6 +1,6 @@
 import { Announcement } from "@/components/Announcement"
-import { withComponentTranslator } from "@/components/util/hook/disableVersioning/hoc/withComponentTranslator"
-import { TranslatorProps, withTranslator } from "@/components/util/hook/disableVersioning/hoc/withTranslator"
+import { withComponentTranslator } from "@/components/util/hoc/withComponentTranslator"
+import { TranslatorProps, withTranslator } from "@/components/util/hoc/withTranslator"
 
 
 const TranslatedAnnouncementComponent = withComponentTranslator(({ t }: TranslatorProps) => {
