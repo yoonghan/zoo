@@ -8,9 +8,9 @@ export interface TranslatorProps {
   lng: string;
 }
 
-
 export function withTranslator<P extends PageParams>(
   WrappedComponent: React.ComponentType<TranslatorProps>,
+  ns: string = "translation"
 ): React.FC<P> {
 
   function Loader({ translator, lng }: {
@@ -26,7 +26,7 @@ export function withTranslator<P extends PageParams>(
 
   const WithTranslator: React.FC<P> = ({ params }) => {
     const { lng } = use(params);
-    const translator = useTranslation(lng)
+    const translator = useTranslation(lng, ns)
 
     return <Suspense><Loader translator={translator} lng={lng} /></Suspense>;
   };

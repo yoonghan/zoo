@@ -1,4 +1,4 @@
-{
+const translations = {
     "Monday": "Monday",
     "Tuesday": "Tuesday",
     "Wednesday": "Wednesday",
@@ -6,9 +6,8 @@
     "Friday": "Friday",
     "Saturday": "Saturday",
     "Sunday": "Sunday",
-    "welcome": "Welcome to Zoo Negara",
     "announcements": [
-        "This is *NOT the official website of the zoo. Please visit the official website zoonegara.my for more information.",
+        "This is *NOT the official website of the zoo. Please visit the official website [https://zoonegara.my|zoonegara.my] for more information.",
         "Our Multi-animal Show will be *CLOSED on Friday *EXCEPT school holidays & public holidays."
     ],
     "menu": {
@@ -32,3 +31,5 @@
         "faq": "FAQ"
     }
 }
+
+export default translations

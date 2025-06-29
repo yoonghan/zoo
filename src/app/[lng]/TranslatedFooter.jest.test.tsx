@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import { act, render, screen } from "@testing-library/react";
 import { TranslatedFooter } from "./TranslatedFooter";
-import en from "@/i18n/locales/en/translation.json"
+import en from "@/i18n/locales/en/translation"
 import { zooProfile } from "@/config/profile";
 
 describe("TranslatedFooter", () => {

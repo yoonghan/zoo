@@ -1,7 +1,7 @@
 import { zooMenu } from "@/config/menu";
 import { zooProfile } from "@/config/profile";
 import { test, expect } from "@playwright/test";
-import en from "@/i18n/locales/en/translation.json";
+import en from "@/i18n/locales/en/translation";
 
 test.use({
   viewport: { width: 1600, height: 1200 },

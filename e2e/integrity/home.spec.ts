@@ -1,5 +1,7 @@
-import zooAnnouncement from "@/i18n/locales/en/announcements";
+import translation from "@/i18n/locales/en/translation";
 import { test, expect } from "@playwright/test";
+
+const zooAnnouncement = translation['announcements']
 
 test("has title", async ({ page }) => {
   await page.goto("http://localhost:3000/");
