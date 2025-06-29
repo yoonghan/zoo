@@ -1,6 +1,6 @@
 import enTranslation from "../en/translation"
 
-const translation: typeof enTranslation = {
+const translations: typeof enTranslation = {
     "Monday": "Isnin",
     "Tuesday": "Selasa",
     "Wednesday": "Rabu",
@@ -34,4 +34,4 @@ const translation: typeof enTranslation = {
     }
 }
 
-export default translation
+export default translations
