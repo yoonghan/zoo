@@ -6,7 +6,6 @@ const translation = {
     "Friday": "Jumaat",
     "Saturday": "Sabtu",
     "Sunday": "Ahad",
-    "welcome": "Selamat datang ke Zoo Negara",
     "announcements": [
         "Laman ini *BUKAN laman official. Untuk maklumat lanjut sila melawat laman rasmi [https://zoonegara.my|zoonegara.my].",
         "Hiburan di *TUTUP setiap hari Jumaat *KECUALI cuti sekolah dan cuti awam."

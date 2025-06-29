@@ -14,7 +14,7 @@ describe('withTranslator', () => {
   });
 
   it('should return a component that renders the original component', async () => {
-    const keyword = 'welcome'
+    const keyword = 'Monday'
     const TestComponent = ({ t, lng }: TranslatorProps) => <div>{lng}, {t(keyword)}</div>
 
     const TranslatedComponent = withTranslator(TestComponent);
