@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, ResolvingMetadata } from "next";
 import "@/themes/lara-light-green/theme.css";
 import "../main.css";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -8,16 +8,27 @@ import { use } from 'react'
 import { TranslatedAnnouncement } from "./TranslatedAnnouncement";
 import { TranslatedMenu } from "./TranslatedMenu";
 import { TranslatedFooter } from "./TranslatedFooter";
+import { getTranslation } from "@/i18n";
+import { generateSiteMeta } from "@/util/generateMeta";
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }))
 }
 
-export const metadata: Metadata = {
-  title: "Zoo Negara Malaysia",
-  description:
-    "A non-governmental organization established to create the first local zoo for Malaysians.",
-};
+type Props = {
+  params: Promise<{ lng: string }>
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}
+
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const { lng } = await params
+  const { t } = await getTranslation(lng, "pages")
+
+  return generateSiteMeta(lng, t('headers.default'), t('headers.defaultDescription'))
+}
 
 export default function RootLayout({
   children,
