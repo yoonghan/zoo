@@ -1,4 +1,3 @@
-import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
 import ContactUs from "./page";
 import { zooProfile } from "@/config/profile";

@@ -1,4 +1,3 @@
-import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
 import ZooMap from "./page";
 import { checkForImageExist } from "@/util/fileHelper";
