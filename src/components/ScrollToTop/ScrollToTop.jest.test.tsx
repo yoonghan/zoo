@@ -1,4 +1,3 @@
-import "@testing-library/jest-dom";
 import { act, fireEvent, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import ScrollToTopWithNoSSR from "./ScrollToTopNoSSR";
@@ -49,10 +48,10 @@ describe("ScrollToTop", () => {
     beforeEach(() => {
       adder = jest
         .spyOn(window, "addEventListener")
-        .mockImplementation(() => {});
+        .mockImplementation(() => { });
       remover = jest
         .spyOn(window, "removeEventListener")
-        .mockImplementation(() => {});
+        .mockImplementation(() => { });
     });
 
     afterEach(() => {

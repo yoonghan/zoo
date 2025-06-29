@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import React from "react";
 import styles from "./visitor-info.module.css";
-import { withTranslator, TranslatorProps } from "@/components/util/hook/disableVersioning/hoc/withTranslator";
+import { withTranslator, TranslatorProps } from "@/components/util/hoc/withTranslator";
 
 const miniLinks: MiniMenuItems[] = [
   {

@@ -1,4 +1,3 @@
-import "@testing-library/jest-dom";
 import { act, render, screen } from "@testing-library/react";
 import { TranslatedMenu } from "./TranslatedMenu";
 import en from "@/i18n/locales/en/translation";

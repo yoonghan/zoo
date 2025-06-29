@@ -1,4 +1,3 @@
-import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
 import KiosksAndFacilities from "./page";
 import { checkDownloadLinkHasHostAllLocalFiles } from "@/util/fileHelper";

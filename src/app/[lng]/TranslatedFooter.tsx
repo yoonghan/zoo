@@ -1,6 +1,6 @@
 import { Footer, FooterProps } from "@/components/Footer"
-import { withComponentTranslator } from "@/components/util/hook/disableVersioning/hoc/withComponentTranslator"
-import { TranslatorProps, withTranslator } from "@/components/util/hook/disableVersioning/hoc/withTranslator"
+import { withComponentTranslator } from "@/components/util/hoc/withComponentTranslator"
+import { TranslatorProps, withTranslator } from "@/components/util/hoc/withTranslator"
 import { zooProfile } from "@/config/profile"
 import { TFunction } from "i18next"
 
