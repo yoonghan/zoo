@@ -5,23 +5,8 @@ import { languages } from "@/i18n/settings";
 
 export const dynamic = "force-static"
 
-const getPriorityAndFrequency = (
-  path: string
-): {
-  priority: number;
-  changeFrequency: "weekly" | "yearly";
-} => {
-  if (/^\/\w{2}\/$/.test(path)) {
-    return { priority: 0.9, changeFrequency: "weekly" };
-  } else {
-    return { priority: 0.3, changeFrequency: "weekly" };
-  }
-};
-
 const generatedSiteMap: MetadataRoute.Sitemap = allRemappedFile.sort()
   .map((sortedSiteMapPages) => {
-    const { priority, changeFrequency } =
-      getPriorityAndFrequency(sortedSiteMapPages);
     if (sortedSiteMapPages === "/") {
       return {
         url: `${systemConfig.url}/`,
@@ -40,8 +25,8 @@ const generatedSiteMap: MetadataRoute.Sitemap = allRemappedFile.sort()
     return {
       url: `${systemConfig.url}/${languages[0]}${sortedSiteMapPages}`,
       lastModified: new Date(),
-      changeFrequency,
-      priority,
+      changeFrequency: "weekly",
+      priority: 0.3,
       alternates: {
         languages: languages.reduce((a, language) => ({
           ...a,
