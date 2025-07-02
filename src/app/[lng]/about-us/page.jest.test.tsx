@@ -1,6 +1,6 @@
 import { render, screen, act } from "@testing-library/react";
 import About from "./page";
-import translations from "@/i18n/en/pages";
+import translations from "@/i18n/locales/en/pages";
 
 describe("About Us", () => {
 
