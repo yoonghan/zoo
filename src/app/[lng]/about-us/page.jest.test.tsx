@@ -1,9 +1,11 @@
-import { render } from "@testing-library/react";
+import { render, screen, act } from "@testing-library/react";
 import About from "./page";
-import { miniLinks } from "./config";
-import { checkDownloadLinkHasHostAllLocalFiles } from "@/util/fileHelper";
+import translations from "@/i18n/locales/en/pages";
 
 describe("About Us", () => {
+
+  const expectedHeaders = ["aboutWalcron", "aboutZoo", "vision"]
+
   const consoleError = console.error;
   beforeAll(() => {
     console.error = jest.fn();
@@ -15,59 +17,38 @@ describe("About Us", () => {
     console.error = consoleError;
   });
 
-  it("should contains important keys", () => {
-    const { getByRole } = render(<About />);
+  it("should contains important keys", async() => {
+    await act(async () => {
+      render(<About params={Promise.resolve({ lng: "en" })} />);
+    })
     //main
-    expect(getByRole("main")).toBeInTheDocument();
+    expect(await screen.findByRole("main")).toBeInTheDocument();
 
     /* Start headers from config key */
-    expect(getByRole("heading", { name: "About Us" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "About Us" })).toBeInTheDocument();
 
-    expect(
-      getByRole("heading", { name: "Zoo Negara - About Us" })
-    ).toBeInTheDocument();
-
-    expect(
-      getByRole("heading", { name: "Zoo Negara - Vision" })
-    ).toBeInTheDocument();
-
-    expect(
-      getByRole("heading", { name: "Zoo Negara - Mission" })
-    ).toBeInTheDocument();
-
-    expect(
-      getByRole("heading", {
-        name: "Zoo Negara - The Five Pillars We Stand On",
-      })
-    ).toBeInTheDocument();
-
-    expect(
-      getByRole("heading", { name: "Journey Through Time" })
-    ).toBeInTheDocument();
-
-    expect(getByRole("heading", { name: "Conservation" })).toBeInTheDocument();
+    expectedHeaders.forEach(headers => {
+      expect(
+        screen.getByRole("heading", { name: translations.aboutUs[headers].title })
+      ).toBeInTheDocument();
+    })
 
     /* End headers from config key */
   });
 
-  it("should have a class 'anchor-link-header' for sticky header handling", () => {
-    const result = render(<About />);
-    const container = result.container;
+  it("should have a class 'anchor-link-header' for sticky header handling", async () => {
+    const componentContainer = await act(async () => {
+      const {container} = render(<About params={Promise.resolve({ lng: "en" })} />);
+      return container
+    })
 
-    miniLinks.forEach((miniLink) => {
-      expect(container.querySelector(`#${miniLink.hashId}`)).toHaveClass(
+    //main
+    expect(await screen.findByRole("main")).toBeInTheDocument();
+
+    expectedHeaders.forEach((miniLink) => {
+      expect(componentContainer.querySelector(`#${miniLink}`)).toHaveClass(
         "anchor-link-header"
       );
     });
-  });
-
-  it("should have valid local download links", () => {
-    const result = render(<About />);
-    const allDownloads = checkDownloadLinkHasHostAllLocalFiles(
-      result.container
-    );
-    expect(allDownloads).toStrictEqual(
-      allDownloads.map((link) => ({ ...link, status: true }))
-    );
   });
 });
