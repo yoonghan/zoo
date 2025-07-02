@@ -29,7 +29,7 @@ describe("About Us", () => {
 
     expectedHeaders.forEach(headers => {
       expect(
-        screen.getByRole("heading", { name: translations[headers].title })
+        screen.getByRole("heading", { name: translations.aboutUs[headers].title })
       ).toBeInTheDocument();
     })
 
@@ -45,7 +45,7 @@ describe("About Us", () => {
     expect(await screen.findByRole("main")).toBeInTheDocument();
 
     expectedHeaders.forEach((miniLink) => {
-      expect(screen.findByRole("main").querySelector(`#${miniLink.hashId}`)).toHaveClass(
+      expect(screen.getByRole("main").querySelector(`#${miniLink.hashId}`)).toHaveClass(
         "anchor-link-header"
       );
     });
