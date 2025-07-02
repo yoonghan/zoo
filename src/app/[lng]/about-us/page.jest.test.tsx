@@ -38,7 +38,7 @@ describe("About Us", () => {
 
   it("should have a class 'anchor-link-header' for sticky header handling", async () => {
     await act(async () => {
-      result = render(<About params={Promise.resolve({ lng: "en" })} />);
+      render(<About params={Promise.resolve({ lng: "en" })} />);
     })
 
     //main
