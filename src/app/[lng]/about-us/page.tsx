@@ -1,23 +1,53 @@
 import { ButtonLink } from "@/components/Button";
 import Styles from "./about-us.module.css";
-import MiniMenu from "@/components/MiniMenu";
+import MiniMenu, { MiniMenuItems } from "@/components/MiniMenu";
 import Image from "next/image";
 import { Link } from "@/components/Link";
-import { miniLinks } from "./config";
+import { withTranslator, TranslatorProps } from "@/components/util/hoc/withTranslator";
 
-export default function About() {
+function About({ t }: TranslatorProps) {
+
+  const miniLinks: MiniMenuItems[] = [
+    {
+      hashId: "vision",
+      title: t('aboutUs.vision.title'),
+    },
+    {
+      hashId: "mission",
+      title: "Mission",
+    },
+    {
+      hashId: "five-pillars",
+      title: "Five Pillars",
+    },
+    {
+      hashId: "journey-through-time",
+      title: "Journey Through Time",
+    },
+    {
+      hashId: "conservation",
+      title: "Conservation",
+    },
+  ];
+
   return (
     <>
       <MiniMenu model={miniLinks} />
       <main className={Styles["about-us"]}>
-        <h1 className="text-4xl text-center font-bold my-10">About Us</h1>
+        <h1 className="text-4xl text-center font-bold my-10">
+          {t('aboutUs.title')}
+        </h1>
         <article
           className="primary anchor-link-header"
           id={miniLinks[0].hashId}
         >
           <h2 className="text-4xl text-center font-bold">
-            Zoo Negara - {miniLinks[0].title}
+            {miniLinks[0].title}
           </h2>
+          <p className="mt-10">
+            We re
+          </p>
+        </article>
           <p className="mt-10">
             Zoo Negara Malaysia is managed by the Malaysian Zoological Society,
             a non-governmental organization established to create the first
@@ -233,3 +263,5 @@ export default function About() {
     </>
   );
 }
+
+export default withTranslator(About, "pages")
