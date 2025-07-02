@@ -22,7 +22,7 @@ describe("About Us", () => {
       render(<About params={Promise.resolve({ lng: "en" })} />);
     })
     //main
-    expect(screen.findByRole("main")).toBeInTheDocument();
+    expect(await screen.findByRole("main")).toBeInTheDocument();
 
     /* Start headers from config key */
     expect(screen.getByRole("heading", { name: "About Us" })).toBeInTheDocument();
@@ -42,7 +42,7 @@ describe("About Us", () => {
     })
 
     //main
-    expect(screen.findByRole("main")).toBeInTheDocument();
+    expect(await screen.findByRole("main")).toBeInTheDocument();
 
     expectedHeaders.forEach((miniLink) => {
       expect(screen.findByRole("main").querySelector(`#${miniLink.hashId}`)).toHaveClass(
