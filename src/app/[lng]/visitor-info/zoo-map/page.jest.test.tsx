@@ -1,35 +1,43 @@
-import { render } from "@testing-library/react";
+import { render, act, screen } from "@testing-library/react";
 import ZooMap from "./page";
 import { checkForImageExist } from "@/util/fileHelper";
 
 describe("ZooMap", () => {
   const zooMapFileName = "zoo-negara-map";
 
-  it("should contains important keys", () => {
-    const { getByRole } = render(<ZooMap />);
+  it("should contains important keys", async () => {
+    await act(async () => {
+      render(<ZooMap params={Promise.resolve({ lng: "en" })} />);
+    });
     //main
-    expect(getByRole("main")).toBeInTheDocument();
+    expect(await screen.findByRole("main")).toBeInTheDocument();
     //h1
-    expect(getByRole("heading", { name: "Zoo Map" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: "Zoo Map" })
+    ).toBeInTheDocument();
   });
 
-  it("should have map and image", () => {
-    const { getByRole, getAllByRole } = render(<ZooMap />);
-
-    expect(getByRole("button", { name: "Download Map" })).toHaveAttribute(
-      "href",
-      `/images/${zooMapFileName}.jpg`
-    );
-    expect(getByRole("button", { name: "Download Map" })).toHaveAttribute(
-      "download",
-      ""
-    );
+  it("should have map and image", async () => {
+    await act(async () => {
+      render(<ZooMap params={Promise.resolve({ lng: "en" })} />);
+    });
 
     expect(
-      getAllByRole("img", { name: "Zoo Negara Map" })[0].getAttribute("src")
+      await screen.findByRole("button", { name: "Download Map" })
+    ).toHaveAttribute("href", `/images/${zooMapFileName}.jpg`);
+    expect(
+      screen.getByRole("button", { name: "Download Map" })
+    ).toHaveAttribute("download", "");
+
+    expect(
+      screen
+        .getAllByRole("img", { name: "Zoo Negara Map" })[0]
+        .getAttribute("src")
     ).toContain(`${zooMapFileName}-web-1.jpg`);
     expect(
-      getAllByRole("img", { name: "Zoo Negara Map" })[1].getAttribute("src")
+      screen
+        .getAllByRole("img", { name: "Zoo Negara Map" })[1]
+        .getAttribute("src")
     ).toContain(`${zooMapFileName}-web-2.jpg`);
   });
 
