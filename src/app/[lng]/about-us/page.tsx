@@ -40,9 +40,9 @@ function About({ t }: TranslatorProps) {
           <p className="mt-10">
             {t("aboutUs.aboutWalcron.desription2")}
           </p>
-          <ul className="list-disc">
+          <ul className="list-disc ml-4">
             {(t("aboutUs.aboutWalcron.descriptionSupport", { returnObjects: true }) as string[])?.map(
-                obj => <li key={obj}>obj</li>
+                description => <li key={description}>{description}</li>
             )}
           </ul>
         </article>
@@ -64,12 +64,14 @@ function About({ t }: TranslatorProps) {
           <p>
             {t("aboutUs.vision.description")} 
           </p>
-          <ul className="list-disc">
+          <ul className="list-disc ml-4">
             {(t("aboutUs.vision.descriptionSupport", { returnObjects: true }) as string[])?.map(
-                obj => <li key={obj}>obj</li>
+                description => <li key={description}>{description}</li>
             )}
           </ul>
         </article>
+        <div className="anchor-link-header pb-8">
+        </div>
       </main>
     </>
   );
