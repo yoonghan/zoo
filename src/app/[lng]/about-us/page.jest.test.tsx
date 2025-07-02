@@ -37,15 +37,16 @@ describe("About Us", () => {
   });
 
   it("should have a class 'anchor-link-header' for sticky header handling", async () => {
-    await act(async () => {
-      render(<About params={Promise.resolve({ lng: "en" })} />);
+    const componentContainer = await act(async () => {
+      const {container} = render(<About params={Promise.resolve({ lng: "en" })} />);
+      return container
     })
 
     //main
     expect(await screen.findByRole("main")).toBeInTheDocument();
 
     expectedHeaders.forEach((miniLink) => {
-      expect(screen.getByRole("main").querySelector(`#${miniLink.hashId}`)).toHaveClass(
+      expect(componentContainer.querySelector(`#${miniLink}`)).toHaveClass(
         "anchor-link-header"
       );
     });
