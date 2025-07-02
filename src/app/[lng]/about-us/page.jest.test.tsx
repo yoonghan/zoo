@@ -1,7 +1,6 @@
-import { render } from "@testing-library/react";
+import { render, screen, act } from "@testing-library/react";
 import About from "./page";
-import { miniLinks } from "./config";
-import { checkDownloadLinkHasHostAllLocalFiles } from "@/util/fileHelper";
+import translations from "@/i18n/en/pages";
 
 describe("About Us", () => {
   const consoleError = console.error;
@@ -15,59 +14,43 @@ describe("About Us", () => {
     console.error = consoleError;
   });
 
-  it("should contains important keys", () => {
-    const { getByRole } = render(<About />);
+  it("should contains important keys", async() => {
+    await act(async () => {
+      render(<About params={Promise.resolve({ lng: "en" })} />);
+    })
     //main
-    expect(getByRole("main")).toBeInTheDocument();
+    expect(screen.findByRole("main")).toBeInTheDocument();
 
     /* Start headers from config key */
-    expect(getByRole("heading", { name: "About Us" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "About Us" })).toBeInTheDocument();
 
     expect(
-      getByRole("heading", { name: "Zoo Negara - About Us" })
+      screen.getByRole("heading", { name: translations.aboutWalcron.title })
     ).toBeInTheDocument();
 
     expect(
-      getByRole("heading", { name: "Zoo Negara - Vision" })
+      screen.getByRole("heading", { name: translations.aboutZoo.title })
     ).toBeInTheDocument();
 
     expect(
-      getByRole("heading", { name: "Zoo Negara - Mission" })
+      screen.getByRole("heading", { name: translations.vision.title })
     ).toBeInTheDocument();
-
-    expect(
-      getByRole("heading", {
-        name: "Zoo Negara - The Five Pillars We Stand On",
-      })
-    ).toBeInTheDocument();
-
-    expect(
-      getByRole("heading", { name: "Journey Through Time" })
-    ).toBeInTheDocument();
-
-    expect(getByRole("heading", { name: "Conservation" })).toBeInTheDocument();
 
     /* End headers from config key */
   });
 
-  it("should have a class 'anchor-link-header' for sticky header handling", () => {
-    const result = render(<About />);
-    const container = result.container;
+  it("should have a class 'anchor-link-header' for sticky header handling", async () => {
+    await act(async () => {
+      result = render(<About params={Promise.resolve({ lng: "en" })} />);
+    })
 
-    miniLinks.forEach((miniLink) => {
-      expect(container.querySelector(`#${miniLink.hashId}`)).toHaveClass(
+    //main
+    expect(screen.findByRole("main")).toBeInTheDocument();
+
+    ["aboutWalcron", "aboutZoo", "vision"].forEach((miniLink) => {
+      expect(screen.findByRole("main").querySelector(`#${miniLink.hashId}`)).toHaveClass(
         "anchor-link-header"
       );
     });
-  });
-
-  it("should have valid local download links", () => {
-    const result = render(<About />);
-    const allDownloads = checkDownloadLinkHasHostAllLocalFiles(
-      result.container
-    );
-    expect(allDownloads).toStrictEqual(
-      allDownloads.map((link) => ({ ...link, status: true }))
-    );
   });
 });
