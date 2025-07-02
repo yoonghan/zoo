@@ -3,6 +3,9 @@ import About from "./page";
 import translations from "@/i18n/en/pages";
 
 describe("About Us", () => {
+
+  const expectedHeaders = ["aboutWalcron", "aboutZoo", "vision"]
+
   const consoleError = console.error;
   beforeAll(() => {
     console.error = jest.fn();
@@ -24,17 +27,11 @@ describe("About Us", () => {
     /* Start headers from config key */
     expect(screen.getByRole("heading", { name: "About Us" })).toBeInTheDocument();
 
-    expect(
-      screen.getByRole("heading", { name: translations.aboutWalcron.title })
-    ).toBeInTheDocument();
-
-    expect(
-      screen.getByRole("heading", { name: translations.aboutZoo.title })
-    ).toBeInTheDocument();
-
-    expect(
-      screen.getByRole("heading", { name: translations.vision.title })
-    ).toBeInTheDocument();
+    expectedHeaders.forEach(headers => {
+      expect(
+        screen.getByRole("heading", { name: translations[headers].title })
+      ).toBeInTheDocument();
+    })
 
     /* End headers from config key */
   });
@@ -47,7 +44,7 @@ describe("About Us", () => {
     //main
     expect(screen.findByRole("main")).toBeInTheDocument();
 
-    ["aboutWalcron", "aboutZoo", "vision"].forEach((miniLink) => {
+    expectedHeaders.forEach((miniLink) => {
       expect(screen.findByRole("main").querySelector(`#${miniLink.hashId}`)).toHaveClass(
         "anchor-link-header"
       );
