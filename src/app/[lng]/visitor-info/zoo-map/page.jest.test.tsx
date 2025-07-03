@@ -1,5 +1,5 @@
 import { render, act, screen } from "@testing-library/react";
-import ZooMap from "./page";
+import ZooMap, { generateMetadata } from "./page";
 import { checkForImageExist } from "@/util/fileHelper";
 import translations from "@/i18n/locales/en/pages";
 
@@ -47,4 +47,11 @@ describe("ZooMap", () => {
     expect(checkForImageExist(`${zooMapFileName}-web-1.jpg`));
     expect(checkForImageExist(`${zooMapFileName}-web-2.jpg`));
   });
+
+  it("should generate site headers", async () => {
+    const metadata = await generateMetadata({params: Promise.resolve({ lng: "en" })})
+
+    expect(metadata.title).toBe(translations.headers.zooMap.title)
+    expect(metadata.title).toBe(translations.headers.zooMap.description)
+  })
 });
