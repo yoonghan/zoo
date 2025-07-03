@@ -1,9 +1,27 @@
+import type { Metadata, ResolvingMetadata } from "next";
 import { ButtonLink } from "@/components/Button";
 import {
   TranslatorProps,
   withTranslator,
 } from "@/components/util/hoc/withTranslator";
 import Image from "next/image";
+import { getTranslation } from "@/i18n";
+import { generateSiteMeta } from "@/util/generateMeta";
+
+type Props = {
+  params: Promise<{ lng: string }>
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}
+
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const { lng } = await params
+  const { t } = await getTranslation(lng, "pages")
+
+  return generateSiteMeta(lng, t('headers.zooMap.title'), t('headers.zooMap.description'))
+}
 
 function ZooMap({ t }: TranslatorProps) {
   return (
