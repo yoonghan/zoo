@@ -62,4 +62,4 @@ function ZooMap({ t }: TranslatorProps) {
   );
 }
 
-export default withTranslator(ZooMap);
+export default withTranslator(ZooMap, "pages");
