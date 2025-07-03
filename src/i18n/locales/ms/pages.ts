@@ -4,8 +4,11 @@ const translations: typeof enTranslation = {
   lang: "ms",
   headers: {
     default: "Zoo Negara Malaysia",
-    defaultDescription:
-      "Sebuah pertubuhan bukan kerajaan yang ditubuhkan untuk mewujudkan zoo tempatan pertama untuk rakyat Malaysia.",
+    defaultDescription: "Sebuah pertubuhan bukan kerajaan yang ditubuhkan untuk mewujudkan zoo tempatan pertama untuk rakyat Malaysia.",
+    zooMap: {
+      title: "Peta Zoo Negara Malaysia Map",
+      description: "Muat turun peta dan merancang hari anda di Zoo Negara Malaysia."
+    }
   },
   homepage: {
     welcome: "Selamat datang ke Zoo Negara",
@@ -43,10 +46,17 @@ const translations: typeof enTranslation = {
         "Hanya pemahaman format JSON/HTML asas diperlukan untuk mengekalkan laman.",
         "Semuanya disepadukan dengan saluran paip Github.",
         "Opensourced - sesiapa sahaja boleh melihat dan menyumbang.",
-        "Sistematic proses - kelulusan/semakan sebelum menerima perubahan.",
-      ],
-    },
+        "Sistematic proses - kelulusan/semakan sebelum menerima perubahan."
+      ]
+    }
   },
-};
+    visitorInfo: {
+      zooMap: {
+        title: "Peta Zoo Negara Malaysia",
+        downloadMapBtn: "Muat turun Peta",
+        description: "Untuk menerokai zoo kami, muat turunnya."
+      }
+    }
+}
 
 export default translations;

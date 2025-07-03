@@ -1,35 +1,44 @@
-import { render } from "@testing-library/react";
-import ZooMap from "./page";
+import { render, act, screen } from "@testing-library/react";
+import ZooMap, { generateMetadata } from "./page";
 import { checkForImageExist } from "@/util/fileHelper";
+import translations from "@/i18n/locales/en/pages";
 
 describe("ZooMap", () => {
   const zooMapFileName = "zoo-negara-map";
 
-  it("should contains important keys", () => {
-    const { getByRole } = render(<ZooMap />);
+  it("should contains important keys", async () => {
+    await act(async () => {
+      render(<ZooMap params={Promise.resolve({ lng: "en" })} />);
+    });
     //main
-    expect(getByRole("main")).toBeInTheDocument();
+    expect(await screen.findByRole("main")).toBeInTheDocument();
     //h1
-    expect(getByRole("heading", { name: "Zoo Map" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: translations.visitorInfo.zooMap.title })
+    ).toBeInTheDocument();
   });
 
-  it("should have map and image", () => {
-    const { getByRole, getAllByRole } = render(<ZooMap />);
-
-    expect(getByRole("button", { name: "Download Map" })).toHaveAttribute(
-      "href",
-      `/images/${zooMapFileName}.jpg`
-    );
-    expect(getByRole("button", { name: "Download Map" })).toHaveAttribute(
-      "download",
-      ""
-    );
+  it("should have map and image", async () => {
+    await act(async () => {
+      render(<ZooMap params={Promise.resolve({ lng: "en" })} />);
+    });
+ 
+    expect(
+      await screen.findByRole("button", { name: translations.visitorInfo.zooMap.downloadMapBtn })
+    ).toHaveAttribute("href", `/images/${zooMapFileName}.jpg`);
+    expect(
+      screen.getByRole("button", { name: translations.visitorInfo.zooMap.downloadMapBtn })
+    ).toHaveAttribute("download", "");
 
     expect(
-      getAllByRole("img", { name: "Zoo Negara Map" })[0].getAttribute("src")
+      screen
+        .getByRole("img", { name: "Top Zoo Negara Map" })
+        .getAttribute("src")
     ).toContain(`${zooMapFileName}-web-1.jpg`);
     expect(
-      getAllByRole("img", { name: "Zoo Negara Map" })[1].getAttribute("src")
+      screen
+        .getByRole("img", { name: "Bottom Zoo Negara Map" })
+        .getAttribute("src")
     ).toContain(`${zooMapFileName}-web-2.jpg`);
   });
 
@@ -38,4 +47,11 @@ describe("ZooMap", () => {
     expect(checkForImageExist(`${zooMapFileName}-web-1.jpg`));
     expect(checkForImageExist(`${zooMapFileName}-web-2.jpg`));
   });
+
+  it("should generate site headers", async () => {
+    const metadata = await generateMetadata({params: Promise.resolve({ lng: "en" })})
+
+    expect(metadata.title).toBe(translations.headers.zooMap.title)
+    expect(metadata.description).toBe(translations.headers.zooMap.description)
+  })
 });

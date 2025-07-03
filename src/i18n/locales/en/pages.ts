@@ -2,8 +2,11 @@ const translations = {
   lang: "en",
   headers: {
     default: "Zoo Negara Malaysia",
-    defaultDescription:
-      "A non-governmental organization established to create the first local zoo for Malaysians.",
+    defaultDescription: "A non-governmental organization established to create the first local zoo for Malaysians.",
+    zooMap: {
+      title: "Zoo Negara Malaysia Map",
+      description: "Download the map and plan your visit in Zoo Negara Malaysia."
+    }
   },
   homepage: {
     welcome: "Welcome to Zoo Negara",
@@ -41,10 +44,17 @@ const translations = {
         "Minimal basic JSON/HTML is required to maintain it.",
         "Everything is integrated with Github pipeline.",
         "Opensourced - anyone can view and contribute.",
-        "Process oriented - approval/reviews before accepting changes.",
-      ],
-    },
+        "Process oriented - approval/reviews before accepting changes."
+      ]
+    }
   },
-};
+  visitorInfo: {
+    zooMap: {
+      title: "Zoo Negara Malaysia Map",
+      downloadMapBtn: "Download Map",
+      description: "To explore our zoo, download it."
+    }
+  }
+}
 
 export default translations;
