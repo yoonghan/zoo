@@ -40,6 +40,13 @@ const translations = {
         "Process oriented - approval/reviews before accepting changes."
       ]
     }
+  },
+  visitorInfo: {
+    zooMap: {
+      title: "Zoo Map",
+      downloadMapBtn: "Download Map",
+      description: "To explore our zoo, download it."
+    }
   }
 }
 

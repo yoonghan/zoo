@@ -41,7 +41,14 @@ const translations: typeof enTranslation = {
         "Sistematic proses - kelulusan/semakan sebelum menerima perubahan."
       ]
     }
-  }
+  },
+    visitorInfo: {
+      zooMap: {
+        title: "Peta Zoo",
+        downloadMapBtn: "Muat turun Peta",
+        description: "Untuk menerokai zoo kami, muat turunnya."
+      }
+    }
 }
 
 export default translations
