@@ -32,12 +32,12 @@ describe("ZooMap", () => {
 
     expect(
       screen
-        .getAllByRole("img", { name: "Top Zoo Negara Map" })[0]
+        .getByRole("img", { name: "Top Zoo Negara Map" })
         .getAttribute("src")
     ).toContain(`${zooMapFileName}-web-1.jpg`);
     expect(
       screen
-        .getAllByRole("img", { name: "Bottom Zoo Negara Map" })[1]
+        .getByRole("img", { name: "Bottom Zoo Negara Map" })
         .getAttribute("src")
     ).toContain(`${zooMapFileName}-web-2.jpg`);
   });
