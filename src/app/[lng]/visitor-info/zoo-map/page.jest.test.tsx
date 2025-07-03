@@ -52,6 +52,6 @@ describe("ZooMap", () => {
     const metadata = await generateMetadata({params: Promise.resolve({ lng: "en" })})
 
     expect(metadata.title).toBe(translations.headers.zooMap.title)
-    expect(metadata.title).toBe(translations.headers.zooMap.description)
+    expect(metadata.description).toBe(translations.headers.zooMap.description)
   })
 });
