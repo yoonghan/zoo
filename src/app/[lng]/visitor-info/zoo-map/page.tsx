@@ -1,4 +1,4 @@
-import type { Metadata, ResolvingMetadata } from "next";
+import type { Metadata } from "next";
 import { ButtonLink } from "@/components/Button";
 import {
   TranslatorProps,
@@ -10,12 +10,10 @@ import { generateSiteMeta } from "@/util/generateMeta";
 
 type Props = {
   params: Promise<{ lng: string }>
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
 
 export async function generateMetadata(
-  { params, searchParams }: Props,
-  parent: ResolvingMetadata
+  { params }: Props
 ): Promise<Metadata> {
   const { lng } = await params
   const { t } = await getTranslation(lng, "pages")

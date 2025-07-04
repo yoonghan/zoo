@@ -8,6 +8,10 @@ const translations: typeof enTranslation = {
     zooMap: {
       title: "Peta Zoo Negara Malaysia Map",
       description: "Muat turun peta dan merancang hari anda di Zoo Negara Malaysia."
+    },
+    aboutUs: {
+      title: "Tentang Zoo Negara Malaysia",
+      description: "Cerita mengapa Zoo Negara Malaysia website dibina."
     }
   },
   homepage: {
@@ -50,13 +54,13 @@ const translations: typeof enTranslation = {
       ]
     }
   },
-    visitorInfo: {
-      zooMap: {
-        title: "Peta Zoo Negara Malaysia",
-        downloadMapBtn: "Muat turun Peta",
-        description: "Untuk menerokai zoo kami, muat turunnya."
-      }
+  visitorInfo: {
+    zooMap: {
+      title: "Peta Zoo Negara Malaysia",
+      downloadMapBtn: "Muat turun Peta",
+      description: "Untuk menerokai zoo kami, muat turunnya."
     }
+  }
 }
 
 export default translations;
