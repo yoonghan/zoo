@@ -14,7 +14,7 @@ const translations = {
       description: "The story why a copy of Zoo Negara Malaysia website was created."
     },
     faq: {
-      title: "Frequent Asked Question",
+      title: "Frequent Asked Questions",
       description: "Frequent questions about the visit to the zoo, compiled directly from Zoo Negara Malaysia."
     }
   },
