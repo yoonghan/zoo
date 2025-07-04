@@ -1,4 +1,5 @@
 import enTranslation from "../en/pages";
+import zooFaq from "./faq";
 
 const translations: typeof enTranslation = {
   lang: "ms",
@@ -12,6 +13,10 @@ const translations: typeof enTranslation = {
     aboutUs: {
       title: "Tentang Zoo Negara Malaysia",
       description: "Cerita mengapa Zoo Negara Malaysia website dibina."
+    },
+    faq: {
+      title: "Frequent Asked Question",
+      description: "Soalan lazim tentang lawatan ke zoo, disusun terus dari Zoo Negara Malaysia."
     }
   },
   homepage: {
@@ -60,6 +65,10 @@ const translations: typeof enTranslation = {
       downloadMapBtn: "Muat turun Peta",
       description: "Untuk menerokai zoo kami, muat turunnya."
     }
+  },
+  faq: {
+    title: "Soalan Lazim",
+    zooFaq
   }
 }
 
