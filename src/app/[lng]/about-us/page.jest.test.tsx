@@ -6,17 +6,6 @@ describe("About Us", () => {
 
   const expectedHeaders = ["aboutWalcron", "aboutZoo", "vision"]
 
-  const consoleError = console.error;
-  beforeAll(() => {
-    console.error = jest.fn();
-  });
-
-  afterAll(async () => {
-    //hack due to iframe unload issue.
-    await new Promise((res) => setTimeout(res, 1000));
-    console.error = consoleError;
-  });
-
   it("should contains important keys", async () => {
     await act(async () => {
       render(<About params={Promise.resolve({ lng: "en" })} />);
@@ -29,7 +18,7 @@ describe("About Us", () => {
 
     expectedHeaders.forEach(headers => {
       expect(
-        screen.getByRole("heading", { name: translations.aboutUs[headers].title })
+        screen.getByRole("heading", { name: (translations.aboutUs[headers]).title })
       ).toBeInTheDocument();
     })
 

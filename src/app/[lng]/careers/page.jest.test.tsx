@@ -10,7 +10,7 @@ describe("Career", () => {
     });
 
     //main
-    expect(screen.getByRole("main")).toBeInTheDocument();
+    expect(await screen.findByRole("main")).toBeInTheDocument();
     //h1
     expect(
       screen.getByRole("heading", { name: translations.careers.title })
