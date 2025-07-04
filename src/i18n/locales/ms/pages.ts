@@ -17,6 +17,10 @@ const translations: typeof enTranslation = {
     faq: {
       title: "Frequent Asked Question",
       description: "Soalan lazim tentang lawatan ke zoo, disusun terus dari Zoo Negara Malaysia."
+    },
+    careers: {
+      title: "Kerjaya",
+      description: "Ingin bekerja di Zoo Negara Malaysia?"
     }
   },
   homepage: {
@@ -69,6 +73,13 @@ const translations: typeof enTranslation = {
   faq: {
     title: "Soalan Lazim",
     zooFaq
+  },
+  careers: {
+    title: "Zoo Negara - Kerjaya",
+    description: "Sila rujuk laman web rasmi Zoo Negara untuk melihat kerjaya:",
+    officialCareerLinkText: "Kerjaya di laman Zoo Negara",
+    OR: "ATAU",
+    emailToZoo: "Email ke Zoo Negara Malaysia HR"
   }
 }
 

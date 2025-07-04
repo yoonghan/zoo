@@ -16,6 +16,10 @@ const translations = {
     faq: {
       title: "Frequent Asked Questions",
       description: "Frequent questions about the visit to the zoo, compiled directly from Zoo Negara Malaysia."
+    },
+    careers: {
+      title: "Careers",
+      description: "Looking to work for Zoo Negara Malaysia?"
     }
   },
   homepage: {
@@ -68,6 +72,13 @@ const translations = {
   faq: {
     title: "Frequent Asked Questions",
     zooFaq
+  },
+  careers: {
+    title: "Zoo Negara - Career",
+    description: "Please refer to the official Zoo Negara website to view careers:",
+    officialCareerLinkText: "Official Zoo Negara career page",
+    OR: "OR",
+    emailToZoo: "Email to Zoo Negara Malaysia's HR"
   }
 }
 
