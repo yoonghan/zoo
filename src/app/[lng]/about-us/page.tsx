@@ -3,17 +3,15 @@ import MiniMenu, { MiniMenuItems } from "@/components/MiniMenu";
 import { Link } from "@/components/Link";
 import { withTranslator, TranslatorProps } from "@/components/util/hoc/withTranslator";
 import { getTranslation } from "@/i18n";
-import type { Metadata, ResolvingMetadata } from "next";
+import type { Metadata } from "next";
 import { generateSiteMeta } from "@/util/generateMeta";
 
 type Props = {
   params: Promise<{ lng: string }>
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
 
 export async function generateMetadata(
-  { params, searchParams }: Props,
-  parent: ResolvingMetadata
+  { params }: Props
 ): Promise<Metadata> {
   const { lng } = await params
   const { t } = await getTranslation(lng, "pages")
