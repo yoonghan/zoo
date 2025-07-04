@@ -18,7 +18,7 @@ const translations = {
       description: "Frequent questions about the visit to the zoo, compiled directly from Zoo Negara Malaysia."
     },
     careers: {
-      title: "Careers",
+      title: "Careers in Zoo Negara",
       description: "Looking to work for Zoo Negara Malaysia?"
     }
   },

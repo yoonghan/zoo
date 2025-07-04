@@ -19,7 +19,7 @@ const translations: typeof enTranslation = {
       description: "Soalan lazim tentang lawatan ke zoo, disusun terus dari Zoo Negara Malaysia."
     },
     careers: {
-      title: "Kerjaya",
+      title: "Kerjaya di Zoo Negara",
       description: "Ingin bekerja di Zoo Negara Malaysia?"
     }
   },
