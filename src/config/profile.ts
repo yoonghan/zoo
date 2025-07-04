@@ -48,33 +48,33 @@ export const zooProfile: FooterProps &
     customerserviceEmail: "customerservice@zoonegaramalaysia.my",
     administration: [
       {
-        department: "Administration",
+        department: "contactUs.translate.Administration",
         email: "admindepartment@zoonegaramalaysia.my",
         departmentFunction:
           "Internship programme and business related matters.",
       },
       {
-        department: "Public Relations & Marketing",
+        department: "contactUs.translate.PublicRelationsMarketing",
         email: "marketing@zoonegaramalaysia.my",
         departmentFunction:
-          "Animal adoption, news & media relation, sponsorship and corporate social responsibilities (CSR).",
+          "contactUs.translate.PublicRelationsMarketing_description",
       },
       {
-        department: "Customer Service",
+        department: "contactUs.translate.CustomerService",
         email: "customerservice@zoonegaramalaysia.my",
         departmentFunction:
-          "Corporate events, family days, birthdays, site rentals, visitor related matters and other functions.",
+          "contactUs.translate.CustomerService_description"
       },
       {
-        department: "Education",
+        department: "contactUs.translate.Education",
         email: "education@zoonegaramalaysia.my",
         departmentFunction:
-          "Tours, education packages, volunteering, research programme and student related matters.",
+          "contactUs.translate.Education_description",
       },
       {
-        department: "Reception Counter",
+        department: "contactUs.translate.ReceptionCounter",
         email: "receptionist@zoonegaramalaysia.my",
-        departmentFunction: "Opening hours, rates and school concession.",
+        departmentFunction: "contactUs.translate.ReceptionCounter_description",
       },
     ],
   },

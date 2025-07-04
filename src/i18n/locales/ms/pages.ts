@@ -21,6 +21,10 @@ const translations: typeof enTranslation = {
     careers: {
       title: "Kerjaya di Zoo Negara",
       description: "Ingin bekerja di Zoo Negara Malaysia?"
+    },
+    contactUs: {
+      title: "Hubungi Zoo Negara",
+      description: "Hubungi Zoo untuk maklumat.",
     }
   },
   homepage: {
@@ -80,6 +84,24 @@ const translations: typeof enTranslation = {
     officialCareerLinkText: "Kerjaya di laman Zoo Negara",
     OR: "ATAU",
     emailToZoo: "Email ke Zoo Negara Malaysia HR"
+  },
+  contactUs: {
+    title: "Hubungi Zoo Negara",
+    description: "Kami mengikis maklumat ini daripada laman web rasmi Zoo Negara. Kenalan sah mulai 5-Jul-2029.",
+    enquiry1: "Untuk sebarang pertanyaan, hubungi talian am Zoo Negara",
+    enquiry2: "dan tanya Jabatan berikut",
+    translate: {
+      "Administration": "Pentadbiran",
+      "Administration_description": "Program amali dan hal-hal berkaitan perniagaan.",
+      "PublicRelationsMarketing": "Perhubungan Awam & Pemasaran",
+      "PublicRelationsMarketing_description": "Penerimaan haiwan, berita & perhubungan media, penajaan dan tanggungjawab sosial korporat.",
+      "CustomerService": "Perkhidmatan Pelanggan",
+      "CustomerService_description": "Acara korporat, hari keluarga, hari lahir, penyewaan tapak, hal berkaitan pelawat dan fungsi lain.",
+      "Education": "Pendidikan",
+      "Education_description": "Lawatan, pakej pendidikan, sukarelawan, program penyelidikan dan hal-hal berkaitan pelajar.",
+      "ReceptionCounter": "Kaunter Penerimaan",
+      "ReceptionCounter_description": "Waktu buka, kadar dan konsesi sekolah."
+    }
   }
 }
 
