@@ -6,6 +6,10 @@ const translations = {
     zooMap: {
       title: "Zoo Negara Malaysia Map",
       description: "Download the map and plan your visit in Zoo Negara Malaysia."
+    },
+    aboutUs: {
+      title: "About Zoo Negara Website",
+      description: "The story why a copy of Zoo Negara Malaysia website was created."
     }
   },
   homepage: {

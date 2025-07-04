@@ -2,6 +2,24 @@ import Styles from "./about-us.module.css";
 import MiniMenu, { MiniMenuItems } from "@/components/MiniMenu";
 import { Link } from "@/components/Link";
 import { withTranslator, TranslatorProps } from "@/components/util/hoc/withTranslator";
+import { getTranslation } from "@/i18n";
+import type { Metadata, ResolvingMetadata } from "next";
+import { generateSiteMeta } from "@/util/generateMeta";
+
+type Props = {
+  params: Promise<{ lng: string }>
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}
+
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const { lng } = await params
+  const { t } = await getTranslation(lng, "pages")
+
+  return generateSiteMeta(lng, t('headers.aboutUs.title'), t('headers.aboutUs.description'))
+}
 
 function About({ t }: TranslatorProps) {
 
@@ -42,7 +60,7 @@ function About({ t }: TranslatorProps) {
           </p>
           <ul className="list-disc ml-4">
             {(t("aboutUs.aboutWalcron.descriptionSupport", { returnObjects: true }) as string[])?.map(
-                description => <li key={description}>{description}</li>
+              description => <li key={description}>{description}</li>
             )}
           </ul>
         </article>
@@ -62,11 +80,11 @@ function About({ t }: TranslatorProps) {
             {miniLinks[2].title}
           </h4>
           <p>
-            {t("aboutUs.vision.description")} 
+            {t("aboutUs.vision.description")}
           </p>
           <ul className="list-disc ml-4">
             {(t("aboutUs.vision.descriptionSupport", { returnObjects: true }) as string[])?.map(
-                description => <li key={description}>{description}</li>
+              description => <li key={description}>{description}</li>
             )}
           </ul>
         </article>

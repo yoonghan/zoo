@@ -1,5 +1,5 @@
 import { render, screen, act } from "@testing-library/react";
-import About from "./page";
+import About, { generateMetadata } from "./page";
 import translations from "@/i18n/locales/en/pages";
 
 describe("About Us", () => {
@@ -17,7 +17,7 @@ describe("About Us", () => {
     console.error = consoleError;
   });
 
-  it("should contains important keys", async() => {
+  it("should contains important keys", async () => {
     await act(async () => {
       render(<About params={Promise.resolve({ lng: "en" })} />);
     })
@@ -38,7 +38,7 @@ describe("About Us", () => {
 
   it("should have a class 'anchor-link-header' for sticky header handling", async () => {
     const componentContainer = await act(async () => {
-      const {container} = render(<About params={Promise.resolve({ lng: "en" })} />);
+      const { container } = render(<About params={Promise.resolve({ lng: "en" })} />);
       return container
     })
 
@@ -51,4 +51,11 @@ describe("About Us", () => {
       );
     });
   });
+
+  it("should generate site headers", async () => {
+    const metadata = await generateMetadata({ params: Promise.resolve({ lng: "en" }) })
+
+    expect(metadata.title).toBe(translations.headers.aboutUs.title)
+    expect(metadata.description).toBe(translations.headers.aboutUs.description)
+  })
 });
