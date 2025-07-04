@@ -1,124 +1,121 @@
-const zooFaq = [
+import { AccordionProps } from "@/components/Accordion";
+
+const zooFaq: AccordionProps = [
   {
-    label: "How to reach Zoo Negara?",
+    label: "Bagaimana untuk sampai ke Zoo Negara?",
     content:
-      "We have provided the info in [/ms/visitor-info/getting-there|Getting There] section.",
+      "Kami telah memberikan maklumat dalam bahagian [/ms/visitor-info/getting-there|Getting There] section.",
   },
   {
-    label: "What are the admission rates?",
+    label: "Apakah kadar kemasukan?",
     content:
-      "You can check it out in our [https://ticket.zoonegara.my/|*Ticketing Website].",
+      "Anda boleh menyemaknya di laman [https://ticket.zoonegara.my/|*Ticketing Website].",
   },
   {
     label:
-      "I'm a teacher and planning to bring my students to zoo. Do you offer any school concession rates?",
-    content: "Yes, please [/ms/contact-us|Contact Us].",
+      "Saya seorang guru dan bercadang untuk membawa pelajar saya ke zoo. Adakah anda menawarkan sebarang kadar konsesi sekolah?",
+    content: "Ya, sila rujuk kepada staff Zoo Negara [/ms/contact-us|Contact Us].",
   },
   {
-    label: "What are the opening hours?",
-    content: "Yes, check it out in our [/ms/visitor-info|Visitor Info] section.",
+    label: "Apakah waktu buka?",
+    content: "Ya, sila melawat sekysen [/ms/visitor-info|Visitor Info].",
   },
   {
-    label: "Is there any restaurant or food kiosk?",
+    label: "Adakah terdapat mana-mana restoran atau kiosk makanan?",
     content:
-      "Yes, check it out in our [/ms/visitor-info/kiosks-n-facilities|Kiosk] section.",
+      "Ya, lihat di bahagian [/ms/visitor-info/kiosks-n-facilities|Kiosk] kami.",
   },
   {
-    label: "Is there an easy way to find restrooms inside?",
+    label: "Adakah terdapat cara mudah untuk mencari tandas di dalam?",
     content:
-      "Yes, our restrooms are indicated in the [/ms/visitor-info/zoo-map|Zoo Map].",
+      "Ya, tandas kami ditunjukkan dalam [/ms/visitor-info/zoo-map|Peta Zoo].",
   },
   {
-    label: "Are pets allowed into the zoo?",
-    content: "Unfortunately,Pets are not permitted in the zoo.",
+    label: "Adakah haiwan peliharaan dibenarkan masuk ke zoo?",
+    content: "Malangnya, Haiwan peliharaan tidak dibenarkan masuk ke dalam zoo.",
   },
   {
-    label: "Can I bring a bicycle or roller-blade?",
+    label: "Bolehkah saya membawa basikal atau roller-blade?",
     content:
-      "Skateboard, skates, bicycles, alcoholics, balloons, and fire-crackers of any kind are not allowed on site.",
-  },
-  {
-    label: "What are the times for the shows?",
-    content:
-      "Check it out in our [/ms/visitor-info/zoo-map|Zoo Map's Show time] section. Don't miss it out!",
+      "Papan luncur, kasut roda, basikal, peminum alkohol, belon dan apa-apa jenis pemecah api tidak dibenarkan di tapak.",
   },
   {
     label:
-      "I love to take photos with animals. Do you have a schedule for this activity?",
+      "Saya suka mengambil gambar dengan haiwan. Adakah anda mempunyai jadual untuk aktiviti ini?",
     content:
-      "Check it out in [/ms/visitor-info/zoo-map|Zoo Map's Feeding Time] section. Have a great picture time!",
+      "Semak ia dalam bahagian [/ms/visitor-info/zoo-map|Masa Suapan Peta Zoo]. Selamat bergambar!",
   },
   {
     label:
-      "How do I get my free guide map in the zoo area just incase if I lost my way?",
-    content: "[/ms/visitor-info/zoo-map|Download] it from the website.",
+      "Bagaimanakah saya boleh mendapatkan peta panduan percuma saya di kawasan zoo sekiranya saya tersesat?",
+    content: "[/ms/visitor-info/zoo-map|Muat turun] dari laman web.",
   },
   {
-    label: "How long does it take to walk around the zoo?",
-    content: "Approximately 2 hours walk and 20 minutes by train rides.",
+    label: "Berapa lama masa yang diambil untuk berjalan di sekitar zoo?",
+    content: "Lebih kurang 2 jam berjalan kaki dan 20 minit dengan menaiki kereta api.",
   },
   {
     label:
-      "Do you have any suggestion to direct me around zoo area during my visit day?",
-    content: `Follow these 7 directions below to ensure your visit is memorable one. *(2 *hours *tour).
-        !! * Board train at the entrance.
-        !! * Stop at the Bird House, view birds.
-        !! * Board train to Tiger Exhibit.
-        !! * Stop at Savannah Walk. Visit Ape Centre & Mammal Kingdom.
-        !! * Board train to Reptile House, view reptiles.
-        !! * Walk to Bear Complex, Restaurant & visit Children’s World.
-        !! * Watch Multi-animal Show & walk back to entrance.
+      "Adakah anda mempunyai sebarang cadangan untuk mengarahkan saya ke kawasan zoo semasa hari lawatan saya?",
+    content: `Ikuti 7 arahan di bawah untuk memastikan lawatan anda tidak dapat dilupakan. *(2 *jam *pelancongan).
+        !! * Naik kereta api di pintu masuk.
+        !! * Singgah di Bird House, tengok burung.
+        !! * Naiki kereta api ke Pameran Harimau.
+        !! * Singgah di Savannah Walk. Lawati Pusat Kera & Kerajaan Mamalia.
+        !! * Naiki kereta api ke Reptile House, lihat reptilia.
+        !! * Berjalan ke Kompleks Beruang, Restoran & lawati Dunia Kanak-kanak.
+        !! * Tonton Pertunjukan Pelbagai Haiwan & berjalan kembali ke pintu masuk.
         `,
   },
   {
-    label: "Why should I adopt zoo animals?",
+    label: "Mengapa saya perlu mengambil haiwan zoo?",
     content:
-      "Your support helps provide food, habitat, and environmental enhancements for the animals in our care.",
+      "Sokongan anda membantu menyediakan makanan, habitat dan peningkatan alam sekitar untuk haiwan dalam jagaan kami.",
   },
   {
-    label: "What animals can I adopt?",
+    label: "Apakah haiwan yang boleh saya adopt/angkat?",
     content:
-      "Any animal at the Zoo as listed [https://www.ticket2u.com.my/event/18171/zoo-negara-adoption-package|onTicket2u website].",
+      "Mana-mana haiwan di Zoo seperti yang disenaraikan [https://www.ticket2u.com.my/event/18171/zoo-negara-adoption-package|onTicket2u website].",
   },
   {
-    label: "Do I actually get to take the animal home with me?",
+    label: "Adakah saya benar-benar boleh membawa haiwan itu pulang bersama saya?",
     content:
-      "No. The Zoo Negara's adoption program is a symbolic adoption and the animal will remain at the Zoo.",
+      "Tidak. Program pengangkatan Zoo Negara adalah simbolik anak angkat dan haiwan itu akan kekal di Zoo.",
   },
   {
-    label: "Will anyone else adopt this animal?",
+    label: "Adakah orang lain akan mengambil haiwan ini?",
     content:
-      "Yes. It takes more than one adoption to feed and care for an animal all year. All adoptions support the care and feeding of the animals at Zoo Negara.",
+      "Ya. Ia memerlukan lebih daripada satu anak angkat untuk memberi makan dan menjaga haiwan sepanjang tahun. Semua anak angkat menyokong penjagaan dan memberi makan haiwan di Zoo Negara.",
   },
   {
-    label: "Can I name my adopted animal?",
+    label: "Bolehkah saya menamakan haiwan angkat saya?",
     content:
-      "Unfortunately *no. All our Zoo Negara animals already have names.",
+      "Malangnya *tidak. Semua haiwan Zoo Negara kita sudah ada nama.",
   },
   {
-    label: "Do I own the adopted animal?",
+    label: "Adakah saya memiliki haiwan angkat itu?",
     content:
-      "All the adopted animals remain in the care and custody of the Zoo Negara, and no ownership rights are conferred. Simply put, all the parental pride - none of the work!",
+      "Semua haiwan angkat kekal dalam jagaan dan jagaan Zoo Negara, dan tiada hak pemilikan diberikan. Ringkasnya, semua kebanggaan ibu bapa - tanpa kerja!",
   },
   {
-    label: "Can I visit the adoptable animals?",
+    label: "Bolehkah saya melawat haiwan angkat?",
     content:
-      "Yes, you may visit the adopted animals from the outer edge of their designated enclosure. Our habitats are designed to be as naturalistic as possible, because that’s best for the animals. Sometimes that means they will find a secluded place to rest, so they may not be easily visible. Different animals also are more active at various times of the day.",
+      "Ya, anda boleh melawat haiwan angkat dari pinggir luar kandang yang ditetapkan mereka. Habitat kami direka bentuk senatural mungkin, kerana itu yang terbaik untuk haiwan. Kadang-kadang itu bermakna mereka akan mencari tempat terpencil untuk berehat, jadi mereka mungkin tidak mudah dilihat. Haiwan yang berbeza juga lebih aktif pada pelbagai masa dalam sehari.",
   },
   {
-    label: "How is my adoption recognized?",
+    label: "Bagaimanakah pengangkatan saya diiktiraf?",
     content:
-      "In keeping with our commitment to conservation, a digital adoption certificate is available with notepads, if applicable, and includes recognition online at our website and in the Zoo Negara annual report.",
+      "Selaras dengan komitmen kami terhadap pemuliharaan, sijil anak angkat digital tersedia dengan pad nota, jika berkenaan, dan termasuk pengiktirafan dalam talian di laman web kami dan dalam laporan tahunan Zoo Negara.",
   },
   {
-    label: "Can I adopt a specific animal by name at the Zoo?",
+    label: "Bolehkah saya mengambil haiwan tertentu dengan nama di Zoo?",
     content:
-      "Due to the constantly changing nature of our animals, our adoption certificates will feature the general species rather than a specific animal gender or name.",
+      "Oleh kerana sifat haiwan kami yang sentiasa berubah, sijil pengangkatan kami akan menampilkan spesies umum dan bukannya jantina atau nama haiwan tertentu.",
   },
   {
-    label: "I'm ready to adopt! How do I place an order?",
+    label: "Saya bersedia untuk mengambil anak angkat! Bagaimana saya boleh membuat pesanan?",
     content:
-      "The easiest and quickest way is to click on [https://www.ticket2u.com.my/event/18171/zoo-negara-adoption-package|onTicket2u website]. When you reach the adoption pages, click on ‘Adopt Me’ next to the animal you want to adopt and you will then be asked to login, or register if you don’t have an account yet.",
+      "Cara termudah dan terpantas ialah klik pada [https://www.ticket2u.com.my/event/18171/zoo-negara-adoption-package|on laman web Ticket2u]. Apabila anda sampai ke halaman anak angkat, klik pada 'Adopt Me' di sebelah haiwan yang anda mahu angkat dan anda kemudiannya akan diminta untuk log masuk, atau mendaftar jika anda belum mempunyai akaun lagi.",
   },
 ];
 

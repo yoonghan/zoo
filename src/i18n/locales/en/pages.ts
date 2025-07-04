@@ -1,3 +1,5 @@
+import zooFaq from "./faq";
+
 const translations = {
   lang: "en",
   headers: {
@@ -10,6 +12,10 @@ const translations = {
     aboutUs: {
       title: "About Zoo Negara Website",
       description: "The story why a copy of Zoo Negara Malaysia website was created."
+    },
+    faq: {
+      title: "Frequent Asked Questions",
+      description: "Frequent questions about the visit to the zoo, compiled directly from Zoo Negara Malaysia."
     }
   },
   homepage: {
@@ -58,6 +64,10 @@ const translations = {
       downloadMapBtn: "Download Map",
       description: "To explore our zoo, download it."
     }
+  },
+  faq: {
+    title: "Frequent Asked Questions",
+    zooFaq
   }
 }
 
