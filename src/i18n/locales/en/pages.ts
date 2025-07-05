@@ -86,7 +86,7 @@ const translations = {
   },
   contactUs: {
     title: "Contact Zoo Negara",
-    description: "We scrap this information from the official website Zoo Negara. Contacts are valid as of 5-Jul-2029.",
+    description: "We scrap this information from the official website Zoo Negara. Contacts are valid on 5-Jul-2026.",
     enquiry1: "For any enquiries, call the general lines",
     enquiry2: "and ask for the following Department",
     translate: {

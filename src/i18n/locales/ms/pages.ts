@@ -87,7 +87,7 @@ const translations: typeof enTranslation = {
   },
   contactUs: {
     title: "Hubungi Zoo Negara",
-    description: "Kami mengikis maklumat ini daripada laman web rasmi Zoo Negara. Kenalan sah mulai 5-Jul-2029.",
+    description: "Kami mengikis maklumat ini daripada laman web rasmi Zoo Negara. Kenalan sah dari 5-Jul-2026.",
     enquiry1: "Untuk sebarang pertanyaan, hubungi talian am Zoo Negara",
     enquiry2: "dan tanya Jabatan berikut",
     translate: {

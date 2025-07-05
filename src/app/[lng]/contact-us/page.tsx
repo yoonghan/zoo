@@ -44,7 +44,7 @@ function ContactUs({ t }: TranslatorProps) {
       <article>
         <h1 className="text-2xl font-bold">{t('contactUs.title')}</h1>
 
-        <p className="pt-8">{t('contactUs.description')}</p>
+        <p className="pt-8">{t('contactUs.description')} [<Link href="https://zoonegara.my/contact.html" target="_blank">1</Link>]</p>
 
         <p>
           {t('contactUs.enquiry1')}{" "}

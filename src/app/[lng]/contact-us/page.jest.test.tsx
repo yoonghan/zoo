@@ -14,6 +14,9 @@ describe("Contact Us", () => {
     expect(await screen.findByRole("main")).toBeInTheDocument();
     //h1
     expect(screen.getByRole("heading", { name: "Contact Zoo Negara" })).toBeInTheDocument();
+
+    //link to official site
+    expect(screen.getByRole("link", { name: "1" })).toHaveAttribute("href", "https://zoonegara.my/contact.html")
   });
 
   it("should contain phone numbers", async () => {
