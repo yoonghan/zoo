@@ -5,10 +5,6 @@ const translations = {
   headers: {
     default: "Zoo Negara Malaysia",
     defaultDescription: "A non-governmental organization established to create the first local zoo for Malaysians.",
-    zooMap: {
-      title: "Zoo Negara Malaysia Map",
-      description: "Download the map and plan your visit in Zoo Negara Malaysia."
-    },
     aboutUs: {
       title: "About Zoo Negara Website",
       description: "The story why a copy of Zoo Negara Malaysia website was created."
@@ -24,6 +20,14 @@ const translations = {
     contactUs: {
       title: "Contact Zoo Negara",
       description: "Contacts for zoo information.",
+    },
+    visitorInfo: {
+      title: "Visitor Info",
+      description: "Visitor information about zoo opening hours and facilities."
+    },
+    zooMap: {
+      title: "Zoo Negara Malaysia Map",
+      description: "Download the map and plan your visit in Zoo Negara Malaysia."
     },
     gettingThere: {
       title: "Getting There",
@@ -75,6 +79,63 @@ const translations = {
     }
   },
   visitorInfo: {
+    title: "Visitor Information",
+    additionalInformationText: "Additional Information",
+    additionalInformationNotes: [
+      "Tickets can be purchased at the zoo.",
+      "OKU - 10% discounted price (Please show a valid OKU card).",
+      "Vip Booking can be arranged, please check it out with Zoo Administrator in Contact Zoo link.",
+      "All rates are stated in Malaysian Ringgit (MYR).",
+    ],
+    openingHours: {
+      title: "Opening Hours",
+      description: "Zoo Opens Daily from:"
+    },
+    admissionTicket: {
+      title: "Admission Ticket",
+      description: "Please get your admission ticket valid",
+      additionalInformation: {
+        important: "Please bring along your identity passport / ID card at the ticket counter for verification purposes.",
+        free: "Free Admission",
+        freeOne: "Children below 36 months old, enters for free.",
+        freeTwo: "For OKU/Disable. Please show a valid OKU card.",
+        exchange: "All price exchange are in"
+      }
+    },
+    rental: {
+      title: "Rental",
+      facilities: [
+        {
+          title: "Wheelchair",
+          description: "A wheelchair service on a first come first served basis is available at the Information Counter B. Rental fee and a refundable deposit is required.",
+          image: "/images/visitor-info/wheelchair.jpg",
+          imageAlt: "Wheelchair"
+        },
+        {
+          title: "Baby Strollers",
+          description: "A baby stroller service is available now at our new stroller station. This baby stroller is sponsored by Mother Care. Stroller service is available at the Information Counter B on a first come first served basis.",
+          image: "/images/visitor-info/stroller.jpg",
+          imageAlt: "Baby Strollers"
+        },
+        {
+          title: "Lockers",
+          description: "The lockers are available at Ticket Counter for storage of personal belongings. Rental fee is required.",
+          image: "/images/visitor-info/locker.jpg",
+          imageAlt: "Rental Lockers"
+        }
+      ]
+    },
+    tramRide: {
+      title: "Tram Ride",
+      priceTable: {
+        description: "Tram Price (as of 5-Jun-2026)",
+        h1: "Category",
+        h2: "With MyKad",
+        h3: "Without MyKad",
+        adult: "Adult",
+        children: "Child (3-12 years old)"
+      }
+    },
     zooMap: {
       title: "Zoo Negara Malaysia Map",
       downloadMapBtn: "Download Map",

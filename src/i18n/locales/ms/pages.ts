@@ -6,10 +6,6 @@ const translations: typeof enTranslation = {
   headers: {
     default: "Zoo Negara Malaysia",
     defaultDescription: "Sebuah pertubuhan bukan kerajaan yang ditubuhkan untuk mewujudkan zoo tempatan pertama untuk rakyat Malaysia.",
-    zooMap: {
-      title: "Peta Zoo Negara Malaysia Map",
-      description: "Muat turun peta dan merancang hari anda di Zoo Negara Malaysia."
-    },
     aboutUs: {
       title: "Tentang Zoo Negara Malaysia",
       description: "Cerita mengapa Zoo Negara Malaysia website dibina."
@@ -25,6 +21,14 @@ const translations: typeof enTranslation = {
     contactUs: {
       title: "Hubungi Zoo Negara",
       description: "Hubungi Zoo untuk maklumat.",
+    },
+    visitorInfo: {
+      title: "Maklumat Pelawat",
+      description: "Maklumat pelawat tentang waktu dan kemudahan dibuka zoo."
+    },
+    zooMap: {
+      title: "Peta Zoo Negara Malaysia Map",
+      description: "Muat turun peta dan merancang hari anda di Zoo Negara Malaysia."
     },
     gettingThere: {
       title: "Sampai ke sana",
