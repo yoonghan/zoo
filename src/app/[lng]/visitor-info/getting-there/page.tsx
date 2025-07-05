@@ -10,7 +10,7 @@ import { getTranslation } from "@/i18n";
 import { generateSiteMeta } from "@/util/generateMeta";
 import { Metadata } from "next";
 import { TranslatorProps, withTranslator } from "@/components/util/hoc/withTranslator";
-import { JSX, ReactNode } from "react";
+import { JSX } from "react";
 import React from "react";
 
 type Props = {
@@ -32,6 +32,30 @@ interface MiniMenuExtended extends MiniMenuItems {
   hashId: hashIds
 }
 
+
+const getLogo = (hashId: hashIds) => {
+  switch (hashId) {
+    case "car":
+      return faCar
+    case "train":
+      return faTrain
+    default:
+      return faBus
+  }
+}
+
+const Header = ({ idx, title, className }: { idx: number, title: string, className: string }) => {
+  const tagName = {
+    0: 'h3',
+    1: 'h4',
+    2: 'h5',
+  }[idx];
+
+  const Tag = tagName as keyof JSX.IntrinsicElements;
+
+  return React.createElement(Tag, { className }, <>{title}</>);
+}
+
 function GettingThere({ t }: TranslatorProps) {
   const miniLinks: MiniMenuExtended[] = [
     {
@@ -51,29 +75,6 @@ function GettingThere({ t }: TranslatorProps) {
       hashId: "bus",
     },
   ];
-
-  const getLogo = (hashId: hashIds) => {
-    switch (hashId) {
-      case "car":
-        return faCar
-      case "train":
-        return faTrain
-      default:
-        return faBus
-    }
-  }
-
-  const Header = ({ idx, title, className }: { idx: number, title: string, className: string }) => {
-    const tagName = {
-      0: 'h3',
-      1: 'h4',
-      2: 'h5',
-    }[idx] || 'h6';
-
-    const Tag = tagName as keyof JSX.IntrinsicElements;
-
-    return React.createElement(Tag, { className }, <>{title}</>);
-  }
 
   return (
     <>
