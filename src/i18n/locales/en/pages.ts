@@ -16,6 +16,14 @@ const translations = {
     faq: {
       title: "Frequent Asked Questions",
       description: "Frequent questions about the visit to the zoo, compiled directly from Zoo Negara Malaysia."
+    },
+    careers: {
+      title: "Careers in Zoo Negara",
+      description: "Looking to work for Zoo Negara Malaysia?"
+    },
+    contactUs: {
+      title: "Contact Zoo Negara",
+      description: "Contacts for zoo information.",
     }
   },
   homepage: {
@@ -68,6 +76,31 @@ const translations = {
   faq: {
     title: "Frequent Asked Questions",
     zooFaq
+  },
+  careers: {
+    title: "Zoo Negara - Career",
+    description: "Please refer to the official Zoo Negara website to view careers:",
+    officialCareerLinkText: "Official Zoo Negara career page",
+    OR: "OR",
+    emailToZoo: "Email to Zoo Negara Malaysia's HR"
+  },
+  contactUs: {
+    title: "Contact Zoo Negara",
+    description: "We scrap this information from the official website Zoo Negara. Contacts are valid on 5-Jul-2026.",
+    enquiry1: "For any enquiries, call the general lines",
+    enquiry2: "and ask for the following Department",
+    translate: {
+      "Administration": "Administration",
+      "Administration_description": "Internship programme and business related matters.",
+      "PublicRelationsMarketing": "Public Relations & Marketing",
+      "PublicRelationsMarketing_description": "Animal adoption, news & media relation, sponsorship and corporate social responsibilities (CSR).",
+      "CustomerService": "Customer Service",
+      "CustomerService_description": "Corporate events, family days, birthdays, site rentals, visitor related matters and other functions.",
+      "Education": "Education",
+      "Education_description": "Tours, education packages, volunteering, research programme and student related matters.",
+      "ReceptionCounter": "Reception Counter",
+      "ReceptionCounter_description": "Opening hours, rates and school concession."
+    }
   }
 }
 

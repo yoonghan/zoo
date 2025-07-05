@@ -47,7 +47,7 @@ function About({ t }: TranslatorProps) {
           className="primary anchor-link-header"
           id={miniLinks[0].hashId}
         >
-          <h2 className="text-4xl text-center font-bold">
+          <h2 className="text-4xl text-center font-bold pb-4">
             {miniLinks[0].title}
           </h2>
           <p className="mt-10">
@@ -56,14 +56,14 @@ function About({ t }: TranslatorProps) {
           <p className="mt-10">
             {t("aboutUs.aboutWalcron.desription2")}
           </p>
-          <ul className="list-disc ml-4">
+          <ul className="list-disc ml-8 mt-4">
             {(t("aboutUs.aboutWalcron.descriptionSupport", { returnObjects: true }) as string[])?.map(
               description => <li key={description}>{description}</li>
             )}
           </ul>
         </article>
         <article className="anchor-link-header" id={miniLinks[1].hashId}>
-          <h3 className="text-xl font-bold">
+          <h3 className="text-2xl text-center font-bold pb-4">
             {miniLinks[1].title}
           </h3>
           <p>
@@ -74,13 +74,13 @@ function About({ t }: TranslatorProps) {
           className="primary anchor-link-header"
           id={miniLinks[2].hashId}
         >
-          <h4 className="text-xl font-bold">
+          <h4 className="text-2xl text-center font-bold pb-4">
             {miniLinks[2].title}
           </h4>
           <p>
             {t("aboutUs.vision.description")}
           </p>
-          <ul className="list-disc ml-4">
+          <ul className="list-disc ml-8 mt-4">
             {(t("aboutUs.vision.descriptionSupport", { returnObjects: true }) as string[])?.map(
               description => <li key={description}>{description}</li>
             )}

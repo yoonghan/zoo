@@ -28,7 +28,7 @@ const translations: typeof enTranslation = {
         "address": "Alamat",
         "partners": "Partners",
         "maintainedInfo": "all rights reserved.",
-        "contactUs": "Hubungi Kami",
+        "contactUs": "Hubungi Zoo Negara",
         "careers": "Kerjaya",
         "faq": "Soalan Lazim"
     }

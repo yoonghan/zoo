@@ -27,10 +27,10 @@ test("has announcement", async ({ page }) => {
   }
 });
 
-test("links for contact us is valid", async ({ page }) => {
+test("links for contact zoo is valid", async ({ page }) => {
   await page.goto("http://localhost:3000/");
-  await page.getByRole("link", { name: "Contact Us" }).click();
-  await expect(page).toHaveTitle(/Contact Us/);
+  await page.getByRole("link", { name: "Contact Zoo Negara" }).click();
+  await expect(page).toHaveTitle(/Contact Zoo Negara/);
 });
 
 test("links for career is valid", async ({ page }) => {

@@ -8,7 +8,7 @@ describe("Frequent Asked Questions", () => {
       render(<Faq params={Promise.resolve({ lng: "en" })} />);
     })
     //main
-    expect(screen.getByRole("main")).toBeInTheDocument();
+    expect(await screen.findByRole("main")).toBeInTheDocument();
     //h1
     expect(
       screen.getByRole("heading", { name: "Frequent Asked Questions" })
