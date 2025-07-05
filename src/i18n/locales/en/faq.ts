@@ -14,7 +14,7 @@ const zooFaq: AccordionProps = [
   {
     label:
       "I'm a teacher and planning to bring my students to zoo. Do you offer any school concession rates?",
-    content: "Yes, please contact official Zoo Negara website [/en/contact-us|Contact Us].",
+    content: "Yes, please contact official Zoo Negara website [/en/contact-us|Contact Zoo Negara].",
   },
   {
     label: "What are the opening hours?",

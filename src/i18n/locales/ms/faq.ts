@@ -14,7 +14,7 @@ const zooFaq: AccordionProps = [
   {
     label:
       "Saya seorang guru dan bercadang untuk membawa pelajar saya ke zoo. Adakah anda menawarkan sebarang kadar konsesi sekolah?",
-    content: "Ya, sila rujuk kepada staff Zoo Negara [/ms/contact-us|Contact Us].",
+    content: "Ya, sila rujuk kepada staff Zoo Negara [/ms/contact-us|Contact Zoo Negara].",
   },
   {
     label: "Apakah waktu buka?",
