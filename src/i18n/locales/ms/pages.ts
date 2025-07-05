@@ -25,6 +25,10 @@ const translations: typeof enTranslation = {
     contactUs: {
       title: "Hubungi Zoo Negara",
       description: "Hubungi Zoo untuk maklumat.",
+    },
+    gettingThere: {
+      title: "Sampai ke sana",
+      description: "Tips untuk ke Zoo Negara, Malaysia di Ampang, Kuala Lumpur."
     }
   },
   homepage: {
@@ -102,6 +106,35 @@ const translations: typeof enTranslation = {
       "ReceptionCounter": "Kaunter Penerimaan",
       "ReceptionCounter_description": "Waktu buka, kadar dan konsesi sekolah."
     }
+  },
+  gettingThere: {
+    title: "Menuju Ke Sana",
+    "address": "Alamat",
+    "car": {
+      title: "Memandu",
+      description: "dengan Kereta, Motosikal, Van atau Bas",
+      instructions: [
+        "Tempat letak kereta yang besar disediakan di sebelah pintu masuk zoo."
+      ]
+    },
+    "train": {
+      title: "Kereta api",
+      description: "melalui Light Rail Transit System (LRT)",
+      instructions: [
+        "Turun di Stesen Wangsa Maju, Laluan Kelana Jaya.",
+        "Naik teksi ke Zoo Negara.",
+        "atau Naik Rapid KL nombor 253 dari Stesen LRT Putra, Wangsamaju, KL."
+      ]
+    },
+    "bus": {
+      title: "Bus",
+      description: "melalui Bus Awam",
+      instructions: [
+        "Rapid KL nombor 53 dari Stesen Wangsa Maju, Laluan Kelana Jaya.",
+        "Rapid KL nombor 220 dari Lebuh Ampang, KL."
+      ]
+    },
+    viewBtnText: "Lihat Dalam Peta Google",
   }
 }
 
