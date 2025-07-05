@@ -16,7 +16,7 @@ const convertToMenuLabel = (menuLabel: string) => {
 test("has menu", async ({ page }) => {
   await page.goto("http://localhost:3000/");
   await expect(
-    page.getByRole("link", { name: "Zoo Negara" })
+    page.getByRole("link", { name: "Zoo Negara", exact: true })
   ).toBeVisible();
 
   if (zooMenu.length > 0) {
