@@ -3,28 +3,53 @@ import MiniMenu, { MiniMenuItems } from "@/components/MiniMenu";
 import styles from "./kiosks-n-facilities.module.css";
 import Image from "next/image";
 
-const miniLinks: MiniMenuItems[] = [
-  {
-    title: "Food",
-    hashId: "food",
-  },
-  {
-    title: "Souvenir Shop",
-    hashId: "souvenir-shop",
-  },
-  {
-    title: "Facilities",
-    hashId: "facilities",
-  },
-];
+import { getTranslation } from "@/i18n";
+import { generateSiteMeta } from "@/util/generateMeta";
+import { Metadata } from "next";
+import { TranslatorProps, withTranslator } from "@/components/util/hoc/withTranslator";
 
-export default function KiosksAndFacilities() {
+
+type Props = {
+  params: Promise<{ lng: string }>
+}
+
+export async function generateMetadata(
+  { params }: Props
+): Promise<Metadata> {
+  const { lng } = await params
+  const { t } = await getTranslation(lng, "pages")
+
+  return generateSiteMeta(lng, t('headers.kiosksNFacilities.title'), t('headers.kiosksNFacilities.description'))
+}
+
+function KiosksAndFacilities({ t }: TranslatorProps) {
+
+  const foods = t('kiosksNFacilities.food.restaurants', { returnObjects: true }) as { title: string, description: string }[]
+  const souvenirs = t('kiosksNFacilities.souvenir.shops', { returnObjects: true }) as { title: string, description: string }[]
+  const facilities = t('kiosksNFacilities.facilities.facilities', { returnObjects: true }) as { title: string, description: string, image: string, imageAlt: string }[]
+
+
+  const miniLinks: MiniMenuItems[] = [
+    {
+      title: t('kiosksNFacilities.food.title'),
+      hashId: "food",
+    },
+    {
+      title: t('kiosksNFacilities.souvenir.title'),
+      hashId: "souvenir-shop",
+    },
+    {
+      title: t('kiosksNFacilities.facilities.title'),
+      hashId: "facilities",
+    },
+  ];
+
   return (
     <>
       <MiniMenu model={miniLinks} />
-      <main>
-        <h1 className="text-4xl text-center font-bold">
-          Kiosks And Facilities
+      <main className="pb-24">
+        <h1 className="text-4xl text-center font-bold my-10">
+          {t('kiosksNFacilities.title')}
         </h1>
 
         <hr className="mt-8" />
@@ -33,48 +58,17 @@ export default function KiosksAndFacilities() {
           className="anchor-link-header text-center primary"
           id={miniLinks[0].hashId}
         >
-          <h2 className="text-2xl font-bold">{miniLinks[0].title}</h2>
+          <h2 className="text-2xl font-bold pb-4">{miniLinks[0].title}</h2>
           <p>
-            Besides lot&apos;s of things to do, you can enjoy a meal here too.
+            {t('kiosksNFacilities.food.description')}
           </p>
           <div className={styles.kiosks}>
             <ul>
-              <li>
-                <strong>The Wild Restaurant</strong>
-                <p>
-                  Located at the heart of Zoo Negara, the Wild Restaurant is
-                  definitely your family restaurant. Catering a wide range of
-                  delicious fast food and mouth watering finger food at an
-                  affordable price, the Wild Restaurant offer various food for
-                  your friends and family.
-                </p>
-                <p>
-                  <i className="text-sm">* Prices vary (price list 2019)</i>
-                </p>
-                <Link
-                  href="/images/visitor-info/food/wild-fast-food.jpg"
-                  download={true}
-                  styling="Secondary"
-                >
-                  &gt;&gt; Download Menu
-                </Link>
-              </li>
-              <li>
-                <strong>Mane Delicious</strong>
-                <p>
-                  For those interested in cooling and delicious deserts, head on
-                  to this cafe for some famous &quot;Ais Kacang&quot; or
-                  &quot;Cendol&quot;!
-                </p>
-              </li>
-              <li>
-                <strong>Panda Cafe</strong>
-                <p>
-                  Looking for a Malaysian food? Then drop by at Panda Cafe for
-                  its delicious nasi lemak, curry mee, fried mee hoon and other
-                  dishes all guaranteed to satisfy a hungry tummy!
-                </p>
-              </li>
+              {foods.map(food => <li key={food.title}>
+                <strong>{food.title}</strong>
+                <p>{food.description}</p>
+              </li>)
+              }
             </ul>
           </div>
         </article>
@@ -88,31 +82,11 @@ export default function KiosksAndFacilities() {
           </h3>
           <div className={styles.kiosks}>
             <ul>
-              <li>
-                <strong>Kancil Souvenir Shop & Kyoto Enterprise</strong>
-                <p>
-                  Looking for some really unique gifts? Kancil Souvenir Shop and
-                  Kyoto Enterprise provide gifts for you to take home!
-                </p>
-              </li>
-              <li>
-                <strong>Zoovenir Shop</strong>
-                <p>
-                  Located inside Giant Panda Conservation Centre and in front of
-                  Savannah.
-                </p>
-                <p>
-                  Hunting for an exclusive Giant Panda merchandise? Drop by to
-                  Zoovenir Shop.
-                </p>
-              </li>
-              <li>
-                <strong>Bee Museum</strong>
-                <p>
-                  Come and visit our giant bees! The largest honey producer in
-                  Malaysia is now in Zoo Negara.
-                </p>
-              </li>
+              {souvenirs.map(souvenir => <li key={souvenir.title}>
+                <strong>{souvenir.title}</strong>
+                <p>{souvenir.description}</p>
+              </li>)
+              }
             </ul>
           </div>
         </article>
@@ -125,40 +99,25 @@ export default function KiosksAndFacilities() {
             {miniLinks[2].title}
           </h4>
           <div className={styles.facilities}>
-            <figure>
-              <Image
-                src="/images/visitor-info/surau.jpg"
-                width={365}
-                height={271}
-                alt="surau"
-              />
-              <figcaption>
-                <strong>Prayer Room / Surau</strong>
-                <p>
-                  An air-conditioned prayer room is provided with ample space
-                  situated nearby the zoo&apos;s main entrance.
-                </p>
-              </figcaption>
-            </figure>
-            <figure>
-              <Image
-                src="/images/visitor-info/freewifi.jpg"
-                width={365}
-                height={271}
-                alt="surau"
-              />
-              <figcaption>
-                <strong>Free Public Wifi</strong>
-                <p>
-                  Do you like being online all the time? Stay connected with our
-                  free wifi that is available at the main entrance, show
-                  amphitheatre and Giant Panda Conservation Centre.
-                </p>
-              </figcaption>
-            </figure>
+            {facilities.map(facility =>
+              <figure key={facility.title}>
+                <Image
+                  src={facility.image}
+                  width={365}
+                  height={271}
+                  alt={facility.imageAlt}
+                />
+                <figcaption>
+                  <strong>{facility.title}</strong>
+                  <p>{facility.description}</p>
+                </figcaption>
+              </figure>
+            )}
           </div>
         </article>
       </main>
     </>
   );
 }
+
+export default withTranslator(KiosksAndFacilities, "pages");

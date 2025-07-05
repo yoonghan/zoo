@@ -28,6 +28,10 @@ const translations = {
     gettingThere: {
       title: "Getting There",
       description: "Tips to get to Zoo Negara, Malaysia in Ampang, Kuala Lumpur."
+    },
+    kiosksNFacilities: {
+      title: "Kiosks And Facilities",
+      description: "Makanan, Kiosk Cenderamata dan Kemudahan dalam Zoo."
     }
   },
   homepage: {
@@ -134,6 +138,61 @@ const translations = {
       ]
     },
     viewBtnText: "View In Google Maps",
+  },
+  kiosksNFacilities: {
+    title: "Kiosks And Facilities",
+    food: {
+      title: 'Food',
+      description: "Besides lot's of things to do, you can enjoy a meal here too.",
+      restaurants: [
+        {
+          title: "The Wild Restaurant",
+          description: "Located at the heart of Zoo Negara, the Wild Restaurant is definitely your family restaurant. Catering a wide range of delicious fast food and mouth watering finger food at an affordable price, the Wild Restaurant offer various food for your friends and family."
+        },
+        {
+          title: "Mane Delicious",
+          description: "For those interested in cooling and delicious deserts, head on to this cafe for some famous 'Ais Kacang' or 'Cendol'!"
+        },
+        {
+          title: "Panda Cafe",
+          description: "Looking for a Malaysian food? Then drop by at Panda Cafe for its delicious nasi lemak, curry mee, fried mee hoon and other dishes all guaranteed to satisfy a hungry tummy!"
+        },
+      ]
+    },
+    souvenir: {
+      title: "Souvenir",
+      shops: [
+        {
+          title: "Kancil Souvenir Shop & Kyoto Enterprise",
+          description: "Looking for some really unique gifts? Kancil Souvenir Shop and Kyoto Enterprise provide gifts for you to take home!"
+        },
+        {
+          title: "Zoovenir Shop",
+          description: "Located inside Giant Panda Conservation Centre and in front of Savannah. Hunting for an exclusive Giant Panda merchandise? Drop by to Zoovenir Shop."
+        },
+        {
+          title: "Bee Museum",
+          description: "Come and visit our giant bees! The largest honey producer in Malaysia is now in Zoo Negara."
+        }
+      ]
+    },
+    facilities: {
+      title: "Facilities",
+      facilities: [
+        {
+          title: "Prayer Room / Surau",
+          description: "An air-conditioned prayer room is provided with ample space situated nearby the zoo's main entrance.",
+          image: "/images/visitor-info/surau.jpg",
+          imageAlt: "surau"
+        },
+        {
+          title: "Free Public Wifi",
+          description: "Do you like being online all the time? Stay connected with our free wifi that is available at the main entrance, show amphitheatre and Giant Panda Conservation Centre.",
+          image: "/images/visitor-info/freewifi.jpg",
+          imageAlt: "Wifi"
+        }
+      ]
+    }
   }
 }
 

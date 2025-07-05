@@ -29,6 +29,10 @@ const translations: typeof enTranslation = {
     gettingThere: {
       title: "Sampai ke sana",
       description: "Tips untuk ke Zoo Negara, Malaysia di Ampang, Kuala Lumpur."
+    },
+    kiosksNFacilities: {
+      title: "Kiosks And Kemudahan",
+      description: ""
     }
   },
   homepage: {
@@ -135,6 +139,61 @@ const translations: typeof enTranslation = {
       ]
     },
     viewBtnText: "Lihat Dalam Peta Google",
+  },
+  kiosksNFacilities: {
+    title: "Kiosks And Kemudahan",
+    food: {
+      title: 'Makan',
+      description: "Selain banyak perkara yang perlu dilakukan, anda juga boleh menikmati hidangan di sini.",
+      restaurants: [
+        {
+          title: "The Wild Restaurant",
+          description: "Terletak di tengah-tengah Zoo Negara, Restoran Wild sememangnya restoran keluarga anda. Menyajikan pelbagai jenis makanan segera yang lazat dan makanan jari yang menyelerakan pada harga yang berpatutan, Restoran Wild menawarkan pelbagai makanan untuk rakan dan keluarga anda."
+        },
+        {
+          title: "Mane Delicious",
+          description: "Bagi mereka yang berminat dengan padang pasir yang menyejukkan dan lazat, kunjungi kafe ini untuk melihat 'Ais Kacang' atau 'Cendol' yang terkenal!"
+        },
+        {
+          title: "Panda Cafe",
+          description: "Mencari makanan Malaysia? Kemudian singgah di Panda Cafe untuk nasi lemaknya yang lazat, mee kari, mee hoon goreng dan hidangan lain semuanya dijamin mengenyangkan perut yang lapar!"
+        },
+      ]
+    },
+    souvenir: {
+      title: "Souvenir",
+      shops: [
+        {
+          title: "Kancil Souvenir Shop & Kyoto Enterprise",
+          description: "Mencari beberapa hadiah yang benar-benar unik? Kedai Cenderamata Kancil dan Kyoto Enterprise menyediakan hadiah untuk anda bawa pulang!"
+        },
+        {
+          title: "Kedai Zoovenir",
+          description: "Terletak di dalam Pusat Pemuliharaan Panda Gergasi dan di hadapan Savannah. Memburu barangan Panda Gergasi eksklusif? Singgah ke Kedai Zoovenir."
+        },
+        {
+          title: "Muzium Lebah",
+          description: "Datang dan lawati lebah gergasi kami! Pengeluar madu terbesar di Malaysia kini berada di Zoo Negara."
+        }
+      ]
+    },
+    facilities: {
+      title: "Kemudahan",
+      facilities: [
+        {
+          title: "Surau",
+          description: "Ruang solat berhawa dingin disediakan dengan ruang yang luas yang terletak berhampiran pintu masuk utama zoo.",
+          image: "/images/visitor-info/surau.jpg",
+          imageAlt: "surau"
+        },
+        {
+          title: "Free Public Wifi",
+          description: "Adakah anda suka berada dalam talian sepanjang masa? Kekal berhubung dengan wifi percuma kami yang tersedia di pintu masuk utama, pertunjukan amfiteater dan Pusat Konservasi Panda Gergasi.",
+          image: "/images/visitor-info/freewifi.jpg",
+          imageAlt: "Wifi"
+        }
+      ]
+    }
   }
 }
 
