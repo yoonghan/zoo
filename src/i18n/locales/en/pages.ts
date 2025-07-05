@@ -24,6 +24,10 @@ const translations = {
     contactUs: {
       title: "Contact Zoo Negara",
       description: "Contacts for zoo information.",
+    },
+    gettingThere: {
+      title: "Getting There",
+      description: "Tips to get to Zoo Negara, Malaysia in Ampang, Kuala Lumpur."
     }
   },
   homepage: {
@@ -101,6 +105,35 @@ const translations = {
       "ReceptionCounter": "Reception Counter",
       "ReceptionCounter_description": "Opening hours, rates and school concession."
     }
+  },
+  gettingThere: {
+    title: "Getting There",
+    "address": "Address",
+    "car": {
+      title: "Drive",
+      description: "with Car, Motorcycle, Van or Buses",
+      instructions: [
+        "A large parking area is available next to the entrance of zoo."
+      ]
+    },
+    "train": {
+      title: "Train",
+      description: "via Light Rail Transit System (LRT)",
+      instructions: [
+        "Alight at Wangsa Maju Station, Kelana Jaya Line.",
+        "Board a taxi to Zoo Negara.",
+        "or Board Rapid KL number 253 from Putra LRT Station, Wangsamaju, KL."
+      ]
+    },
+    "bus": {
+      title: "Public Bus",
+      description: "via Public Bus",
+      instructions: [
+        "Rapid KL number 53 from Wangsa Maju Station, Kelana Jaya Line.",
+        "Rapid KL number 220 from Lebuh Ampang, KL."
+      ]
+    },
+    viewBtnText: "View In Google Maps",
   }
 }
 

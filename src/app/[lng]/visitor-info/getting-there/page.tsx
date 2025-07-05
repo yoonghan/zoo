@@ -2,32 +2,84 @@ import { ButtonLink } from "@/components/Button";
 import MiniMenu, { MiniMenuItems } from "@/components/MiniMenu";
 import { zooProfile } from "@/config/profile";
 
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBus, faTrain } from '@fortawesome/free-solid-svg-icons'
+import { faBus, faTrain, faCar } from '@fortawesome/free-solid-svg-icons'
 import { faMap } from '@fortawesome/free-regular-svg-icons'
 
-const miniLinks: MiniMenuItems[] = [
-  {
-    title: "Address",
-    hashId: "address",
-  },
-  {
-    title: "Train",
-    hashId: "train",
-  },
-  {
-    title: "Bus",
-    hashId: "bus",
-  },
-];
+import { getTranslation } from "@/i18n";
+import { generateSiteMeta } from "@/util/generateMeta";
+import { Metadata } from "next";
+import { TranslatorProps, withTranslator } from "@/components/util/hoc/withTranslator";
+import { JSX, ReactNode } from "react";
+import React from "react";
 
-export default function GettingThere() {
+type Props = {
+  params: Promise<{ lng: string }>
+}
+
+export async function generateMetadata(
+  { params }: Props
+): Promise<Metadata> {
+  const { lng } = await params
+  const { t } = await getTranslation(lng, "pages")
+
+  return generateSiteMeta(lng, t('headers.gettingThere.title'), t('headers.gettingThere.description'))
+}
+
+type hashIds = "address" | "car" | "train" | "bus"
+
+interface MiniMenuExtended extends MiniMenuItems {
+  hashId: hashIds
+}
+
+function GettingThere({ t }: TranslatorProps) {
+  const miniLinks: MiniMenuExtended[] = [
+    {
+      title: t("gettingThere.address"),
+      hashId: "address",
+    },
+    {
+      title: t("gettingThere.car.title"),
+      hashId: "car",
+    },
+    {
+      title: t("gettingThere.train.title"),
+      hashId: "train",
+    },
+    {
+      title: t("gettingThere.bus.title"),
+      hashId: "bus",
+    },
+  ];
+
+  const getLogo = (hashId: hashIds) => {
+    switch (hashId) {
+      case "car":
+        return faCar
+      case "train":
+        return faTrain
+      default:
+        return faBus
+    }
+  }
+
+  const Header = ({ idx, title, className }: { idx: number, title: string, className: string }) => {
+    const tagName = {
+      0: 'h3',
+      1: 'h4',
+      2: 'h5',
+    }[idx] || 'h6';
+
+    const Tag = tagName as keyof JSX.IntrinsicElements;
+
+    return React.createElement(Tag, { className }, <>{title}</>);
+  }
+
   return (
     <>
       <MiniMenu model={miniLinks} />
-      <main>
-        <h1 className="text-4xl text-center font-bold">Getting There</h1>
+      <main className="pb-24">
+        <h1 className="text-4xl text-center font-bold my-10">{t('gettingThere.title')}</h1>
 
         <hr className="mt-8" />
 
@@ -51,55 +103,38 @@ export default function GettingThere() {
                 styling={"Secondary"}
                 rel="external"
               >
-              <FontAwesomeIcon icon={faMap} width="20" className="mr-2 inline"/>  View In Google Maps
+                <FontAwesomeIcon icon={faMap} width="20" className="mr-2 inline" />
+                {t("gettingThere.viewBtnText")}
               </ButtonLink>
             </div>
           </div>
         </article>
 
-        <article
-          className="anchor-link-header text-left"
-          id={miniLinks[1].hashId}
-        >
-          <h3 className="text-2xl font-bold text-center">
-            {miniLinks[1].title}
-          </h3>
-            <FontAwesomeIcon icon={faTrain} width={50} className="mx-auto mt-4"/>
-          <div className="mt-4">
-            <strong>via Light Rail Transit System (LRT)</strong>:
-            <ol className="list-decimal text-left mt-2 ml-6">
-              <li>Alight at Wangsa Maju Station, Kelana Jaya Line.</li>
-              <li>Board a taxi to Zoo Negara.</li>
-              <li>
-                or Board Rapid KL number <strong>253</strong> from Putra LRT
-                Station, Wangsamaju, KL.
-              </li>
-            </ol>
-          </div>
-        </article>
+        {
+          miniLinks.slice(1).map((miniLink, idx) => {
+            var logo = getLogo(miniLink.hashId);
+            var instructions = t(`gettingThere.${miniLink.hashId}.instructions`, { returnObjects: true }) as string[]
 
-        <article
-          className="anchor-link-header text-left primary"
-          id={miniLinks[2].hashId}
-        >
-          <h4 className="text-2xl font-bold text-center">
-            {miniLinks[2].title}
-          </h4>
-          <FontAwesomeIcon icon={faBus} width={50} className="mx-auto mt-4"/>
-          <div className="mt-4">
-            <strong>via Bus</strong>:
-            <ol className="list-decimal text-left mt-2 ml-6">
-              <li>
-                Rapid KL number <strong>253</strong> from Wangsa Maju Station,
-                Kelana Jaya Line.
-              </li>
-              <li>
-                Rapid KL number <strong>220</strong> from Lebuh Ampang, KL.
-              </li>
-            </ol>
-          </div>
-        </article>
+            return <article
+              className={`anchor-link-header text-left ${idx % 2 == 1 ? "primary" : ""}`}
+              id={miniLink.hashId}
+              key={miniLink.hashId}>
+              <Header className="text-2xl font-bold text-center" idx={idx} title={t(`gettingThere.${miniLink.hashId}.title`)} />
+              <FontAwesomeIcon icon={logo} width={50} className="mx-auto mt-4 pb-12" />
+              <div className="mt-4 ml-12">
+                <strong>{t(`gettingThere.${miniLink.hashId}.description`)}</strong>:
+                {<ol className="list-decimal text-left mt-2 ml-6">
+                  {instructions.map(instruction => (
+                    <li key={instruction}>{instruction}</li>
+                  ))}
+                </ol>}
+              </div>
+            </article>
+          })
+        }
       </main>
     </>
   );
 }
+
+export default withTranslator(GettingThere, "pages");
