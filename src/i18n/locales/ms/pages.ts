@@ -11,7 +11,7 @@ const translations: typeof enTranslation = {
       description: "Cerita mengapa Zoo Negara Malaysia website dibina."
     },
     frequentAskedQuestions: {
-      title: "Frequent Asked Question",
+      title: "Soalan Lazim",
       description: "Soalan lazim tentang lawatan ke zoo, disusun terus dari Zoo Negara Malaysia."
     },
     careers: {
@@ -103,7 +103,7 @@ const translations: typeof enTranslation = {
         important: "Sila bawa bersama pasport pengenalan / kad pengenalan anda di kaunter tiket untuk tujuan pengesahan.",
         free: "Kemasukan Percuma",
         freeOne: "Kanak-kanak di bawah umur 36 bulan, masuk secara percuma.",
-        freeTwo: "Untuk OKU/OKU. Sila tunjukkan kad OKU yang sah."
+        freeTwo: "Untuk OKU. Sila tunjukkan kad OKU yang sah."
       }
     },
     rental: {
