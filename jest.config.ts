@@ -36,4 +36,4 @@ const config: Config = {
   ],
 };
 
-export default createJestConfig(config);
+export default createJestConfig(config as any);
