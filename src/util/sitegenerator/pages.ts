@@ -23,7 +23,7 @@ const getRecursiveFiles = (srcpath: string): string[] => {
 };
 
 const remapAppFiles = (files: string[]) => {
-  const appLayoutFile = "/layout.tsx";
+  const appPageFile = "/page.tsx";
 
   const removeRootPath = (file: string) =>
     file.substring(appFolder.length, file.length);
@@ -31,7 +31,7 @@ const remapAppFiles = (files: string[]) => {
   const removePage = (file: string) => {
     const filePath = file.substring(
       0,
-      file.length - removeExtension(appLayoutFile).length
+      file.length - removeExtension(appPageFile).length
     );
     return filePath === "" ? "/" : filePath;
   };
@@ -39,7 +39,7 @@ const remapAppFiles = (files: string[]) => {
   const rootFiles = files
     .filter((file: string) => file.indexOf("/.") === -1) //remove all hidden files, like .DS_Store
     .filter((file: string) => file.lastIndexOf(".test.") === -1) //remove all test files
-    .filter((file) => file.endsWith(appLayoutFile))
+    .filter((file) => file.endsWith(appPageFile))
     .map((file) => removePage(removeExtension(removeRootPath(file))));
 
   return rootFiles.map((file) => `${file}`);

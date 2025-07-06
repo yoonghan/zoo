@@ -1,4 +1,5 @@
 const translations = {
+    to: "to",
     "Monday": "Monday",
     "Tuesday": "Tuesday",
     "Wednesday": "Wednesday",
@@ -26,7 +27,7 @@ const translations = {
         "address": "Address",
         "partners": "Partners",
         "maintainedInfo": "all rights reserved.",
-        "contactUs": "Contact Us",
+        "contactUs": "Contact Zoo Negara",
         "careers": "Careers",
         "faq": "FAQ"
     }

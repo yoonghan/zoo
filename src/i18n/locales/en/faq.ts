@@ -1,4 +1,6 @@
-const zooFaq = [
+import { AccordionProps } from "@/components/Accordion";
+
+const zooFaq: AccordionProps = [
   {
     label: "How to reach Zoo Negara?",
     content:
@@ -12,7 +14,7 @@ const zooFaq = [
   {
     label:
       "I'm a teacher and planning to bring my students to zoo. Do you offer any school concession rates?",
-    content: "Yes, please [/en/contact-us|Contact Us].",
+    content: "Yes, please contact official Zoo Negara website [/en/contact-us|Contact Zoo Negara].",
   },
   {
     label: "What are the opening hours?",
@@ -36,11 +38,6 @@ const zooFaq = [
     label: "Can I bring a bicycle or roller-blade?",
     content:
       "Skateboard, skates, bicycles, alcoholics, balloons, and fire-crackers of any kind are not allowed on site.",
-  },
-  {
-    label: "What are the times for the shows?",
-    content:
-      "Check it out in our [/en/visitor-info/zoo-map|Zoo Map's Show time] section. Don't miss it out!",
   },
   {
     label:

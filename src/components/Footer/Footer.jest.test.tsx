@@ -51,7 +51,7 @@ describe("Footer", () => {
             address: "Address",
             partners: "Partners",
             maintainedInfo: "all rights reserved.",
-            contactUs: "Contact Us",
+            contactUs: "Contact Zoo Negara",
             careers: "Careers",
             faq: "FAQ",
           }
@@ -100,7 +100,7 @@ describe("Footer", () => {
             address: "Address",
             partners: "Partners",
             maintainedInfo: "all rights reserved.",
-            contactUs: "Contact Us",
+            contactUs: "Contact Zoo Negara",
             careers: "Careers",
             faq: "FAQ",
           }
@@ -127,7 +127,7 @@ describe("Footer", () => {
     expect(getByText("Operation Hours:")).toBeInTheDocument();
     expect(getByText("Address:")).toBeInTheDocument();
     expect(getByText("Partners:")).toBeInTheDocument();
-    expect(getByText("Contact Us")).toHaveAttribute("href", "/en/contact-us");
+    expect(getByText("Contact Zoo Negara")).toHaveAttribute("href", "/en/contact-us");
     expect(getByText("Careers")).toHaveAttribute("href", "/en/careers");
     expect(getByText("FAQ")).toHaveAttribute(
       "href",

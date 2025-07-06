@@ -1,43 +1,63 @@
+import type { Metadata } from "next";
 import { ButtonLink } from "@/components/Button";
+import {
+  TranslatorProps,
+  withTranslator,
+} from "@/components/util/hoc/withTranslator";
 import Image from "next/image";
+import { getTranslation } from "@/i18n";
+import { generateSiteMeta } from "@/util/generateMeta";
 
-export default function ZooMap() {
+type Props = {
+  params: Promise<{ lng: string }>
+}
+
+export async function generateMetadata(
+  { params }: Props
+): Promise<Metadata> {
+  const { lng } = await params
+  const { t } = await getTranslation(lng, "pages")
+
+  return generateSiteMeta(lng, t('headers.zooMap.title'), t('headers.zooMap.description'))
+}
+
+function ZooMap({ t }: TranslatorProps) {
   return (
-    <>
-      <main>
-        <article className="primary">
-          <h1 className="text-4xl text-center font-bold">Zoo Map</h1>
-          <hr />
-          <div className="py-8 text-center">
-            <p>To explore our zoo download it.</p>
-            <div className="mt-6">
-              <ButtonLink
-                href="/images/zoo-negara-map.jpg"
-                download={true}
-                styling="Secondary"
-              >
-                Download Map
-              </ButtonLink>
-            </div>
+    <main>
+      <article className="primary">
+        <h1 className="text-4xl text-center font-bold">{t('visitorInfo.zooMap.title')}</h1>
+        <hr />
+        <div className="py-8 text-center">
+          <p>{t('visitorInfo.zooMap.description')}</p>
+          <div className="mt-6">
+            <ButtonLink
+              href="/images/zoo-negara-map.jpg"
+              download={true}
+              styling="Secondary"
+            >
+              {t('visitorInfo.zooMap.downloadMapBtn')}
+            </ButtonLink>
           </div>
-          <div>
-            <Image
-              src="/images/zoo-negara-map-web-1.jpg"
-              alt="Zoo Negara Map"
-              width={2200}
-              height={1100}
-              className="clear-both"
-            />
-            <Image
-              src="/images/zoo-negara-map-web-2.jpg"
-              alt="Zoo Negara Map"
-              width={2200}
-              height={1227}
-              className="clear-both"
-            />
-          </div>
-        </article>
-      </main>
-    </>
+        </div>
+        <div>
+          <Image
+            src="/images/zoo-negara-map-web-1.jpg"
+            alt="Top Zoo Negara Map"
+            width={2200}
+            height={1100}
+            className="clear-both"
+          />
+          <Image
+            src="/images/zoo-negara-map-web-2.jpg"
+            alt="Bottom Zoo Negara Map"
+            width={2200}
+            height={1227}
+            className="clear-both"
+          />
+        </div>
+      </article>
+    </main>
   );
 }
+
+export default withTranslator(ZooMap, "pages");

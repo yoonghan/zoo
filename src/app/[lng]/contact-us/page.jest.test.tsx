@@ -1,46 +1,71 @@
-import { render } from "@testing-library/react";
-import ContactUs from "./page";
+import { render, screen, act } from "@testing-library/react";
+import ContactUs, { generateMetadata } from "./page";
 import { zooProfile } from "@/config/profile";
+import translations from "@/i18n/locales/en/pages";
 
 /** Testing is limited for layout, as it renders whole html. The only best solution is via e2e test. */
 describe("Contact Us", () => {
-  it("should contains important keys", () => {
-    const { getByRole } = render(<ContactUs />);
+  it("should contains important keys", async () => {
+    await act(async () => {
+      render(<ContactUs params={Promise.resolve({ lng: "en" })} />);
+    });
+
     //main
-    expect(getByRole("main")).toBeInTheDocument();
+    expect(await screen.findByRole("main")).toBeInTheDocument();
     //h1
-    expect(getByRole("heading", { name: "Contact Us" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Contact Zoo Negara" })).toBeInTheDocument();
+
+    //link to official site
+    expect(screen.getByRole("link", { name: "1" })).toHaveAttribute("href", "https://zoonegara.my/contact.html")
   });
 
-  it("should contain phone numbers", () => {
-    const { getByRole } = render(<ContactUs />);
+  it("should contain phone numbers", async () => {
+    await act(async () => {
+      render(<ContactUs params={Promise.resolve({ lng: "en" })} />);
+    });
+
+    //main
+    expect(await screen.findByRole("main")).toBeInTheDocument();
     const { phoneNumber1, phoneNumber2 } = zooProfile.contactus;
-    expect(getByRole("link", { name: phoneNumber1 })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: phoneNumber1 })).toHaveAttribute(
       "href",
       `tel:${phoneNumber1}`
     );
 
-    expect(getByRole("link", { name: phoneNumber2 })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: phoneNumber2 })).toHaveAttribute(
       "href",
       `tel:${phoneNumber2}`
     );
   });
 
-  it("should contain all defined administration info", () => {
-    const { getByRole, getByText } = render(<ContactUs />);
+  it("should contain all defined administration info", async () => {
+    await act(async () => {
+      render(<ContactUs params={Promise.resolve({ lng: "en" })} />);
+    });
+
+    //main
+    expect(await screen.findByRole("main")).toBeInTheDocument();
+
     const administrations = zooProfile.contactus.administration;
     if (administrations.length > 0) {
       administrations.forEach((administration) => {
         expect(
-          getByRole("heading", { name: administration.department })
+          screen.getByRole("heading", { name: translations.contactUs.translate.Administration })
         ).toBeInTheDocument();
         expect(
-          getByRole("link", { name: administration.email })
+          screen.getByRole("link", { name: administration.email })
         ).toHaveAttribute("href", `mailto:${administration.email}`);
         expect(
-          getByText(administration.departmentFunction)
+          screen.getByText(translations.contactUs.translate.Administration_description)
         ).toBeInTheDocument();
       });
     }
   });
+
+  it("should generate site headers", async () => {
+    const metadata = await generateMetadata({ params: Promise.resolve({ lng: "en" }) })
+
+    expect(metadata.title).toBe(translations.headers.contactUs.title)
+    expect(metadata.description).toBe(translations.headers.contactUs.description)
+  })
 });

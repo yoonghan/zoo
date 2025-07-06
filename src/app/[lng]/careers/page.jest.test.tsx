@@ -1,20 +1,37 @@
-import { render } from "@testing-library/react";
-import Career from "./page";
+import { render, screen, act } from "@testing-library/react";
+import Career, { generateMetadata } from "./page";
 import { zooProfile } from "@/config/profile";
-import { checkDownloadLinkHasHostAllLocalFiles } from "@/util/fileHelper";
+import translations from "@/i18n/locales/en/pages";
 
 describe("Career", () => {
-  it("should contains important keys", () => {
-    const { getByRole } = render(<Career />);
+  it("should contains important keys", async () => {
+    await act(async () => {
+      render(<Career params={Promise.resolve({ lng: "en" })} />);
+    });
+
     //main
-    expect(getByRole("main")).toBeInTheDocument();
+    expect(await screen.findByRole("main")).toBeInTheDocument();
     //h1
     expect(
-      getByRole("heading", { name: "Zoo Negara - Career" })
+      screen.getByRole("heading", { name: translations.careers.title })
     ).toBeInTheDocument();
-    //hr email
+
+    //to link zoo
     expect(
-      getByRole("link", { name: "Official Zoo Negara Careers" })
+      screen.getByRole("link", { name: translations.careers.officialCareerLinkText })
     ).toHaveAttribute("href", zooProfile.careerLink);
+
+
+    //email to HR
+    expect(
+      screen.getByRole("link", { name: translations.careers.emailToZoo })
+    ).toHaveAttribute("href", `mailto:${zooProfile.contactus.hrEmail}`);
   });
+
+  it("should generate site headers", async () => {
+    const metadata = await generateMetadata({ params: Promise.resolve({ lng: "en" }) })
+
+    expect(metadata.title).toBe(translations.headers.careers.title)
+    expect(metadata.description).toBe(translations.headers.careers.description)
+  })
 });
