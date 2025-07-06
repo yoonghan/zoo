@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { ButtonLink } from "@/components/Button";
 import MiniMenu, { MiniMenuItems } from "@/components/MiniMenu";
 import { zooProfile } from "@/config/profile";
@@ -7,48 +8,75 @@ import Image from "next/image";
 import React from "react";
 import styles from "./visitor-info.module.css";
 import { withTranslator, TranslatorProps } from "@/components/util/hoc/withTranslator";
+import { getTranslation } from "@/i18n";
+import { generateSiteMeta } from "@/util/generateMeta";
 
-const miniLinks: MiniMenuItems[] = [
-  {
-    title: "Opening Hours",
-    hashId: "opening-hours",
-  },
-  {
-    title: "Admission Ticket",
-    hashId: "admission-ticket",
-  },
-  {
-    title: "Rental",
-    hashId: "rental",
-  },
-  {
-    title: "Tram Ride",
-    hashId: "tram-ride",
-  },
-];
+type Props = {
+  params: Promise<{ lng: string }>
+}
 
-function VisitorInfo({ t }: TranslatorProps) {
+export async function generateMetadata(
+  { params }: Props
+): Promise<Metadata> {
+  const { lng } = await params
+  const { t } = await getTranslation(lng, "pages")
+
+  return generateSiteMeta(lng, t('headers.visitorInfo.title'), t('headers.visitorInfo.description'))
+}
+
+function OperatingHours({ t }: TranslatorProps) {
+  return <>
+    <div className="mt-2 text-xl font-bold">
+      {t(zooProfile.operatingTime.day.from)} {t("to")}{" "}
+      {t(zooProfile.operatingTime.day.to)}
+    </div>
+    <div className="mt-2">
+      ({zooProfile.operatingTime.time.from} {t("to")}{" "}
+      {zooProfile.operatingTime.time.to})
+    </div>
+    <div className="italic text-sm mt-8">(* {t('footer.lastAdmission', { "time": zooProfile.operatingTime.lastAdmissionTime })})</div>
+  </>
+}
+
+const TranslatedOperatingHours = withTranslator(OperatingHours)
+
+function VisitorInfo({ t, lng }: TranslatorProps) {
+
+  const rentals = t("visitorInfo.rental.facilities", { returnObjects: true }) as { title: string, description: string, image: string, imageAlt: string }[]
+  const additionalInformationNotes = t("visitorInfo.additionalInformationNotes", { returnObjects: true }) as string[]
+
+  const miniLinks: MiniMenuItems[] = [
+    {
+      title: t('visitorInfo.openingHours.title'),
+      hashId: "opening-hours",
+    },
+    {
+      title: t('visitorInfo.admissionTicket.title'),
+      hashId: "admission-ticket",
+    },
+    {
+      title: t('visitorInfo.rental.title'),
+      hashId: "rental",
+    },
+    {
+      title: t('visitorInfo.tramRide.title'),
+      hashId: "tram-ride",
+    },
+  ];
+
   return (
     <>
       <MiniMenu model={miniLinks} />
       <main>
-        <h1 className="text-4xl text-center font-bold my-10">Visitor Info</h1>
+        <h1 className="text-4xl text-center font-bold my-10">{t('visitorInfo.title')}</h1>
 
         <article
           className="anchor-link-header text-center primary"
           id={miniLinks[0].hashId}
         >
           <h2 className="text-2xl font-bold">{miniLinks[0].title}</h2>
-          <div className="mt-4">Zoo Opens Daily from:</div>
-          <div className="mt-2 text-xl font-bold">
-            {zooProfile.operatingTime.day.from} to{" "}
-            {zooProfile.operatingTime.day.to}
-          </div>
-          <div className="mt-2">
-            ({zooProfile.operatingTime.time.from} to{" "}
-            {zooProfile.operatingTime.time.to})
-          </div>
-          <div className="italic text-sm mt-8">(* {t('footer.lastAdmission', { "time": zooProfile.operatingTime.lastAdmissionTime })})</div>
+          <div className="mt-4">{t('visitorInfo.openingHours.description')}</div>
+          <TranslatedOperatingHours params={Promise.resolve({ lng })} />
         </article>
 
         <article
@@ -56,7 +84,7 @@ function VisitorInfo({ t }: TranslatorProps) {
           id={miniLinks[1].hashId}
         >
           <h3 className="text-2xl font-bold">{miniLinks[1].title}</h3>
-          <p>Please get your admission ticket valid</p>
+          <p>{t('visitorInfo.admissionTicket.description')}</p>
           <div className="mt-8">
             <ButtonLink href={zooProfile.ticket.admission.url} styling="BuyNow">
               <FontAwesomeIcon
@@ -68,23 +96,14 @@ function VisitorInfo({ t }: TranslatorProps) {
             </ButtonLink>
           </div>
           <div className="mt-16 text-left">
-            <strong>Additional Information:</strong>
+            <strong>{t('visitorInfo.additionalInformationText')}:</strong>
             <ol className="list-decimal ml-6">
+              <li>{t('visitorInfo.admissionTicket.additionalInformation.important')}</li>
               <li>
-                Please bring along your identity passport / ID card at the
-                ticket counter for verification purposes.
+                <i className="text-yellow-700">{t('visitorInfo.admissionTicket.additionalInformation.free')}</i> - {t('visitorInfo.admissionTicket.additionalInformation.freeOne')}
               </li>
               <li>
-                <i className="text-yellow-700">Free Admission</i> - Children
-                below 36 months old, enters for free.
-              </li>
-              <li>
-                <i className="text-yellow-700">Free Admission</i> - For
-                OKU/Disable. Please show a valid OKU card.
-              </li>
-              <li>
-                All price exchange are in{" "}
-                <strong>Malaysian Ringgit (MYR)</strong>
+                <i className="text-yellow-700">{t('visitorInfo.admissionTicket.additionalInformation.free')}</i> - {t('visitorInfo.admissionTicket.additionalInformation.freeTwo')}
               </li>
             </ol>
           </div>
@@ -97,58 +116,20 @@ function VisitorInfo({ t }: TranslatorProps) {
           <h4 className="text-2xl font-bold">{miniLinks[2].title}</h4>
 
           <div className={styles.rental}>
-            <figure>
-              <Image
-                src="/images/visitor-info/wheelchair.jpg"
-                width={365}
-                height={271}
-                alt="rental wheelchair"
-              />
-              <figcaption>
-                <strong>WheelChair</strong>
-                <p>
-                  A wheelchair service on a first come first served basis is
-                  available at the Information Counter B. Rental fee is RM5.00
-                  and a refundable deposit for RM50.00 is required.
-                </p>
-              </figcaption>
-            </figure>
-            <figure>
-              <Image
-                src="/images/visitor-info/stroller.jpg"
-                width={365}
-                height={271}
-                alt="rental stroller"
-              />
-              <figcaption>
-                <strong>Baby Strollers</strong>
-                <p>
-                  A baby stroller service is available now at our new stroller
-                  station. This baby stroller is sponsored by Mother Care.
-                  Stroller service is available at the Information Counter B on
-                  a first come first served basis.
-                </p>
-                <p>
-                  Rental fee is RM20.00. A refundable deposit of RM50.00 is
-                  required.
-                </p>
-              </figcaption>
-            </figure>
-            <figure>
-              <Image
-                src="/images/visitor-info/locker.jpg"
-                width={365}
-                height={271}
-                alt="rental locker"
-              />
-              <figcaption>
-                <strong>Lockers</strong>
-                <p>
-                  The lockers are available at Ticket Counter for storage of
-                  personal belongings. Rental fee is RM2.00.
-                </p>
-              </figcaption>
-            </figure>
+            {rentals.map(rental =>
+              <figure key={rental.title}>
+                <Image
+                  src={rental.image}
+                  width={365}
+                  height={271}
+                  alt={rental.imageAlt}
+                />
+                <figcaption>
+                  <strong>{rental.title}</strong>
+                  <p>{rental.description}</p>
+                </figcaption>
+              </figure>
+            )}
           </div>
         </article>
 
@@ -156,40 +137,34 @@ function VisitorInfo({ t }: TranslatorProps) {
           <h4 className="text-2xl font-bold">{miniLinks[3].title}</h4>
 
           <div className="mt-4">
-            <strong>Tram Station Price</strong>
+            <div>{t("visitorInfo.tramRide.priceTable.description")}</div>
             <table className="mt-2 w-full">
               <thead>
                 <tr>
-                  <th>Category</th>
-                  <th>With MyKad</th>
-                  <th>Without MyKad</th>
+                  <th>{t("visitorInfo.tramRide.priceTable.h1")}</th>
+                  <th>{t("visitorInfo.tramRide.priceTable.h2")}</th>
+                  <th>{t("visitorInfo.tramRide.priceTable.h3")}</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Adults</td>
+                  <td>{t("visitorInfo.tramRide.priceTable.adult")}</td>
                   <td>MYR 10.90</td>
                   <td>MYR 14.90</td>
                 </tr>
                 <tr>
-                  <td>
-                    Children <br />
-                    <i>(3 to 12 years old)</i>
-                  </td>
+                  <td>{t("visitorInfo.tramRide.priceTable.children")}</td>
                   <td>MYR 6.90</td>
                   <td>MYR 11.90</td>
                 </tr>
               </tbody>
             </table>
             <div className="mt-8">
-              <strong>Additional Information:</strong>
+              <strong>{t("visitorInfo.additionalInformationText")}:</strong>
               <ol className="list-decimal ml-6">
-                <li>Tickets can be purchased at the zoo.</li>
-                <li>
-                  OKU - 10% discounted price (Please show a valid OKU card).
-                </li>
-                <li>Vip Booking - 1 hour, RM399.00.</li>
-                <li>All rates are stated in Malaysian Ringgit (MYR).</li>
+                {additionalInformationNotes.map(additionalInformation =>
+                  <li key={additionalInformation}>{additionalInformation}</li>
+                )}
               </ol>
             </div>
           </div>
@@ -199,4 +174,4 @@ function VisitorInfo({ t }: TranslatorProps) {
   );
 }
 
-export default withTranslator(VisitorInfo)
+export default withTranslator(VisitorInfo, "pages")

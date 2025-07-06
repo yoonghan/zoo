@@ -6,10 +6,6 @@ const translations: typeof enTranslation = {
   headers: {
     default: "Zoo Negara Malaysia",
     defaultDescription: "Sebuah pertubuhan bukan kerajaan yang ditubuhkan untuk mewujudkan zoo tempatan pertama untuk rakyat Malaysia.",
-    zooMap: {
-      title: "Peta Zoo Negara Malaysia Map",
-      description: "Muat turun peta dan merancang hari anda di Zoo Negara Malaysia."
-    },
     aboutUs: {
       title: "Tentang Zoo Negara Malaysia",
       description: "Cerita mengapa Zoo Negara Malaysia website dibina."
@@ -26,9 +22,21 @@ const translations: typeof enTranslation = {
       title: "Hubungi Zoo Negara",
       description: "Hubungi Zoo untuk maklumat.",
     },
+    visitorInfo: {
+      title: "Maklumat Pelawat",
+      description: "Maklumat pelawat tentang waktu dan kemudahan dibuka zoo."
+    },
+    zooMap: {
+      title: "Peta Zoo Negara Malaysia Map",
+      description: "Muat turun peta dan merancang hari anda di Zoo Negara Malaysia."
+    },
     gettingThere: {
       title: "Sampai ke sana",
       description: "Tips untuk ke Zoo Negara, Malaysia di Ampang, Kuala Lumpur."
+    },
+    kiosksNFacilities: {
+      title: "Kiosks And Kemudahan",
+      description: ""
     }
   },
   homepage: {
@@ -72,6 +80,63 @@ const translations: typeof enTranslation = {
     }
   },
   visitorInfo: {
+    title: "Maklumat Pelawat",
+    additionalInformationText: "Maklumat Tambahan",
+    additionalInformationNotes: [
+      "Tiket boleh dibeli di zoo.",
+      "OKU - 10% diskaun harga (Sila tunjukkan kad OKU yang sah).",
+      "Tempahan Vip boleh diatur, sila semak dengan Pentadbir Zoo dalam pautan Hubungi Zoo.",
+      "Semua kadar dinyatakan dalam Ringgit Malaysia (MYR).",
+    ],
+    openingHours: {
+      title: "Waktu Buka",
+      description: "Zoo Dibuka Setiap Hari dari:"
+    },
+    admissionTicket: {
+      title: "Tiket Masuk",
+      description: "Sila dapatkan valid tiket masuk andad",
+      additionalInformation: {
+        important: "Sila bawa bersama pasport pengenalan / kad pengenalan anda di kaunter tiket untuk tujuan pengesahan.",
+        free: "Kemasukan Percuma",
+        freeOne: "Kanak-kanak di bawah umur 36 bulan, masuk secara percuma.",
+        freeTwo: "Untuk OKU/OKU. Sila tunjukkan kad OKU yang sah."
+      }
+    },
+
+    rental: {
+      title: "Sewa",
+      facilities: [
+        {
+          title: "Kerusi roda",
+          description: "Perkhidmatan kerusi roda atas dasar siapa cepat dia dapat disediakan di Kaunter Maklumat B. Bayaran sewa dan deposit yang akan dikembalikan diperlukan.",
+          image: "/images/visitor-info/wheelchair.jpg",
+          imageAlt: "Sewa Kerusi roda"
+        },
+        {
+          title: "Kereta Sorong Bayi",
+          description: "Perkhidmatan kereta sorong bayi kini tersedia di stesen kereta sorong baharu kami. Kereta sorong bayi ini ditaja oleh Mother Care. Perkhidmatan kereta sorong boleh didapati di Kaunter Maklumat B atas dasar siapa cepat dia dapat.",
+          image: "/images/visitor-info/stroller.jpg",
+          imageAlt: "Baby Strollers"
+        },
+        {
+          title: "Loker",
+          description: "Loker boleh didapati di Kaunter Tiket untuk penyimpanan barang peribadi. Bayaran sewa diperlukan.",
+          image: "/images/visitor-info/locker.jpg",
+          imageAlt: "Loker Sewa"
+        }
+      ]
+    },
+    tramRide: {
+      title: "Naik Tram",
+      priceTable: {
+        description: "Harga Trem (semasa 5-Jun-2026)",
+        h1: "Kategori",
+        h2: "Dengan MyKad",
+        h3: "Tiada MyKad",
+        adult: "Dewasa",
+        children: "Kanak-Kanak (3-12 years old)"
+      }
+    },
     zooMap: {
       title: "Peta Zoo Negara Malaysia",
       downloadMapBtn: "Muat turun Peta",
@@ -135,6 +200,61 @@ const translations: typeof enTranslation = {
       ]
     },
     viewBtnText: "Lihat Dalam Peta Google",
+  },
+  kiosksNFacilities: {
+    title: "Kiosks And Kemudahan",
+    food: {
+      title: 'Makan',
+      description: "Selain banyak perkara yang perlu dilakukan, anda juga boleh menikmati hidangan di sini.",
+      restaurants: [
+        {
+          title: "The Wild Restaurant",
+          description: "Terletak di tengah-tengah Zoo Negara, Restoran Wild sememangnya restoran keluarga anda. Menyajikan pelbagai jenis makanan segera yang lazat dan makanan jari yang menyelerakan pada harga yang berpatutan, Restoran Wild menawarkan pelbagai makanan untuk rakan dan keluarga anda."
+        },
+        {
+          title: "Mane Delicious",
+          description: "Bagi mereka yang berminat dengan padang pasir yang menyejukkan dan lazat, kunjungi kafe ini untuk melihat 'Ais Kacang' atau 'Cendol' yang terkenal!"
+        },
+        {
+          title: "Panda Cafe",
+          description: "Mencari makanan Malaysia? Kemudian singgah di Panda Cafe untuk nasi lemaknya yang lazat, mee kari, mee hoon goreng dan hidangan lain semuanya dijamin mengenyangkan perut yang lapar!"
+        },
+      ]
+    },
+    souvenir: {
+      title: "Souvenir",
+      shops: [
+        {
+          title: "Kancil Souvenir Shop & Kyoto Enterprise",
+          description: "Mencari beberapa hadiah yang benar-benar unik? Kedai Cenderamata Kancil dan Kyoto Enterprise menyediakan hadiah untuk anda bawa pulang!"
+        },
+        {
+          title: "Kedai Zoovenir",
+          description: "Terletak di dalam Pusat Pemuliharaan Panda Gergasi dan di hadapan Savannah. Memburu barangan Panda Gergasi eksklusif? Singgah ke Kedai Zoovenir."
+        },
+        {
+          title: "Muzium Lebah",
+          description: "Datang dan lawati lebah gergasi kami! Pengeluar madu terbesar di Malaysia kini berada di Zoo Negara."
+        }
+      ]
+    },
+    facilities: {
+      title: "Kemudahan",
+      facilities: [
+        {
+          title: "Surau",
+          description: "Ruang solat berhawa dingin disediakan dengan ruang yang luas yang terletak berhampiran pintu masuk utama zoo.",
+          image: "/images/visitor-info/surau.jpg",
+          imageAlt: "surau"
+        },
+        {
+          title: "Free Public Wifi",
+          description: "Adakah anda suka berada dalam talian sepanjang masa? Kekal berhubung dengan wifi percuma kami yang tersedia di pintu masuk utama, pertunjukan amfiteater dan Pusat Konservasi Panda Gergasi.",
+          image: "/images/visitor-info/freewifi.jpg",
+          imageAlt: "Wifi"
+        }
+      ]
+    }
   }
 }
 

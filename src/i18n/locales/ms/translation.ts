@@ -1,6 +1,7 @@
 import enTranslation from "../en/translation"
 
 const translations: typeof enTranslation = {
+    "to": "sampai",
     "Monday": "Isnin",
     "Tuesday": "Selasa",
     "Wednesday": "Rabu",
