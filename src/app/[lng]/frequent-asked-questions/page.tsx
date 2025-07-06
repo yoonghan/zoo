@@ -14,19 +14,19 @@ export async function generateMetadata(
   const { lng } = await params
   const { t } = await getTranslation(lng, "pages")
 
-  return generateSiteMeta(lng, t('headers.faq.title'), t('headers.faq.description'))
+  return generateSiteMeta(lng, t('headers.frequentAskedQuestions.title'), t('headers.frequentAskedQuestions.description'))
 }
 
 function Faq({ t }: TranslatorProps) {
 
-  const faq: AccordionProps = t("faq.zooFaq", { returnObjects: true }) as AccordionProps
+  const faq: AccordionProps = t("frequentAskedQuestions.zooFaq", { returnObjects: true }) as AccordionProps
 
   return (
     <>
       <main>
         <article>
           <h1 className="text-4xl font-bold text-center">
-            {t("faq.title")}
+            {t("frequentAskedQuestions.title")}
           </h1>
           <div className="mt-8">
             <Accordion model={faq} groupName="faq" />

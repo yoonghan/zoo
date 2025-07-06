@@ -10,7 +10,7 @@ const translations: typeof enTranslation = {
       title: "Tentang Zoo Negara Malaysia",
       description: "Cerita mengapa Zoo Negara Malaysia website dibina."
     },
-    faq: {
+    frequentAskedQuestions: {
       title: "Frequent Asked Question",
       description: "Soalan lazim tentang lawatan ke zoo, disusun terus dari Zoo Negara Malaysia."
     },
@@ -106,7 +106,6 @@ const translations: typeof enTranslation = {
         freeTwo: "Untuk OKU/OKU. Sila tunjukkan kad OKU yang sah."
       }
     },
-
     rental: {
       title: "Sewa",
       facilities: [
@@ -147,7 +146,7 @@ const translations: typeof enTranslation = {
       description: "Untuk menerokai zoo kami, muat turunnya."
     }
   },
-  faq: {
+  frequentAskedQuestions: {
     title: "Soalan Lazim",
     zooFaq
   },

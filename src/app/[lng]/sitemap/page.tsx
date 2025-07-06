@@ -33,8 +33,6 @@ const SiteMap = ({ t, lng }: TranslatorProps) => {
 
     if (givenPathName === "")
       return t(`headers.default`)
-    if (givenPathName === "frequent-asked-questions")
-      return t(`headers.faq.title`)
 
     const camelCasePath = givenPathName.replace(/-([a-z])/g, (_, char) => char.toUpperCase())
     return t(`headers.${camelCasePath}.title`)
