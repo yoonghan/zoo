@@ -16,8 +16,8 @@ describe("SiteMap", () => {
 
     //links
     expect(screen.getByRole("link", { name: translations.headers.default })).toHaveAttribute("href", "/en")
-    expect(screen.getByRole("link", { name: translations.headers.aboutUs.title })).toHaveAttribute("href", "/about-us/en")
-    expect(screen.getByRole("link", { name: translations.headers.frequentAskedQuestions.title })).toHaveAttribute("href", "/frequent-asked-questions/en")
+    expect(screen.getByRole("link", { name: translations.headers.aboutUs.title })).toHaveAttribute("href", "/en/about-us")
+    expect(screen.getByRole("link", { name: translations.headers.frequentAskedQuestions.title })).toHaveAttribute("href", "/en/frequent-asked-questions")
 
     //indentation
     expect(screen.getByRole("link", { name: translations.headers.contactUs.title }).parentElement).toHaveClass("ml-8")
