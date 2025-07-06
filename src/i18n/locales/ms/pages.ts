@@ -36,7 +36,11 @@ const translations: typeof enTranslation = {
     },
     kiosksNFacilities: {
       title: "Kiosks And Kemudahan",
-      description: ""
+      description: "Makanan, Kiosk Cenderamata dan Kemudahan dalam Zoo."
+    },
+    sitemap: {
+      title: "Peta laman",
+      description: "Peta laman hierarki Zoo Walcron."
     }
   },
   homepage: {

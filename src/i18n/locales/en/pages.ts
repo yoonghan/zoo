@@ -35,7 +35,11 @@ const translations = {
     },
     kiosksNFacilities: {
       title: "Kiosks And Facilities",
-      description: "Makanan, Kiosk Cenderamata dan Kemudahan dalam Zoo."
+      description: "Food, Souvenir Kiosks and Facilities within the Zoo."
+    },
+    sitemap: {
+      title: "Sitemap",
+      description: "Hierarchical sitemap of Walcron Zoo."
     }
   },
   homepage: {
