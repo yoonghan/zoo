@@ -22,7 +22,7 @@ describe("Frequent Asked Questions", () => {
   it("should generate site headers", async () => {
     const metadata = await generateMetadata({ params: Promise.resolve({ lng: "en" }) })
 
-    expect(metadata.title).toBe(translations.headers.faq.title)
-    expect(metadata.description).toBe(translations.headers.faq.description)
+    expect(metadata.title).toBe(translations.headers.frequentAskedQuestions.title)
+    expect(metadata.description).toBe(translations.headers.frequentAskedQuestions.description)
   })
 });

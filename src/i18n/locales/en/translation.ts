@@ -29,7 +29,8 @@ const translations = {
         "maintainedInfo": "all rights reserved.",
         "contactUs": "Contact Zoo Negara",
         "careers": "Careers",
-        "faq": "FAQ"
+        "faq": "FAQ",
+        "sitemap": "Sitemap"
     }
 }
 

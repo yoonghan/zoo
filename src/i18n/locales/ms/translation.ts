@@ -31,7 +31,8 @@ const translations: typeof enTranslation = {
         "maintainedInfo": "all rights reserved.",
         "contactUs": "Hubungi Zoo Negara",
         "careers": "Kerjaya",
-        "faq": "Soalan Lazim"
+        "faq": "Soalan Lazim",
+        "sitemap": "Peta Laman"
     }
 }
 

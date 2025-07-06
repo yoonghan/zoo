@@ -41,6 +41,7 @@ function MutableFooter({
     contactUs: string,
     careers: string,
     faq: string,
+    sitemap: string
   }
 }) {
 
@@ -98,6 +99,9 @@ function MutableFooter({
         </li>
         <li>
           <Link href={`/${language}/frequent-asked-questions`}>{labels.faq}</Link>
+        </li>
+        <li>
+          <Link href={`/${language}/sitemap`}>{labels.sitemap}</Link>
         </li>
       </ul>
       <hr className="my-4 border-t"></hr>

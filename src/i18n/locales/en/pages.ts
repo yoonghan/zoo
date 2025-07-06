@@ -9,7 +9,7 @@ const translations = {
       title: "About Zoo Negara Website",
       description: "The story why a copy of Zoo Negara Malaysia website was created."
     },
-    faq: {
+    frequentAskedQuestions: {
       title: "Frequent Asked Questions",
       description: "Frequent questions about the visit to the zoo, compiled directly from Zoo Negara Malaysia."
     },
@@ -35,7 +35,11 @@ const translations = {
     },
     kiosksNFacilities: {
       title: "Kiosks And Facilities",
-      description: "Makanan, Kiosk Cenderamata dan Kemudahan dalam Zoo."
+      description: "Food, Souvenir Kiosks and Facilities within the Zoo."
+    },
+    sitemap: {
+      title: "Sitemap",
+      description: "Hierarchical sitemap of Walcron Zoo."
     }
   },
   homepage: {
@@ -141,7 +145,7 @@ const translations = {
       description: "To explore our zoo, download it."
     }
   },
-  faq: {
+  frequentAskedQuestions: {
     title: "Frequent Asked Questions",
     zooFaq
   },
