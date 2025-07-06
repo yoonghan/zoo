@@ -1,6 +1,8 @@
 import { render, screen, act } from "@testing-library/react";
 import VisitorInfo, { generateMetadata } from "./page";
 import translations from "@/i18n/locales/en/pages";
+import mainTranslations from "@/i18n/locales/en/translation";
+import { zooProfile } from "@/config/profile";
 
 describe("Visitor Info", () => {
   it("should contains important keys", async () => {
@@ -21,6 +23,9 @@ describe("Visitor Info", () => {
     //array works
     expect(screen.getByText(translations.visitorInfo.rental.facilities[0].title)).toBeInTheDocument();
     expect(screen.getByText(translations.visitorInfo.additionalInformationNotes[0])).toBeInTheDocument();
+
+    //opening hours are translated from main translations
+    expect(screen.getByText(`(* ${mainTranslations.footer.lastAdmission})`.replace("{{time}}", zooProfile.operatingTime.lastAdmissionTime))).toBeInTheDocument()
   });
 
 

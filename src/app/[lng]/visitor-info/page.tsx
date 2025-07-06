@@ -24,7 +24,23 @@ export async function generateMetadata(
   return generateSiteMeta(lng, t('headers.visitorInfo.title'), t('headers.visitorInfo.description'))
 }
 
-function VisitorInfo({ t }: TranslatorProps) {
+function OperatingHours({ t }: TranslatorProps) {
+  return <>
+    <div className="mt-2 text-xl font-bold">
+      {t(zooProfile.operatingTime.day.from)} {t("to")}{" "}
+      {t(zooProfile.operatingTime.day.to)}
+    </div>
+    <div className="mt-2">
+      ({zooProfile.operatingTime.time.from} {t("to")}{" "}
+      {zooProfile.operatingTime.time.to})
+    </div>
+    <div className="italic text-sm mt-8">(* {t('footer.lastAdmission', { "time": zooProfile.operatingTime.lastAdmissionTime })})</div>
+  </>
+}
+
+const TranslatedOperatingHours = withTranslator(OperatingHours)
+
+function VisitorInfo({ t, lng }: TranslatorProps) {
 
   const rentals = t("visitorInfo.rental.facilities", { returnObjects: true }) as { title: string, description: string, image: string, imageAlt: string }[]
   const additionalInformationNotes = t("visitorInfo.additionalInformationNotes", { returnObjects: true }) as string[]
@@ -60,15 +76,7 @@ function VisitorInfo({ t }: TranslatorProps) {
         >
           <h2 className="text-2xl font-bold">{miniLinks[0].title}</h2>
           <div className="mt-4">{t('visitorInfo.openingHours.description')}</div>
-          <div className="mt-2 text-xl font-bold">
-            {zooProfile.operatingTime.day.from} to{" "}
-            {zooProfile.operatingTime.day.to}
-          </div>
-          <div className="mt-2">
-            ({zooProfile.operatingTime.time.from} to{" "}
-            {zooProfile.operatingTime.time.to})
-          </div>
-          <div className="italic text-sm mt-8">(* {t('footer.lastAdmission', { "time": zooProfile.operatingTime.lastAdmissionTime })})</div>
+          <TranslatedOperatingHours params={Promise.resolve({ lng })} />
         </article>
 
         <article
@@ -97,7 +105,6 @@ function VisitorInfo({ t }: TranslatorProps) {
               <li>
                 <i className="text-yellow-700">{t('visitorInfo.admissionTicket.additionalInformation.free')}</i> - {t('visitorInfo.admissionTicket.additionalInformation.freeTwo')}
               </li>
-              <li> {t('visitorInfo.admissionTicket.additionalInformation.exchange')}{" "} <strong>Malaysian Ringgit (MYR)</strong></li>
             </ol>
           </div>
         </article>

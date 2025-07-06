@@ -98,8 +98,7 @@ const translations = {
         important: "Please bring along your identity passport / ID card at the ticket counter for verification purposes.",
         free: "Free Admission",
         freeOne: "Children below 36 months old, enters for free.",
-        freeTwo: "For OKU/Disable. Please show a valid OKU card.",
-        exchange: "All price exchange are in"
+        freeTwo: "For OKU/Disable. Please show a valid OKU card."
       }
     },
     rental: {

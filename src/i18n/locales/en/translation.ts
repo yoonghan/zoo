@@ -1,4 +1,5 @@
 const translations = {
+    to: "to",
     "Monday": "Monday",
     "Tuesday": "Tuesday",
     "Wednesday": "Wednesday",

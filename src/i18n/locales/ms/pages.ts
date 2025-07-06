@@ -80,6 +80,63 @@ const translations: typeof enTranslation = {
     }
   },
   visitorInfo: {
+    title: "Maklumat Pelawat",
+    additionalInformationText: "Maklumat Tambahan",
+    additionalInformationNotes: [
+      "Tiket boleh dibeli di zoo.",
+      "OKU - 10% diskaun harga (Sila tunjukkan kad OKU yang sah).",
+      "Tempahan Vip boleh diatur, sila semak dengan Pentadbir Zoo dalam pautan Hubungi Zoo.",
+      "Semua kadar dinyatakan dalam Ringgit Malaysia (MYR).",
+    ],
+    openingHours: {
+      title: "Waktu Buka",
+      description: "Zoo Dibuka Setiap Hari dari:"
+    },
+    admissionTicket: {
+      title: "Tiket Masuk",
+      description: "Sila dapatkan valid tiket masuk andad",
+      additionalInformation: {
+        important: "Sila bawa bersama pasport pengenalan / kad pengenalan anda di kaunter tiket untuk tujuan pengesahan.",
+        free: "Kemasukan Percuma",
+        freeOne: "Kanak-kanak di bawah umur 36 bulan, masuk secara percuma.",
+        freeTwo: "Untuk OKU/OKU. Sila tunjukkan kad OKU yang sah."
+      }
+    },
+
+    rental: {
+      title: "Sewa",
+      facilities: [
+        {
+          title: "Kerusi roda",
+          description: "Perkhidmatan kerusi roda atas dasar siapa cepat dia dapat disediakan di Kaunter Maklumat B. Bayaran sewa dan deposit yang akan dikembalikan diperlukan.",
+          image: "/images/visitor-info/wheelchair.jpg",
+          imageAlt: "Sewa Kerusi roda"
+        },
+        {
+          title: "Kereta Sorong Bayi",
+          description: "Perkhidmatan kereta sorong bayi kini tersedia di stesen kereta sorong baharu kami. Kereta sorong bayi ini ditaja oleh Mother Care. Perkhidmatan kereta sorong boleh didapati di Kaunter Maklumat B atas dasar siapa cepat dia dapat.",
+          image: "/images/visitor-info/stroller.jpg",
+          imageAlt: "Baby Strollers"
+        },
+        {
+          title: "Loker",
+          description: "Loker boleh didapati di Kaunter Tiket untuk penyimpanan barang peribadi. Bayaran sewa diperlukan.",
+          image: "/images/visitor-info/locker.jpg",
+          imageAlt: "Loker Sewa"
+        }
+      ]
+    },
+    tramRide: {
+      title: "Naik Tram",
+      priceTable: {
+        description: "Harga Trem (semasa 5-Jun-2026)",
+        h1: "Kategori",
+        h2: "Dengan MyKad",
+        h3: "Tiada MyKad",
+        adult: "Dewasa",
+        children: "Kanak-Kanak (3-12 years old)"
+      }
+    },
     zooMap: {
       title: "Peta Zoo Negara Malaysia",
       downloadMapBtn: "Muat turun Peta",
