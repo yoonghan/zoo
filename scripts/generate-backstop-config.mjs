@@ -1,11 +1,11 @@
 import fs from 'fs'
 import backstopConfigJson from "./origin.backstop.json" with {type: "json"}
-    
+
 /** backstop config file to create **/
 const backstopConfigFile = "./backstop.json"
 
 /** base url */
-const baseUrl = "http://localhost:3000".replace(/\/$/,"")
+const baseUrl = "http://localhost:3000".replace(/\/$/, "")
 
 /** standard page config */
 const backStopConfigFor = (page) => {
@@ -35,15 +35,15 @@ const getRecursiveFiles = (srcpath) => {
 };
 
 const remapAppFiles = (files) => {
-  const appLayoutFile = "/layout.tsx";
+  const appPageFile = "/page.tsx";
 
   const removeRootPath = (file) =>
     file.substring(appFolder.length, file.length);
-  const removeExtension = (file ) => file.split(".")[0];
+  const removeExtension = (file) => file.split(".")[0];
   const removePage = (file) => {
     const filePath = file.substring(
       0,
-      file.length - removeExtension(appLayoutFile).length
+      file.length - removeExtension(appPageFile).length
     );
     return filePath === "" ? "/" : filePath;
   };
@@ -51,7 +51,7 @@ const remapAppFiles = (files) => {
   return files
     .filter((file) => file.indexOf("/.") === -1) //remove all hidden files, like .DS_Store
     .filter((file) => file.lastIndexOf(".test.") === -1) //remove all test files
-    .filter((file) => file.endsWith(appLayoutFile))
+    .filter((file) => file.endsWith(appPageFile))
     .map((file) => removePage(removeExtension(removeRootPath(file))));
 };
 
@@ -62,11 +62,11 @@ const allRemappedFile = remapAppFiles(allAppFiles);
 
 /* Add snapshot for each new page.ts created */
 allRemappedFile.sort().forEach(pathToTest => {
-   backstopConfigJson.scenarios.push({
-      "label": `${pathToTest}`,
-      "url": `${baseUrl}/en${pathToTest === "/"? "":pathToTest}?version=none`, 
-      ...backStopConfigFor(pathToTest)
-   })
+  backstopConfigJson.scenarios.push({
+    "label": `${pathToTest}`,
+    "url": `${baseUrl}/en${pathToTest === "/" ? "" : pathToTest}?version=none`,
+    ...backStopConfigFor(pathToTest)
+  })
 })
 
 fs.writeFile(backstopConfigFile, JSON.stringify(backstopConfigJson, null, 4), function writeJSON(err) {
