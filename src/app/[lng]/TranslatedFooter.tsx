@@ -29,7 +29,8 @@ const TranslatedFooterComponent = withComponentTranslator(({ t, lng }: Translato
                 maintainedInfo: t('footer.maintainedInfo'),
                 contactUs: t('footer.contactUs'),
                 careers: t('footer.careers'),
-                faq: t('footer.faq')
+                faq: t('footer.faq'),
+                sitemap: t('footer.sitemap')
             }
         }
     />
