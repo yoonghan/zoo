@@ -18,6 +18,7 @@ Goal is to replace a website zoonegara.my. Zoo Negara is a non-government organi
 3. Images/Video are few.
 4. Pop-up that is annoying and stops users from navigating before closing.
 5. Ticketing information are image.
+6. No dual language, esp. Bahasa Malaysia.
 
 ### UI Issues
 
@@ -37,18 +38,6 @@ Goal is to replace a website zoonegara.my. Zoo Negara is a non-government organi
 
 1. Ticketing seems to runned by another service.
 2. Having server load might be overkill on this scenario.
-
-### Done
-
-1. Rearrange menu - more.
-2. Add site map.
-3. Add auto deployment and verification workflow.
-
-### Things removed
-
-1. Removed zooku (strange annual pass = per entry ticket)
-2. Removed news
-3. Merged education in to get involved
 
 ## Development
 
