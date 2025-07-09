@@ -93,6 +93,14 @@ jobs:
         if: steps.all-cache.outputs.cache-hit != 'true'
         run: ${{ steps.detect-package-manager.outputs.runner }}  playwright install chromium
 
+      - name: Run Background copy (if localhost)
+        if: startsWith(github.event.inputs.deployed_url, 'http://localhost')
+        run: |
+          npm run build
+          nohup npm start > npm.log 2>&1 &
+          echo $! > npm.pid
+          echo "NPM_PID=$(cat npm.pid)" >> $GITHUB_ENV
+
       - name: ▶️ Update Backstop Urls
         uses: ./.github/actions/backstop/rewrite
         with:
@@ -102,6 +110,16 @@ jobs:
         shell: bash
         continue-on-error: true
         run: npm run snapshot
+
+      - name: Kill npm background process (if localhost)
+        if: startsWith(github.event.inputs.deployed_url, 'http://localhost')
+        run: |
+          if [ -f npm.pid ]; then
+            kill $(cat npm.pid)
+            echo "Killed npm process"
+          else
+            echo "No PID file found"
+          fi
 
       - name: ✅ Approve all snapshots
         if: ${{ inputs.should_approve }}
