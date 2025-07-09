@@ -21,3 +21,7 @@ jobs:
     permissions:
       pull-requests: write
     uses: ./.github/workflows/snapshot.yml
+    with:
+      deployed_url: http://localhost:3000
+      test_no_image: false
+      ref_folder_postfix: "localhost"
