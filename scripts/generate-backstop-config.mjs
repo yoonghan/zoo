@@ -10,6 +10,9 @@ const baseUrl = "http://localhost:3000".replace(/\/$/, "")
 /** set as no image load */
 const isNoImageTest = process.env.LOAD_NO_IMAGE
 
+/** postfix reference folder */
+const refFolderPostfix = process.env.REF_FOLDER_POSTFIX
+
 /** standard page config */
 const backStopConfigFor = (page) => {
   return {
@@ -73,9 +76,9 @@ allRemappedFile.sort().forEach(pathToTest => {
   })
 })
 
-/* Reference for no image is different folder */
-if(isNoImageTest) {
-  backstopConfigJson.paths.bitmaps_reference = `${backstopConfigJson.paths.bitmaps_reference}_noimagetest`
+/* Reference postfix if wanted to save in different refs */
+if(refFolderPostfix && refFolderPostfix !== '') {
+  backstopConfigJson.paths.bitmaps_reference = `${backstopConfigJson.paths.bitmaps_reference}_${refFolderPostfix}`
 }
 
 fs.writeFile(backstopConfigFile, JSON.stringify(backstopConfigJson, null, 4), function writeJSON(err) {
