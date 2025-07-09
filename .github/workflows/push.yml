@@ -19,5 +19,5 @@ jobs:
     uses: ./.github/workflows/compliance.yml
   snapshot:
     permissions:
-      pull-requests: read
+      pull-requests: write
     uses: ./.github/workflows/snapshot.yml
