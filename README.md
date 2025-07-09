@@ -18,6 +18,7 @@ Goal is to replace a website zoonegara.my. Zoo Negara is a non-government organi
 3. Images/Video are few.
 4. Pop-up that is annoying and stops users from navigating before closing.
 5. Ticketing information are image.
+6. No dual language, esp. Bahasa Malaysia.
 
 ### UI Issues
 
