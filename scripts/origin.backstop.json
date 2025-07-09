@@ -14,8 +14,7 @@
     ],
     "onBeforeScript": "playwright/onBefore.js",
     "onReadyScript": "playwright/onReady.js",
-    "scenarios": [
-    ],
+    "scenarios": [],
     "paths": {
         "bitmaps_reference": "backstop_data/bitmaps_reference",
         "bitmaps_test": "backstop_data/bitmaps_test",
@@ -27,8 +26,7 @@
         "browser"
     ],
     "engine": "playwright",
-    "engineOptions": {
-    },
+    "engineOptions": {},
     "asyncCaptureLimit": 5,
     "asyncCompareLimit": 50,
     "debug": false,

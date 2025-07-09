@@ -7,10 +7,13 @@ const backstopConfigFile = "./backstop.json"
 /** base url */
 const baseUrl = "http://localhost:3000".replace(/\/$/, "")
 
+/** set as no image load */
+const isNoImageTest = process.env.LOAD_NO_IMAGE
+
 /** standard page config */
 const backStopConfigFor = (page) => {
   return {
-    "misMatchThreshold": 0.4,
+    "misMatchThreshold": 0.3,
     "requireSameDimensions": false,
     "delay": 500,
   }
@@ -65,9 +68,15 @@ allRemappedFile.sort().forEach(pathToTest => {
   backstopConfigJson.scenarios.push({
     "label": `${pathToTest}`,
     "url": `${baseUrl}/en${pathToTest === "/" ? "" : pathToTest}?version=none`,
+    "loadNoImage": isNoImageTest,
     ...backStopConfigFor(pathToTest)
   })
 })
+
+/* Reference for no image is different folder */
+if(isNoImageTest) {
+  backstopConfigJson.paths.bitmaps_reference = `${backstopConfigJson.paths.bitmaps_reference}_noimagetest`
+}
 
 fs.writeFile(backstopConfigFile, JSON.stringify(backstopConfigJson, null, 4), function writeJSON(err) {
   if (err) return console.log(err);
