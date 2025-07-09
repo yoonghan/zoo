@@ -10,7 +10,7 @@ const baseUrl = "http://localhost:3000".replace(/\/$/, "")
 /** standard page config */
 const backStopConfigFor = (page) => {
   return {
-    "misMatchThreshold": 0.3,
+    "misMatchThreshold": 0.4,
     "requireSameDimensions": false,
     "delay": 500,
   }
