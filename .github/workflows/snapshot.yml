@@ -94,7 +94,7 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.runner }}  playwright install chromium
 
       - name: Run Background copy (if localhost)
-        if: startsWith(github.event.inputs.deployed_url, 'http://localhost')
+        if: startsWith(inputs.deployed_url, 'http://localhost')
         run: |
           npm run build
           nohup npm start > npm.log 2>&1 &
