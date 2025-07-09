@@ -5,6 +5,10 @@ function Home({ t }: TranslatorProps) {
 
   return (
     <main className="no-margin-y">
+      How good is the program<br/>
+      How good is the program<br/>
+      How good is the program<br/>
+      How good is the program<br/>
       <Image
         src="/images/header.jpg"
         width={960}
