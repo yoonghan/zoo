@@ -15,9 +15,9 @@ const IMAGE_URL_RE = /\.gif|\.jpg|\.png/i;
 const HEADERS_STUB = {};
 
 module.exports = async function (page, scenario) {
-  const loadNoImage = Boolean(scenario.loadNoImage);
+  const loadNoImage = `${scenario.loadNoImage}`;
 
-  if (loadNoImage) {
+  if (loadNoImage.toUpperCase() === "true") {
     page.route(IMAGE_URL_RE, (route) => {
       route.fulfill({
         body: "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=",
