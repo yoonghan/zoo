@@ -15,7 +15,7 @@ const IMAGE_URL_RE = /\.gif|\.jpg|\.png/i;
 const HEADERS_STUB = {};
 
 module.exports = async function (page, scenario) {
-  const loadNoImage = scenario.loadNoImage || false;
+  const loadNoImage = Boolean(scenario.loadNoImage);
 
   if (loadNoImage) {
     page.route(IMAGE_URL_RE, (route) => {
