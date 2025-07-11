@@ -1,4 +1,4 @@
-import Styles from "./about-us.module.css";
+import styles from "./about-us.module.css";
 import MiniMenu, { MiniMenuItems } from "@/components/MiniMenu";
 import { Link } from "@/components/Link";
 import { withTranslator, TranslatorProps } from "@/components/util/hoc/withTranslator";
@@ -39,7 +39,7 @@ function About({ t }: TranslatorProps) {
   return (
     <>
       <MiniMenu model={miniLinks} />
-      <main className={Styles["about-us"]}>
+      <main className={styles["about-us"]}>
         <h1 className="text-4xl text-center font-bold my-10">
           {t('aboutUs.title')}
         </h1>
