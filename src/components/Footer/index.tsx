@@ -31,20 +31,20 @@ function MutableFooter({
   operatingTime,
   address,
   partners,
-  labels
+  labels,
 }: FooterProps & {
-  language: string, labels: {
-    operationHours: string,
-    address: string,
-    partners: string,
-    maintainedInfo: string,
-    contactUs: string,
-    careers: string,
-    faq: string,
-    sitemap: string
-  }
+  language: string;
+  labels: {
+    operationHours: string;
+    address: string;
+    partners: string;
+    maintainedInfo: string;
+    contactUs: string;
+    careers: string;
+    faq: string;
+    sitemap: string;
+  };
 }) {
-
   const currentYearUpdated = new Date().getFullYear();
 
   return (
@@ -76,18 +76,20 @@ function MutableFooter({
             </ul>
           </article>
         </div>
-        {partners.length > 0 && <article className="mt-10 m-auto max-w-xl md:text-center">
-          <strong>{labels.partners}:</strong>
-          <ul className="flex gap-8 md:justify-center mt-4">
-            {partners.map(({ url, imageSrc, alt }, idx) => (
-              <li key={`footer-partner-${idx}`}>
-                <Link href={url} target="_blank" rel="external">
-                  <Image src={imageSrc} alt={alt} width={50} height={50} />
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </article>}
+        {partners.length > 0 && (
+          <article className="mt-10 m-auto max-w-xl md:text-center">
+            <strong>{labels.partners}:</strong>
+            <ul className="flex gap-8 md:justify-center mt-4">
+              {partners.map(({ url, imageSrc, alt }, idx) => (
+                <li key={`footer-partner-${idx}`}>
+                  <Link href={url} target="_blank" rel="external">
+                    <Image src={imageSrc} alt={alt} width={50} height={50} />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </article>
+        )}
       </div>
       <hr className="my-4 border-t"></hr>
       <ul className="text-center text-sm leading-10">
@@ -98,7 +100,9 @@ function MutableFooter({
           <Link href={`/${language}/careers`}>{labels.careers}</Link>
         </li>
         <li>
-          <Link href={`/${language}/frequent-asked-questions`}>{labels.faq}</Link>
+          <Link href={`/${language}/frequent-asked-questions`}>
+            {labels.faq}
+          </Link>
         </li>
         <li>
           <Link href={`/${language}/sitemap`}>{labels.sitemap}</Link>
@@ -108,7 +112,7 @@ function MutableFooter({
       <div className="text-center text-sm mt-4">
         <span>&copy; {companyName}</span>{" "}
         <span>{`- ${currentYearUpdated} ${labels.maintainedInfo}`}</span>
-        <Version version={process.env.RELEASE_VERSION || 'local'} />
+        <Version version={process.env.RELEASE_VERSION || "local"} />
       </div>
     </footer>
   );

@@ -76,6 +76,16 @@ allRemappedFile.sort().forEach(pathToTest => {
   })
 })
 
+/* Add page not found */
+backstopConfigJson.scenarios.push({
+  "label": "Page Not Found",
+  "url": `${baseUrl}/en/not-found-page`,
+  "loadNoImage": isNoImageTest,
+  "misMatchThreshold": 0.3,
+  "requireSameDimensions": false,
+  "delay": 100,
+})
+
 /* Reference postfix if wanted to save in different refs */
 if(refFolderPostfix && refFolderPostfix !== '') {
   backstopConfigJson.paths.bitmaps_reference = `${backstopConfigJson.paths.bitmaps_reference}_${refFolderPostfix}`
