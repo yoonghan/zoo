@@ -146,7 +146,7 @@ jobs:
         run: npm run snapshot:approve
 
       - name: Kill npm background process (if localhost)
-        if: startsWith(github.event.inputs.deployed_url, 'http://localhost')
+        if: startsWith(inputs.deployed_url, 'http://localhost')
         run: |
           if [ -f npm.pid ]; then
             kill $(cat npm.pid)
