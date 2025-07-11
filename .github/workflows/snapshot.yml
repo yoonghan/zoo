@@ -5,8 +5,10 @@ on:
     inputs:
       deployed_url:
         description: Deployed domain url
-        default: https://zoo.walcron.com
-        type: string
+        type: choice
+        options:
+          - https://zoo.walcron.com
+          - http://localhost:3000
         required: true
       test_no_image:
         description: Test without image load
@@ -118,14 +120,22 @@ jobs:
           npm run build
           nohup npm start > npm.log 2>&1 &
           echo $! > npm.pid
-          echo "NPM_PID=$(cat npm.pid)" >> $GITHUB_ENV
+
+      - name: Set backstop REF_FOLDER_POSTFIX
+        env:
+          REF_FOLDER_POSTFIX: ${{ inputs.ref_folder_postfix }}
+          INPUT_URL: ${{ inputs.deployed_url }}
+        run: |
+          if [[ "$INPUT_URL" == *"localhost"* && -z "$REF_FOLDER_POSTFIX" ]]; then
+            REF_FOLDER_POSTFIX="localhost"
+          fi
+          echo "REF_FOLDER_POSTFIX=$REF_FOLDER_POSTFIX" >> $GITHUB_ENV
 
       - name: ▶️ Validate snapshot check
         shell: bash
         continue-on-error: true
         env:
           LOAD_NO_IMAGE: ${{ inputs.test_no_image }}
-          REF_FOLDER_POSTFIX: ${{ inputs.ref_folder_postfix }}
         run: |
           npm run snapshot
 
