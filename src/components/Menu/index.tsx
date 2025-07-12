@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  CSSProperties,
-  ChangeEvent,
-  ReactNode,
-  memo,
-  useRef,
-} from "react";
+import { CSSProperties, ChangeEvent, ReactNode, memo, useRef } from "react";
 import style from "./style.module.css";
 import Image from "next/image";
 import { Link } from "../Link";
@@ -32,14 +26,14 @@ function MutableMenu({
   shortcutComponent,
   mobileStyle = {},
   desktopStyle = {},
-}: {
+}: Readonly<{
   model: MenuType;
   mobileHomeText: string;
   language: string;
   shortcutComponent?: ReactNode;
   mobileStyle?: CSSProperties;
   desktopStyle?: CSSProperties;
-}) {
+}>) {
   const sideMenuRef = useRef<HTMLInputElement>(null);
 
   const replaceWithTopMenuUrlIfAHashlinkOrEmpty = (
@@ -143,7 +137,7 @@ function MutableMenu({
   });
 
   return (
-    <>
+    <div className={style.general}>
       <div className={style.mobile__nav} style={mobileStyle}>
         <input
           className={style["side-menu"]}
@@ -161,7 +155,13 @@ function MutableMenu({
             <span className={style["hamb-line"]}></span>
             <span className={"visually-hidden"}>Hamburger Menu</span>
           </label>
-          <Link href={`/${language}`} tabIndex={-1} styling="None" onClick={unCheckSideMenu}>
+          <Link
+            href={`/${language}`}
+            tabIndex={-1}
+            styling="None"
+            onClick={unCheckSideMenu}
+            className="font-bold"
+          >
             {mobileHomeText}
           </Link>
           {shortcutComponent && shortcutComponent}
@@ -190,7 +190,7 @@ function MutableMenu({
           </ul>
         </nav>
       </div>
-    </>
+    </div>
   );
 }
 

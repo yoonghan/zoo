@@ -48,10 +48,10 @@ function MutableFooter({
   const currentYearUpdated = new Date().getFullYear();
 
   return (
-    <footer className="border-t pb-6 bg-slate-100">
+    <footer className="border-t pb-6 bg-(--footer-color)">
       <div className="mx-4">
         <div className="flex flex-col md:flex-row justify-around mt-6 max-w-xl md:text-center m-auto">
-          <article>
+          <article className="flex-1">
             <strong>{labels.operationHours}:</strong>
             <ul>
               <li>
@@ -64,7 +64,7 @@ function MutableFooter({
             </ul>
           </article>
           <div className="border-2 secondary-border my-4"></div>
-          <article>
+          <article className="flex-1">
             <strong>{labels.address}:</strong>
             <ul>
               <li>{address.street},</li>
