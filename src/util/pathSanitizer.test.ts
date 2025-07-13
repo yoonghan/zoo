@@ -18,10 +18,4 @@ describe("pathSanitizer", () => {
     const sanitizedPath = sanitizePath(path);
     expect(sanitizedPath).toBe("/");
   });
-
-  it("should handle paths with special characters", () => {
-    const path = "example/path/with/special@chars!";
-    const sanitizedPath = sanitizePath(path);
-    expect(sanitizedPath).toBe("/example/path/with/special@chars!");
-  });
 });

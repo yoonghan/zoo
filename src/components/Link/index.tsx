@@ -22,10 +22,7 @@ export function Link({
 
   const sanitizeHref = (href: string): string => {
     // Ensure the href is sanitized to prevent XSS attacks
-    return href.startsWith("http") ||
-      href.startsWith("/") ||
-      href.startsWith("tel:") ||
-      href.startsWith("mailto:") ? href : `/${href}`
+    return /^(\/|mailto:|tel:|http:|https:).*/.test(href) ? href : `/${href}`
   }
 
   return (

@@ -45,7 +45,7 @@ const SiteMap = ({ t, lng }: TranslatorProps) => {
         {paths.map((path, index) => (
           <Fragment key={`${index}-${path}`}>
             <li className={`pb-2 ${calcMargin(path)}`}>
-              <Link href={`/${lng}${sanitizePath(path)}`}>{translatePath(path)}</Link>
+              <Link href={sanitizePath(`/${lng}${path}`)}>{translatePath(path)}</Link>
             </li>
           </Fragment>
         ))}
