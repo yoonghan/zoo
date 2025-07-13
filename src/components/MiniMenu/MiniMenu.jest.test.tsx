@@ -1,4 +1,4 @@
-import { act, fireEvent, render } from "@testing-library/react";
+import { act, fireEvent, render, screen } from "@testing-library/react";
 import MiniMenu from ".";
 import { disconnect, intersectionFn } from "@/__mocks__/intersectionObserver";
 
@@ -14,21 +14,40 @@ describe("MiniMenu", () => {
     );
 
   it("should render model with hash", () => {
-    const { getByRole } = renderComponent();
-    expect(getByRole("link", { name: "About Us" })).toHaveAttribute(
+    renderComponent();
+    fireEvent.scroll(window, {});
+
+    expect(screen.getByRole("link", { name: "About Us" })).toHaveAttribute(
       "href",
       "#about-us"
     );
-    expect(getByRole("link", { name: "Five Pillars" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "Five Pillars" })).toHaveAttribute(
       "href",
       "#five-pillars"
     );
   });
 
+  it("should be able to fake ref", () => {
+    render(
+      <MiniMenu
+        model={[
+          { hashId: "about-us", title: "About Us" },
+        ]}
+        fakeNavBarRef={true}
+      />
+    );
+    fireEvent.scroll(window, {});
+
+    expect(screen.getByRole("link", { name: "About Us" })).toHaveAttribute(
+      "href",
+      "#about-us"
+    );
+  });
+
   it("should have a divider and the first one divider is followed by an anchor", () => {
-    const { getAllByRole } = renderComponent();
-    expect(getAllByRole("separator")).toHaveLength(1);
-    expect(getAllByRole("separator")[0].previousElementSibling?.tagName).toBe(
+    renderComponent();
+    expect(screen.getAllByRole("separator")).toHaveLength(1);
+    expect(screen.getAllByRole("separator")[0].previousElementSibling?.tagName).toBe(
       "A"
     );
   });
@@ -45,21 +64,21 @@ describe("MiniMenu", () => {
       );
 
     it("should add sticky class when scrolled over a distance", () => {
-      const { getByRole } = renderComponentWithContainer();
-      expect(getByRole("navigation").classList.contains("sticky")).toBeFalsy();
+      renderComponentWithContainer();
+      expect(screen.getByRole("navigation").classList.contains("sticky")).toBeFalsy();
       window.scrollTo(0, 200);
       fireEvent.scroll(window, {});
-      expect(getByRole("navigation")).toHaveClass("sticky");
+      expect(screen.getByRole("navigation")).toHaveClass("sticky");
     });
 
     it("should remove sticky when class scrolls down then up", () => {
-      const { getByRole } = renderComponentWithContainer();
+      renderComponentWithContainer();
       window.scrollTo(0, 200);
       fireEvent.scroll(window, {});
-      expect(getByRole("navigation")).toHaveClass("sticky");
+      expect(screen.getByRole("navigation")).toHaveClass("sticky");
       window.scrollTo(0, -1);
       fireEvent.scroll(window, {});
-      expect(getByRole("navigation").classList.contains("sticky")).toBeFalsy();
+      expect(screen.getByRole("navigation").classList.contains("sticky")).toBeFalsy();
     });
 
     it("unmount should not throw exception", () => {
@@ -77,8 +96,8 @@ describe("MiniMenu", () => {
 
   describe("link click", () => {
     it("should call scrollToView to horizontally scroll to itself and italize it", async () => {
-      const { getByRole } = renderComponent();
-      const fivePillarsElem = getByRole("link", { name: "Five Pillars" });
+      renderComponent();
+      const fivePillarsElem = screen.getByRole("link", { name: "Five Pillars" });
       const scrollIntoViewCall = jest
         .spyOn(fivePillarsElem as any, "scrollIntoViewIfNeeded")
         .mockImplementation(() => { });
