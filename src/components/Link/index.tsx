@@ -20,9 +20,17 @@ export function Link({
 
   const isExternalLink = isExternalUrlRegex.test(href);
 
+  const sanitizeHref = (href: string): string => {
+    // Ensure the href is sanitized to prevent XSS attacks
+    return href.startsWith("http") ||
+      href.startsWith("/") ||
+      href.startsWith("tel:") ||
+      href.startsWith("mailto:") ? href : `/${href}`
+  }
+
   return (
     <NextLink
-      href={href}
+      href={sanitizeHref(href)}
       className={`${buttonStyleClassName} ${className || ""}`}
       rel={isExternalLink ? "external" : undefined}
       {...additionalProps}

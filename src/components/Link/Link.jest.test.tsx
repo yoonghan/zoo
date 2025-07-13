@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { Link, type LinkStyles } from ".";
 
 describe("link", () => {
@@ -46,6 +46,37 @@ describe("link", () => {
       "undefined"
     );
   });
+
+  describe("href xss", () => {
+
+    it("renders a link with unsanitized href is prefix with /", () => {
+      render(<Link href="link">I am an unsanitized href</Link>)
+      expect(screen.getByText("I am an unsanitized href")).toHaveAttribute(
+        "href",
+        "/link",
+      )
+    })
+
+    it("allows email href", () => {
+      render(
+        <Link href="mailto:external@mail.com">An email</Link>
+      )
+      expect(screen.getByText("An email")).toHaveAttribute(
+        "href",
+        "mailto:external@mail.com",
+      )
+    })
+
+    it("allows tel href", () => {
+      render(
+        <Link href="tel:0123456789">A telephone</Link>
+      )
+      expect(screen.getByText("A telephone")).toHaveAttribute(
+        "href",
+        "tel:0123456789",
+      )
+    })
+  })
 
   describe("rel attribute", () => {
     const externalUrl = "https://www.google.com";
