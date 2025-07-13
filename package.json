@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest --watch",
-    "test:coverage": "jest --ci --coverage",
+    "test:coverage": "jest --coverage --no-cache",
     "e2e": "playwright test",
     "e2e:ui": "playwright test --ui",
     "e2e:smoke": "playwright test --config ./e2e/smoke/playwright.config.ts",

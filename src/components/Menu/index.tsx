@@ -26,6 +26,7 @@ function MutableMenu({
   shortcutComponent,
   mobileStyle = {},
   desktopStyle = {},
+  fakeRef = false, // This is to allow the component to be used in a test environment without a real ref
 }: Readonly<{
   model: MenuType;
   mobileHomeText: string;
@@ -33,6 +34,7 @@ function MutableMenu({
   shortcutComponent?: ReactNode;
   mobileStyle?: CSSProperties;
   desktopStyle?: CSSProperties;
+  fakeRef?: boolean
 }>) {
   const sideMenuRef = useRef<HTMLInputElement>(null);
 
@@ -143,7 +145,7 @@ function MutableMenu({
           className={style["side-menu"]}
           type="checkbox"
           id="side-menu"
-          ref={sideMenuRef}
+          ref={fakeRef ? null : sideMenuRef}
           onChange={onSideMenuChange}
         />
         <div className={style["mobile-menu"]}>

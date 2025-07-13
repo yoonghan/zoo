@@ -1,4 +1,5 @@
-import { Fragment, memo, useMemo } from "react"
+import { Fragment } from "react"
+import { sanitizePath } from "@/util/pathSanitizer";
 import { allPages } from "./sitemapConstructor"
 import { getTranslation } from "@/i18n";
 import { generateSiteMeta } from "@/util/generateMeta";
@@ -44,7 +45,7 @@ const SiteMap = ({ t, lng }: TranslatorProps) => {
         {paths.map((path, index) => (
           <Fragment key={`${index}-${path}`}>
             <li className={`pb-2 ${calcMargin(path)}`}>
-              <Link href={`/${lng}${path}`}>{translatePath(path)}</Link>
+              <Link href={sanitizePath(`/${lng}${path}`)}>{translatePath(path)}</Link>
             </li>
           </Fragment>
         ))}

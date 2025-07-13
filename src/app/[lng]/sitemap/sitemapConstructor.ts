@@ -1,4 +1,5 @@
 import fs from 'fs'
+import { sanitizePath } from "@/util/pathSanitizer";
 
 const appFolder = "./src/app/[lng]";
 
@@ -35,7 +36,7 @@ const remapAppFiles = (files: string[]) => {
     .filter((file) => file.indexOf("/.") === -1) //remove all hidden files, like .DS_Store
     .filter((file) => file.lastIndexOf(".test.") === -1) //remove all test files
     .filter((file) => file.endsWith(appPageFile))
-    .map((file) => removePage(removeExtension(removeRootPath(file))));
+    .map((file) => sanitizePath(removePage(removeExtension(removeRootPath(file)))));
 };
 
 const allAppFiles = getRecursiveFiles(appFolder);

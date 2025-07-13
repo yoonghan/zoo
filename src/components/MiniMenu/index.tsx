@@ -10,10 +10,11 @@ export type MiniMenuItems = {
 
 type MiniMenuProps = {
   model: MiniMenuItems[];
-  onScrollMonitor?: () => void; // use to monitor unmount
+  onScrollMonitor?: () => void; // use to monitor unmount;
+  fakeNavBarRef?: boolean;
 };
 
-function MiniMenu({ model, onScrollMonitor }: MiniMenuProps) {
+function MiniMenu({ model, onScrollMonitor, fakeNavBarRef = false }: MiniMenuProps) {
   const [selected, setSelected] = useState(0);
   const anchorRef = useRef<(HTMLAnchorElement | null)[]>([]);
   const navBarRef = useRef<HTMLDivElement>(null);
@@ -43,13 +44,11 @@ function MiniMenu({ model, onScrollMonitor }: MiniMenuProps) {
 
         const validIdx = idx < 0 ? 0 : idx;
         const anchor = anchorRef.current[validIdx];
-        if (anchor !== null && intersections[0].isIntersecting) {
-          (anchor as any).scrollIntoViewIfNeeded({
-            behavior: "instant",
-            inline: "center",
-          });
-          setSelected(validIdx);
-        }
+        (anchor as any).scrollIntoViewIfNeeded({
+          behavior: "instant",
+          inline: "center",
+        });
+        setSelected(validIdx);
       },
       {
         threshold: [0.3], //never accurate but it's the best
@@ -76,7 +75,7 @@ function MiniMenu({ model, onScrollMonitor }: MiniMenuProps) {
   return (
     <nav
       className="overflow-x-auto shadow-md"
-      ref={navBarRef}
+      ref={fakeNavBarRef ? null : navBarRef}
       id="mini-menu-nav"
     >
       <div
