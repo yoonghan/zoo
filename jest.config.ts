@@ -32,7 +32,9 @@ const config: Config = {
   coveragePathIgnorePatterns: [
     "layout.tsx",
     "/node_modules/",
-    "/src/util/generateMeta.ts" //not sure but test turns flaky
+    "/src/i18n/locales/en/*",
+    "/src/i18n/locales/ms/*",
+    "/src/util/generateMeta.ts"
   ],
 };
 
