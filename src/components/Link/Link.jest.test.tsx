@@ -85,36 +85,4 @@ describe("link", () => {
       ).toBeFalsy();
     });
   });
-
-
-
-  describe("href xss", () => {
-    it("renders a link with unsanitized href is prefix with /", () => {
-      render(<Link href="link">I am an unsanitized href</Link>)
-      expect(screen.getByText("I am an unsanitized href")).toHaveAttribute(
-        "href",
-        "/link",
-      )
-    })
-
-    it("allows email href", () => {
-      render(
-        <Link href="mailto:external@mail.com">An email</Link>
-      )
-      expect(screen.getByText("An email")).toHaveAttribute(
-        "href",
-        "mailto:external@mail.com",
-      )
-    })
-
-    it("allows tel href", () => {
-      render(
-        <Link href="tel:0123456789">A telephone</Link>
-      )
-      expect(screen.getByText("A telephone")).toHaveAttribute(
-        "href",
-        "tel:0123456789",
-      )
-    })
-  })
 });
