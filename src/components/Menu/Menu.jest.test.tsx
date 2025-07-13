@@ -1,4 +1,4 @@
-import { render, within } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { Menu } from ".";
 import { ReactNode } from "react";
 import userEvent from "@testing-library/user-event";
@@ -38,100 +38,100 @@ describe("Menu", () => {
     );
 
   it("should will display mobile home text that links to home", () => {
-    const { getByRole, getByText, getByLabelText } = renderMenuWithItems();
-    expect(getByRole("link", { name: "Zoo Negara Malaysia" })).toHaveAttribute(
+    renderMenuWithItems();
+    expect(screen.getByRole("link", { name: "Zoo Negara Malaysia" })).toHaveAttribute(
       "href",
       "/en"
     );
-    expect(getByText("Hamburger Menu")).toHaveClass("visually-hidden");
-    expect(getByLabelText("Main Menu")).toBeInTheDocument();
+    expect(screen.getByText("Hamburger Menu")).toHaveClass("visually-hidden");
+    expect(screen.getByLabelText("Main Menu")).toBeInTheDocument();
 
-    expect(getByRole("menuitem", { name: "Zoo Negara" })).toBeVisible();
-    expect(getByRole("radio", { name: "Zoo Negara" })).toBeVisible();
-    expect(getByRole("menuitem", { name: "About Us" })).toBeVisible();
-    expect(getByRole("menuitem", { name: "Zoo Negara Logo" })).toBeVisible();
+    expect(screen.getByRole("menuitem", { name: "Zoo Negara" })).toBeVisible();
+    expect(screen.getByRole("radio", { name: "Zoo Negara" })).toBeVisible();
+    expect(screen.getByRole("menuitem", { name: "About Us" })).toBeVisible();
+    expect(screen.getByRole("menuitem", { name: "Zoo Negara Logo" })).toBeVisible();
   });
 
   it("should display menu correctly for desktop", () => {
-    const { getByRole } = renderMenuWithItems(true);
-    expect(getByRole("link", { name: "home link" })).toHaveAttribute(
+    renderMenuWithItems(true);
+    expect(screen.getByRole("link", { name: "home link" })).toHaveAttribute(
       "href",
       "/en"
     );
 
-    expect(getByRole("menuitem", { name: "Zoo Negara" })).toBeVisible();
-    expect(getByRole("menuitem", { name: "About Us" })).toBeVisible();
-    expect(getByRole("menuitem", { name: "Zoo Negara Logo" })).toBeVisible();
+    expect(screen.getByRole("menuitem", { name: "Zoo Negara" })).toBeVisible();
+    expect(screen.getByRole("menuitem", { name: "About Us" })).toBeVisible();
+    expect(screen.getByRole("menuitem", { name: "Zoo Negara Logo" })).toBeVisible();
   });
 
   it("should be memozied and forever not modified. It's a menu!", async () => {
-    const { rerender, getByText } = renderMenuWithItems();
-    expect(getByText("Zoo Negara Malaysia")).toBeVisible();
-    rerender(<Menu model={[]} mobileHomeText="Not Memoized" />);
-    expect(getByText("Zoo Negara Malaysia")).toBeVisible();
+    const { rerender } = renderMenuWithItems();
+    expect(screen.getByText("Zoo Negara Malaysia")).toBeVisible();
+    rerender(<Menu model={[]} mobileHomeText="Not Memoized" language="en" />);
+    expect(screen.getByText("Zoo Negara Malaysia")).toBeVisible();
   });
 
   it("should replace submenu with main menu's root if url of submenu is missing", async () => {
-    const { getByRole, getByText } = renderMenuWithItems(true);
+    renderMenuWithItems(true);
     const expectedRootUrl = "/en/about-us";
-    expect(getByRole("menuitem", { name: "Zoo Negara" })).toHaveAttribute(
+    expect(screen.getByRole("menuitem", { name: "Zoo Negara" })).toHaveAttribute(
       "href",
       expectedRootUrl
     );
-    expect(getByRole("menuitem", { name: "About Us" })).toHaveAttribute(
+    expect(screen.getByRole("menuitem", { name: "About Us" })).toHaveAttribute(
       "href",
       expectedRootUrl
     );
   });
 
   it("should replace submenu url with # with topMenu", async () => {
-    const { getByRole } = renderMenuWithItems(true);
-    expect(getByRole("menuitem", { name: "Zoo Negara Logo" })).toHaveAttribute(
+    renderMenuWithItems(true);
+    expect(screen.getByRole("menuitem", { name: "Zoo Negara Logo" })).toHaveAttribute(
       "href",
       "/en/about-us#logo"
     );
   });
 
   it("should not have link for mobile view, and click checks the radio", async () => {
-    const { getByRole } = renderMenuWithItems(false);
+    renderMenuWithItems(false);
 
-    expect(getByRole("menuitem", { name: "Zoo Negara" })).not.toHaveAttribute(
+    expect(screen.getByRole("menuitem", { name: "Zoo Negara" })).not.toHaveAttribute(
       "href"
     );
 
-    expect(getByRole("radio", { name: "Zoo Negara" })).not.toBeChecked();
-    await userEvent.click(getByRole("menuitem", { name: "Zoo Negara" }));
-    expect(getByRole("radio", { name: "Zoo Negara" })).toBeChecked();
+    expect(screen.getByRole("radio", { name: "Zoo Negara" })).not.toBeChecked();
+    await userEvent.click(screen.getByRole("menuitem", { name: "Zoo Negara" }));
+    expect(screen.getByRole("radio", { name: "Zoo Negara" })).toBeChecked();
 
-    expect(getByRole("menuitem", { name: "News" })).toHaveAttribute("href");
+    expect(screen.getByRole("menuitem", { name: "News" })).toHaveAttribute("href");
   });
 
   it("should render shortcut components for mobile if exist", () => {
-    const { getByRole } = renderMenuWithItems(
+    renderMenuWithItems(
       false,
       <button>I am a shortcut button</button>
     );
     expect(
-      getByRole("button", { name: "I am a shortcut button" })
+      screen.getByRole("button", { name: "I am a shortcut button" })
     ).toBeInTheDocument();
   });
 
   it("should render shortcut components for desktop if exist", () => {
-    const { getByRole } = renderMenuWithItems(
+    renderMenuWithItems(
       false,
       <button>I am a shortcut button</button>
     );
     expect(
-      getByRole("button", { name: "I am a shortcut button" })
+      screen.getByRole("button", { name: "I am a shortcut button" })
     ).toBeInTheDocument();
   });
 
   describe("Hiding side menu in mobile", () => {
     const renderMenuItemAndGetCheckBox = () => {
-      const { getByRole } = renderMenuWithItems();
+      renderMenuWithItems();
       return {
-        sideMenuCheckBox: getByRole("checkbox", { name: "Main Menu" }),
-        getByRole,
+        sideMenuCheckBox: screen.getByRole("checkbox", { name: "Main Menu" }),
+        getByRole: screen.getByRole,
       };
     };
 
@@ -187,6 +187,31 @@ describe("Menu", () => {
       //uncheck
       await userEvent.click(sideMenuCheckBox);
       assertIsSideMenuUncheck(sideMenuCheckBox);
+    });
+
+
+    it("should be able to fake ref", async () => {
+      render(
+        <Menu
+          model={[
+            {
+              label: "News",
+              url: "/sample-us",
+            },
+          ]}
+          mobileHomeText="Zoo Negara Malaysia"
+          desktopStyle={{ display: "none" }}
+          language="en"
+          fakeRef={true}
+        />
+      );
+
+      const checkbox = screen.getByRole("checkbox", { name: "Main Menu" })
+      await userEvent.click(checkbox);
+      expect(checkbox).toBeChecked
+
+      await userEvent.click(screen.getByRole("menuitem", { name: "News" }));
+      expect(checkbox).toBeChecked
     });
   });
 });
