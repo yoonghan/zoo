@@ -25,4 +25,3 @@ jobs:
     with:
       deployed_url: http://localhost:3000
       test_no_image: false
-      ref_folder_postfix: "localhost"
