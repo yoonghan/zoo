@@ -14,9 +14,6 @@ on:
         description: Test without image load
         default: false
         type: boolean
-      ref_folder_postfix:
-        description: Reference is save as another foldername
-        type: string
       continue_on_fail:
         description: Continue on fail
         default: false
@@ -35,9 +32,6 @@ on:
         description: Test without image load
         default: false
         type: boolean
-      ref_folder_postfix:
-        description: Reference is save as another foldername
-        type: string
       continue_on_fail:
         description: Continue on fail
         default: false
@@ -121,12 +115,11 @@ jobs:
           nohup npm start > npm.log 2>&1 &
           echo $! > npm.pid
 
-      - name: Set backstop REF_FOLDER_POSTFIX
+      - name: Set backstop REF_FOLDER_POSTFIX if identified as localhost
         env:
-          REF_FOLDER_POSTFIX: ${{ inputs.ref_folder_postfix }}
           INPUT_URL: ${{ inputs.deployed_url }}
         run: |
-          if [[ "$INPUT_URL" == *"localhost"* && -z "$REF_FOLDER_POSTFIX" ]]; then
+          if [[ "$INPUT_URL" == *"localhost"* ]]; then
             REF_FOLDER_POSTFIX="localhost"
           fi
           echo "REF_FOLDER_POSTFIX=$REF_FOLDER_POSTFIX" >> $GITHUB_ENV
@@ -155,6 +148,16 @@ jobs:
             echo "No PID file found"
           fi
 
+      - name: Remove irrelevant reference folders
+        env:
+          INPUT_URL: ${{ inputs.deployed_url }}
+        run: |
+          if [[ "$INPUT_URL" == *"localhost"* ]]; then
+            rm -rf backstop_data/bitmaps_reference
+          else
+            rm -rf backstop_data/bitmaps_reference_*
+          fi
+          
       - name: 💼 Commit on approved snapshot
         if: ${{ inputs.should_approve }}
         uses: stefanzweifel/git-auto-commit-action@v6
