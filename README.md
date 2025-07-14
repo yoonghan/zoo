@@ -27,17 +27,7 @@ Goal is to replace a website zoonegara.my. Zoo Negara is a non-government organi
 3. Slow loading. - DONE
 4. Small fonts. - DONE
 5. Images are not lazy loaded and position disoriented. - Can be improved further
-
-### Things to keep
-
-1. Logo.
-2. Multi language, malay/english.
-3. Static site, to save from hosting fee.
-
-### Things that seems valid
-
-1. Ticketing seems to runned by another service.
-2. Having server load might be overkill on this scenario.
+6. Add language of BM and ENG. - DONE
 
 ## Development
 
