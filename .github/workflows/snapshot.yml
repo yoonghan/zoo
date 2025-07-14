@@ -147,16 +147,6 @@ jobs:
           else
             echo "No PID file found"
           fi
-
-      - name: Remove irrelevant reference folders
-        env:
-          INPUT_URL: ${{ inputs.deployed_url }}
-        run: |
-          if [[ "$INPUT_URL" == *"localhost"* ]]; then
-            rm -rf backstop_data/bitmaps_reference
-          else
-            rm -rf backstop_data/bitmaps_reference_*
-          fi
           
       - name: 💼 Commit on approved snapshot
         if: ${{ inputs.should_approve }}
@@ -171,6 +161,16 @@ jobs:
         if: ${{ inputs.should_approve }}
         shell: bash
         run: npm run snapshot
+
+      - name: Remove irrelevant reference folders for snapshot
+        env:
+          INPUT_URL: ${{ inputs.deployed_url }}
+        run: |
+          if [[ "$INPUT_URL" == *"localhost"* ]]; then
+            rm -rf backstop_data/bitmaps_reference
+          else
+            rm -rf backstop_data/bitmaps_reference_*
+          fi
 
       - name: ⬆️ Upload snapshot artifacts
         uses: actions/upload-artifact@v4
