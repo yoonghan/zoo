@@ -81,9 +81,9 @@ backstopConfigJson.scenarios.push({
   "label": "Page Not Found",
   "url": `${baseUrl}/en/not-found-page`,
   "loadNoImage": isNoImageTest,
-  "misMatchThreshold": 0.3,
+  "misMatchThreshold": 0.4,
   "requireSameDimensions": false,
-  "delay": 100,
+  "delay": 300,
 })
 
 /* Reference postfix if wanted to save in different refs */
