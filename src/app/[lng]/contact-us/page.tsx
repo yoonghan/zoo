@@ -42,7 +42,7 @@ function ContactUs({ t }: TranslatorProps) {
   return (
     <main className="pb-24">
       <article>
-        <h1 className="text-2xl font-bold">{t('contactUs.title')}</h1>
+        <h1>{t('contactUs.title')}</h1>
 
         <p className="pt-8">{t('contactUs.description')} [<Link href="https://zoonegara.my/contact.html" target="_blank">1</Link>]</p>
 

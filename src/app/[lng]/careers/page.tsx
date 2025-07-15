@@ -23,7 +23,7 @@ function Career({ t }: TranslatorProps) {
   return (
     <main className="pb-48">
       <section className="text-center">
-        <h1 className="text-4xl font-bold pb-8">{t('careers.title')}</h1>
+        <h1>{t('careers.title')}</h1>
         <article>
           <p className="pb-16">{t('careers.description')}</p>
 

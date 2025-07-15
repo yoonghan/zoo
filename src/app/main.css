@@ -36,6 +36,13 @@ main {
   animation: slow_display 0.5s linear;
 }
 
+main h1 {
+  font-size: 3rem;
+  margin: 2rem 0;
+  font-weight: bold;
+  text-align: center;
+}
+
 main.no-margin-y {
   margin: 0 auto;
 }
@@ -43,10 +50,6 @@ main.no-margin-y {
 main>article,
 main>section {
   padding: 1.5rem 1rem;
-}
-
-main h1 {
-  margin: 1rem 0;
 }
 
 /* main -end */

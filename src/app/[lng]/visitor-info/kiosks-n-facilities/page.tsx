@@ -48,12 +48,9 @@ function KiosksAndFacilities({ t }: TranslatorProps) {
     <>
       <MiniMenu model={miniLinks} />
       <main className="pb-24">
-        <h1 className="text-4xl text-center font-bold my-10">
+        <h1>
           {t('kiosksNFacilities.title')}
         </h1>
-
-        <hr className="mt-8" />
-
         <article
           className="anchor-link-header text-center primary"
           id={miniLinks[0].hashId}

@@ -25,8 +25,7 @@ function ZooMap({ t }: TranslatorProps) {
   return (
     <main>
       <article className="primary">
-        <h1 className="text-4xl text-center font-bold">{t('visitorInfo.zooMap.title')}</h1>
-        <hr />
+        <h1>{t('visitorInfo.zooMap.title')}</h1>
         <div className="py-8 text-center">
           <p>{t('visitorInfo.zooMap.description')}</p>
           <div className="mt-6">

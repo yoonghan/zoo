@@ -18,7 +18,7 @@ function Home({ t }: TranslatorProps) {
         alt="Zoo tiger in water"
       />
       <article className="primary">
-        <h1 className="font-bold text-4xl text-center">
+        <h1>
           {t('homepage.welcome')}
         </h1>
         <figure>

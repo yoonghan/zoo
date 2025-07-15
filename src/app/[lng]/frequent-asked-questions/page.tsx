@@ -25,7 +25,7 @@ function Faq({ t }: TranslatorProps) {
     <>
       <main>
         <article>
-          <h1 className="text-4xl font-bold text-center">
+          <h1>
             {t("frequentAskedQuestions.title")}
           </h1>
           <div className="mt-8">

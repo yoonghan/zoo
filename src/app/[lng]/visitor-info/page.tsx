@@ -68,8 +68,7 @@ function VisitorInfo({ t, lng }: TranslatorProps) {
     <>
       <MiniMenu model={miniLinks} />
       <main>
-        <h1 className="text-4xl text-center font-bold my-10">{t('visitorInfo.title')}</h1>
-
+        <h1>{t('visitorInfo.title')}</h1>
         <article
           className="anchor-link-header text-center primary"
           id={miniLinks[0].hashId}
