@@ -14,8 +14,7 @@ body {
   padding: 0;
   margin: 0;
   scroll-behavior: smooth;
-  background-color: #fff8f2;
-  animation: slow_display 0.5s linear;
+  animation: slow_display 0.1s linear;
 }
 
 @keyframes slow_display {
