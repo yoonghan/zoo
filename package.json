@@ -42,7 +42,7 @@
     "@testing-library/user-event": "^14.6.1",
     "@types/jest": "^30.0.0",
     "@types/lodash": "^4.17.0",
-    "@types/node": "^24.0.10",
+    "@types/node": "^24.0.13",
     "@types/react": "^19",
     "@types/react-dom": "^19.1.6",
     "@types/react-slick": "^0.23.13",
