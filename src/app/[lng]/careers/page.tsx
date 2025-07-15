@@ -21,7 +21,7 @@ export async function generateMetadata(
 
 function Career({ t }: TranslatorProps) {
   return (
-    <main className="pb-48">
+    <main>
       <section className="text-center">
         <h1>{t('careers.title')}</h1>
         <article>

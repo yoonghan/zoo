@@ -54,7 +54,7 @@ const SiteMap = ({ t, lng }: TranslatorProps) => {
   }
 
   return (
-    <main className="mb-24 mx-8">
+    <main>
       <h1>{t('headers.sitemap.title')}</h1>
       {draw(allPages)}
     </main>

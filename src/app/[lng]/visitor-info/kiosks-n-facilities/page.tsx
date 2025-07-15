@@ -47,7 +47,7 @@ function KiosksAndFacilities({ t }: TranslatorProps) {
   return (
     <>
       <MiniMenu model={miniLinks} />
-      <main className="pb-24">
+      <main>
         <h1>
           {t('kiosksNFacilities.title')}
         </h1>

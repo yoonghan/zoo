@@ -79,7 +79,7 @@ function GettingThere({ t }: TranslatorProps) {
   return (
     <>
       <MiniMenu model={miniLinks} />
-      <main className="pb-24">
+      <main>
         <h1>{t('gettingThere.title')}</h1>
 
         <hr className="mt-8" />

@@ -4,7 +4,7 @@ import { withTranslator, TranslatorProps } from "@/components/util/hoc/withTrans
 function Home({ t }: TranslatorProps) {
 
   return (
-    <main className="no-margin-y">
+    <main>
       <Image
         src="/images/header.jpg"
         width={960}

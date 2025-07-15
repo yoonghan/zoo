@@ -40,7 +40,7 @@ function ContactUs({ t }: TranslatorProps) {
   const preDefinedData = zooProfile.contactus;
 
   return (
-    <main className="pb-24">
+    <main>
       <article>
         <h1>{t('contactUs.title')}</h1>
 

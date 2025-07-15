@@ -23,7 +23,7 @@ export async function generateMetadata(
 
 function ZooMap({ t }: TranslatorProps) {
   return (
-    <main>
+    <main className="no-margin-y">
       <article className="primary">
         <h1>{t('visitorInfo.zooMap.title')}</h1>
         <div className="py-8 text-center">

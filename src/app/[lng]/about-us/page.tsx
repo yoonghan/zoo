@@ -86,8 +86,6 @@ function About({ t }: TranslatorProps) {
             )}
           </ul>
         </article>
-        <div className="anchor-link-header pb-8">
-        </div>
       </main>
     </>
   );
