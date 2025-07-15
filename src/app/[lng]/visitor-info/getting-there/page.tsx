@@ -79,8 +79,8 @@ function GettingThere({ t }: TranslatorProps) {
   return (
     <>
       <MiniMenu model={miniLinks} />
-      <main className="pb-24">
-        <h1 className="text-4xl text-center font-bold my-10">{t('gettingThere.title')}</h1>
+      <main>
+        <h1>{t('gettingThere.title')}</h1>
 
         <hr className="mt-8" />
 

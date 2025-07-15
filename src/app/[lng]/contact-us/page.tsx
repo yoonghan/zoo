@@ -40,9 +40,9 @@ function ContactUs({ t }: TranslatorProps) {
   const preDefinedData = zooProfile.contactus;
 
   return (
-    <main className="pb-24">
+    <main>
       <article>
-        <h1 className="text-2xl font-bold">{t('contactUs.title')}</h1>
+        <h1>{t('contactUs.title')}</h1>
 
         <p className="pt-8">{t('contactUs.description')} [<Link href="https://zoonegara.my/contact.html" target="_blank">1</Link>]</p>
 

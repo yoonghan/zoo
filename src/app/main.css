@@ -14,8 +14,7 @@ body {
   padding: 0;
   margin: 0;
   scroll-behavior: smooth;
-  background-color: #fff8f2;
-  animation: slow_display 0.5s linear;
+  animation: slow_display 0.1s linear;
 }
 
 @keyframes slow_display {
@@ -33,8 +32,15 @@ main {
   display: flex;
   flex-direction: column;
   max-width: 950px;
-  margin: 0 auto;
+  margin: 0 auto 8rem auto;
   animation: slow_display 0.5s linear;
+}
+
+main h1 {
+  font-size: 2rem;
+  margin: 2rem 0;
+  font-weight: bold;
+  text-align: center;
 }
 
 main.no-margin-y {
@@ -44,10 +50,6 @@ main.no-margin-y {
 main>article,
 main>section {
   padding: 1.5rem 1rem;
-}
-
-main h1 {
-  margin: 1rem 0;
 }
 
 /* main -end */
