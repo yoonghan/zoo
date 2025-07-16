@@ -1,7 +1,9 @@
 import zooFaq from "./faq";
+import translation from "./translation"
 
 const translations = {
   lang: "en",
+  translation,
   headers: {
     default: "Zoo Negara Malaysia",
     defaultDescription: "A non-governmental organization established to create the first local zoo for Malaysians.",
