@@ -1,8 +1,10 @@
 import enTranslation from "../en/pages";
 import zooFaq from "./faq";
+import translation from "./translation"
 
 const translations: typeof enTranslation = {
   lang: "ms",
+  translation,
   headers: {
     default: "Zoo Negara Malaysia",
     defaultDescription: "Sebuah pertubuhan bukan kerajaan yang ditubuhkan untuk mewujudkan zoo tempatan pertama untuk rakyat Malaysia.",

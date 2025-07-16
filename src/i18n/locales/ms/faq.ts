@@ -4,7 +4,7 @@ const zooFaq: AccordionProps = [
   {
     label: "Bagaimana untuk sampai ke Zoo Negara?",
     content:
-      "Kami telah memberikan maklumat dalam bahagian [/ms/visitor-info/getting-there|Getting There] section.",
+      "Kami telah memberikan maklumat dalam bahagian [/ms/visitor-info/getting-there||$(translations.menu.getting-there)] section.",
   },
   {
     label: "Apakah kadar kemasukan?",
