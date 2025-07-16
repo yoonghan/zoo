@@ -24,7 +24,7 @@ function Home({ t }: TranslatorProps) {
         <figure>
           <figcaption className="mb-4">
             <span>{t('homepage.introduction')}</span>
-            <span className="text-sm italic"> - {t('homepage.introduction-remark')}</span>
+            <span className="text-sm italic"> - {t('homepage.introductionRemark')}</span>
           </figcaption>
           <Image
             src="/images/home/zoo-negara-entrance.jpg"
