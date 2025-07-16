@@ -9,7 +9,7 @@ const zooFaq: AccordionProps = [
   {
     label: "Apakah kadar kemasukan?",
     content:
-      "Anda boleh menyemaknya di laman [https://ticket.zoonegara.my/|$t(translation.menu.gopening-and-rates)].",
+      "Anda boleh menyemaknya di laman [https://ticket.zoonegara.my/|$t(translation.menu.opening-and-rates)].",
   },
   {
     label:
