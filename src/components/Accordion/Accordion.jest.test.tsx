@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { Accordion } from ".";
 
 describe("Accordion", () => {
@@ -20,20 +20,20 @@ describe("Accordion", () => {
     );
 
   it("should render component correctly", () => {
-    const { getByText } = renderAccordion();
-    expect(getByText("Item 1")).toBeInTheDocument();
-    expect(getByText("1 Lorem ipsum dolor sit amet!")).toBeInTheDocument();
-    expect(getByText("Item 2")).toBeInTheDocument();
+    renderAccordion();
+    expect(screen.getByText("Item 1")).toBeInTheDocument();
+    expect(screen.getByText("1 Lorem ipsum dolor sit amet!")).toBeInTheDocument();
+    expect(screen.getByText("Item 2")).toBeInTheDocument();
   });
 
   it("should render component with correct id", () => {
-    const { getByText } = renderAccordion();
-    expect(getByText("Item 1")).toHaveAttribute("for", "0-item-1");
+    renderAccordion();
+    expect(screen.getByText("Item 1")).toHaveAttribute("for", "0-item-1");
   });
 
   it("should be able to render content with custom markdown", () => {
-    const { getByRole } = renderAccordion();
-    expect(getByRole("link", { name: "link here" })).toHaveAttribute(
+    renderAccordion();
+    expect(screen.getByRole("link", { name: "link here" })).toHaveAttribute(
       "href",
       "https://www.zoonegara.my"
     );
