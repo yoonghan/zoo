@@ -9,7 +9,7 @@ const zooFaq: AccordionProps = [
   {
     label: "Apakah kadar kemasukan?",
     content:
-      "Anda boleh menyemaknya di laman [https://ticket.zoonegara.my/|$t(translation.menu.opening-and-rates)].",
+      "Anda boleh menyemaknya di [https://ticket.zoonegara.my/|laman Ticket Zoo Negara].",
   },
   {
     label:
@@ -75,7 +75,7 @@ const zooFaq: AccordionProps = [
   {
     label: "Apakah haiwan yang boleh saya adopt/angkat?",
     content:
-      "Mana-mana haiwan di Zoo seperti yang disenaraikan [https://www.ticket2u.com.my/event/18171/zoo-negara-adoption-package|onTicket2u website].",
+      "Mana-mana haiwan di Zoo seperti yang disenaraikan di laman [https://www.ticket2u.com.my/event/18171/zoo-negara-adoption-package|Ticket2u].",
   },
   {
     label: "Adakah saya benar-benar boleh membawa haiwan itu pulang bersama saya?",
@@ -115,7 +115,7 @@ const zooFaq: AccordionProps = [
   {
     label: "Saya bersedia untuk mengambil anak angkat! Bagaimana saya boleh membuat pesanan?",
     content:
-      "Cara termudah dan terpantas ialah klik pada [https://www.ticket2u.com.my/event/18171/zoo-negara-adoption-package|on laman web Ticket2u]. Apabila anda sampai ke halaman anak angkat, klik pada 'Adopt Me' di sebelah haiwan yang anda mahu angkat dan anda kemudiannya akan diminta untuk log masuk, atau mendaftar jika anda belum mempunyai akaun lagi.",
+      "Cara termudah dan terpantas ialah klik pada laman [https://www.ticket2u.com.my/event/18171/zoo-negara-adoption-package|Ticket2u]. Apabila anda sampai ke halaman anak angkat, klik pada 'Adopt Me' di sebelah haiwan yang anda mahu angkat dan anda kemudiannya akan diminta untuk log masuk, atau mendaftar jika anda belum mempunyai akaun lagi.",
   },
 ];
 

@@ -9,7 +9,7 @@ const zooFaq: AccordionProps = [
   {
     label: "What are the admission rates?",
     content:
-      "You can check it out in our [https://ticket.zoonegara.my/|$t(translation.menu.opening-and-rates)].",
+      "You can check it out in [https://ticket.zoonegara.my/|Official Zoo Negara Ticketing] website.",
   },
   {
     label:
@@ -75,7 +75,7 @@ const zooFaq: AccordionProps = [
   {
     label: "What animals can I adopt?",
     content:
-      "Any animal at the Zoo as listed [https://www.ticket2u.com.my/event/18171/zoo-negara-adoption-package|laman onTicket2u].",
+      "Any animal at the Zoo as listed in [https://www.ticket2u.com.my/event/18171/zoo-negara-adoption-package|Ticket2u].",
   },
   {
     label: "Do I actually get to take the animal home with me?",
@@ -115,7 +115,7 @@ const zooFaq: AccordionProps = [
   {
     label: "I'm ready to adopt! How do I place an order?",
     content:
-      "The easiest and quickest way is to click on [https://www.ticket2u.com.my/event/18171/zoo-negara-adoption-package|laman onTicket2u]. When you reach the adoption pages, click on ‘Adopt Me’ next to the animal you want to adopt and you will then be asked to login, or register if you don’t have an account yet.",
+      "The easiest and quickest way is to click on [https://www.ticket2u.com.my/event/18171/zoo-negara-adoption-package|Ticket2u]. When you reach the adoption pages, click on ‘Adopt Me’ next to the animal you want to adopt and you will then be asked to login, or register if you don’t have an account yet.",
   },
 ];
 
