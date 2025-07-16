@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Announcement } from ".";
 
@@ -14,59 +14,59 @@ describe("Announcement", () => {
     );
 
   it("should be aria friendly", () => {
-    const { getByRole } = renderAnnouncement();
+    renderAnnouncement();
     expect(
-      getByRole("dialog", { name: "Announcement Title" })
+      screen.getByRole("dialog", { name: "Announcement Title" })
     ).toBeInTheDocument();
   });
 
   it("should render first component only", () => {
-    const { getByText, queryByText } = renderAnnouncement();
-    expect(getByText("announcement 1")).toBeInTheDocument();
-    expect(queryByText("announcement 2")).not.toBeInTheDocument();
+    renderAnnouncement();
+    expect(screen.getByText("announcement 1")).toBeInTheDocument();
+    expect(screen.queryByText("announcement 2")).not.toBeInTheDocument();
   });
 
   it("should render second component if click next", async () => {
-    const { getByText, getByRole } = renderAnnouncement();
-    await userEvent.click(getByRole("button", { name: "next announcement" }));
-    expect(getByText("announcement 2")).toBeInTheDocument();
+    renderAnnouncement();
+    await userEvent.click(screen.getByRole("button", { name: "next announcement" }));
+    expect(screen.getByText("announcement 2")).toBeInTheDocument();
   });
 
   it("should render first component if click next on last element", async () => {
-    const { getByText, getByRole } = renderAnnouncement();
+    renderAnnouncement();
     for (let cnt = 0; cnt < announcements.length; cnt++) {
-      await userEvent.click(getByRole("button", { name: "next announcement" }));
+      await userEvent.click(screen.getByRole("button", { name: "next announcement" }));
     }
-    expect(getByText("announcement 1")).toBeInTheDocument();
+    expect(screen.getByText("announcement 1")).toBeInTheDocument();
   });
 
   it("should render last component if click previous", async () => {
-    const { getByText, getByRole } = renderAnnouncement();
+    renderAnnouncement();
     await userEvent.click(
-      getByRole("button", { name: "previous announcement" })
+      screen.getByRole("button", { name: "previous announcement" })
     );
-    expect(getByText("announcement 3")).toBeInTheDocument();
+    expect(screen.getByText("announcement 3")).toBeInTheDocument();
   });
 
   it("should render second component if click previous is clicked twice", async () => {
-    const { getByText, getByRole } = renderAnnouncement();
+    renderAnnouncement();
     await userEvent.click(
-      getByRole("button", { name: "previous announcement" })
+      screen.getByRole("button", { name: "previous announcement" })
     );
     await userEvent.click(
-      getByRole("button", { name: "previous announcement" })
+      screen.getByRole("button", { name: "previous announcement" })
     );
-    expect(getByText("announcement 2")).toBeInTheDocument();
+    expect(screen.getByText("announcement 2")).toBeInTheDocument();
   });
 
   it("should have a label name for close", () => {
-    const { getByLabelText } = renderAnnouncement();
-    expect(getByLabelText("Close Announcement")).toBeInTheDocument();
+    renderAnnouncement();
+    expect(screen.getByLabelText("Close Announcement")).toBeInTheDocument();
   });
 
   it("should have a test id for playwright test", () => {
-    const { getByTestId } = renderAnnouncement();
-    expect(getByTestId("announcement")).toBeInTheDocument();
+    renderAnnouncement();
+    expect(screen.getByTestId("announcement")).toBeInTheDocument();
   });
 
   describe("no announcement", () => {
@@ -74,12 +74,12 @@ describe("Announcement", () => {
       render(<Announcement announcements={[]} ariaAnnouncementTitle={""} />);
 
     it("should not have navigation buttons", async () => {
-      const { queryByRole } = renderEmptyAnnouncements();
+      renderEmptyAnnouncements();
       expect(
-        queryByRole("button", { name: "next announcement" })
+        screen.queryByRole("button", { name: "next announcement" })
       ).not.toBeInTheDocument();
       expect(
-        queryByRole("button", { name: "previous announcement" })
+        screen.queryByRole("button", { name: "previous announcement" })
       ).not.toBeInTheDocument();
     });
   });
@@ -94,15 +94,15 @@ describe("Announcement", () => {
       );
 
     it("should not have navigation buttons", async () => {
-      const { queryByRole, getByText } = renderEmptyAnnouncements();
+      renderEmptyAnnouncements();
       expect(
-        queryByRole("button", { name: "next announcement" })
+        screen.queryByRole("button", { name: "next announcement" })
       ).not.toBeInTheDocument();
       expect(
-        queryByRole("button", { name: "previous announcement" })
+        screen.queryByRole("button", { name: "previous announcement" })
       ).not.toBeInTheDocument();
-      expect(getByText("one").parentElement).toHaveClass("only-one");
-      expect(getByText("announcement").tagName).toBe("STRONG");
+      expect(screen.getByText("one").parentElement).toHaveClass("only-one");
+      expect(screen.getByText("announcement").tagName).toBe("STRONG");
     });
   });
 });
