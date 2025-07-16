@@ -1,4 +1,4 @@
-import { queryByText, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { Footer, FooterProps } from ".";
 
 describe("Footer", () => {
@@ -54,6 +54,7 @@ describe("Footer", () => {
             contactUs: "Contact Zoo Negara",
             careers: "Careers",
             faq: "FAQ",
+            sitemap: "Sitemap",
           }
         }
       />
@@ -61,32 +62,32 @@ describe("Footer", () => {
   };
 
   it("should render component correctly", () => {
-    const { getByText, getByRole } = renderFooterComponent({});
-    expect(getByText("© Zoo Negara")).toBeInTheDocument();
-    expect(getByText("Monday - Sunday")).toBeInTheDocument();
-    expect(getByText("9:00am - 10:00pm")).toBeInTheDocument();
-    expect(getByText("(Last admission time at 4.00pm)")).toBeInTheDocument();
-    expect(getByText("Zoo Negara,")).toBeInTheDocument();
-    expect(getByText("Hulu Kelang,")).toBeInTheDocument();
-    expect(getByText("Ampang,")).toBeInTheDocument();
-    expect(getByText("68000 Selangor.")).toBeInTheDocument();
-    expect(getByRole("link", { name: "partner" })).toHaveAttribute(
+    renderFooterComponent({});
+    expect(screen.getByText("© Zoo Negara")).toBeInTheDocument();
+    expect(screen.getByText("Monday - Sunday")).toBeInTheDocument();
+    expect(screen.getByText("9:00am - 10:00pm")).toBeInTheDocument();
+    expect(screen.getByText("(Last admission time at 4.00pm)")).toBeInTheDocument();
+    expect(screen.getByText("Zoo Negara,")).toBeInTheDocument();
+    expect(screen.getByText("Hulu Kelang,")).toBeInTheDocument();
+    expect(screen.getByText("Ampang,")).toBeInTheDocument();
+    expect(screen.getByText("68000 Selangor.")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "partner" })).toHaveAttribute(
       "href",
       "https://www.partner.com"
     );
-    expect(getByRole("link", { name: "partner" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "partner" })).toHaveAttribute(
       "target",
       "_blank"
     );
-    expect(getByRole("link", { name: "partner" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "partner" })).toHaveAttribute(
       "rel",
       "external"
     );
   });
 
   it("should be memozied and forever not modified. It's a footer!", async () => {
-    const { getByText, rerender } = renderFooterComponent({});
-    expect(getByText("© Zoo Negara")).toBeVisible();
+    const { rerender } = renderFooterComponent({});
+    expect(screen.getByText("© Zoo Negara")).toBeVisible();
     rerender(
       <Footer
         language="en"
@@ -103,59 +104,58 @@ describe("Footer", () => {
             contactUs: "Contact Zoo Negara",
             careers: "Careers",
             faq: "FAQ",
+            sitemap: "Sitemap",
           }
         }
       />
     );
-    expect(getByText("© Zoo Negara")).toBeVisible();
+    expect(screen.getByText("© Zoo Negara")).toBeVisible();
   });
 
   it("should render component with city", () => {
-    const { getByText } = renderFooterComponent({
+    renderFooterComponent({
       address: {
         ...defaultAddress,
         city: "A city",
       },
     });
-    expect(getByText("A city,")).toBeInTheDocument();
+    expect(screen.getByText("A city,")).toBeInTheDocument();
   });
 
   it("should render a set of predefined labels and include maintained from 2021 till today", () => {
     const currentYearUpdated = new Date().getFullYear();
 
-    const { getByText } = renderFooterComponent({});
-    expect(getByText("Operation Hours:")).toBeInTheDocument();
-    expect(getByText("Address:")).toBeInTheDocument();
-    expect(getByText("Partners:")).toBeInTheDocument();
-    expect(getByText("Contact Zoo Negara")).toHaveAttribute("href", "/en/contact-us");
-    expect(getByText("Careers")).toHaveAttribute("href", "/en/careers");
-    expect(getByText("FAQ")).toHaveAttribute(
+    renderFooterComponent({});
+    expect(screen.getByText("Operation Hours:")).toBeInTheDocument();
+    expect(screen.getByText("Address:")).toBeInTheDocument();
+    expect(screen.getByText("Partners:")).toBeInTheDocument();
+    expect(screen.getByText("Contact Zoo Negara")).toHaveAttribute("href", "/en/contact-us");
+    expect(screen.getByText("Careers")).toHaveAttribute("href", "/en/careers");
+    expect(screen.getByText("FAQ")).toHaveAttribute(
       "href",
       "/en/frequent-asked-questions"
     );
     expect(
-      getByText(`- ${currentYearUpdated} all rights reserved.`)
+      screen.getByText(`- ${currentYearUpdated} all rights reserved.`)
     ).toBeInTheDocument();
   });
 
   it("should should not render partners section if partners are empty", () => {
-    const currentYearUpdated = new Date().getFullYear();
-
     renderFooterComponent({ partners: [] });
     expect(screen.queryByText("Partners:")).not.toBeInTheDocument();
   });
 
   it("should have a release version", () => {
-    const { getByText } = renderFooterComponent({});
-    expect(getByText("(ver. local)")).toBeInTheDocument();
+    renderFooterComponent({});
+    expect(screen.getByText("(ver. local)")).toBeInTheDocument();
   });
 
   it("should have a release of process env version", () => {
     const original_val = process.env.RELEASE_VERSION
 
     process.env.RELEASE_VERSION = "30101010-zoo"
-    const { getByText } = renderFooterComponent({});
-    expect(getByText("(ver. 30101010-zoo)")).toHaveClass("block");
+    renderFooterComponent({});
+    expect(screen.getByText("(ver. 30101010-zoo)")).toHaveClass("block");
 
     process.env.RELEASE_VERSION = original_val
   });
@@ -170,8 +170,8 @@ describe("Footer", () => {
     })
 
     process.env.RELEASE_VERSION = "30101010-zoo"
-    const { getByText } = renderFooterComponent({});
-    expect(getByText("(ver. 30101010-zoo)")).toHaveClass("hidden");
+    renderFooterComponent({});
+    expect(screen.getByText("(ver. 30101010-zoo)")).toHaveClass("hidden");
 
     Object.defineProperty(window, "location", {
       value: originalLocation,
