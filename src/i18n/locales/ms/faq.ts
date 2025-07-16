@@ -4,31 +4,31 @@ const zooFaq: AccordionProps = [
   {
     label: "Bagaimana untuk sampai ke Zoo Negara?",
     content:
-      "Kami telah memberikan maklumat dalam bahagian [/ms/visitor-info/getting-there||$(translation.menu.getting-there)] section.",
+      "Kami telah memberikan maklumat dalam bahagian [/ms/visitor-info/getting-there|$t(translation.menu.getting-there)] section.",
   },
   {
     label: "Apakah kadar kemasukan?",
     content:
-      "Anda boleh menyemaknya di laman [https://ticket.zoonegara.my/|*Ticketing Website].",
+      "Anda boleh menyemaknya di laman [https://ticket.zoonegara.my/|$t(translation.menu.gopening-and-rates)].",
   },
   {
     label:
       "Saya seorang guru dan bercadang untuk membawa pelajar saya ke zoo. Adakah anda menawarkan sebarang kadar konsesi sekolah?",
-    content: "Ya, sila rujuk kepada staff Zoo Negara [/ms/contact-us|Contact Zoo Negara].",
+    content: "Ya, sila rujuk kepada staff Zoo Negara [/ms/contact-us|$t(translation.footer.contactUs)].",
   },
   {
     label: "Apakah waktu buka?",
-    content: "Ya, sila melawat sekysen [/ms/visitor-info|Visitor Info].",
+    content: "Ya, sila melawat sekysen [/ms/visitor-info|$t(translation.menu.visitor-info)].",
   },
   {
     label: "Adakah terdapat mana-mana restoran atau kiosk makanan?",
     content:
-      "Ya, lihat di bahagian [/ms/visitor-info/kiosks-n-facilities|Kiosk] kami.",
+      "Ya, lihat di bahagian [/ms/visitor-info/kiosks-n-facilities|$t(translation.menu.kiosk-and-facilities)] kami.",
   },
   {
     label: "Adakah terdapat cara mudah untuk mencari tandas di dalam?",
     content:
-      "Ya, tandas kami ditunjukkan dalam [/ms/visitor-info/zoo-map|Peta Zoo].",
+      "Ya, tandas kami ditunjukkan dalam [/ms/visitor-info/zoo-map|$t(translation.menu.zoo-map)].",
   },
   {
     label: "Adakah haiwan peliharaan dibenarkan masuk ke zoo?",
@@ -43,7 +43,7 @@ const zooFaq: AccordionProps = [
     label:
       "Saya suka mengambil gambar dengan haiwan. Adakah anda mempunyai jadual untuk aktiviti ini?",
     content:
-      "Semak ia dalam bahagian [/ms/visitor-info/zoo-map|Masa Suapan Peta Zoo]. Selamat bergambar!",
+      "Semak ia dalam bahagian [/ms/visitor-info/zoo-map|$t(translation.menu.zoo-map)]. Selamat bergambar!",
   },
   {
     label:
