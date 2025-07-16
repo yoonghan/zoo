@@ -9,26 +9,26 @@ const zooFaq: AccordionProps = [
   {
     label: "What are the admission rates?",
     content:
-      "You can check it out in our [https://ticket.zoonegara.my/|*Ticketing Website].",
+      "You can check it out in our [https://ticket.zoonegara.my/|$t(translation.menu.gopening-and-rates)].",
   },
   {
     label:
       "I'm a teacher and planning to bring my students to zoo. Do you offer any school concession rates?",
-    content: "Yes, please contact official Zoo Negara website [/en/contact-us|Contact Zoo Negara].",
+    content: "Yes, please contact official Zoo Negara website [/en/contact-us|$t(translation.footer.contactUs)].",
   },
   {
     label: "What are the opening hours?",
-    content: "Yes, check it out in our [/en/visitor-info|Visitor Info] section.",
+    content: "Yes, check it out in our [/en/visitor-info|$t(translation.menu.visitor-info)] section.",
   },
   {
     label: "Is there any restaurant or food kiosk?",
     content:
-      "Yes, check it out in our [/en/visitor-info/kiosks-n-facilities|Kiosk] section.",
+      "Yes, check it out in our [/en/visitor-info/kiosks-n-facilities|$t(translation.menu.kiosk-and-facilities)] section.",
   },
   {
     label: "Is there an easy way to find restrooms inside?",
     content:
-      "Yes, our restrooms are indicated in the [/en/visitor-info/zoo-map|Zoo Map].",
+      "Yes, our restrooms are indicated in the [/en/visitor-info/zoo-map|$t(translation.menu.zoo-map)].",
   },
   {
     label: "Are pets allowed into the zoo?",
@@ -75,7 +75,7 @@ const zooFaq: AccordionProps = [
   {
     label: "What animals can I adopt?",
     content:
-      "Any animal at the Zoo as listed [https://www.ticket2u.com.my/event/18171/zoo-negara-adoption-package|onTicket2u website].",
+      "Any animal at the Zoo as listed [https://www.ticket2u.com.my/event/18171/zoo-negara-adoption-package|laman onTicket2u].",
   },
   {
     label: "Do I actually get to take the animal home with me?",
@@ -115,7 +115,7 @@ const zooFaq: AccordionProps = [
   {
     label: "I'm ready to adopt! How do I place an order?",
     content:
-      "The easiest and quickest way is to click on [https://www.ticket2u.com.my/event/18171/zoo-negara-adoption-package|onTicket2u website]. When you reach the adoption pages, click on ‘Adopt Me’ next to the animal you want to adopt and you will then be asked to login, or register if you don’t have an account yet.",
+      "The easiest and quickest way is to click on [https://www.ticket2u.com.my/event/18171/zoo-negara-adoption-package|laman onTicket2u]. When you reach the adoption pages, click on ‘Adopt Me’ next to the animal you want to adopt and you will then be asked to login, or register if you don’t have an account yet.",
   },
 ];
 
