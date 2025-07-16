@@ -33,7 +33,7 @@ const translations: typeof enTranslation = {
       description: "Muat turun peta dan merancang hari anda di Zoo Negara Malaysia."
     },
     gettingThere: {
-      title: "Sampai ke sana",
+      title: "Cara ke Zoo Negara",
       description: "Tips untuk ke Zoo Negara, Malaysia di Ampang, Kuala Lumpur."
     },
     kiosksNFacilities: {
@@ -178,7 +178,7 @@ const translations: typeof enTranslation = {
     }
   },
   gettingThere: {
-    title: "Menuju Ke Sana",
+    title: "Ke Sini",
     "address": "Alamat",
     "car": {
       title: "Memandu",
