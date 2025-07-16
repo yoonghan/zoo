@@ -20,15 +20,6 @@ Goal is to replace a website zoonegara.my. Zoo Negara is a non-government organi
 5. Ticketing information are image.
 6. No dual language, esp. Bahasa Malaysia.
 
-### UI Issues
-
-1. Not mobile friendly. - DONE
-2. Contrast of catchy colors. - DONE
-3. Slow loading. - DONE
-4. Small fonts. - DONE
-5. Images are not lazy loaded and position disoriented. - Can be improved further
-6. Language - DONE
-
 ### Things that seems valid
 
 1. Ticketing seems to runned by another service.
