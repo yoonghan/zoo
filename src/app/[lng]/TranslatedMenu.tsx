@@ -39,6 +39,7 @@ const TranslatedMenuComponent = withComponentTranslator(({ t, lng }: TranslatorP
         <ButtonLink
           styling="BuyNow"
           href={zooProfile.ticket.admission.url}
+          aria-label={t("Buy Ticket")}
         >
           <FontAwesomeIcon
             icon={faTicket}
