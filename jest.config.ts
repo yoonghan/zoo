@@ -20,7 +20,7 @@ const config: Config = {
       functions: 100,
       lines: 100,
       statements: 100,
-    },
+    }
   },
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   coverageReporters: ["text", "cobertura"],
@@ -34,9 +34,6 @@ const config: Config = {
     "/node_modules/",
     "/src/i18n/locales/en/*",
     "/src/i18n/locales/ms/*",
-    // Ignore test files
-    "/src/util/generateMeta.ts",
-    "/src/util/pathSanitizer.ts",
   ],
 };
 
