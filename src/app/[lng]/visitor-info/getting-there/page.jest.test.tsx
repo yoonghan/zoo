@@ -17,7 +17,7 @@ describe("Getting There", () => {
     expect(screen.getByRole("heading", { name: "Train" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Public Bus" })).toBeInTheDocument();
 
-    expect(screen.getByRole("button", { name: translations.gettingThere.viewBtnText })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: translations.gettingThere.viewBtnText })).toBeInTheDocument();
   });
 
   it("should generate site headers", async () => {

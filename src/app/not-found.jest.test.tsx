@@ -6,7 +6,7 @@ describe("not-found", () => {
     render(<NotFound />);
     expect(screen.getByText("This page is not found")).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: "Return to Zoo Page" })
+      screen.getByRole("link", { name: "Return to Zoo Page" })
     ).toHaveAttribute("href", "https://zoo.walcron.com");
 
     expect(screen.getByRole("link", { name: "Sitemap" })).toHaveAttribute(

@@ -10,7 +10,7 @@ describe("TranslatedMenu", () => {
 
         expect(await screen.findAllByText(en["menu"]["about-us"])).toHaveLength(2)
         expect(screen.getAllByRole("link", { name: "BM" })).toHaveLength(2)
-        expect(screen.getAllByRole("button", { name: "Buy Ticket" })).toHaveLength(2)
+        expect(screen.getAllByRole("link", { name: "Buy Ticket" })).toHaveLength(2)
         expect(screen.getByText("Zoo Negara")).toBeInTheDocument()
     })
 })
