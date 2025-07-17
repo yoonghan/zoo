@@ -6,9 +6,9 @@ import style from "./Announcement.module.css";
 
 type AnnouncementsType = string[];
 
-type AnnouncementProps = { 
-  ariaAnnouncementTitle: string; 
-  announcements: AnnouncementsType 
+type AnnouncementProps = {
+  ariaAnnouncementTitle: string;
+  announcements: AnnouncementsType
 };
 
 export function Announcement({ ariaAnnouncementTitle, announcements }: AnnouncementProps) {
@@ -33,9 +33,8 @@ export function Announcement({ ariaAnnouncementTitle, announcements }: Announcem
           <div
             role="dialog"
             title={ariaAnnouncementTitle}
-            className={`${style.announcement} ${
-              hasOnly1Announcement ? style["only-one"] : ""
-            } p-6 md:text-center`}
+            className={`${style.announcement} ${hasOnly1Announcement ? style["only-one"] : ""
+              } p-6 md:text-center`}
           >
             {!hasOnly1Announcement && (
               <button onClick={goPrev} className="no-style">
@@ -56,8 +55,8 @@ export function Announcement({ ariaAnnouncementTitle, announcements }: Announcem
                 ></i>
               </button>
             )}
-            <label htmlFor="close-announcement" className="relative">
-              <span className={"close"} aria-label="Close Announcement"></span>
+            <label htmlFor="close-announcement" className="relative" aria-label="Close Announcement">
+              <span className={"close"}></span>
             </label>
           </div>
         </>
