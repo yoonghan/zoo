@@ -21,7 +21,7 @@ test("has announcement", async ({ page }) => {
     const announcement = page.getByTestId("announcement");
     await expect(announcement).toBeVisible();
 
-    await page.getByRole("checkbox", { name: "Close Announcement" }).click();
+    await page.getByLabel("Close Announcement").click();
 
     await expect(announcement).not.toBeVisible();
   }
