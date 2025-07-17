@@ -77,16 +77,16 @@ jobs:
       - name: Update Language pages, default en a index.html
         run: |
           cp ./out/en.html ./out/index.html
-      - name: Upload artifact for GH pages
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./out
       - name: Re-Run Unit test with coverage
         run: ${{ steps.detect-package-manager.outputs.manager }} run test:coverage
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5.4.3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Upload artifact for GH pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
 
   # Deployment job
   deploy:
