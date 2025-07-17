@@ -61,7 +61,7 @@ describe("Announcement", () => {
 
   it("should have a label name for close", () => {
     renderAnnouncement();
-    expect(screen.getByLabelText("Close Announcement")).toBeInTheDocument();
+    expect(screen.getByRole("checkbox", { name: "Close Announcement" })).toBeInTheDocument();
   });
 
   it("should have a test id for playwright test", () => {

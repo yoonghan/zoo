@@ -36,14 +36,14 @@ describe("link", () => {
 
   it("should render correct link className", () => {
     renderLink({ className: "external-className" });
-    const linkComponent = screen.getByRole("button", { name: "I am a Link" });
+    const linkComponent = screen.getByRole("link", { name: "I am a Link" });
     expect(linkComponent).toHaveClass("button-secondary");
     expect(linkComponent).toHaveClass("external-className");
   });
 
   it("should not render link with undefined", () => {
     renderLink({});
-    const linkComponent = screen.getByRole("button", { name: "I am a Link" });
+    const linkComponent = screen.getByRole("link", { name: "I am a Link" });
     expect(linkComponent).not.toHaveClass("undefined");
   });
 });

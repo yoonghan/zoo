@@ -95,7 +95,7 @@ test("can purchase ticket", async ({ page }) => {
   const ticketUrl = zooProfile.ticket.admission.url;
 
   await page
-    .getByRole("button", { name: "Buy Ticket" })
+    .getByRole("link", { name: "Buy Ticket" })
     .click();
   expect(page.url()).toBe(
     ticketUrl.endsWith("/") ? ticketUrl : ticketUrl + "/"

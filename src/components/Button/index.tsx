@@ -37,7 +37,6 @@ export function ButtonLink({
     <Link
       href={href}
       className={`${style.button} ${style[buttonStyleClassName]} ${className || ""}`}
-      role={"button"}
       styling="None"
       {...additionalProps}
     >

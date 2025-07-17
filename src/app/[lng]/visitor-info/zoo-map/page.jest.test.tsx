@@ -22,12 +22,12 @@ describe("ZooMap", () => {
     await act(async () => {
       render(<ZooMap params={Promise.resolve({ lng: "en" })} />);
     });
- 
+
     expect(
-      await screen.findByRole("button", { name: translations.visitorInfo.zooMap.downloadMapBtn })
+      await screen.findByRole("link", { name: translations.visitorInfo.zooMap.downloadMapBtn })
     ).toHaveAttribute("href", `/images/${zooMapFileName}.jpg`);
     expect(
-      screen.getByRole("button", { name: translations.visitorInfo.zooMap.downloadMapBtn })
+      screen.getByRole("link", { name: translations.visitorInfo.zooMap.downloadMapBtn })
     ).toHaveAttribute("download", "");
 
     expect(
@@ -49,7 +49,7 @@ describe("ZooMap", () => {
   });
 
   it("should generate site headers", async () => {
-    const metadata = await generateMetadata({params: Promise.resolve({ lng: "en" })})
+    const metadata = await generateMetadata({ params: Promise.resolve({ lng: "en" }) })
 
     expect(metadata.title).toBe(translations.headers.zooMap.title)
     expect(metadata.description).toBe(translations.headers.zooMap.description)
