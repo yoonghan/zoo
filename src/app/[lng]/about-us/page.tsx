@@ -67,7 +67,7 @@ function About({ t }: TranslatorProps) {
             {miniLinks[1].title}
           </h3>
           <p>
-            {t("aboutUs.aboutZoo.description")} [<Link href={t("aboutUs.aboutWalcron.descriptionWiki")}>1</Link>]
+            {t("aboutUs.aboutZoo.description")} [<Link href={t("aboutUs.aboutWalcron.descriptionWiki")}>reference</Link>]
           </p>
         </article>
         <article
