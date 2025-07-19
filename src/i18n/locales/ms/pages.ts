@@ -154,6 +154,7 @@ const translations: typeof enTranslation = {
       title: "Peta Zoo Negara Malaysia",
       downloadMapBtn: "Muat turun Peta",
       description: "Untuk menerokai zoo kami, muat turunnya.",
+      info: "Pameran Panda kini ditutup.",
     },
   },
   frequentAskedQuestions: {

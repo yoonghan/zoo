@@ -12,6 +12,7 @@ const translations: typeof enTranslation = {
   announcements: [
     "这不是动物园的官方网站。请访问官方网站 [https://zoonegara.my|zoonegara.my] 了解更多信息。",
     "动物园多种动物表演将于 *周五关闭 学校假期和公共假期除外。",
+    "熊猫展览 *关闭",
   ],
   menu: {
     "mobile-home-text": "Zoo Negara",
