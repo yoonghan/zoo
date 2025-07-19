@@ -4,14 +4,13 @@ import { test, expect } from "@playwright/test";
 import en from "@/i18n/locales/en/translation";
 
 test.use({
-  viewport: { width: 900, height: 1200 },
+  viewport: { width: 700, height: 1200 },
 });
 
 const convertToMenuLabel = (menuLabel: string) => {
-  const label = menuLabel.replace("menu.", "")
-  return (en["menu"] as any)[label]
-}
-
+  const label = menuLabel.replace("menu.", "");
+  return (en["menu"] as any)[label];
+};
 
 test("has menu", async ({ page }) => {
   await page.goto("http://localhost:3000/");
@@ -94,10 +93,17 @@ test("can purchase ticket", async ({ page }) => {
 
   const ticketUrl = zooProfile.ticket.admission.url;
 
-  await page
-    .getByRole("link", { name: "Buy Ticket" })
-    .click();
+  await page.getByRole("link", { name: "Buy Ticket" }).click();
   expect(page.url()).toBe(
     ticketUrl.endsWith("/") ? ticketUrl : ticketUrl + "/"
   );
+});
+
+test("can switch language", async ({ page }) => {
+  await page.goto("http://localhost:3000/en");
+  await page.getByRole("combobox").selectOption("ms");
+
+  await expect(
+    page.getByRole("heading", { name: /Selamat datang ke Zoo Negara/ })
+  ).toBeVisible();
 });

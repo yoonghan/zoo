@@ -8,16 +8,19 @@ test.use({
 });
 
 const convertToMenuLabel = (menuLabel: string) => {
-  const label = menuLabel.replace("menu.", "")
-  return (en["menu"] as any)[label]
-}
+  const label = menuLabel.replace("menu.", "");
+  return (en["menu"] as any)[label];
+};
 
 test("has menu", async ({ page }) => {
   await page.goto("http://localhost:3000/");
 
   zooMenu.forEach(async (menu) => {
     await expect(
-      page.getByRole("menuitem", { name: convertToMenuLabel(menu.label), exact: true })
+      page.getByRole("menuitem", {
+        name: convertToMenuLabel(menu.label),
+        exact: true,
+      })
     ).toBeVisible();
   });
 
@@ -45,10 +48,19 @@ test("can purchase ticket", async ({ page }) => {
 
   const ticketUrl = zooProfile.ticket.admission.url;
 
-  await page
-    .getByRole("link", { name: en["menu"]["Buy Ticket"] })
-    .click();
+  await page.getByRole("link", { name: en["menu"]["Buy Ticket"] }).click();
   expect(page.url()).toBe(
     ticketUrl.endsWith("/") ? ticketUrl : ticketUrl + "/"
   );
+});
+
+test("can switch language", async ({ page }) => {
+  await page.goto("http://localhost:3000/en");
+  await expect(
+    page.getByRole("heading", { name: /Welcome to Zoo Negara/ })
+  ).toBeVisible();
+  await page.getByRole("link", { name: "Bahasa" }).click();
+  await expect(
+    page.getByRole("heading", { name: /Selamat datang ke Zoo Negara/ })
+  ).toBeVisible();
 });

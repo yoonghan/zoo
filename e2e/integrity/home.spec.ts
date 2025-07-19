@@ -1,18 +1,11 @@
 import translation from "@/i18n/locales/en/translation";
 import { test, expect } from "@playwright/test";
 
-const zooAnnouncement = translation['announcements']
+const zooAnnouncement = translation["announcements"];
 
 test("has title", async ({ page }) => {
   await page.goto("http://localhost:3000/");
   await expect(page).toHaveTitle(/Zoo Negara/);
-});
-
-test("can switch language", async ({ page }) => {
-  await page.goto("http://localhost:3000/en");
-  await expect(page.getByRole("heading", { name: /Welcome to Zoo Negara/ })).toBeVisible();
-  await page.getByRole("link", { name: "BM" }).click();
-  await expect(page.getByRole("heading", { name: /Selamat datang ke Zoo Negara/ })).toBeVisible();
 });
 
 test("has announcement", async ({ page }) => {
