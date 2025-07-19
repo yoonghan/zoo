@@ -14,7 +14,9 @@ describe("ZooMap", () => {
     expect(await screen.findByRole("main")).toBeInTheDocument();
     //h1
     expect(
-      screen.getByRole("heading", { name: translations.visitorInfo.zooMap.title })
+      screen.getByRole("heading", {
+        name: translations.visitorInfo.zooMap.title,
+      })
     ).toBeInTheDocument();
   });
 
@@ -24,34 +26,39 @@ describe("ZooMap", () => {
     });
 
     expect(
-      await screen.findByRole("link", { name: translations.visitorInfo.zooMap.downloadMapBtn })
+      await screen.findByRole("link", {
+        name: translations.visitorInfo.zooMap.downloadMapBtn,
+      })
     ).toHaveAttribute("href", `/images/${zooMapFileName}.jpg`);
     expect(
-      screen.getByRole("link", { name: translations.visitorInfo.zooMap.downloadMapBtn })
+      screen.getByRole("link", {
+        name: translations.visitorInfo.zooMap.downloadMapBtn,
+      })
     ).toHaveAttribute("download", "");
 
     expect(
       screen
         .getByRole("img", { name: "Top Zoo Negara Map" })
         .getAttribute("src")
-    ).toContain(`${zooMapFileName}-web-1.jpg`);
+    ).toContain(`${zooMapFileName}-1.webp`);
+    expect(
+      screen
+        .getByRole("img", { name: "Center Zoo Negara Map" })
+        .getAttribute("src")
+    ).toContain(`${zooMapFileName}-2.webp`);
     expect(
       screen
         .getByRole("img", { name: "Bottom Zoo Negara Map" })
         .getAttribute("src")
-    ).toContain(`${zooMapFileName}-web-2.jpg`);
-  });
-
-  it("should have 3 important map files to exist", () => {
-    expect(checkForImageExist(`${zooMapFileName}.jpg`));
-    expect(checkForImageExist(`${zooMapFileName}-web-1.jpg`));
-    expect(checkForImageExist(`${zooMapFileName}-web-2.jpg`));
+    ).toContain(`${zooMapFileName}-3.webp`);
   });
 
   it("should generate site headers", async () => {
-    const metadata = await generateMetadata({ params: Promise.resolve({ lng: "en" }) })
+    const metadata = await generateMetadata({
+      params: Promise.resolve({ lng: "en" }),
+    });
 
-    expect(metadata.title).toBe(translations.headers.zooMap.title)
-    expect(metadata.description).toBe(translations.headers.zooMap.description)
-  })
+    expect(metadata.title).toBe(translations.headers.zooMap.title);
+    expect(metadata.description).toBe(translations.headers.zooMap.description);
+  });
 });
