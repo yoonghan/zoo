@@ -16,6 +16,13 @@ const labelLanguage = (language: string) => {
   }
 };
 
+const assignToLanguage = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const selectedLanguage = event.target.value;
+  if (languages.includes(selectedLanguage)) {
+    window.location.assign(`/${selectedLanguage}`);
+  }
+};
+
 export const LanguageDropdown = ({
   defaultValue,
   mobileStyle = {},
@@ -46,9 +53,7 @@ export const LanguageDropdown = ({
       <select
         {...defaultProps}
         value={defaultValue}
-        onChange={(e) => {
-          window.location.assign(`/${e.target.value}`);
-        }}
+        onChange={assignToLanguage}
         style={mobileStyle}
         className="md:hidden mr-2"
         id="language-dropdown"
