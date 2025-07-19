@@ -1,29 +1,35 @@
 import ms from "./ms/translation";
 import en from "./en/translation";
+import zh from "./zh/translation";
 import msPages from "./ms/pages";
 import enPages from "./en/pages";
+import zhPages from "./zh/pages";
 
 import zooFaqEN from "./en/faq";
 import zooFaqMS from "./ms/faq";
 
 describe("i18n locales", () => {
-  it("all ms should have all en fields", () => {
+  it("all ms, zh should have all en fields", () => {
     const enKeys = Object.keys(en);
-    const msKeys = Object.keys(ms);
-    expect(msKeys).toEqual(expect.arrayContaining(enKeys));
+    [ms, zh].forEach((lngJson) => {
+      const lngKeys = Object.keys(lngJson);
+      expect(lngKeys).toEqual(expect.arrayContaining(enKeys));
+    });
 
     const enPagesKeys = Object.keys(enPages);
-    const msPagesKeys = Object.keys(msPages);
-    expect(msPagesKeys).toEqual(expect.arrayContaining(enPagesKeys));
+    [msPages, zhPages].forEach((lngJson) => {
+      const lngPagesKeys = Object.keys(lngJson);
+      expect(lngPagesKeys).toEqual(expect.arrayContaining(enPagesKeys));
+    });
   });
 
-  it("all faq should be defined in both languages", () => {
+  it("all faq should be defined in both languages, except chinese", () => {
     expect(zooFaqEN.length).toBe(zooFaqMS.length);
-  })
+  });
 
-  it('should contain {{time}} handlebar', () => {
-    [ms, en].forEach(lngJson => {
-      expect(lngJson["footer"]["lastAdmission"]).toContain("{{time}}")
-    })
-  })
+  it("should contain {{time}} handlebar", () => {
+    [ms, en, zh].forEach((lngJson) => {
+      expect(lngJson["footer"]["lastAdmission"]).toContain("{{time}}");
+    });
+  });
 });

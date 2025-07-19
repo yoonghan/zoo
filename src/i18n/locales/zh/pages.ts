@@ -1,60 +1,56 @@
+import enTranslation from "../en/pages";
 import zooFaq from "./faq";
 import translation from "./translation";
 
-const translations = {
-  lang: "en",
+const translations: typeof enTranslation = {
+  lang: "zh",
   translation,
   headers: {
-    default: "Zoo Negara Malaysia",
-    defaultDescription:
-      "A non-governmental organization established to create the first local zoo for Malaysians.",
+    default: "马来西亚国家动物园",
+    defaultDescription: "为马来西亚人打造第一家本地动物园而成立的非政府组织。",
     aboutUs: {
-      title: "About Zoo Negara Website",
-      description:
-        "The story why a copy of Zoo Negara Malaysia website was created.",
+      title: "关于国家动物园网站",
+      description: "创建马来西亚国家动物园网站副本的原因。",
     },
     frequentAskedQuestions: {
-      title: "Frequent Asked Questions",
-      description:
-        "Frequent questions about the visit to the zoo, compiled directly from Zoo Negara Malaysia.",
+      title: "常见问题",
+      description: "有关参观动物园的常见问题，直接由马来西亚国家动物园汇编。",
     },
     careers: {
-      title: "Careers in Zoo Negara",
-      description: "Looking to work for Zoo Negara Malaysia?",
+      title: "国家动物园的职业发展",
+      description: "想在马来西亚国家动物园工作吗？",
     },
     contactUs: {
-      title: "Contact Zoo Negara",
-      description: "Contacts for zoo information.",
+      title: "联系国家动物园",
+      description: "动物园信息的联系方式。",
     },
     visitorInfo: {
-      title: "Visitor Info",
-      description:
-        "Visitor information about zoo opening hours and facilities.",
+      title: "访客信息",
+      description: "有关动物园开放时间和设施的游客信息。",
     },
     zooMap: {
-      title: "Zoo Negara Malaysia Map",
-      description:
-        "Download the map and plan your visit in Zoo Negara Malaysia.",
+      title: "马来西亚国家动物园地图",
+      description: "下载地图并规划您在马来西亚国家动物园的行程。",
     },
     gettingThere: {
-      title: "Getting There",
+      title: "到达那里",
       description:
-        "Tips to get to Zoo Negara, Malaysia in Ampang, Kuala Lumpur.",
+        "前往位于吉隆坡 Ampang 的马来西亚国家动物园 (Zoo Negara) 的提示。",
     },
     kiosksNFacilities: {
-      title: "Kiosks And Facilities",
-      description: "Food, Souvenir Kiosks and Facilities within the Zoo.",
+      title: "亭子和设施",
+      description: "动物园内的食品、纪念品亭和设施。",
     },
     sitemap: {
       title: "Sitemap",
-      description: "Hierarchical sitemap of Walcron Zoo Website.",
+      description: "链接",
     },
   },
   homepage: {
-    welcome: "Welcome to Zoo Negara",
+    welcome: "欢迎来到 Zoo Negara Malaysia",
     introduction:
-      "Zoo Negara Malaysia is managed by the Malaysian Zoological Society, a non-governmental organization established to create the first local zoo for Malaysians. Zoo Negara was officially opened on 14th November 1963 and has matured into a well-known zoo all around the world. We have a total of over 5137 specimen from 476 species of mammals, birds, reptiles, amphibians and fish.",
-    introductionRemark: "taken from Zoo Negara website",
+      "马来西亚国家动物园由马来西亚动物学会管理，该学会是一个非政府组织，旨在为马来西亚人民打造首个本地动物园。国家动物园于1963年11月14日正式开放，现已发展成为享誉全球的动物园。动物园内共有476个物种，包括哺乳动物、鸟类、爬行动物、两栖动物和鱼类，共计超过5137只动物。",
+    introductionRemark: "摘自国家动物园网站",
   },
   aboutUs: {
     title: "About Us",
@@ -91,7 +87,7 @@ const translations = {
     },
   },
   visitorInfo: {
-    title: "Visitor Information",
+    title: "访客信息",
     additionalInformationText: "Additional Information",
     additionalInformationNotes: [
       "Tickets can be purchased at the zoo.",
@@ -100,8 +96,8 @@ const translations = {
       "All rates are stated in Malaysian Ringgit (MYR).",
     ],
     openingHours: {
-      title: "Opening Hours",
-      description: "Zoo Opens Daily from:",
+      title: "营业时间",
+      description: "动物园每日开放时间:",
     },
     admissionTicket: {
       title: "Admission Ticket",

@@ -9,8 +9,8 @@ const labelLanguage = (language: string) => {
       return "English";
     case "ms":
       return "Bahasa";
-    // case "zh":
-    //   return "中文";
+    case "zh":
+      return "中文";
     // case "ta":
     //   return "தமிழ்";
   }
@@ -39,7 +39,7 @@ export const LanguageDropdown = ({
       <div style={desktopStyle} className="hidden md:inline-block mr-4">
         {languages.map((language, idx) => (
           <span key={language}>
-            {idx !== 1 || <span className={"hidden sm:inline mx-1"}> | </span>}
+            {idx !== 0 && <span className={"hidden sm:inline mx-1"}> | </span>}
             <Link
               styling="None"
               href={`/${language}`}
