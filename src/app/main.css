@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-body>header {
+body > header {
   box-shadow: 1px 1px 5px 0px var(--gray);
   width: 100%;
   z-index: 999;
@@ -15,6 +15,7 @@ body {
   margin: 0;
   scroll-behavior: smooth;
   animation: slow_display 0.1s linear;
+  min-width: 360px;
 }
 
 @keyframes slow_display {
@@ -47,8 +48,8 @@ main.no-margin-y {
   margin: 0 auto;
 }
 
-main>article,
-main>section {
+main > article,
+main > section {
   padding: 1.5rem 1rem;
 }
 
@@ -194,10 +195,7 @@ svg[data-icon="ticket"] {
   overflow: hidden;
   clip: rect(1px 1px 1px 1px);
   /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
-  clip: rect(1px,
-      1px,
-      1px,
-      1px);
+  clip: rect(1px, 1px, 1px, 1px);
   /*maybe deprecated but we need to support legacy browsers */
   clip-path: inset(50%);
   /*modern browsers, clip-path works inwards from each corner*/
