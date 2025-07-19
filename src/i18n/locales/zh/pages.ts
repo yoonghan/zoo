@@ -149,8 +149,9 @@ const translations: typeof enTranslation = {
     },
     zooMap: {
       title: "Zoo Negara Malaysia Map",
-      downloadMapBtn: "Download Map",
-      description: "To explore our zoo, download it.",
+      downloadMapBtn: "下载地图",
+      description: "下载地图并规划您在马来西亚国家动物园的行程。",
+      info: "熊猫展览目前已关闭。",
     },
   },
   frequentAskedQuestions: {

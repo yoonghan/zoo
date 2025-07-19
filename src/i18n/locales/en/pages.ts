@@ -155,6 +155,7 @@ const translations = {
       title: "Zoo Negara Malaysia Map",
       downloadMapBtn: "Download Map",
       description: "To explore our zoo, download it.",
+      info: "Exhibit for Panda is currently closed.",
     },
   },
   frequentAskedQuestions: {
