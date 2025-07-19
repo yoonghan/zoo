@@ -159,4 +159,3 @@ jobs:
         with:
           name: Lighthouse report
           path: .lighthouseci
-          include-hidden-files: true
