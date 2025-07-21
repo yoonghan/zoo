@@ -47,4 +47,4 @@ Remove versioning from page with querystring, ?version=none
 2. Font Awesome by Dave Gandy - http://fontawesome.io
 
 [build-badge]: https://img.shields.io/github/actions/workflow/status/yoonghan/zoo/master_merge.yml
-[build]: https://github.com/yoonghan/zoo/actions?query=workflow
+[build]: https://github.com/yoonghan/zoo/actions?query=workflow%3A%22Deploy%20Next.js%20site%20to%20Pages%22
