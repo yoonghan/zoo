@@ -220,63 +220,63 @@ const translations: typeof enTranslation = {
     viewBtnText: "在谷歌地图中查看”,
   },
   kiosksNFacilities: {
-    title: "Kiosks And Facilities",
+    title: "亭子和设施",
     food: {
-      title: "Food",
+      title: "食物",
       description:
-        "Besides lot's of things to do, you can enjoy a meal here too.",
+        "除了可以做很多事情之外，您还可以在动物园享用美食。",
       restaurants: [
         {
           title: "The Wild Restaurant",
           description:
-            "Located at the heart of Zoo Negara, the Wild Restaurant is definitely your family restaurant. Catering a wide range of delicious fast food and mouth watering finger food at an affordable price, the Wild Restaurant offer various food for your friends and family.",
+            "位于国家动物园中心的 Wild 餐厅绝对是您家庭聚餐的理想之选。Wild 餐厅提供各种美味快餐和令人垂涎的小吃，价格实惠，是您与亲朋好友欢聚的理想之选。",
         },
         {
           title: "Mane Delicious",
           description:
-            "For those interested in cooling and delicious deserts, head on to this cafe for some famous 'Ais Kacang' or 'Cendol'!",
+            "对于那些对清凉美味的甜点感兴趣的人，可以前往这家咖啡馆品尝一些著名的“Ais Kacang”或“Cendol”！",
         },
         {
           title: "Panda Cafe",
           description:
-            "Looking for a Malaysian food? Then drop by at Panda Cafe for its delicious nasi lemak, curry mee, fried mee hoon and other dishes all guaranteed to satisfy a hungry tummy!",
+            "想吃马来西亚美食？那就来熊猫咖啡馆 (Panda Cafe) 吧！这里有美味的椰浆饭、咖喱面、炒面粉等等，保证让你大饱口福！- 暂时关闭",
         },
       ],
     },
     souvenir: {
-      title: "Souvenir",
+      title: "纪念品",
       shops: [
         {
           title: "Kancil Souvenir Shop & Kyoto Enterprise",
           description:
-            "Looking for some really unique gifts? Kancil Souvenir Shop and Kyoto Enterprise provide gifts for you to take home!",
+            "想找一些真正独特的礼物吗？Kancil 纪念品商店和京都企业为您提供精美礼品！",
         },
         {
           title: "Zoovenir Shop",
           description:
-            "Located inside Giant Panda Conservation Centre and in front of Savannah. Hunting for an exclusive Giant Panda merchandise? Drop by to Zoovenir Shop.",
+            "位于大熊猫保护中心内，Savannah 正前方。想寻找独家大熊猫商品？那就来 Zoovenir 商店吧。- 暂时关闭",
         },
         {
-          title: "Bee Museum",
+          title: "Bee 博物馆",
           description:
-            "Come and visit our giant bees! The largest honey producer in Malaysia is now in Zoo Negara.",
+            "快来参观我们的巨型蜜蜂吧！马来西亚最大的蜂蜜产地现已落户国家动物园。",
         },
       ],
     },
     facilities: {
-      title: "Facilities",
+      title: "设施",
       facilities: [
         {
-          title: "Prayer Room / Surau",
+          title: "祈祷室/祈祷室",
           description:
-            "An air-conditioned prayer room is provided with ample space situated nearby the zoo's main entrance.",
+            "动物园正门附近设有一间空间宽敞的空调祈祷室。",
           image: "/images/visitor-info/surau.jpg",
-          imageAlt: "surau",
+          imageAlt: "Mosque",
         },
         {
-          title: "Free Public Wifi",
+          title: "免费公共无线网络",
           description:
-            "Do you like being online all the time? Stay connected with our free wifi that is available at the main entrance, show amphitheatre and Giant Panda Conservation Centre.",
+            "您喜欢一直在线吗？我们主入口、露天剧场和大熊猫保护中心均提供免费无线网络，让您时刻保持连接。",
           image: "/images/visitor-info/freewifi.jpg",
           imageAlt: "Wifi",
         },
