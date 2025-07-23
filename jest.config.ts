@@ -32,8 +32,7 @@ const config: Config = {
   coveragePathIgnorePatterns: [
     "layout.tsx",
     "/node_modules/",
-    "/src/i18n/locales/en/*",
-    "/src/i18n/locales/ms/*",
+    "/src/i18n/locales/[a-z]+/.*"
   ],
 };
 
