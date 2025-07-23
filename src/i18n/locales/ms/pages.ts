@@ -240,7 +240,7 @@ const translations: typeof enTranslation = {
         {
           title: "Panda Cafe",
           description:
-            "Mencari makanan Malaysia? Kemudian singgah di Panda Cafe untuk nasi lemaknya yang lazat, mee kari, mee hoon goreng dan hidangan lain semuanya dijamin mengenyangkan perut yang lapar!",
+            "Mencari makanan Malaysia? Kemudian singgah di Panda Cafe untuk nasi lemaknya yang lazat, mee kari, mee hoon goreng dan hidangan lain semuanya dijamin mengenyangkan perut yang lapar! - Tutup sementara",
         },
       ],
     },
@@ -255,7 +255,7 @@ const translations: typeof enTranslation = {
         {
           title: "Kedai Zoovenir",
           description:
-            "Terletak di dalam Pusat Pemuliharaan Panda Gergasi dan di hadapan Savannah. Memburu barangan Panda Gergasi eksklusif? Singgah ke Kedai Zoovenir.",
+            "Terletak di dalam Pusat Pemuliharaan Panda Gergasi dan di hadapan Savannah. Memburu barangan Panda Gergasi eksklusif? Singgah ke Kedai Zoovenir. - Tutup sementara",
         },
         {
           title: "Muzium Lebah",

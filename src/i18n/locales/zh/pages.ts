@@ -53,230 +53,230 @@ const translations: typeof enTranslation = {
     introductionRemark: "摘自国家动物园网站",
   },
   aboutUs: {
-    title: "About Us",
+    title: "关于我们",
     aboutWalcron: {
-      title: "About Walcron",
+      title: "关于 Walcron",
       description:
-        "We are a couple who have passion and interest in building sustainable websites. Besides, we do love to go to the zoo!",
+        "我们是一对对构建可持续发展网站充满热情和兴趣的夫妇。此外，我们也非常喜欢去动物园！如果普通话翻译不正确，我们很抱歉，我们目前正在使用“Google”进行翻译。",
       desription2:
-        "The reason we created a non-associated and alternate website about Zoo Negara Malaysia are due to the lack of basic Website support in the original site. We did try to reach out to the Zoo admin on this site, but our proposal was rejected politely. This zoo website add-ons:",
+        "我们之所以创建一个与马来西亚国家动物园无关的替代网站，是因为原网站缺乏基本的网站支持。我们曾尝试联系该网站的动物园管理员，但我们的提议被礼貌地拒绝了。该动物园网站改进了：",
       descriptionSupport: [
-        "Language Support as Malaysian BM as the national language is required.",
-        "Supports ARIA for users with disabilities.",
-        "No Annoying Pop-up in main page.",
-        "Add Missing Sitemap.",
+        "语言支持马来语和普通话。",
+        "支持残障用户的 ARIA。",
+        "主页上没有烦人的弹出窗口。",
+        "添加缺失的站点地图。",
       ],
     },
     aboutZoo: {
-      title: "About Zoo Negara Malaysia",
+      title: "关于 Zoo Negara Malaysia",
       description:
-        "Zoo Negara Malaysia is managed by the Malaysian Zoological Society, a non-governmental organization established to create the first local zoo for Malaysians.",
+        "马来西亚国家动物园由马来西亚动物学会管理，该学会是一个非政府组织，旨在为马来西亚人创建第一个本地动物园。",
       descriptionWiki: "wikipedia",
     },
     vision: {
-      title: "Vision",
+      title: "有远见的人",
       description:
-        "We wish Zoo Negara decides to absorb this website and update the website to fit their needs. The site can be self-maintained as basic DevOps infrastructure has been built around it.",
+        "我们希望国家动物园能够吸收并更新该网站，以满足其需求。该网站已构建了基本的 DevOps 基础设施，因此可以自行维护。",
       descriptionSupport: [
-        "Site builds, tests and deploy by itself.",
-        "Minimal basic JSON/HTML is required to maintain it.",
-        "Everything is integrated with Github pipeline.",
-        "Opensourced - anyone can view and contribute.",
-        "Process oriented - approval/reviews before accepting changes.",
+        "站点自行构建、测试和部署。",
+        "需要最少的基本 JSON/HTML 来维护它。",
+        "一切都与 Github 管道集成。",
+        "开源 - 任何人都可以查看和贡献。",
+        "以流程为导向 - 接受变更之前进行批准/审查。",
       ],
     },
   },
   visitorInfo: {
     title: "访客信息",
-    additionalInformationText: "Additional Information",
+    additionalInformationText: "附加信息",
     additionalInformationNotes: [
-      "Tickets can be purchased at the zoo.",
-      "OKU - 10% discounted price (Please show a valid OKU card).",
-      "Vip Booking can be arranged, please check it out with Zoo Administrator in Contact Zoo link.",
-      "All rates are stated in Malaysian Ringgit (MYR).",
+      "门票可以在动物园购买。",
+      "OKU - 10% 折扣价（请出示有效的 OKU 卡）。*可能仅适用于马来西亚公民。",
+      "可以安排 VIP 预订，请通过联系动物园链接与动物园管理员联系。",
+      "所有价格均以马来西亚林吉特（MYR）表示。",
     ],
     openingHours: {
       title: "营业时间",
       description: "动物园每日开放时间:",
     },
     admissionTicket: {
-      title: "Admission Ticket",
-      description: "Please get your admission ticket valid",
+      title: "门票",
+      description: "请验证您的入场券。",
       additionalInformation: {
         important:
-          "Please bring along your identity passport / ID card at the ticket counter for verification purposes.",
-        free: "Free Admission",
-        freeOne: "Children below 36 months old, enters for free.",
-        freeTwo: "For OKU/Disable. Please show a valid OKU card.",
+          "请携带您的身份护照/身份证到售票处进行验证。",
+        free: "免费入场",
+        freeOne: "36个月以下儿童免费入场。",
+        freeTwo: "适用于 OKU/残障人士。请出示有效的 OKU 卡。*可能仅适用于马来西亚公民。",
       },
     },
     rental: {
-      title: "Rental",
+      title: "租赁",
       facilities: [
         {
-          title: "Wheelchair",
+          title: "轮椅",
           description:
-            "A wheelchair service on a first come first served basis is available at the Information Counter B. Rental fee and a refundable deposit is required.",
+            "服务台 B 提供先到先得的轮椅服务。需支付租赁费和可退还的押金。",
           image: "/images/visitor-info/wheelchair.jpg",
           imageAlt: "Wheelchair",
         },
         {
-          title: "Baby Strollers",
+          title: "婴儿推车",
           description:
-            "A baby stroller service is available now at our new stroller station. This baby stroller is sponsored by Mother Care. Stroller service is available at the Information Counter B on a first come first served basis.",
+            "我们新的婴儿车站现已提供婴儿车服务。该婴儿车由 Mother Care 赞助。婴儿车服务在 B 号服务台提供，先到先得。",
           image: "/images/visitor-info/stroller.jpg",
           imageAlt: "Baby Strollers",
         },
         {
-          title: "Lockers",
+          title: "储物柜",
           description:
-            "The lockers are available at Ticket Counter for storage of personal belongings. Rental fee is required.",
+            "售票处设有储物柜，可供存放个人物品。需支付租赁费。",
           image: "/images/visitor-info/locker.jpg",
           imageAlt: "Rental Lockers",
         },
       ],
     },
     tramRide: {
-      title: "Tram Ride",
+      title: "乘坐电车",
       priceTable: {
-        description: "Tram Price (as of 5-Jun-2026)",
-        h1: "Category",
-        h2: "With MyKad",
-        h3: "Without MyKad",
-        adult: "Adult",
-        children: "Child (3-12 years old)",
+        description: "电车价格（截至 2026 年 6 月 5 日）",
+        h1: "类别",
+        h2: "持有 MyKad",
+        h3: "没有 MyKad",
+        adult: "成人",
+        children: "儿童（3-12岁）",
       },
     },
     zooMap: {
-      title: "Zoo Negara Malaysia Map",
+      title: "Zoo Negara Malaysia 地图",
       downloadMapBtn: "下载地图",
       description: "下载地图并规划您在马来西亚国家动物园的行程。",
       info: "熊猫展览目前已关闭。",
     },
   },
   frequentAskedQuestions: {
-    title: "Frequent Asked Questions",
+    title: "常见问题",
     zooFaq,
   },
   careers: {
-    title: "Zoo Negara - Career",
+    title: "Zoo Negara - 职业",
     description:
-      "Please refer to the official Zoo Negara website to view careers:",
+      "请参阅国家动物园官方网站查看职位空缺：",
     officialCareerLinkText: "Official Zoo Negara career page",
-    OR: "OR",
-    emailToZoo: "Email to Zoo Negara Malaysia's HR",
+    OR: "或者",
+    emailToZoo: "电邮至 Zoo Negara Malaysia's HR",
   },
   contactUs: {
-    title: "Contact Zoo Negara",
+    title: "接触 Zoo Negara",
     description:
-      "We scrap this information from the official website Zoo Negara. Contacts are valid on 5-Jul-2026.",
-    enquiry1: "For any enquiries, call the general lines",
-    enquiry2: "and ask for the following Department",
+      "我们从国家动物园官方网站抓取了这些信息。联系方式有效期至2026年7月5日。",
+    enquiry1: "如有任何疑问，请拨打总机",
+    enquiry2: "询问以下部门",
     translate: {
-      Administration: "Administration",
+      Administration: "行政",
       Administration_description:
-        "Internship programme and business related matters.",
-      PublicRelationsMarketing: "Public Relations & Marketing",
+        "实习计划和业务相关事宜。",
+      PublicRelationsMarketing: "公共关系与营销",
       PublicRelationsMarketing_description:
-        "Animal adoption, news & media relation, sponsorship and corporate social responsibilities (CSR).",
-      CustomerService: "Customer Service",
+        "动物收养、新闻与媒体关系、赞助和企业社会责任 (Corporate social responsibilities / CSR).",
+      CustomerService: "客户服务",
       CustomerService_description:
-        "Corporate events, family days, birthdays, site rentals, visitor related matters and other functions.",
-      Education: "Education",
+        "公司活动、家庭日、生日、场地租赁、访客相关事宜和其他功能。",
+      Education: "教育",
       Education_description:
-        "Tours, education packages, volunteering, research programme and student related matters.",
-      ReceptionCounter: "Reception Counter",
+        "旅游、教育套餐、志愿服务、研究计划和学生相关事宜。",
+      ReceptionCounter: "接待处",
       ReceptionCounter_description:
-        "Opening hours, rates and school concession.",
+        "开放时间、费率和学校优惠。",
     },
   },
   gettingThere: {
-    title: "Getting There",
-    address: "Address",
+    title: "到达那里",
+    address: "地址",
     car: {
-      title: "Drive",
-      description: "with Car, Motorcycle, Van or Buses",
+      title: "驾驶",
+      description: "乘坐汽车、摩托车、货车或巴士",
       instructions: [
-        "A large parking area is available next to the entrance of zoo.",
+        "动物园入口旁边有一个大型停车场。",
       ],
     },
     train: {
-      title: "Train",
-      description: "via Light Rail Transit System (LRT)",
+      title: "火车",
+      description: "经由轻轨系统（Light Rail Transit System / LRT）",
       instructions: [
-        "Alight at Wangsa Maju Station, Kelana Jaya Line.",
-        "Board a taxi to Zoo Negara.",
-        "or Board Rapid KL number 253 from Putra LRT Station, Wangsamaju, KL.",
+        "在 Kelana Jaya 线 Wangsa Maju 站下车。",
+        "乘坐出租车前往国家动物园。",
+        "或从吉隆坡 Wangsamaju 的 Putra LRT 站搭乘 253 路 Rapid KL 巴士。",
       ],
     },
     bus: {
-      title: "Public Bus",
-      description: "via Public Bus",
+      title: "公共巴士",
+      description: "乘坐公共巴士",
       instructions: [
-        "Rapid KL number 53 from Wangsa Maju Station, Kelana Jaya Line.",
-        "Rapid KL number 220 from Lebuh Ampang, KL.",
+        "从格拉那再也线旺沙玛珠站 (Wangsa Maju Station) 乘坐 53 路 Rapid KL 巴士。",
+        "从吉隆坡 Lebuh Ampang 出发的 Rapid KL 220 号。",
       ],
     },
-    viewBtnText: "View In Google Maps",
+    viewBtnText: "在谷歌地图中查看",
   },
   kiosksNFacilities: {
-    title: "Kiosks And Facilities",
+    title: "亭子和设施",
     food: {
-      title: "Food",
+      title: "食物",
       description:
-        "Besides lot's of things to do, you can enjoy a meal here too.",
+        "除了可以做很多事情之外，您还可以在动物园享用美食。",
       restaurants: [
         {
           title: "The Wild Restaurant",
           description:
-            "Located at the heart of Zoo Negara, the Wild Restaurant is definitely your family restaurant. Catering a wide range of delicious fast food and mouth watering finger food at an affordable price, the Wild Restaurant offer various food for your friends and family.",
+            "位于国家动物园中心的 Wild 餐厅绝对是您家庭聚餐的理想之选。Wild 餐厅提供各种美味快餐和令人垂涎的小吃，价格实惠，是您与亲朋好友欢聚的理想之选。",
         },
         {
           title: "Mane Delicious",
           description:
-            "For those interested in cooling and delicious deserts, head on to this cafe for some famous 'Ais Kacang' or 'Cendol'!",
+            "对于那些对清凉美味的甜点感兴趣的人，可以前往这家咖啡馆品尝一些著名的“Ais Kacang”或“Cendol”！",
         },
         {
           title: "Panda Cafe",
           description:
-            "Looking for a Malaysian food? Then drop by at Panda Cafe for its delicious nasi lemak, curry mee, fried mee hoon and other dishes all guaranteed to satisfy a hungry tummy!",
+            "想吃马来西亚美食？那就来熊猫咖啡馆 (Panda Cafe) 吧！这里有美味的椰浆饭、咖喱面、炒面粉等等，保证让你大饱口福！- 暂时关闭",
         },
       ],
     },
     souvenir: {
-      title: "Souvenir",
+      title: "纪念品",
       shops: [
         {
           title: "Kancil Souvenir Shop & Kyoto Enterprise",
           description:
-            "Looking for some really unique gifts? Kancil Souvenir Shop and Kyoto Enterprise provide gifts for you to take home!",
+            "想找一些真正独特的礼物吗？Kancil 纪念品商店和京都企业为您提供精美礼品！",
         },
         {
           title: "Zoovenir Shop",
           description:
-            "Located inside Giant Panda Conservation Centre and in front of Savannah. Hunting for an exclusive Giant Panda merchandise? Drop by to Zoovenir Shop.",
+            "位于大熊猫保护中心内，Savannah 正前方。想寻找独家大熊猫商品？那就来 Zoovenir 商店吧。- 暂时关闭",
         },
         {
-          title: "Bee Museum",
+          title: "Bee 博物馆",
           description:
-            "Come and visit our giant bees! The largest honey producer in Malaysia is now in Zoo Negara.",
+            "快来参观我们的巨型蜜蜂吧！马来西亚最大的蜂蜜产地现已落户国家动物园。",
         },
       ],
     },
     facilities: {
-      title: "Facilities",
+      title: "设施",
       facilities: [
         {
-          title: "Prayer Room / Surau",
+          title: "祈祷室/祈祷室",
           description:
-            "An air-conditioned prayer room is provided with ample space situated nearby the zoo's main entrance.",
+            "动物园正门附近设有一间空间宽敞的空调祈祷室。",
           image: "/images/visitor-info/surau.jpg",
-          imageAlt: "surau",
+          imageAlt: "Mosque",
         },
         {
-          title: "Free Public Wifi",
+          title: "免费公共无线网络",
           description:
-            "Do you like being online all the time? Stay connected with our free wifi that is available at the main entrance, show amphitheatre and Giant Panda Conservation Centre.",
+            "您喜欢一直在线吗？我们主入口、露天剧场和大熊猫保护中心均提供免费无线网络，让您时刻保持连接。",
           image: "/images/visitor-info/freewifi.jpg",
           imageAlt: "Wifi",
         },
