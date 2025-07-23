@@ -217,7 +217,7 @@ const translations: typeof enTranslation = {
         "从吉隆坡 Lebuh Ampang 出发的 Rapid KL 220 号。",
       ],
     },
-    viewBtnText: "在谷歌地图中查看”,
+    viewBtnText: "在谷歌地图中查看",
   },
   kiosksNFacilities: {
     title: "亭子和设施",
