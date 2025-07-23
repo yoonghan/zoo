@@ -243,7 +243,7 @@ const translations = {
         {
           title: "Panda Cafe",
           description:
-            "Looking for a Malaysian food? Then drop by at Panda Cafe for its delicious nasi lemak, curry mee, fried mee hoon and other dishes all guaranteed to satisfy a hungry tummy!",
+            "Looking for a Malaysian food? Then drop by at Panda Cafe for its delicious nasi lemak, curry mee, fried mee hoon and other dishes all guaranteed to satisfy a hungry tummy! - Temporary closed",
         },
       ],
     },
@@ -258,7 +258,7 @@ const translations = {
         {
           title: "Zoovenir Shop",
           description:
-            "Located inside Giant Panda Conservation Centre and in front of Savannah. Hunting for an exclusive Giant Panda merchandise? Drop by to Zoovenir Shop.",
+            "Located inside Giant Panda Conservation Centre and in front of Savannah. Hunting for an exclusive Giant Panda merchandise? Drop by to Zoovenir Shop. - Temporary closed",
         },
         {
           title: "Bee Museum",
