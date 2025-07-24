@@ -1,5 +1,6 @@
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import ScrollToTop from ".";
 import ScrollToTopWithNoSSR from "./ScrollToTopNoSSR";
 
 describe("ScrollToTop", () => {
@@ -20,6 +21,12 @@ describe("ScrollToTop", () => {
       jest.runOnlyPendingTimers();
     });
   };
+
+  it("should render correctly", async () => {
+      render(<ScrollToTop/>)
+      advanceScroll()
+      expect(await screen.findByText("Top")).toBeInTheDocument()
+  })
 
   it("should render scroller when the right location is met", async () => {
     render(<ScrollToTopWithNoSSR />);
