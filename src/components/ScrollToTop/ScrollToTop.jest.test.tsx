@@ -25,13 +25,13 @@ describe("ScrollToTop", () => {
   it("should render correctly", async () => {
       render(<ScrollToTop/>)
       advanceScroll()
-      expect(await screen.findByText("Top")).toBeInTheDocument()
+      expect(await screen.findByRole("button", {name: "Top"})).toBeInTheDocument()
   })
 
   it("should render scroller when the right location is met", async () => {
     render(<ScrollToTopWithNoSSR />);
 
-    const scrollButton = screen.getByText("Top");
+    const scrollButton = screen.getByRole("button", {name: "Top"});
 
     expect(scrollButton).toHaveClass("hidden");
 
