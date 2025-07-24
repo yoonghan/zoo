@@ -30,7 +30,8 @@ export function Announcement({ ariaAnnouncementTitle, announcements }: Announcem
             type="checkbox"
             id="close-announcement"
           />
-          <dialog
+          <div
+            role="dialog"
             title={ariaAnnouncementTitle}
             className={`${style.announcement} ${hasOnly1Announcement ? style["only-one"] : ""
               } p-6 md:text-center`}
@@ -57,7 +58,7 @@ export function Announcement({ ariaAnnouncementTitle, announcements }: Announcem
             <label htmlFor="close-announcement" className="relative" aria-label="Close Announcement">
               <span className={"close"}></span>
             </label>
-          </dialog>
+          </div>
         </>
       )}
     </>
