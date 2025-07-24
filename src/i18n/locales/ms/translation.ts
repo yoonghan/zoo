@@ -9,6 +9,7 @@ const translations: typeof enTranslation = {
   Friday: "Jumaat",
   Saturday: "Sabtu",
   Sunday: "Ahad",
+  buyTicket: "Beli Tiket",
   announcements: [
     "Laman ini *BUKAN laman official. Untuk maklumat lanjut sila melawat laman rasmi [https://zoonegara.my|zoonegara.my].",
     "Hiburan Zoo di *TUTUP setiap hari Jumaat *KECUALI cuti sekolah dan cuti awam.",
@@ -22,7 +23,6 @@ const translations: typeof enTranslation = {
     "getting-there": "Ke Sini",
     "zoo-map": "Peta Zoo",
     "kiosk-and-facilities": "Kiosk Dan Kemudahan",
-    buyTicket: "Beli Tiket",
   },
   footer: {
     lastAdmission: "Kemasukan terakhir pada {{time}}",

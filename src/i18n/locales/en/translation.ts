@@ -20,7 +20,7 @@ const translations = {
     "opening-and-rates": "Opening Hours And Rates",
     "getting-there": "Getting There",
     "zoo-map": "Zoo Map",
-    "kiosk-and-facilities": "Kiosks And Facilities"
+    "kiosk-and-facilities": "Kiosks And Facilities",
   },
   footer: {
     lastAdmission: "Last Admission at {{time}}",

@@ -91,7 +91,7 @@ function VisitorInfo({ t, lng }: TranslatorProps) {
                 className="inline mr-4"
                 width={20}
               />
-              {t("Buy Ticket")}
+              {t("buyTicket")}
             </ButtonLink>
           </div>
           <div className="mt-16 text-left">

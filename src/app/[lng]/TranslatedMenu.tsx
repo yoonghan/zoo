@@ -36,14 +36,14 @@ const TranslatedMenuComponent = withComponentTranslator(
             <ButtonLink
               styling="BuyNow"
               href={zooProfile.ticket.admission.url}
-              aria-label={t("menu.buyTicket")}
+              aria-label={t("buyTicket")}
             >
               <FontAwesomeIcon
                 icon={faTicket}
                 className="inline mr-2"
                 width={20}
               />
-              <span className="hidden sm:inline">{t("menu.buyTicket")}</span>
+              <span className="hidden sm:inline">{t("buyTicket")}</span>
             </ButtonLink>
           </form>
         }
