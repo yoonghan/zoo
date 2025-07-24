@@ -21,7 +21,7 @@ export async function generateMetadata(
   return generateSiteMeta(lng, t('headers.kiosksNFacilities.title'), t('headers.kiosksNFacilities.description'))
 }
 
-function KiosksAndFacilities({ t }: TranslatorProps) {
+function KiosksAndFacilities({ t }: Readonly<TranslatorProps>) {
 
   const foods = t('kiosksNFacilities.food.restaurants', { returnObjects: true }) as { title: string, description: string }[]
   const souvenirs = t('kiosksNFacilities.souvenir.shops', { returnObjects: true }) as { title: string, description: string }[]

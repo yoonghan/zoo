@@ -28,7 +28,7 @@ const calcMargin = (path: string) => {
   }
 }
 
-const SiteMap = ({ t, lng }: TranslatorProps) => {
+const SiteMap = ({ t, lng }: Readonly<TranslatorProps>) => {
   function translatePath(path: string) {
     const givenPathName = path.substring(path.lastIndexOf("/") + 1)
 

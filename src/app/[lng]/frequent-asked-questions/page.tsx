@@ -17,7 +17,7 @@ export async function generateMetadata(
   return generateSiteMeta(lng, t('headers.frequentAskedQuestions.title'), t('headers.frequentAskedQuestions.description'))
 }
 
-function Faq({ t }: TranslatorProps) {
+function Faq({ t }: Readonly<TranslatorProps>) {
 
   const faq: AccordionProps = t("frequentAskedQuestions.zooFaq", { returnObjects: true }) as AccordionProps
 

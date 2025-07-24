@@ -3,7 +3,7 @@ import { withComponentTranslator } from "@/components/util/hoc/withComponentTran
 import { TranslatorProps, withTranslator } from "@/components/util/hoc/withTranslator"
 
 
-const TranslatedAnnouncementComponent = withComponentTranslator(({ t }: TranslatorProps) => {
+const TranslatedAnnouncementComponent = withComponentTranslator(({ t }: Readonly<TranslatorProps>) => {
   const zooAnnouncement: string[] = t('announcements', { returnObjects: true }) as string[]
   return <Announcement
     announcements={zooAnnouncement}
@@ -11,4 +11,4 @@ const TranslatedAnnouncementComponent = withComponentTranslator(({ t }: Translat
   />
 })
 
-export const TranslatedAnnouncement = withTranslator(({ t, lng }: TranslatorProps) => <TranslatedAnnouncementComponent t={t} lng={lng} />)
+export const TranslatedAnnouncement = withTranslator(({ t, lng }: Readonly<TranslatorProps>) => <TranslatedAnnouncementComponent t={t} lng={lng} />)

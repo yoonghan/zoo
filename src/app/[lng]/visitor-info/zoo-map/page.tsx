@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   );
 }
 
-function ZooMap({ t }: TranslatorProps) {
+function ZooMap({ t }: Readonly<TranslatorProps>) {
   return (
     <main className="no-margin-y">
       <article className="primary">
