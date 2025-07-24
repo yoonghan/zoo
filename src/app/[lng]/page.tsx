@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { withTranslator, TranslatorProps } from "@/components/util/hoc/withTranslator";
 
-function Home({ t }: TranslatorProps) {
+function Home({ t }: Readonly<TranslatorProps>) {
 
   return (
     <main>

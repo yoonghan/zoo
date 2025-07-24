@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   );
 }
 
-function About({ t }: TranslatorProps) {
+function About({ t }: Readonly<TranslatorProps>) {
   const miniLinks: MiniMenuItems[] = [
     {
       hashId: "aboutWalcron",

@@ -24,7 +24,7 @@ export async function generateMetadata(
   return generateSiteMeta(lng, t('headers.visitorInfo.title'), t('headers.visitorInfo.description'))
 }
 
-function OperatingHours({ t }: TranslatorProps) {
+function OperatingHours({ t }: Readonly<TranslatorProps>) {
   return <>
     <div className="mt-2 text-xl font-bold">
       {t(zooProfile.operatingTime.day.from)} {t("to")}{" "}

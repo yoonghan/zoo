@@ -18,7 +18,7 @@ export async function generateMetadata(
   return generateSiteMeta(lng, t('headers.contactUs.title'), t('headers.contactUs.description'))
 }
 
-function ContactUs({ t }: TranslatorProps) {
+function ContactUs({ t }: Readonly<TranslatorProps>) {
   const preDefinedData = zooProfile.contactus;
 
   return (

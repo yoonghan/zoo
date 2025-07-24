@@ -14,7 +14,7 @@ describe('withTranslator', () => {
 
   it('should return a component that renders the original component', async () => {
     const keyword = 'Monday'
-    const TestComponent = ({ t, lng }: TranslatorProps) => <div>{lng}, {t(keyword)}</div>
+    const TestComponent = ({ t, lng }: Readonly<TranslatorProps>) => <div>{lng}, {t(keyword)}</div>
 
     const TranslatedComponent = withTranslator(TestComponent);
     await act(async () => {
@@ -25,7 +25,7 @@ describe('withTranslator', () => {
 
   it('should allow using namespace conversion', async () => {
     const keyword = 'lang'
-    const TestComponent = ({ t, lng }: TranslatorProps) => <div>{lng}, {t(keyword)}</div>
+    const TestComponent = ({ t, lng }: Readonly<TranslatorProps>) => <div>{lng}, {t(keyword)}</div>
 
     const TranslatedComponent = withTranslator(TestComponent, "pages");
     await act(async () => {

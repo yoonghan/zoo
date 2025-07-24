@@ -23,7 +23,7 @@ const translatedZooMenu = (t: TFunction<string, string>) =>
   }));
 
 const TranslatedMenuComponent = withComponentTranslator(
-  ({ t, lng }: TranslatorProps) => {
+  ({ t, lng }: Readonly<TranslatorProps>) => {
     return (
       <Menu
         model={translatedZooMenu(t)}
@@ -51,6 +51,6 @@ const TranslatedMenuComponent = withComponentTranslator(
   }
 );
 
-export const TranslatedMenu = withTranslator(({ t, lng }: TranslatorProps) => (
+export const TranslatedMenu = withTranslator(({ t, lng }: Readonly<TranslatorProps>) => (
   <TranslatedMenuComponent t={t} lng={lng} />
 ));

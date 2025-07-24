@@ -8,7 +8,7 @@ describe('withComponentTranslator', () => {
 
     const keyword = 'announcements'
 
-    const SubTranslatedComponent = withComponentTranslator(({ t, lng }: TranslatorProps) => {
+    const SubTranslatedComponent = withComponentTranslator(({ t, lng }: Readonly<TranslatorProps>) => {
       const announcements: string[] = t(keyword, { returnObjects: true }) as string[]
       return (
         <>
@@ -17,7 +17,7 @@ describe('withComponentTranslator', () => {
         </>
       )
     })
-    const TestComponent = ({ t, lng }: TranslatorProps) => <SubTranslatedComponent t={t} lng={lng} />
+    const TestComponent = ({ t, lng }: Readonly<TranslatorProps>) => <SubTranslatedComponent t={t} lng={lng} />
 
     const TranslatedComponent = withTranslator(TestComponent);
     await act(async () => {

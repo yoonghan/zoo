@@ -55,7 +55,7 @@ const Header = ({ idx, title, className }: { idx: number, title: string, classNa
   return React.createElement(Tag, { className }, <>{title}</>);
 }
 
-function GettingThere({ t }: TranslatorProps) {
+function GettingThere({ t }: Readonly<TranslatorProps>) {
   const miniLinks: MiniMenuExtended[] = [
     {
       title: t("gettingThere.address"),

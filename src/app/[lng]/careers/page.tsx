@@ -19,7 +19,7 @@ export async function generateMetadata(
   return generateSiteMeta(lng, t('headers.careers.title'), t('headers.careers.description'))
 }
 
-function Career({ t }: TranslatorProps) {
+function Career({ t }: Readonly<TranslatorProps>) {
   return (
     <main>
       <section className="text-center">
