@@ -166,7 +166,7 @@ function MutableMenu({
           >
             {mobileHomeText}
           </Link>
-          {shortcutComponent && shortcutComponent}
+          {shortcutComponent}
         </div>
         <nav role="menubar" className={style.menu}>
           <ul role="menu" aria-orientation="horizontal">
@@ -188,7 +188,7 @@ function MutableMenu({
               </Link>
             </li>
             {desktopTopMenu}
-            <li role="menuitem">{shortcutComponent && shortcutComponent}</li>
+            <li role="menuitem">{shortcutComponent}</li>
           </ul>
         </nav>
       </div>
