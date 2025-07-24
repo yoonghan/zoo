@@ -83,10 +83,6 @@ jobs:
         uses: codecov/codecov-action@v5.4.3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-      - name: Check code coverage
-        run: |
-          ls *
-          ls coverage/*
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v5
         env:
