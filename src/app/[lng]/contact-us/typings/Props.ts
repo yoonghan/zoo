@@ -1,3 +1,9 @@
+type Administration = {
+  department: string;
+  email: string;
+  departmentFunction: string;
+};
+
 export type ContactUsProps = {
   phoneNumber1: string;
   phoneNumber2: string;

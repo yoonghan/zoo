@@ -19,12 +19,6 @@ export async function generateMetadata(
   return generateSiteMeta(lng, t('headers.contactUs.title'), t('headers.contactUs.description'))
 }
 
-type Administration = {
-  department: string;
-  email: string;
-  departmentFunction: string;
-};
-
 function ContactUs({ t }: TranslatorProps) {
   const preDefinedData = zooProfile.contactus;
 
