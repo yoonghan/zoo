@@ -11,7 +11,7 @@ type AnnouncementProps = {
   announcements: AnnouncementsType
 };
 
-export function Announcement({ ariaAnnouncementTitle, announcements }: AnnouncementProps) {
+export function Announcement({ ariaAnnouncementTitle, announcements }: Readonly<AnnouncementProps>) {
   const [idx, setIdx] = useState(0);
 
   const goPrev = () =>
