@@ -27,19 +27,23 @@ Goal is to replace a website zoonegara.my. Zoo Negara is a non-government organi
 
 ## Development
 
-First, run the development server:
+First, run the development server, drop any bun/yarn etc usage:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Remove versioning from page with querystring, ?version=none
+
+## User Notes
+
+Notes if there are development/changes made. 
+
+| Actions | Note to users |
+| --- | --- |
+| translate pages | pages translation are stored in pages.ts, incase using root translation, prefix with 'translation.' |
+| root translation | Main use only in footer/main page and menu and serve as common. To use translations in faq/pages, prefix with translation. I.e. "t(translation.buyNow". |
+| Sonarqube | Results in https://sonarcloud.io/project/overview?id=yoonghan_zoo, point to main as there more critical compared to development. |
 
 ## Attribution to
 
