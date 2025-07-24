@@ -6,7 +6,7 @@ export type LinkStyles = {
   styling?: "Primary" | "Secondary" | "None";
 };
 
-const isExternalUrlRegex = new RegExp("^https?://");
+const isExternalUrlRegex = /^https?:\/\//;
 
 export function Link({
   styling = "Primary",

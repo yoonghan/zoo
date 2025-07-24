@@ -22,18 +22,16 @@ function Faq({ t }: TranslatorProps) {
   const faq: AccordionProps = t("frequentAskedQuestions.zooFaq", { returnObjects: true }) as AccordionProps
 
   return (
-    <>
-      <main>
-        <article>
-          <h1>
-            {t("frequentAskedQuestions.title")}
-          </h1>
-          <div className="mt-8">
-            <Accordion model={faq} groupName="faq" />
-          </div>
-        </article>
-      </main>
-    </>
+    <main>
+      <article>
+        <h1>
+          {t("frequentAskedQuestions.title")}
+        </h1>
+        <div className="mt-8">
+          <Accordion model={faq} groupName="faq" />
+        </div>
+      </article>
+    </main>
   );
 }
 

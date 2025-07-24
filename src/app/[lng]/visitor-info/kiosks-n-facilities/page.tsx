@@ -1,4 +1,3 @@
-import { Link } from "@/components/Link";
 import MiniMenu, { MiniMenuItems } from "@/components/MiniMenu";
 import styles from "./kiosks-n-facilities.module.css";
 import Image from "next/image";

@@ -4,7 +4,6 @@ import { zooProfile } from "@/config/profile";
 import { getTranslation } from "@/i18n";
 import { generateSiteMeta } from "@/util/generateMeta";
 import { Metadata } from "next";
-import { type ContactUsProps } from "./typings/Props"
 
 type Props = {
   params: Promise<{ lng: string }>
