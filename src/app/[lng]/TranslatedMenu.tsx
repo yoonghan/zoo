@@ -8,7 +8,6 @@ import {
 } from "@/components/util/hoc/withTranslator";
 import { zooMenu } from "@/config/menu";
 import { zooProfile } from "@/config/profile";
-import { languages } from "@/i18n/settings";
 import { faTicket } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { TFunction } from "i18next";

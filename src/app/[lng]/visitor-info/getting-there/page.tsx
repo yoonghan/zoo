@@ -10,8 +10,7 @@ import { getTranslation } from "@/i18n";
 import { generateSiteMeta } from "@/util/generateMeta";
 import { Metadata } from "next";
 import { TranslatorProps, withTranslator } from "@/components/util/hoc/withTranslator";
-import { JSX } from "react";
-import React from "react";
+import React, { JSX } from "react";
 
 type Props = {
   params: Promise<{ lng: string }>

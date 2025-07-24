@@ -25,7 +25,7 @@ const regExpEndsWithAcceptableEndSymbol = new RegExp(
 export function htmlConvertor(text: string) {
   function substituteAnchorWithLink(word: string, parentKey: number) {
     if (
-      word.match(regExpOfWordHasClosingAnchorBracket) &&
+      regExpOfWordHasClosingAnchorBracket.exec(word) &&
       word.indexOf("|") > -1
     ) {
       const wordWifCloseBracket = word.replaceAll(
@@ -47,7 +47,7 @@ export function htmlConvertor(text: string) {
           <Link href={link} className="underline">
             {text}
           </Link>
-          {word.match(regExpEndsWithAcceptableEndSymbol)
+          {regExpEndsWithAcceptableEndSymbol.exec(word)
             ? `${word.slice(-1)}`
             : ""}
         </React.Fragment>
