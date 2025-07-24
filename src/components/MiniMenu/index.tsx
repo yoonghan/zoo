@@ -14,7 +14,7 @@ type MiniMenuProps = {
   fakeNavBarRef?: boolean;
 };
 
-function MiniMenu({ model, onScrollMonitor, fakeNavBarRef = false }: MiniMenuProps) {
+function MiniMenu({ model, onScrollMonitor, fakeNavBarRef = false }: Readonly<MiniMenuProps>) {
   const [selected, setSelected] = useState(0);
   const anchorRef = useRef<(HTMLAnchorElement | null)[]>([]);
   const navBarRef = useRef<HTMLDivElement>(null);

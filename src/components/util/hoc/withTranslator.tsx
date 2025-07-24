@@ -13,13 +13,13 @@ export function withTranslator<P extends PageParams>(
   ns: string = "translation"
 ): React.FC<P> {
 
-  function Loader({ translator, lng }: {
+  function Loader({ translator, lng }: Readonly<{
     translator: Promise<{
       t: TFunction<string, string>;
       i18n: i18n;
     }>,
     lng: string
-  }) {
+  }>) {
     const { t } = use(translator);
     return <Suspense><WrappedComponent t={t} lng={lng} /></Suspense>;
   }

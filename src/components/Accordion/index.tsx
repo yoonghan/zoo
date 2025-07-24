@@ -13,10 +13,10 @@ export type AccordionProps = AccordionItem[];
 export function Accordion({
   model,
   groupName,
-}: {
+}: Readonly<{
   model: AccordionProps;
   groupName: string;
-}) {
+}>) {
   const renderedAccordions = useMemo(
     () =>
       model.map((accordianItem, idx) => {

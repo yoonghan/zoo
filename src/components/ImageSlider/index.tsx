@@ -38,7 +38,7 @@ type ImageSliderProps = {
   model: ImageItem[];
 };
 
-export function ImageSlider({ width, height, model }: ImageSliderProps) {
+export function ImageSlider({ width, height, model }: Readonly<ImageSliderProps>) {
   const [selectedImage, setSelectedImage] = useState(model[0]);
 
   const onImageClick = (image: ImageItem) => () => {

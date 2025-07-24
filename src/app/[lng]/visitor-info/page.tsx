@@ -40,7 +40,7 @@ function OperatingHours({ t }: Readonly<TranslatorProps>) {
 
 const TranslatedOperatingHours = withTranslator(OperatingHours)
 
-function VisitorInfo({ t, lng }: TranslatorProps) {
+function VisitorInfo({ t, lng }: Readonly<TranslatorProps>) {
 
   const rentals = t("visitorInfo.rental.facilities", { returnObjects: true }) as { title: string, description: string, image: string, imageAlt: string }[]
   const additionalInformationNotes = t("visitorInfo.additionalInformationNotes", { returnObjects: true }) as string[]
