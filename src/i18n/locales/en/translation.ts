@@ -7,6 +7,7 @@ const translations = {
   Friday: "Friday",
   Saturday: "Saturday",
   Sunday: "Sunday",
+  buyTicket: "Buy Ticket",
   announcements: [
     "This is *NOT the official website of the zoo. Please visit the official website [https://zoonegara.my|zoonegara.my] for more information.",
     "Zoo Multi-animal Show will be *CLOSED on Friday *EXCEPT school holidays & public holidays.",
@@ -20,7 +21,6 @@ const translations = {
     "getting-there": "Getting There",
     "zoo-map": "Zoo Map",
     "kiosk-and-facilities": "Kiosks And Facilities",
-    buyTicket: "Buy Ticket",
   },
   footer: {
     lastAdmission: "Last Admission at {{time}}",
