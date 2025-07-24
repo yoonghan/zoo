@@ -82,11 +82,11 @@ export function htmlConvertor(text: string) {
     }
 
     if (word.startsWith("*")) {
-      return <strong key={idx}>{word.substring(1, word.length)}</strong>;
+      return <strong key={`${word}-${idx}`}>{word.substring(1, word.length)}</strong>;
     } else if (word.startsWith("[")) {
       return substituteAnchorWithLink(word, idx);
     } else if (word === "!!") {
-      return <br key={idx} />;
+      return <br key={`${word}-${idx}`} />;
     } else {
       return word.replaceAll(unbreakableSpaceTextReplacement, " ");
     }
