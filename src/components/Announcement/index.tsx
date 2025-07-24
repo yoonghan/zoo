@@ -31,7 +31,7 @@ export function Announcement({ ariaAnnouncementTitle, announcements }: Announcem
             id="close-announcement"
           />
           <div
-            role="dialog"
+            role="status"
             title={ariaAnnouncementTitle}
             className={`${style.announcement} ${hasOnly1Announcement ? style["only-one"] : ""
               } p-6 md:text-center`}

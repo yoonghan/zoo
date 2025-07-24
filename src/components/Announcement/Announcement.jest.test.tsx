@@ -16,7 +16,7 @@ describe("Announcement", () => {
   it("should be aria friendly", () => {
     renderAnnouncement();
     expect(
-      screen.getByRole("dialog", { name: "Announcement Title" })
+      screen.getByRole("status", { name: "Announcement Title" })
     ).toBeInTheDocument();
   });
 
