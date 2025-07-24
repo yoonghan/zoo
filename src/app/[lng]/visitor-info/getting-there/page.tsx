@@ -113,8 +113,8 @@ function GettingThere({ t }: TranslatorProps) {
 
         {
           miniLinks.slice(1).map((miniLink, idx) => {
-            var logo = getLogo(miniLink.hashId);
-            var instructions = t(`gettingThere.${miniLink.hashId}.instructions`, { returnObjects: true }) as string[]
+            const logo = getLogo(miniLink.hashId);
+            const instructions = t(`gettingThere.${miniLink.hashId}.instructions`, { returnObjects: true }) as string[]
 
             return <article
               className={`anchor-link-header text-left ${idx % 2 == 1 ? "primary" : ""}`}

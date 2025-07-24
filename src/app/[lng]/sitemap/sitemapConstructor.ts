@@ -42,4 +42,4 @@ const remapAppFiles = (files: string[]) => {
 const allAppFiles = getRecursiveFiles(appFolder);
 const allRemappedFile = remapAppFiles(allAppFiles);
 
-export const allPages = allRemappedFile.filter(path => path !== "/sitemap").sort()
+export const allPages = allRemappedFile.filter(path => path !== "/sitemap").sort((a, b) => a.localeCompare(b))

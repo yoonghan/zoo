@@ -5,7 +5,7 @@ import { languages } from "@/i18n/settings";
 
 export const dynamic = "force-static"
 
-const generatedSiteMap: MetadataRoute.Sitemap = allRemappedFile.sort()
+const generatedSiteMap: MetadataRoute.Sitemap = allRemappedFile.sort((a, b) => a.localeCompare(b))
   .map((sortedSiteMapPages) => {
     if (sortedSiteMapPages === "/") {
       return {

@@ -4,7 +4,7 @@ import { zooProfile } from "@/config/profile";
 import { getTranslation } from "@/i18n";
 import { generateSiteMeta } from "@/util/generateMeta";
 import { Metadata } from "next";
-
+import { type ContactUsProps } from "./typings/Props"
 
 type Props = {
   params: Promise<{ lng: string }>
@@ -18,23 +18,6 @@ export async function generateMetadata(
 
   return generateSiteMeta(lng, t('headers.contactUs.title'), t('headers.contactUs.description'))
 }
-
-type Administration = {
-  department: string;
-  email: string;
-  departmentFunction: string;
-};
-
-export type ContactUsProps = {
-  phoneNumber1: string;
-  phoneNumber2: string;
-  hrEmail: string;
-  marketingEmail: string;
-  donationEmail: string;
-  administration: Administration[];
-  eventNumber: string;
-  customerserviceEmail: string;
-};
 
 function ContactUs({ t }: TranslatorProps) {
   const preDefinedData = zooProfile.contactus;
