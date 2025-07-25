@@ -44,14 +44,7 @@ main h1 {
   text-align: center;
 }
 
-main.no-margin-y {
-  margin: 0 auto;
-}
 
-main > article,
-main > section {
-  padding: 1.5rem 1rem;
-}
 
 /* main -end */
 
