@@ -1,6 +1,8 @@
 name: Snapshot Validate and Approve
 
 on:
+  issue_comment:
+    types: [created]
   workflow_dispatch:
     inputs:
       deployed_url:
@@ -52,14 +54,31 @@ jobs:
     permissions:
       pull-requests: write
     steps:
+
+      - name: 🏷️ Rewrite variables
+        run: |
+          echo "INPUT_DEPLOYED_URL=${{ inputs.deployed_url }}" >> $GITHUB_ENV
+          echo "INPUT_TEST_NO_IMAGE=${{ inputs.test_no_image }}" >> $GITHUB_ENV
+          echo "INPUT_CONTINUE_ON_FAIL=${{ inputs.continue_on_fail }}" >> $GITHUB_ENV
+          echo "INPUT_SHOULD_APPROVE=${{ inputs.should_approve }}" >> $GITHUB_ENV
+
+      - name: Comment to trigger auto localhost update snapshot
+        if: github.event.comment.body == '/update-snapshot'
+        run: |
+          echo "Triggering auto update snapshot"
+          echo "INPUT_DEPLOYED_URL=http://localhost:3000 >> $GITHUB_ENV
+          echo "INPUT_TEST_NO_IMAGE=false" >> $GITHUB_ENV
+          echo "INPUT_CONTINUE_ON_FAIL=true" >> $GITHUB_ENV
+          echo "INPUT_SHOULD_APPROVE=true" >> $GITHUB_ENV
+
       - name: ⬇️ Checkout repo required to commit and PAT Is required to retrigger pipeline
-        if: ${{ inputs.should_approve }}
+        if: ${{ env.INPUT_SHOULD_APPROVE == true }}
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.PAT }}
 
       - name: ⬇️ Checkout repo without commit
-        if: ${{ inputs.should_approve != true }}
+        if: ${{ env.INPUT_SHOULD_APPROVE != true }}
         uses: actions/checkout@v4
 
       - name: Detect package manager
@@ -106,10 +125,14 @@ jobs:
       - name: ▶️ Update Backstop Urls
         uses: ./.github/actions/backstop/rewrite
         with:
-          deployed_url: ${{ inputs.deployed_url }}
+          deployed_url: ${{ env.INPUT_DEPLOYED_URL }}
+
+      - name: Is an auto approval
+        if: ${{ env.INPUT_SHOULD_APPROVE }}
+        run: echo "Auto approval is set to true"
 
       - name: Run Background copy (if localhost)
-        if: startsWith(inputs.deployed_url, 'http://localhost')
+        if: startsWith(env.INPUT_DEPLOYED_URL, 'http://localhost')
         run: |
           npm run build
           nohup npm start > npm.log 2>&1 &
@@ -117,7 +140,7 @@ jobs:
 
       - name: Set backstop REF_FOLDER_POSTFIX if identified as localhost
         env:
-          INPUT_URL: ${{ inputs.deployed_url }}
+          INPUT_URL: ${{ env.INPUT_DEPLOYED_URL }}
         run: |
           if [[ "$INPUT_URL" == *"localhost"* ]]; then
             REF_FOLDER_POSTFIX="localhost"
@@ -128,18 +151,18 @@ jobs:
         shell: bash
         continue-on-error: true
         env:
-          LOAD_NO_IMAGE: ${{ inputs.test_no_image }}
+          LOAD_NO_IMAGE: ${{ env.INPUT_TEST_NO_IMAGE }}
         run: |
           npm run snapshot
 
       - name: ✅ Approve all snapshots
-        if: ${{ inputs.should_approve }}
+        if: ${{ env.INPUT_SHOULD_APPROVE }}
         shell: bash
         continue-on-error: true
         run: npm run snapshot:approve
 
       - name: Kill npm background process (if localhost)
-        if: startsWith(inputs.deployed_url, 'http://localhost')
+        if: startsWith(env.INPUT_DEPLOYED_URL, 'http://localhost')
         run: |
           if [ -f npm.pid ]; then
             kill $(cat npm.pid)
@@ -149,7 +172,7 @@ jobs:
           fi
           
       - name: 💼 Commit on approved snapshot
-        if: ${{ inputs.should_approve }}
+        if: ${{ env.INPUT_SHOULD_APPROVE }}
         uses: stefanzweifel/git-auto-commit-action@v6
         id: auto-commit-action
         with:
@@ -157,14 +180,14 @@ jobs:
           file_pattern: "backstop_data/bitmaps_reference*/*.png"
 
       - name: ▶️ Re-Validate snapshot
-        continue-on-error: ${{ inputs.continue_on_fail }}
-        if: ${{ inputs.should_approve }}
+        continue-on-error: ${{ env.INPUT_CONTINUE_ON_FAIL }}
+        if: ${{ env.INPUT_SHOULD_APPROVE }}
         shell: bash
         run: npm run snapshot
 
       - name: Remove irrelevant reference folders for snapshot
         env:
-          INPUT_URL: ${{ inputs.deployed_url }}
+          INPUT_URL: ${{ env.INPUT_DEPLOYED_URL }}
         run: |
           if [[ "$INPUT_URL" == *"localhost"* ]]; then
             rm -rf backstop_data/bitmaps_reference
@@ -179,7 +202,7 @@ jobs:
           path: backstop_data
 
       - name: ✅ Validate backstopjs snapshot is valid
-        if: ${{ inputs.should_approve != true }}
-        continue-on-error: ${{ inputs.continue_on_fail }}
+        if: ${{ env.INPUT_SHOULD_APPROVE != true }}
+        continue-on-error: ${{ env.INPUT_CONTINUE_ON_FAIL }}
         run: chmod a+x ./.github/scripts/snapshot-check.sh && ./.github/scripts/snapshot-check.sh
         shell: bash
