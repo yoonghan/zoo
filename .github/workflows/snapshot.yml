@@ -66,7 +66,7 @@ jobs:
         if: github.event.comment.body == '/update-snapshot'
         run: |
           echo "Triggering auto update snapshot"
-          echo "INPUT_DEPLOYED_URL=http://localhost:3000 >> $GITHUB_ENV
+          echo "INPUT_DEPLOYED_URL=http://localhost:3000" >> $GITHUB_ENV
           echo "INPUT_TEST_NO_IMAGE=false" >> $GITHUB_ENV
           echo "INPUT_CONTINUE_ON_FAIL=true" >> $GITHUB_ENV
           echo "INPUT_SHOULD_APPROVE=true" >> $GITHUB_ENV
