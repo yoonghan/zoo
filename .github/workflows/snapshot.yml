@@ -72,13 +72,13 @@ jobs:
           echo "INPUT_SHOULD_APPROVE=true" >> $GITHUB_ENV
 
       - name: ⬇️ Checkout repo required to commit and PAT Is required to retrigger pipeline
-        if: ${{ env.INPUT_SHOULD_APPROVE == true }}
+        if: ${{ env.INPUT_SHOULD_APPROVE == 'true' }}
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.PAT }}
 
       - name: ⬇️ Checkout repo without commit
-        if: ${{ env.INPUT_SHOULD_APPROVE != true }}
+        if: ${{ env.INPUT_SHOULD_APPROVE != 'true' }}
         uses: actions/checkout@v4
 
       - name: Detect package manager
@@ -128,7 +128,7 @@ jobs:
           deployed_url: ${{ env.INPUT_DEPLOYED_URL }}
 
       - name: Is an auto approval
-        if: ${{ env.INPUT_SHOULD_APPROVE }}
+        if: ${{ env.INPUT_SHOULD_APPROVE == 'true' }}
         run: echo "Auto approval is set to true"
 
       - name: Run Background copy (if localhost)
@@ -156,7 +156,7 @@ jobs:
           npm run snapshot
 
       - name: ✅ Approve all snapshots
-        if: ${{ env.INPUT_SHOULD_APPROVE }}
+        if: ${{ env.INPUT_SHOULD_APPROVE == 'true' }}
         shell: bash
         continue-on-error: true
         run: npm run snapshot:approve
@@ -172,7 +172,7 @@ jobs:
           fi
           
       - name: 💼 Commit on approved snapshot
-        if: ${{ env.INPUT_SHOULD_APPROVE }}
+        if: ${{ env.INPUT_SHOULD_APPROVE == 'true'}}
         uses: stefanzweifel/git-auto-commit-action@v6
         id: auto-commit-action
         with:
@@ -180,8 +180,8 @@ jobs:
           file_pattern: "backstop_data/bitmaps_reference*/*.png"
 
       - name: ▶️ Re-Validate snapshot
-        continue-on-error: ${{ env.INPUT_CONTINUE_ON_FAIL }}
-        if: ${{ env.INPUT_SHOULD_APPROVE }}
+        continue-on-error: ${{ env.INPUT_CONTINUE_ON_FAIL == 'true' }}
+        if: ${{ env.INPUT_SHOULD_APPROVE == 'true' }}
         shell: bash
         run: npm run snapshot
 
@@ -202,7 +202,7 @@ jobs:
           path: backstop_data
 
       - name: ✅ Validate backstopjs snapshot is valid
-        if: ${{ env.INPUT_SHOULD_APPROVE != true }}
-        continue-on-error: ${{ env.INPUT_CONTINUE_ON_FAIL }}
+        if: ${{ env.INPUT_SHOULD_APPROVE != 'true' }}
+        continue-on-error: ${{ env.INPUT_CONTINUE_ON_FAIL == 'true' }}
         run: chmod a+x ./.github/scripts/snapshot-check.sh && ./.github/scripts/snapshot-check.sh
         shell: bash
