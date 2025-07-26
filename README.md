@@ -51,12 +51,13 @@ Notes if there are development/changes made.
 
 ## Auto Approval
 
-Method for auto-approval on new UI changes. **NOTE:** this is required only if there are U/I changes that needs approval; which happens if website is modified with new CSS/layout or new content are created.
-
-Option 1 (steps):
-1. Goto Workflow -> Select Snapshot Approval -> Click on Run Workflow -> Check "Auto Approval" -> Execute.
-Option 2 (steps):
-1. Write a comment /update-snapshot on the pr and it will execute. (In testing phase)
+Any webpage changes on presentation will result a snapshot comparison between new and old; incase it fails, there is a need to sync and compare the differences for commit. To do that:
+1. Go Option 1(recommended):
+  1. Click on Actions -> Select Snapshot Validate and Approve -> Click Run workflow -> Select the PR branch and check "should do auto approval" -> Then run workflow. 
+2. Go Option 2(do if did not do option1):
+  1. Write a comment "/update-snapshot" in pull request and it will execute. (It will run in background which can be check in Action to see if it succeed or fail).
+3. Merge it.
+4. There is snapshot for the release/production Zoo website. Just select https://zoo.walcron.com as the domain URL to release it.
 
 ## Attribution to
 
