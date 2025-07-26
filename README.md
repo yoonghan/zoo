@@ -49,6 +49,15 @@ Notes if there are development/changes made.
 | root translation | Main use only in footer/main page and menu and serve as common. To use translations in faq/pages, prefix with translation. I.e. "t(translation.buyNow". |
 | Sonarqube | Results in https://sonarcloud.io/project/overview?id=yoonghan_zoo, point to main as there more critical compared to development. |
 
+## Auto Approval
+
+Method for auto-approval on new UI changes. **NOTE:** this is required only if there are U/I changes that needs approval; which happens if website is modified with new CSS/layout or new content are created.
+
+Option 1 (steps):
+1. Goto Workflow -> Select Snapshot Approval -> Click on Run Workflow -> Check "Auto Approval" -> Execute.
+Option 2 (steps):
+1. Write a comment /update-snapshot on the pr and it will execute. (In testing phase)
+
 ## Attribution to
 
 1. Nextjs (with React)
