@@ -17,7 +17,7 @@ const HEADERS_STUB = {};
 module.exports = async function (page, scenario) {
   const loadNoImage = `${scenario.loadNoImage}`;
 
-  if (loadNoImage.toUpperCase() === "true") {
+  if (loadNoImage.toLocaleLowerCase() === "true") {
     page.route(IMAGE_URL_RE, (route) => {
       route.fulfill({
         body: "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=",
