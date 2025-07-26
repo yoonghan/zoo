@@ -61,6 +61,7 @@ jobs:
           echo "INPUT_TEST_NO_IMAGE=${{ inputs.test_no_image }}" >> $GITHUB_ENV
           echo "INPUT_CONTINUE_ON_FAIL=${{ inputs.continue_on_fail }}" >> $GITHUB_ENV
           echo "INPUT_SHOULD_APPROVE=${{ inputs.should_approve }}" >> $GITHUB_ENV
+          echo "COMMENT=false" >> $GITHUB_ENV
 
       - name: Comment to trigger auto localhost update snapshot
         if: github.event.comment.body == '/update-snapshot'
@@ -70,16 +71,35 @@ jobs:
           echo "INPUT_TEST_NO_IMAGE=false" >> $GITHUB_ENV
           echo "INPUT_CONTINUE_ON_FAIL=true" >> $GITHUB_ENV
           echo "INPUT_SHOULD_APPROVE=true" >> $GITHUB_ENV
+          echo "COMMENT=true" >> $GITHUB_ENV
+
+      - name: Get PR branch name
+        if: ${{ github.event.issue.pull_request && env.COMMENT == 'true' }}
+        id: pr
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const prNumber = context.payload.issue.number;
+            const { data: pr } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: prNumber
+            });
+            core.setOutput('head_ref', pr.head.ref);
 
       - name: ⬇️ Checkout repo required to commit and PAT Is required to retrigger pipeline
         if: ${{ env.INPUT_SHOULD_APPROVE == 'true' }}
         uses: actions/checkout@v4
         with:
+          ref: ${{ steps.pr.outputs.head_ref || github.ref }}
           token: ${{ secrets.PAT }}
 
       - name: ⬇️ Checkout repo without commit
         if: ${{ env.INPUT_SHOULD_APPROVE != 'true' }}
         uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.pr.outputs.head_ref || github.ref }}
 
       - name: Detect package manager
         id: detect-package-manager
