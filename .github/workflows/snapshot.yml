@@ -56,7 +56,7 @@ jobs:
     steps:
 
       - name: Prevent any comment to execute this workflow
-        if: ${{ github.event.comment.body == '/update-snapshot' }}
+        if: ${{ github.event.comment.body != '/update-snapshot' }}
         env:
           EVENT_COMMENT: ${{ github.event.comment.body }}
         run: |
