@@ -46,10 +46,13 @@ on:
       PAT:
         description: Checkout secret.
 
+env:
+  UPDATE_SNAPSHOT_KEYWORD_TRIGGER_COMMENT: /update-snapshot
+
 jobs:
   snapshot:
     runs-on: ubuntu-latest
-    if: ${{ github.event.comment.body == '/update-snapshot' || inputs.deployed_url }}
+    if: ${{ github.event.comment.body == env.UPDATE_SNAPSHOT_KEYWORD_TRIGGER_COMMENT || inputs.deployed_url }}
     outputs:
       changes_detected: ${{ steps.auto-commit-action.outputs.changes_detected }}
     permissions:
@@ -64,7 +67,7 @@ jobs:
           echo "COMMENT=false" >> $GITHUB_ENV
 
       - name: Comment to trigger auto localhost update snapshot
-        if: github.event.comment.body == '/update-snapshot'
+        if: github.event.comment.body == env.UPDATE_SNAPSHOT_KEYWORD_TRIGGER_COMMENT
         run: |
           echo "Triggering auto update snapshot"
           echo "INPUT_DEPLOYED_URL=http://localhost:3000" >> $GITHUB_ENV
