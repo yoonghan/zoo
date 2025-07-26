@@ -49,20 +49,12 @@ on:
 jobs:
   snapshot:
     runs-on: ubuntu-latest
+    if: ${{ github.event.comment.body == '/update-snapshot' || inputs.deployed_url }}
     outputs:
       changes_detected: ${{ steps.auto-commit-action.outputs.changes_detected }}
     permissions:
       pull-requests: write
     steps:
-
-      - name: Prevent any comment to execute this workflow
-        if: ${{ github.event.comment.body != '/update-snapshot' }}
-        env:
-          EVENT_COMMENT: ${{ github.event.comment.body }}
-        run: |
-          echo "Should not execute this workflow: $EVENT_COMMENT"
-          exit 0
-
       - name: 🏷️ Rewrite variables
         run: |
           echo "INPUT_DEPLOYED_URL=${{ inputs.deployed_url }}" >> $GITHUB_ENV
