@@ -131,7 +131,7 @@ jobs:
             .next/cache
             ~/.cache/ms-playwright
           # Generate a new cache whenever packages or source files change.
-          key: ${{ runner.os }}-all-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          key: ${{ runner.os }}-all-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}-${{ github.event.issue.number || github.sha }}
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
             ${{ runner.os }}-all-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
