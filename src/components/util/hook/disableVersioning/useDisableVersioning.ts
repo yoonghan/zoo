@@ -6,7 +6,7 @@ export function useDisableVersioning() {
   const [isVersioned, setIsVersioned] = useState(false)
 
   useEffect(() => {
-    let query = window.location.search
+    const query = window.location.search
     const disabled = disableVersionRegex.test(query)
     setIsVersioned(!disabled)
   }, [])

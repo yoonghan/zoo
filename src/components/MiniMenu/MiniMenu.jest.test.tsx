@@ -99,6 +99,7 @@ describe("MiniMenu", () => {
       renderComponent();
       const fivePillarsElem = screen.getByRole("link", { name: "Five Pillars" });
       const scrollIntoViewCall = jest
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         .spyOn(fivePillarsElem as any, "scrollIntoViewIfNeeded")
         .mockImplementation(() => { });
 

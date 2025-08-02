@@ -80,7 +80,7 @@ function MutableFooter({
           <article className="mt-10 m-auto max-w-xl md:text-center">
             <strong>{labels.partners}:</strong>
             <ul className="flex gap-8 md:justify-center mt-4">
-              {partners.map(({ url, imageSrc, alt }, idx) => (
+              {partners.map(({ url, imageSrc, alt }) => (
                 <li key={`footer-partner-${url}`}>
                   <Link href={url} target="_blank" rel="external">
                     <Image src={imageSrc} alt={alt} width={50} height={50} />

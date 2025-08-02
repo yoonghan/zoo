@@ -44,6 +44,7 @@ function MiniMenu({ model, onScrollMonitor, fakeNavBarRef = false }: Readonly<Mi
 
         const validIdx = idx < 0 ? 0 : idx;
         const anchor = anchorRef.current[validIdx];
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (anchor as any).scrollIntoViewIfNeeded({
           behavior: "instant",
           inline: "center",

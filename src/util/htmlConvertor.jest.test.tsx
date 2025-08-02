@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { htmlConvertor } from "./htmlConvertor";
 
 describe("HTML Convertor", () => {
@@ -30,14 +30,14 @@ describe("HTML Convertor", () => {
 
   describe("change square bracket to anchor link", () => {
     it("will render normal link correctly", () => {
-      const { getByRole, getByText } = render(
+      render(
         htmlConvertor("[https://www.google.com|Google]")
       );
-      expect(getByRole("link", { name: "Google" })).toHaveAttribute(
+      expect(screen.getByRole("link", { name: "Google" })).toHaveAttribute(
         "href",
         "https://www.google.com"
       );
-      expect(getByRole("link", { name: "Google" })).toHaveAttribute(
+      expect(screen.getByRole("link", { name: "Google" })).toHaveAttribute(
         "rel",
         "external"
       );

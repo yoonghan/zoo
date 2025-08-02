@@ -39,7 +39,7 @@ describe("fileHelper", () => {
 
   describe("checkForImageExist", () => {
     it("should show true as image of Map should exist in public folder", () => {
-      expect(checkForImageExist("zoo-negara-map.jpg")).toBeTruthy;
+      expect(checkForImageExist("zoo-negara-map.jpg")).toBeTruthy();
     });
   });
 });

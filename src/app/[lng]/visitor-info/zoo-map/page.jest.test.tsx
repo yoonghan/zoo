@@ -1,6 +1,5 @@
 import { render, act, screen } from "@testing-library/react";
 import ZooMap, { generateMetadata } from "./page";
-import { checkForImageExist } from "@/util/fileHelper";
 import translations from "@/i18n/locales/en/pages";
 
 describe("ZooMap", () => {

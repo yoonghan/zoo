@@ -12,9 +12,9 @@ describe("LanguageDropdown", () => {
 
   it("should render without crashing", () => {
     renderComponent();
-    expect(screen.getByRole("link", { name: "English" })).toBeInTheDocument;
-    expect(screen.getByRole("link", { name: "Bahasa" })).toBeInTheDocument;
-    expect(screen.getByRole("link", { name: "中文" })).toBeInTheDocument;
+    expect(screen.getByRole("link", { name: "English" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Bahasa" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "中文" })).toBeInTheDocument();
   });
 
   it("should render desktop view and hide mobile styles", () => {

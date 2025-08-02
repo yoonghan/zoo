@@ -1,10 +1,5 @@
 import fs from "fs";
 
-type PageConfig = {
-  path: string;
-  display: string;
-};
-
 const appFolder = "./src/app/[lng]";
 
 const getRecursiveFiles = (srcpath: string): string[] => {

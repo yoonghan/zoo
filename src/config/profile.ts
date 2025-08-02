@@ -1,11 +1,6 @@
 import { type ContactUsProps } from "@/app/[lng]/contact-us/typings/Props";
 import { FooterProps } from "@/components/Footer";
 
-type Donation = {
-  price: string;
-  gifts: string[];
-};
-
 type Programmes = {
   ticket: {
     admission: {

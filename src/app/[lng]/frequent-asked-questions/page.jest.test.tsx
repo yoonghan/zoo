@@ -1,3 +1,4 @@
+import * as React from "react"
 import { render, screen, act } from "@testing-library/react";
 import Faq, { generateMetadata } from "./page";
 import translations from "@/i18n/locales/en/pages";
