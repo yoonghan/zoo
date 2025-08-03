@@ -8,11 +8,12 @@ on:
 
 jobs:
   approve_local_snapshot:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     if: >
       github.event.comment.body == '/update-snapshot' &&
       github.event.issue.pull_request
-    permissions:
-      pull-requests: write
     steps:
     - name: Get PR branch name
       id: pr
