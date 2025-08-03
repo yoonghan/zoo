@@ -55,7 +55,7 @@ Any webpage changes on presentation will result a snapshot comparison between ne
 
 1. Go Option 1(recommended):
   a. Click on Actions -> Select Snapshot Validate and Approve -> Click Run workflow -> Select the PR branch and check "should do auto approval" -> Then run workflow.
-2. Go Option 2(do if did not do option1):
+2. Go Option 2(do if did not do option1 - REMOVED!):
   a. Write a comment "/update-snapshot" in pull request and it will execute. (It will run in background which can be check in Action to see if it succeed or fail).
 3. Auto approval will update the snapshot, compare it via Commit in pull request before submitting it.
 4. There is snapshot for the release/production Zoo website. Just select https://zoo.walcron.com as the domain URL to release it.

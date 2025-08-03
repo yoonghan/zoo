@@ -56,13 +56,6 @@ jobs:
     permissions:
       pull-requests: write
     steps:
-      - name: Print
-        env:
-          TEST: ${{github.event.workflow_call}}
-          TEST1: ${{github.event.workflow_call.event}}
-          TEST2: ${{github.event.workflow_call.conclusion}}
-        run: |
-          echo "$TEST, $TEST1, $TEST2"
       - name: Get PR branch name
         if: inputs.pr_checkout
         id: pr
