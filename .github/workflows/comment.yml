@@ -1,0 +1,43 @@
+name: Issue comment workflow
+
+#Only execute on main branches
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  approve_local_snapshot:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    if: >
+      github.event.comment.body == '/update-snapshot' &&
+      github.event.issue.pull_request
+    steps:
+      - name: Get PR branch name
+        id: pr
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const prNumber = context.payload.issue.number;
+            const { data: pr } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: prNumber
+            });
+            core.setOutput('head_ref', "${{ inputs.head_ref }}");
+
+      - name: ⬇️ Checkout repo required to commit and PAT Is required to retrigger pipeline
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.pr.outputs.head_ref }}
+          token: ${{ secrets.PAT }}
+
+      - name: Snapshot local
+        uses: ./.github/workflows/snapshot.yml
+        with:
+          deployed_url: http://localhost:3000
+          test_no_image: false
+          pr_checkout: true
