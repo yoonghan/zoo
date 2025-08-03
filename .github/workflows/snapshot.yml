@@ -40,7 +40,7 @@ on:
         description: Should do auto approval
         default: false
         type: boolean
-      already_checkout:
+      pr_checkout:
         description: Skip checkout
         default: false
         type: boolean
@@ -56,16 +56,34 @@ jobs:
     permissions:
       pull-requests: write
     steps:
+      - name: Get PR branch name
+        if: inputs.pr_checkout
+        id: pr
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const prNumber = context.payload.issue.number;
+            const { data: pr } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: prNumber
+            });
+            core.setOutput('head_ref', pr.head.ref);
+
       - name: ⬇️ Checkout repo required to commit and PAT Is required to retrigger pipeline
-        if: ${{ inputs.should_approve && !inputs.already_checkout }}
+        if: ${{ inputs.should_approve }}
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.PAT }}
+          ref: ${{ steps.pr.outputs.head_ref || github.ref }}
 
       - name: ⬇️ Checkout repo without commit
-        if: ${{ !inputs.should_approve && !inputs.already_checkout }}
+        if: ${{ !inputs.should_approve }}
         uses: actions/checkout@v4
-
+        with:
+          ref: ${{ steps.pr.outputs.head_ref || github.ref }}
+          
       - name: Detect package manager
         id: detect-package-manager
         run: |
