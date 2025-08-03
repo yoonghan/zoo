@@ -208,10 +208,10 @@ describe("Menu", () => {
 
       const checkbox = screen.getByRole("checkbox", { name: "Main Menu" })
       await userEvent.click(checkbox);
-      expect(checkbox).toBeChecked
+      expect(checkbox).toBeChecked()
 
       await userEvent.click(screen.getByRole("menuitem", { name: "News" }));
-      expect(checkbox).toBeChecked
+      expect(checkbox).toBeChecked()
     });
   });
 });

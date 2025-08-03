@@ -1,10 +1,18 @@
 import { render, act, screen } from "@testing-library/react";
 import ZooMap, { generateMetadata } from "./page";
-import { checkForImageExist } from "@/util/fileHelper";
 import translations from "@/i18n/locales/en/pages";
+import { isImageAssetExist, isNextJsImageAssetExist } from "@/util/fileHelper";
 
 describe("ZooMap", () => {
   const zooMapFileName = "zoo-negara-map";
+
+  function assertImageAssetExists(src: string, isNextJs: boolean) {
+    if(isNextJs) {
+      expect(isNextJsImageAssetExist(src)).toBeTruthy()
+    } else {
+      expect(isImageAssetExist(src)).toBeTruthy()
+    }
+  }
 
   it("should contains important keys", async () => {
     await act(async () => {
@@ -20,37 +28,37 @@ describe("ZooMap", () => {
     ).toBeInTheDocument();
   });
 
-  it("should have map and image", async () => {
+  it("should have map and image and asset exists", async () => {
     await act(async () => {
       render(<ZooMap params={Promise.resolve({ lng: "en" })} />);
     });
 
+    const mainImageAsset = `/images/${zooMapFileName}.jpg`
     expect(
       await screen.findByRole("link", {
         name: translations.visitorInfo.zooMap.downloadMapBtn,
       })
-    ).toHaveAttribute("href", `/images/${zooMapFileName}.jpg`);
+    ).toHaveAttribute("href", mainImageAsset);
+
+    assertImageAssetExists(mainImageAsset, false)
+
     expect(
       screen.getByRole("link", {
         name: translations.visitorInfo.zooMap.downloadMapBtn,
       })
     ).toHaveAttribute("download", "");
 
-    expect(
-      screen
-        .getByRole("img", { name: "Top Zoo Negara Map" })
-        .getAttribute("src")
-    ).toContain(`${zooMapFileName}-1.webp`);
-    expect(
-      screen
-        .getByRole("img", { name: "Center Zoo Negara Map" })
-        .getAttribute("src")
-    ).toContain(`${zooMapFileName}-2.webp`);
-    expect(
-      screen
-        .getByRole("img", { name: "Bottom Zoo Negara Map" })
-        .getAttribute("src")
-    ).toContain(`${zooMapFileName}-3.webp`);
+    assertImageAssetExists(screen
+      .getByRole("img", { name: "Top Zoo Negara Map" })
+      .getAttribute("src")!, true)
+
+    assertImageAssetExists(screen
+      .getByRole("img", { name: "Center Zoo Negara Map" })
+      .getAttribute("src")!, true)
+    
+    assertImageAssetExists(screen
+      .getByRole("img", { name: "Bottom Zoo Negara Map" })
+      .getAttribute("src")!, true)
   });
 
   it("should generate site headers", async () => {

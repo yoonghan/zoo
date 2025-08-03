@@ -17,5 +17,14 @@ export const checkDownloadLinkHasHostAllLocalFiles = (
     });
 };
 
-export const checkForImageExist = (imgSrcWithImageFolder: string) =>
-  fs.existsSync(`./public/${imgSrcWithImageFolder}`);
+export const isImageAssetExist = (imgSrc: string) => {
+  const removedImgLeadingPath = imgSrc.replace(/^\/images\//, "")
+  return fs.existsSync(`./public/images/${removedImgLeadingPath}`);
+}
+
+export const isNextJsImageAssetExist = (imgSrc: string) => {
+  const removedLeadingNextFormat = imgSrc.replace(/\/_next\/image\?url=%2Fimages%2F/, "")
+  const removedTrailingNextFormat = removedLeadingNextFormat.replace(/\&.+$/, "")
+  return fs.existsSync(`./public/images/${removedTrailingNextFormat}`);
+}
+  

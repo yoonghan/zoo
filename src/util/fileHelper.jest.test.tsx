@@ -1,7 +1,8 @@
 import { render } from "@testing-library/react";
 import {
   checkDownloadLinkHasHostAllLocalFiles,
-  checkForImageExist,
+  isImageAssetExist,
+  isNextJsImageAssetExist,
 } from "./fileHelper";
 
 describe("fileHelper", () => {
@@ -39,7 +40,12 @@ describe("fileHelper", () => {
 
   describe("checkForImageExist", () => {
     it("should show true as image of Map should exist in public folder", () => {
-      expect(checkForImageExist("zoo-negara-map.jpg")).toBeTruthy;
+      expect(isImageAssetExist("zoo-negara-map.jpg")).toBeTruthy();
+      expect(isImageAssetExist("/images/zoo-negara-map.jpg")).toBeTruthy();
     });
+
+    it("should be able to check _nextjs image", () => {
+      expect(isNextJsImageAssetExist("/_next/image?url=%2Fimages%2Fzoo-negara-map-1.webp&w=3840&q=75")).toBeTruthy();
+    })
   });
 });

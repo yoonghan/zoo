@@ -1,10 +1,8 @@
 import { act, render, screen } from "@testing-library/react";
 import { TranslatedAnnouncement } from "./TranslatedAnnouncement";
-import en from "@/i18n/locales/en/translation"
 
 describe("TranslatedAnnouncement", () => {
   it('should be able to translate announcement', async () => {
-    const keyword = "announcements"
 
     await act(async () => {
       render(<TranslatedAnnouncement params={Promise.resolve({ lng: "en" })} />)

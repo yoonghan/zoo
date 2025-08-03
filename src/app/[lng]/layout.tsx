@@ -1,4 +1,4 @@
-import type { Metadata, ResolvingMetadata } from "next";
+import type { Metadata } from "next";
 import "@/themes/lara-light-green/theme.css";
 import "../main.css";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -21,8 +21,7 @@ type Props = {
 }
 
 export async function generateMetadata(
-  { params, searchParams }: Props,
-  parent: ResolvingMetadata
+  { params }: Props
 ): Promise<Metadata> {
   const { lng } = await params
   const { t } = await getTranslation(lng, "pages")
