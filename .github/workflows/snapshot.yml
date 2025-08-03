@@ -40,7 +40,7 @@ on:
         description: Should do auto approval
         default: false
         type: boolean
-      already_checkout:
+      pr_checkout:
         description: Skip checkout
         default: false
         type: boolean
@@ -57,15 +57,16 @@ jobs:
       pull-requests: write
     steps:
       - name: ⬇️ Checkout repo required to commit and PAT Is required to retrigger pipeline
-        if: ${{ inputs.should_approve && !inputs.already_checkout }}
+        if: ${{ inputs.should_approve && !inputs.pr_checkout }}
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.PAT }}
+          ref: ${{ github.ref }}
 
       - name: ⬇️ Checkout repo without commit
-        if: ${{ !inputs.should_approve && !inputs.already_checkout }}
+        if: ${{ !inputs.should_approve && !inputs.pr_checkout }}
         uses: actions/checkout@v4
-
+          
       - name: Detect package manager
         id: detect-package-manager
         run: |

@@ -26,4 +26,4 @@ jobs:
     with:
       deployed_url: http://localhost:3000
       test_no_image: false
-      already_checkout: false
+      pr_checkout: false
