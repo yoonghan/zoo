@@ -8,12 +8,13 @@ on:
 
 jobs:
   approve_local_snapshot:
-    if: ${{ github.event.comment.body == '/update-snapshot' }}
+    if: >
+      github.event.comment.body == '/update-snapshot' &&
+      github.event.issue.pull_request
     permissions:
       pull-requests: write
     steps:
     - name: Get PR branch name
-      if: ${{ github.event.issue.pull_request }}
       id: pr
       uses: actions/github-script@v7
       with:
@@ -31,14 +32,14 @@ jobs:
       if: ${{ inputs.should_approve }}
       uses: actions/checkout@v4
       with:
-        ref: ${{ steps.pr.outputs.head_ref || github.ref }}
+        ref: ${{ steps.pr.outputs.head_ref }}
         token: ${{ secrets.PAT }}
 
     - name: ⬇️ Checkout repo without commit
       if: ${{ !inputs.should_approve }}
       uses: actions/checkout@v4
       with:
-        ref: ${{ steps.pr.outputs.head_ref || github.ref }}
+        ref: ${{ steps.pr.outputs.head_ref }}
 
     - name: Snapshot local
       uses: ./.github/workflows/snapshot.yml
