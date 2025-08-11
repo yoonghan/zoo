@@ -1,7 +1,7 @@
 import { render, act, screen } from "@testing-library/react";
 import ZooMap, { generateMetadata } from "./page";
 import translations from "@/i18n/locales/en/pages";
-import { isImageAssetExist, isNextJsImageAssetExist } from "@/__tests__/fileHelper";
+import { isImageAssetExist, isNextJsImageAssetExist } from "@/__tests__/helpers/fileHelper";
 
 describe("ZooMap", () => {
   const zooMapFileName = "zoo-negara-map";

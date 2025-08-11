@@ -28,7 +28,7 @@ const config: Config = {
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
   },
-  testPathIgnorePatterns: ["/e2e/*", "/playwright*", "/src/app/[lng]/layout.tsx"],
+  testPathIgnorePatterns: ["/e2e/*", "/playwright*", "/src/app/[lng]/layout.tsx", "/__tests__/helpers/"],
   coveragePathIgnorePatterns: [
     "layout.tsx",
     "/node_modules/",
