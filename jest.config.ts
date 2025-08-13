@@ -28,12 +28,11 @@ const config: Config = {
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
   },
-  testPathIgnorePatterns: ["/e2e/*", "/playwright*", "/src/app/[lng]/layout.tsx", "/__tests__/helpers/"],
+  testPathIgnorePatterns: ["/e2e/*", "/playwright*", "/src/app/[lng]/layout.tsx"],
   coveragePathIgnorePatterns: [
     "layout.tsx",
     "/node_modules/",
-    "/src/i18n/locales/[a-z]+/.*",
-    "/__tests__"
+    "/src/i18n/locales/[a-z]+/.*"
   ],
 };
 
