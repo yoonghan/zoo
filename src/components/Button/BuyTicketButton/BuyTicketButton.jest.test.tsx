@@ -24,4 +24,18 @@ describe("BuyTicketButton", () => {
 
     expect(window.location.assign).toHaveBeenCalledWith("/link");
   });
+
+  it("should hide button on mobile", async () => {
+    window.location.assign = jest.fn();
+
+    render(<BuyTicketButton
+      text="I am a Button"
+      href="/link"
+      alert={{ title: "Alert Title", message: "Alert Message", okBtnText: "Ok" }}
+      hideOnMobile={true}
+    />);
+
+    const buyTixButton =screen.getByRole("link", { name: "I am a Button" })
+    expect(buyTixButton.innerHTML).toContain("hidden sm:inline");
+  });
 });

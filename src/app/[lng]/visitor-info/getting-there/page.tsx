@@ -120,7 +120,7 @@ function GettingThere({ t }: Readonly<TranslatorProps>) {
               id={miniLink.hashId}
               key={miniLink.hashId}>
               <Header className="text-2xl font-bold text-center" idx={idx} title={t(`gettingThere.${miniLink.hashId}.title`)} />
-              <FontAwesomeIcon icon={logo} width={50} className="mx-auto mt-4 pb-12" />
+              <FontAwesomeIcon icon={logo} className="mx-auto mt-4 pb-12 !block !w-full text-8xl" />
               <div className="mt-4 ml-12">
                 <strong>{t(`gettingThere.${miniLink.hashId}.description`)}</strong>:
                 {<ol className="list-decimal text-left mt-2 ml-6">
