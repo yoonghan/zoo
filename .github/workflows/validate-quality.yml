@@ -55,9 +55,3 @@ jobs:
         if: github.actor != 'dependabot[bot]'
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          args: >
-            -Dsonar.organization=walcoorperation
-            -Dsonar.projectKey=yoonghan_zoo
-            -Dsonar.host.url=https://sonarcloud.io
-            -Dsonar.login=${{ env.SONAR_PROJECT_KEY }}
