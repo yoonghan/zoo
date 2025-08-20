@@ -87,7 +87,7 @@ const Dialog = forwardRef<DialogHandler, DialogProps>(
               onClick={onDialogClick}
               onKeyUp={onDialogClick}
             >
-              <div className={styles.content} onClick={onContentClick} role="button" onKeyUp={onContentClick}>
+              <div className={styles.content} onClick={onContentClick} role="presentation" onKeyUp={onContentClick}>
                 {children}
               </div>
               <button onClick={onCloseClick}>
