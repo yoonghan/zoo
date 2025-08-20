@@ -32,13 +32,18 @@ jobs:
           cache: "npm"
           registry-url: https://npm.pkg.github.com/
 
-      - name: Cache dependencies
-        id: cache
+      - name: Restore cache
         uses: actions/cache@v4
+        id: all-cache
         with:
           path: |
-            ./node_modules
-          key: modules-node-${{ hashFiles('package-lock.json') }}
+            .next/cache
+            ~/.cache/ms-playwright
+          # Generate a new cache whenever packages or source files change.
+          key: ${{ runner.os }}-all-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          # If source files changed but packages didn't, rebuild from a prior cache.
+          restore-keys: |
+            ${{ runner.os }}-all-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
 
       - name: 📥 Download deps
         if: github.actor != 'dependabot[bot]'
