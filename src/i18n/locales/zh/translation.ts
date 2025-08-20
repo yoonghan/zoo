@@ -9,7 +9,14 @@ const translations: typeof enTranslation = {
   Friday: "星期五",
   Saturday: "周六",
   Sunday: "星期日",
-  buyTicket: "购买门票",
+  buyTicket: {
+    text: "购买门票",
+    alert: {
+      title: "注意",
+      message: "您即将跳转至官方售票网站。请确保网址以“zoonegara.my”结尾。",
+      confirm: "继续"
+    },
+  },
   announcements: [
     "这不是动物园的官方网站。请访问官方网站 [https://zoonegara.my|zoonegara.my] 了解更多信息。",
     "动物园多种动物表演将于 *周五关闭 学校假期和公共假期除外。",

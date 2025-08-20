@@ -32,13 +32,18 @@ jobs:
           cache: "npm"
           registry-url: https://npm.pkg.github.com/
 
-      - name: Cache dependencies
-        id: cache
+      - name: Restore cache
         uses: actions/cache@v4
+        id: all-cache
         with:
           path: |
-            ./node_modules
-          key: modules-node-${{ hashFiles('package-lock.json') }}
+            .next/cache
+            ~/.cache/ms-playwright
+          # Generate a new cache whenever packages or source files change.
+          key: ${{ runner.os }}-all-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          # If source files changed but packages didn't, rebuild from a prior cache.
+          restore-keys: |
+            ${{ runner.os }}-all-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
 
       - name: 📥 Download deps
         if: github.actor != 'dependabot[bot]'
@@ -47,14 +52,11 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      - name: Run Unit test with coverage
+        run: npm run test:coverage
+
       - name: 📊 Quality Gate Scan
         uses: SonarSource/sonarcloud-github-action@v2
         if: github.actor != 'dependabot[bot]'
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          args: >
-            -Dsonar.organization=walcoorperation
-            -Dsonar.projectKey=yoonghan_zoo
-            -Dsonar.host.url=https://sonarcloud.io
-            -Dsonar.login=${{ env.SONAR_PROJECT_KEY }}

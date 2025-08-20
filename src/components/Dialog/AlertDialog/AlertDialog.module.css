@@ -1,0 +1,16 @@
+.container {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  max-width: 320px;
+}
+
+.container strong {
+  display: block;
+  border: 1px solid #000;
+  padding: 1rem;
+  background-color: var(--title-bar-bg);
+  color: var(--title-bar);
+  border-radius: 0.5rem 0.5rem 0 0;
+  width: 100%;
+  text-align: center
+}

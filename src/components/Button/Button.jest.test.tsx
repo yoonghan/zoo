@@ -9,8 +9,8 @@ describe("Button", () => {
   }) => render(<Button styling={styling}>I am a Button</Button>);
 
   it("should render correct button className", () => {
-    const { getByRole } = renderButton({});
-    expect(getByRole("button", { name: "I am a Button" })).toHaveClass(
+    renderButton({});
+    expect(screen.getByRole("button", { name: "I am a Button" })).toHaveClass(
       "button-primary"
     );
   });

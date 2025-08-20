@@ -64,4 +64,6 @@
   --buy-text-color: #222;
   --menu-color: var(--buy-pimary-color);
   --footer-color: var(--buy-pimary-color);
+  --title-bar-bg: var(--yellow-500);
+  --title-bar: var(--secondary-900);
 }
