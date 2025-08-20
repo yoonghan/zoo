@@ -71,7 +71,7 @@ const Dialog = forwardRef<DialogHandler, DialogProps>(
     }, [cancel, isNotModal])
 
     const onContentClick = useCallback(
-      (event: React.MouseEvent<HTMLDivElement>) => {
+      (event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>) => {
         event.stopPropagation()
       },
       [],
@@ -85,8 +85,9 @@ const Dialog = forwardRef<DialogHandler, DialogProps>(
               className={styles.container}
               ref={dialogElem}
               onClick={onDialogClick}
+              onKeyUp={onDialogClick}
             >
-              <div className={styles.content} onClick={onContentClick}>
+              <div className={styles.content} onClick={onContentClick} role="button" onKeyUp={onContentClick}>
                 {children}
               </div>
               <button onClick={onCloseClick}>

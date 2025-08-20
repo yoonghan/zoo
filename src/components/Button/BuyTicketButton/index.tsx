@@ -18,7 +18,7 @@ interface BuyTicketButtonProps {
   }
 }
 
-export default function BuyTicketButton({text, href, alert}: BuyTicketButtonProps) {
+export default function BuyTicketButton({text, href, alert}: Readonly<BuyTicketButtonProps>) {
   const promptMessageDialog = useDialogCreation<AlertProps>(AlertDialog)
   
   const onOkClick = useCallback(
