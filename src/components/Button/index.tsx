@@ -15,7 +15,7 @@ export function Button({
 
   return (
     <button
-      className={`${style[buttonStyleClassName]} ${className}`}
+      className={`${style[buttonStyleClassName]} ${className ?? ""}`}
       {...additionalProps}
     >
       {children}

@@ -13,7 +13,7 @@ describe("AlertDialog", () => {
         onOk={jest.fn()}
       />,
     )
-    expect(screen.getByText("I am Title")).toBeInTheDocument()
+    expect(screen.getByText("I AM TITLE")).toBeInTheDocument()
     expect(
       screen.getByText(
         "Can you React from a shooting bullet travelling at lightspeed?",
@@ -51,9 +51,9 @@ describe("AlertDialog", () => {
 
     const assertDialog = (isShown: boolean) => {
       if (isShown) {
-        expect(screen.getByText("I am Title")).toBeInTheDocument()
+        expect(screen.getByText("I AM TITLE")).toBeInTheDocument()
       } else {
-        expect(screen.queryByText("I am Title")).not.toBeInTheDocument()
+        expect(screen.queryByText("I AM TITLE")).not.toBeInTheDocument()
       }
     }
 
@@ -65,11 +65,11 @@ describe("AlertDialog", () => {
       assertDialog(false)
     })
 
-    it("should close after Cancel is clicked", async () => {
+    it("should close after Cancel is clicked, but should not be trigger", async () => {
       const { onOk } = renderComponent()
       assertDialog(true)
       await userEvent.type(screen.getByRole("dialog"), "{escape}")
-      expect(onOk).toHaveBeenCalled()
+      expect(onOk).not.toHaveBeenCalled()
       assertDialog(false)
     })
   })
