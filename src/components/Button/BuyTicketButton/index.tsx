@@ -11,6 +11,7 @@ import { useCallback } from "react";
 interface BuyTicketButtonProps {
   text: string;
   href: string;
+  hideOnMobile?: boolean;
   alert: {
     title: string;
     message: string;
@@ -18,7 +19,7 @@ interface BuyTicketButtonProps {
   }
 }
 
-export default function BuyTicketButton({text, href, alert}: Readonly<BuyTicketButtonProps>) {
+export default function BuyTicketButton({text, href, hideOnMobile, alert}: Readonly<BuyTicketButtonProps>) {
   const promptMessageDialog = useDialogCreation<AlertProps>(AlertDialog)
   
   const onOkClick = useCallback(
@@ -49,6 +50,6 @@ export default function BuyTicketButton({text, href, alert}: Readonly<BuyTicketB
               className="inline mr-2"
               width={20}
             />
-            <span className="hidden sm:inline">{text}</span>
+            <span className={!!hideOnMobile ? "hidden sm:inline": ""}>{text}</span>
           </ButtonLink>
 }

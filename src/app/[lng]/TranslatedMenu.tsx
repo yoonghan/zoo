@@ -33,6 +33,7 @@ const TranslatedMenuComponent = withComponentTranslator(
               <BuyTicketButton
                 text={t("buyTicket.text")}
                 href={zooProfile.ticket.admission.url}
+                hideOnMobile={true}
                 alert={{
                   title: t("buyTicket.alert.title"),
                   message: t("buyTicket.alert.message"),
