@@ -31,7 +31,7 @@ export default function BuyTicketButton({text, href, alert}: BuyTicketButtonProp
         message: alert.message,
         okBtnText: alert.okBtnText,
         onOk: () => {
-          location.href = href;
+          location.assign(href);
         },
       })
     },

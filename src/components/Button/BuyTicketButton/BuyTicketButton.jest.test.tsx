@@ -3,7 +3,9 @@ import BuyTicketButton from ".";
 import userEvent from "@testing-library/user-event";
 
 describe("BuyTicketButton", () => {
-  it("should render correct button className", async () => {
+  it("should render correctly", async () => {
+    window.location.assign = jest.fn();
+
     render(<BuyTicketButton
       text="I am a Button"
       href="/link"
@@ -19,5 +21,7 @@ describe("BuyTicketButton", () => {
     expect(screen.getByText("ALERT TITLE")).toBeInTheDocument()
 
     await userEvent.click(screen.getByRole("button", {name: "Ok"}))
+
+    expect(window.location.assign).toHaveBeenCalledWith("/link");
   });
 });
