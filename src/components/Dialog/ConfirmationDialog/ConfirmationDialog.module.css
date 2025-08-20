@@ -12,10 +12,6 @@
   border-radius: 0.5rem 0.5rem 0 0;
 }
 
-.container hr {
-  width: 90%;
-}
-
 .container .buttonContainer {
   padding: 1rem;
   display: flex;

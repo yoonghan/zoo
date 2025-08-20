@@ -1,4 +1,4 @@
-import { ButtonLink } from "@/components/Button";
+import BuyTicketButton from "@/components/Button/BuyTicketButton";
 import { LanguageDropdown } from "@/components/LanguageDropdown";
 import { Menu } from "@/components/Menu";
 import { withComponentTranslator } from "@/components/util/hoc/withComponentTranslator";
@@ -8,8 +8,6 @@ import {
 } from "@/components/util/hoc/withTranslator";
 import { zooMenu } from "@/config/menu";
 import { zooProfile } from "@/config/profile";
-import { faTicket } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { TFunction } from "i18next";
 
 const translatedZooMenu = (t: TFunction<string, string>) =>
@@ -32,18 +30,13 @@ const TranslatedMenuComponent = withComponentTranslator(
         shortcutComponent={
           <form>
             <LanguageDropdown defaultValue={lng} className="mr-4" />
-            <ButtonLink
-              styling="BuyNow"
-              href={zooProfile.ticket.admission.url}
-              aria-label={t("buyTicket")}
-            >
-              <FontAwesomeIcon
-                icon={faTicket}
-                className="inline mr-2"
-                width={20}
-              />
-              <span className="hidden sm:inline">{t("buyTicket")}</span>
-            </ButtonLink>
+              <BuyTicketButton
+                text={t("buyTicket")}
+                href={zooProfile.ticket.admission.url}
+                alert={{
+                  title: t("alertBuyTicket.title"),
+                  message: t("alertBuyTicket.message")
+                }}/>
           </form>
         }
       />

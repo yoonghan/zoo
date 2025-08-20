@@ -8,6 +8,10 @@ const translations = {
   Saturday: "Saturday",
   Sunday: "Sunday",
   buyTicket: "Buy Ticket",
+  alertBuyTicket: {
+    title: "Notice",
+    message: "You are about to be directed to the official ticketing website. Make sure the url officially ends with 'zoonegara.my'.",
+  },
   announcements: [
     "This is *NOT the official website of the zoo. Please visit the official website [https://zoonegara.my|zoonegara.my] for more information.",
     "Zoo Multi-animal Show will be *CLOSED on Friday *EXCEPT school holidays & public holidays.",

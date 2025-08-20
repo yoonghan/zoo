@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
-import { ButtonLink } from "@/components/Button";
 import MiniMenu, { MiniMenuItems } from "@/components/MiniMenu";
 import { zooProfile } from "@/config/profile";
-import { faTicket } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import React from "react";
 import styles from "./visitor-info.module.css";
 import { withTranslator, TranslatorProps } from "@/components/util/hoc/withTranslator";
 import { getTranslation } from "@/i18n";
 import { generateSiteMeta } from "@/util/generateMeta";
+import BuyTicketButton from "@/components/Button/BuyTicketButton";
 
 type Props = {
   params: Promise<{ lng: string }>
@@ -85,14 +83,13 @@ function VisitorInfo({ t, lng }: Readonly<TranslatorProps>) {
           <h3 className="text-2xl font-bold">{miniLinks[1].title}</h3>
           <p>{t('visitorInfo.admissionTicket.description')}</p>
           <div className="mt-8">
-            <ButtonLink href={zooProfile.ticket.admission.url} styling="BuyNow">
-              <FontAwesomeIcon
-                icon={faTicket}
-                className="inline mr-4"
-                width={20}
-              />
-              {t("translation.buyTicket")}
-            </ButtonLink>
+            <BuyTicketButton
+              text={t("translation.buyTicket")}
+              href={zooProfile.ticket.admission.url}
+              alert={{
+                title: t("translation.alertBuyTicket.title"),
+                message: t("translation.alertBuyTicket.message")
+              }}/>
           </div>
           <div className="mt-16 text-left">
             <strong>{t('visitorInfo.additionalInformationText')}:</strong>
