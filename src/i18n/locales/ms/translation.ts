@@ -9,10 +9,13 @@ const translations: typeof enTranslation = {
   Friday: "Jumaat",
   Saturday: "Sabtu",
   Sunday: "Ahad",
-  buyTicket: "Beli Tiket",
-  alertBuyTicket: {
-    title: "Notis",
-    message: "Anda akan diarahkan ke laman web tiket rasmi. Pastikan url secara rasmi berakhir dengan 'zoonegara.my'.",
+  buyTicket: {
+    text: "Beli Tiket",
+    alert: {
+      title: "Notis",
+      message: "Anda akan diarahkan ke laman web tiket rasmi. Pastikan url secara rasmi berakhir dengan 'zoonegara.my'.",
+      confirm: "Teruskan",
+    },
   },
   announcements: [
     "Laman ini *BUKAN laman official. Untuk maklumat lanjut sila melawat laman rasmi [https://zoonegara.my|zoonegara.my].",

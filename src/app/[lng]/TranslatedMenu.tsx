@@ -31,11 +31,12 @@ const TranslatedMenuComponent = withComponentTranslator(
           <form>
             <LanguageDropdown defaultValue={lng} className="mr-4" />
               <BuyTicketButton
-                text={t("buyTicket")}
+                text={t("buyTicket.text")}
                 href={zooProfile.ticket.admission.url}
                 alert={{
-                  title: t("alertBuyTicket.title"),
-                  message: t("alertBuyTicket.message")
+                  title: t("buyTicket.alert.title"),
+                  message: t("buyTicket.alert.message"),
+                  okBtnText: t("buyTicket.alert.confirm"),
                 }}/>
           </form>
         }

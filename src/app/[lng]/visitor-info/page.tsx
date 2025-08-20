@@ -84,11 +84,12 @@ function VisitorInfo({ t, lng }: Readonly<TranslatorProps>) {
           <p>{t('visitorInfo.admissionTicket.description')}</p>
           <div className="mt-8">
             <BuyTicketButton
-              text={t("translation.buyTicket")}
+              text={t("translation.buyTicket.text")}
               href={zooProfile.ticket.admission.url}
               alert={{
-                title: t("translation.alertBuyTicket.title"),
-                message: t("translation.alertBuyTicket.message")
+                title: t("translation.buyTicket.alert.title"),
+                message: t("translation.buyTicket.alert.message"),
+                okBtnText: t("translation.buyTicket.alert.confirm"),
               }}/>
           </div>
           <div className="mt-16 text-left">
