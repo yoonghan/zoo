@@ -39,8 +39,8 @@ const AlertDialog = ({ title, message, okBtnText, onOk }: Props) => {
           <strong>{title.toUpperCase()}</strong>
           <p className="p-12">{message}</p>
         </div>
-        <hr />
-        <div className="p-1">
+        <hr className="p-2 w-60 m-auto"/>
+        <div className="p-4 pt-0">
           <Button styling="Primary" onClick={onAction(true)} className="p-5 w-full">
             {okBtnText ?? "Ok"}
           </Button>
