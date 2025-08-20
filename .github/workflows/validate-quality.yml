@@ -47,6 +47,9 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      - name: Run Unit test with coverage
+        run: npm run test:coverage
+
       - name: 📊 Quality Gate Scan
         uses: SonarSource/sonarcloud-github-action@v2
         if: github.actor != 'dependabot[bot]'
