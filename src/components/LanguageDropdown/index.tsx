@@ -57,6 +57,7 @@ export const LanguageDropdown = ({
         style={mobileStyle}
         className="md:hidden mr-2"
         id="language-dropdown"
+        aria-label="Language Selection"
       >
         {languages.map((language) => (
           <option key={language} value={language}>
