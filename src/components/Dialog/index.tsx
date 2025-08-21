@@ -108,6 +108,7 @@ const Dialog = forwardRef<DialogHandler, DialogProps>(
       ],
     )
 
+    /* v8 ignore next */
     return nonPortal ? dialog : createPortal(dialog, documentDialog)
   },
 )
