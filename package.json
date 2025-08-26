@@ -30,7 +30,7 @@
     "react": "^19.1.0",
     "react-confirm": "^0.4.0",
     "react-dom": "^19.1.1",
-    "react-i18next": "^15.6.1",
+    "react-i18next": "^15.7.2",
     "react-slick": "^0.31.0",
     "slick-carousel": "^1.8.1"
   },
@@ -54,7 +54,7 @@
     "eslint-config-next": "^15.4.6",
     "jest": "^30.0.5",
     "jest-environment-jsdom": "^30.0.5",
-    "knip": "^5.62.0",
+    "knip": "^5.63.0",
     "postcss": "^8",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
