@@ -12,7 +12,7 @@ describe("SiteMap", () => {
     expect(await screen.findByRole("main")).toBeInTheDocument();
 
     //headers
-    expect(screen.getByRole("heading", { name: "Sitemap" })).toBeInTheDocument()
+    expect(screen.getByRole("heading", { name: translations.headers.sitemap.title })).toBeInTheDocument()
 
     //links
     expect(screen.getByRole("link", { name: translations.headers.default })).toHaveAttribute("href", "/en")

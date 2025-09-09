@@ -6,44 +6,53 @@ const translations: typeof enTranslation = {
   lang: "zh",
   translation,
   headers: {
-    default: "马来西亚国家动物园",
-    defaultDescription: "为马来西亚人打造第一家本地动物园而成立的非政府组织。",
+    default: "马来西亚国家动物园：官方网站 | 今天就计划您的访问",
+    defaultDescription:
+      "探索马来西亚国家动物园，这里是 5,000 多只动物的家园。计划您的访问、购买门票并了解我们的保护工作。您的冒险从这里开始！",
     aboutUs: {
-      title: "关于国家动物园网站",
-      description: "创建马来西亚国家动物园网站副本的原因。",
+      title: "关于我们的粉丝制作的国家动物园网站",
+      description:
+        "了解这个非官方马来西亚国家动物园网站背后的热情项目，该网站由粉丝创建，旨在展示潜在的重新设计和改进的用户体验。",
     },
     frequentAskedQuestions: {
-      title: "常见问题",
-      description: "有关参观动物园的常见问题，直接由马来西亚国家动物园汇编。",
+      title: "常见问题 | 马来西亚国家动物园",
+      description:
+        "查找有关马来西亚国家动物园的常见问题解答，包括开放时间、票价、动物领养等。",
     },
     careers: {
-      title: "国家动物园的职业发展",
-      description: "想在马来西亚国家动物园工作吗？",
+      title: "在马来西亚国家动物园的职业 | 加入我们的团队",
+      description:
+        "探索在马来西亚国家动物园的职业机会。查找职位空缺，了解如何为我们的保护和动物福利使命做出贡献。",
     },
     contactUs: {
-      title: "联系国家动物园",
-      description: "动物园信息的联系方式。",
+      title: "联系我们 | 马来西亚国家动物园",
+      description:
+        "与马来西亚国家动物园取得联系。查找一般查询、教育、营销和其他部门的联系信息。",
     },
     visitorInfo: {
-      title: "访客信息",
-      description: "有关动物园开放时间和设施的游客信息。",
+      title: "游客信息 | 计划您的马来西亚国家动物园之旅",
+      description:
+        "使用我们全面的游客信息计划您对马来西亚国家动物园的访问，包括开放时间、门票、设施等。",
     },
     zooMap: {
-      title: "马来西亚国家动物园地图",
-      description: "下载地图并规划您在马来西亚国家动物园的行程。",
+      title: "马来西亚国家动物园地图 | 在动物园中导航",
+      description:
+        "下载马来西亚国家动物园官方地图，以便在动物园中导航。查找您最喜欢的动物、展览和设施的位置。",
     },
     gettingThere: {
-      title: "到达那里",
+      title: "如何前往马来西亚国家动物园 | 路线和交通",
       description:
-        "前往位于吉隆坡 Ampang 的马来西亚国家动物园 (Zoo Negara) 的提示。",
+        "查找前往马来西亚国家动物园的最佳方式。获取驾车、公共交通和乘车共享服务的路线。",
     },
     kiosksNFacilities: {
-      title: "亭子和设施",
-      description: "动物园内的食品、纪念品亭和设施。",
+      title: "马来西亚国家动物园的食品、商店和设施",
+      description:
+        "探索马来西亚国家动物园提供的食品、纪念品商店和设施。从餐厅到祈祷室，我们拥有您舒适访问所需的一切。",
     },
     sitemap: {
-      title: "Sitemap",
-      description: "链接",
+      title: "网站地图 | 马来西亚国家动物园粉丝网站",
+      description:
+        "使用我们的网站地图浏览我们粉丝制作的马来西亚国家动物园网站。查找您需要的所有页面和信息。",
     },
   },
   homepage: {

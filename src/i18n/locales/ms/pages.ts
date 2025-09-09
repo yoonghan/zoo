@@ -6,47 +6,53 @@ const translations: typeof enTranslation = {
   lang: "ms",
   translation,
   headers: {
-    default: "Zoo Negara Malaysia",
+    default: "Zoo Negara Malaysia: Laman Rasmi | Rancang Lawatan Anda Hari Ini",
     defaultDescription:
-      "Sebuah pertubuhan bukan kerajaan yang ditubuhkan untuk mewujudkan zoo tempatan pertama untuk rakyat Malaysia.",
+      "Terokai Zoo Negara Malaysia, rumah kepada lebih 5,000 haiwan. Rancang lawatan anda, beli tiket, dan pelajari tentang usaha pemuliharaan kami. Pengembaraan anda bermula di sini!",
     aboutUs: {
-      title: "Tentang Zoo Negara Malaysia",
-      description: "Cerita mengapa Zoo Negara Malaysia website dibina.",
+      title: "Tentang Laman Web Zoo Negara Buatan Peminat Kami",
+      description:
+        "Ketahui tentang projek semangat di sebalik laman web tidak rasmi Zoo Negara Malaysia ini, yang dicipta oleh peminat untuk mempamerkan reka bentuk semula yang berpotensi dan pengalaman pengguna yang lebih baik.",
     },
     frequentAskedQuestions: {
-      title: "Soalan Lazim",
+      title: "Soalan Lazim | Zoo Negara Malaysia",
       description:
-        "Soalan lazim tentang lawatan ke zoo, disusun terus dari Zoo Negara Malaysia.",
+        "Dapatkan jawapan kepada soalan lazim tentang Zoo Negara Malaysia, termasuk waktu buka, harga tiket, pengambilan haiwan, dan banyak lagi.",
     },
     careers: {
-      title: "Kerjaya di Zoo Negara",
-      description: "Ingin bekerja di Zoo Negara Malaysia?",
+      title: "Kerjaya di Zoo Negara Malaysia | Sertai Pasukan Kami",
+      description:
+        "Terokai peluang kerjaya di Zoo Negara Malaysia. Cari kekosongan jawatan dan pelajari bagaimana anda boleh menyumbang kepada misi pemuliharaan dan kebajikan haiwan kami.",
     },
     contactUs: {
-      title: "Hubungi Zoo Negara",
-      description: "Hubungi Zoo untuk maklumat.",
+      title: "Hubungi Kami | Zoo Negara Malaysia",
+      description:
+        "Hubungi Zoo Negara Malaysia. Dapatkan maklumat hubungan untuk pertanyaan umum, pendidikan, pemasaran, dan jabatan lain.",
     },
     visitorInfo: {
-      title: "Maklumat Pelawat",
-      description: "Maklumat pelawat tentang waktu dan kemudahan dibuka zoo.",
+      title: "Maklumat Pelawat | Rancang Perjalanan Anda ke Zoo Negara Malaysia",
+      description:
+        "Rancang lawatan anda ke Zoo Negara Malaysia dengan maklumat pelawat kami yang komprehensif, termasuk waktu buka, bayaran masuk, kemudahan, dan banyak lagi.",
     },
     zooMap: {
-      title: "Peta Zoo Negara Malaysia Map",
+      title: "Peta Zoo Negara Malaysia | Navigasi Jalan Anda di Sekitar Zoo",
       description:
-        "Muat turun peta dan merancang hari anda di Zoo Negara Malaysia.",
+        "Muat turun peta rasmi Zoo Negara Malaysia untuk menavigasi jalan anda di sekitar zoo. Cari lokasi haiwan kegemaran anda, pameran, dan kemudahan.",
     },
     gettingThere: {
-      title: "Cara ke Zoo Negara",
+      title: "Cara ke Zoo Negara Malaysia | Arah & Pengangkutan",
       description:
-        "Tips untuk ke Zoo Negara, Malaysia di Ampang, Kuala Lumpur.",
+        "Cari cara terbaik untuk ke Zoo Negara Malaysia. Dapatkan arah untuk memandu, pengangkutan awam, dan perkhidmatan perkongsian perjalanan.",
     },
     kiosksNFacilities: {
-      title: "Kiosks And Kemudahan",
-      description: "Makanan, Kiosk Cenderamata dan Kemudahan dalam Zoo.",
+      title: "Makanan, Kedai & Kemudahan di Zoo Negara Malaysia",
+      description:
+        "Terokai makanan, kedai cenderamata, dan kemudahan yang terdapat di Zoo Negara Malaysia. Dari restoran hingga surau, kami mempunyai semua yang anda perlukan untuk lawatan yang selesa.",
     },
     sitemap: {
-      title: "Peta laman",
-      description: "Peta laman hierarki Zoo Walcron.",
+      title: "Peta Laman | Laman Web Peminat Zoo Negara Malaysia",
+      description:
+        "Navigasi laman web Zoo Negara Malaysia buatan peminat kami dengan peta laman kami. Cari semua halaman dan maklumat yang anda perlukan.",
     },
   },
   homepage: {
