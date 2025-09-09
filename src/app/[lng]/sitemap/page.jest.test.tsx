@@ -3,6 +3,16 @@ import SiteMap, { generateMetadata } from "./page";
 import translations from "@/i18n/locales/en/pages";
 
 describe("SiteMap", () => {
+  function trimTitle(title: string) {
+    const colonIdx = title.indexOf(":")
+    const idx = colonIdx == -1 ? title.indexOf("|") : colonIdx
+    if(idx == -1) {
+      return title
+    } else { 
+      return title.substring(0, idx).trim()
+    }
+  }
+
   it("should contains important keys", async () => {
     await act(async () => {
       render(<SiteMap params={Promise.resolve({ lng: "en" })} />);
@@ -12,16 +22,16 @@ describe("SiteMap", () => {
     expect(await screen.findByRole("main")).toBeInTheDocument();
 
     //headers
-    expect(screen.getByRole("heading", { name: translations.headers.sitemap.title })).toBeInTheDocument()
+    expect(screen.getByRole("heading", { name: trimTitle(translations.headers.sitemap.title )})).toBeInTheDocument()
 
     //links
-    expect(screen.getByRole("link", { name: translations.headers.default })).toHaveAttribute("href", "/en")
-    expect(screen.getByRole("link", { name: translations.headers.aboutUs.title })).toHaveAttribute("href", "/en/about-us")
-    expect(screen.getByRole("link", { name: translations.headers.frequentAskedQuestions.title })).toHaveAttribute("href", "/en/frequent-asked-questions")
+    expect(screen.getByRole("link", { name: trimTitle(translations.headers.default) })).toHaveAttribute("href", "/en")
+    expect(screen.getByRole("link", { name: trimTitle(translations.headers.aboutUs.title) })).toHaveAttribute("href", "/en/about-us")
+    expect(screen.getByRole("link", { name: trimTitle(translations.headers.frequentAskedQuestions.title) })).toHaveAttribute("href", "/en/frequent-asked-questions")
 
     //indentation
-    expect(screen.getByRole("link", { name: translations.headers.contactUs.title }).parentElement).toHaveClass("ml-8")
-    expect(screen.getByRole("link", { name: translations.headers.kiosksNFacilities.title }).parentElement).toHaveClass("ml-12")
+    expect(screen.getByRole("link", { name: trimTitle(translations.headers.contactUs.title )}).parentElement).toHaveClass("ml-8")
+    expect(screen.getByRole("link", { name: trimTitle(translations.headers.kiosksNFacilities.title) }).parentElement).toHaveClass("ml-12")
   })
 
   it("should generate site headers", async () => {

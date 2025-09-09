@@ -28,15 +28,25 @@ const calcMargin = (path: string) => {
   }
 }
 
+function trimTitle(title: string) {
+  const colonIdx = title.indexOf(":")
+  const idx = colonIdx == -1 ? title.indexOf("|") : colonIdx
+  if(idx == -1) {
+    return title
+  } else { 
+    return title.substring(0, idx).trim()
+  }
+}
+
 const SiteMap = ({ t, lng }: Readonly<TranslatorProps>) => {
   function translatePath(path: string) {
     const givenPathName = path.substring(path.lastIndexOf("/") + 1)
 
     if (givenPathName === "")
-      return t(`headers.default`)
+      return trimTitle(t(`headers.default`))
 
     const camelCasePath = givenPathName.replace(/-([a-z])/g, (_, char) => char.toUpperCase())
-    return t(`headers.${camelCasePath}.title`)
+    return trimTitle(t(`headers.${camelCasePath}.title`))
   }
 
   const draw = (paths: string[]) => {
@@ -55,7 +65,7 @@ const SiteMap = ({ t, lng }: Readonly<TranslatorProps>) => {
 
   return (
     <main>
-      <h1>{t('headers.sitemap.title')}</h1>
+      <h1>{trimTitle(t('headers.sitemap.title'))}</h1>
       {draw(allPages)}
     </main>
   )
