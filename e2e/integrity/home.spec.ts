@@ -23,7 +23,7 @@ test("has announcement", async ({ page }) => {
 test("links for contact zoo is valid", async ({ page }) => {
   await page.goto("http://localhost:3000/");
   await page.getByRole("link", { name: "Contact Zoo Negara" }).click();
-  await expect(page).toHaveTitle(/Contact Zoo Negara/);
+  await expect(page).toHaveTitle("Contact Us | Zoo Negara Malaysia");
 });
 
 test("links for career is valid", async ({ page }) => {
@@ -35,5 +35,5 @@ test("links for career is valid", async ({ page }) => {
 test("links for faq is valid", async ({ page }) => {
   await page.goto("http://localhost:3000/");
   await page.getByRole("link", { name: "FAQ" }).click();
-  await expect(page).toHaveTitle(/Frequent Asked Questions/);
+  await expect(page).toHaveTitle("FAQ | Zoo Negara Malaysia");
 });

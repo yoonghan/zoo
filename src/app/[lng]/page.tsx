@@ -1,5 +1,21 @@
 import Image from "next/image";
 import { withTranslator, TranslatorProps } from "@/components/util/hoc/withTranslator";
+import { getTranslation } from "@/i18n";
+import { generateSiteMeta } from "@/util/generateMeta";
+import { Metadata } from "next";
+
+type Props = {
+  params: Promise<{ lng: string }>
+}
+
+export async function generateMetadata(
+  { params }: Props
+): Promise<Metadata> {
+  const { lng } = await params
+  const { t } = await getTranslation(lng, "pages")
+
+  return generateSiteMeta(lng, t('headers.default'), t('headers.defaultDescription'))
+}
 
 function Home({ t }: Readonly<TranslatorProps>) {
 

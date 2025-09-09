@@ -5,49 +5,53 @@ const translations = {
   lang: "en",
   translation,
   headers: {
-    default: "Zoo Negara Malaysia",
+    default: "Zoo Negara Malaysia: Official Site | Plan Your Visit Today",
     defaultDescription:
-      "A non-governmental organization established to create the first local zoo for Malaysians.",
+      "Explore Zoo Negara Malaysia, home to over 5,000 animals. Plan your visit, buy tickets, and learn about our conservation efforts. Your adventure starts here!",
     aboutUs: {
-      title: "About Zoo Negara Website",
+      title: "About Our Fan-Made Zoo Negara Website",
       description:
-        "The story why a copy of Zoo Negara Malaysia website was created.",
+        "Learn about the passion project behind this unofficial Zoo Negara Malaysia website, created by fans to showcase a potential redesign and improved user experience.",
     },
     frequentAskedQuestions: {
-      title: "Frequent Asked Questions",
+      title: "FAQ | Zoo Negara Malaysia",
       description:
-        "Frequent questions about the visit to the zoo, compiled directly from Zoo Negara Malaysia.",
+        "Find answers to frequently asked questions about Zoo Negara Malaysia, including opening hours, ticket prices, animal adoption, and more.",
     },
     careers: {
-      title: "Careers in Zoo Negara",
-      description: "Looking to work for Zoo Negara Malaysia?",
+      title: "Careers at Zoo Negara Malaysia | Join Our Team",
+      description:
+        "Explore career opportunities at Zoo Negara Malaysia. Find job vacancies and learn how you can contribute to our mission of conservation and animal welfare.",
     },
     contactUs: {
-      title: "Contact Zoo Negara",
-      description: "Contacts for zoo information.",
+      title: "Contact Us | Zoo Negara Malaysia",
+      description:
+        "Get in touch with Zoo Negara Malaysia. Find contact information for general inquiries, education, marketing, and other departments.",
     },
     visitorInfo: {
-      title: "Visitor Info",
+      title: "Visitor Information | Plan Your Trip to Zoo Negara Malaysia",
       description:
-        "Visitor information about zoo opening hours and facilities.",
+        "Plan your visit to Zoo Negara Malaysia with our comprehensive visitor information, including opening hours, admission fees, facilities, and more.",
     },
     zooMap: {
-      title: "Zoo Negara Malaysia Map",
+      title: "Zoo Negara Malaysia Map | Navigate Your Way Around the Zoo",
       description:
-        "Download the map and plan your visit in Zoo Negara Malaysia.",
+        "Download the official Zoo Negara Malaysia map to navigate your way around the zoo. Find the locations of your favorite animals, exhibits, and facilities.",
     },
     gettingThere: {
-      title: "Getting There",
+      title: "How to Get to Zoo Negara Malaysia | Directions & Transportation",
       description:
-        "Tips to get to Zoo Negara, Malaysia in Ampang, Kuala Lumpur.",
+        "Find the best way to get to Zoo Negara Malaysia. Get directions for driving, public transportation, and ride-sharing services.",
     },
     kiosksNFacilities: {
-      title: "Kiosks And Facilities",
-      description: "Food, Souvenir Kiosks and Facilities within the Zoo.",
+      title: "Food, Shops & Facilities at Zoo Negara Malaysia",
+      description:
+        "Discover the food, souvenir shops, and facilities available at Zoo Negara Malaysia. From restaurants to prayer rooms, we have everything you need for a comfortable visit.",
     },
     sitemap: {
-      title: "Sitemap",
-      description: "Hierarchical sitemap of Walcron Zoo Website.",
+      title: "Sitemap | Zoo Negara Malaysia Fan Website",
+      description:
+        "Navigate our fan-made Zoo Negara Malaysia website with our sitemap. Find all the pages and information you need.",
     },
   },
   homepage: {

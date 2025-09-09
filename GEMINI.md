@@ -70,7 +70,7 @@ npm run snapshot:approve
 
 ## Internationalization
 
-The project uses `i18next` for internationalization. Translations are stored in the `src/i18n/locales` directory. Components are translated using the `withTranslator` higher-order component.
+The project uses `i18next` for internationalization. Translations are stored in the `src/i18n/locales` directory. Components are translated using the `withTranslator` higher-order component. Translation files are not written in *.json but instead it is in *.ts file; e.g. for english the locale is in src/i18n/locales/pages.ts.
 
 ## Code Quality
 
