@@ -4,18 +4,20 @@ This site is an assistant page from the original Zoo Negara website. Please refe
 
 ---
 
-[![Build Status][build-badge]][build]
+[![Build Status](https://img.shields.io/github/actions/workflow/status/yoonghan/zoo/master_merge.yml)](https://github.com/yoonghan/zoo/actions?query=workflow%3A%22Deploy%20Next.js%20site%20to%20Pages%22)
 [![codecov](https://codecov.io/gh/yoonghan/zoo/graph/badge.svg?token=0SGU5RSG0Q)](https://codecov.io/gh/yoonghan/zoo)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=yoonghan_zoo&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=yoonghan_zoo)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=yoonghan_zoo&metric=bugs)](https://sonarcloud.io/summary/new_code?id=yoonghan_zoo)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=yoonghan_zoo&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=yoonghan_zoo)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=yoonghan_zoo&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=yoonghan_zoo)
 
-## Achievement for
+## Purpose
 
 Goal is to replace a website zoonegara.my. Zoo Negara is a non-government organization.
 
 ### UX Issues
+
+Current Zoo Negara website has path for improvements. Mainly:
 
 1. Link out to many images/pdf/documents and cannot be linked back.
 2. Information are insufficient and has even a less/more or need links to be clicked.
@@ -24,7 +26,7 @@ Goal is to replace a website zoonegara.my. Zoo Negara is a non-government organi
 5. Ticketing information are image.
 6. No dual language, esp. Bahasa Malaysia.
 
-### Things that seems valid
+Thing to be kept:
 
 1. Ticketing seems to runned by another service.
 2. Having server load might be overkill on this scenario.
@@ -40,8 +42,6 @@ npm run dev
 Remove versioning from page with querystring, ?version=none
 
 ## User Notes
-
-Notes if there are development/changes made. 
 
 | Actions | Note to users |
 | --- | --- |
@@ -65,5 +65,3 @@ Any webpage changes on presentation will result a snapshot comparison between ne
 1. Nextjs (with React)
 2. Font Awesome by Dave Gandy - http://fontawesome.io
 
-[build-badge]: https://img.shields.io/github/actions/workflow/status/yoonghan/zoo/master_merge.yml
-[build]: https://github.com/yoonghan/zoo/actions?query=workflow%3A%22Deploy%20Next.js%20site%20to%20Pages%22
