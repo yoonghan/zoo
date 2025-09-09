@@ -45,7 +45,7 @@ npm run start
 To run the Jest tests, use the following command:
 
 ```bash
-npm run test
+npm run test:single
 ```
 
 To run the Playwright end-to-end tests, use the following command:

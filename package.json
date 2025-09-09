@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest --watch",
+    "test:single": "jest",
     "test:coverage": "jest --coverage --no-cache",
     "e2e": "playwright test",
     "e2e:ui": "playwright test --ui",

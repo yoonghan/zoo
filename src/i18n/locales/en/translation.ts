@@ -18,7 +18,7 @@ const translations = {
   announcements: [
     "This is *NOT the official website of the zoo. Please visit the official website [https://zoonegara.my|zoonegara.my] for more information.",
     "Zoo Multi-animal Show will be *CLOSED on Friday *EXCEPT school holidays & public holidays.",
-    "Panda exhibit is *CLOSED"
+    "Panda exhibit is *CLOSED, expected to reopen on October 2025."
   ],
   menu: {
     "mobile-home-text": "Zoo Negara",
