@@ -1,0 +1,2 @@
+# Ignore the backstop_data folder, as it contains large, irrelevant snapshots.
+backstop_data/
