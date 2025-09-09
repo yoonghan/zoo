@@ -14,7 +14,7 @@ export async function generateMetadata(
   const { lng } = await params
   const { t } = await getTranslation(lng, "pages")
 
-  return generateSiteMeta(lng, t('headers.home.title'), t('headers.home.description'))
+  return generateSiteMeta(lng, t('headers.default'), t('headers.defaultDescription'))
 }
 
 function Home({ t }: Readonly<TranslatorProps>) {
