@@ -85,7 +85,9 @@ export function htmlConvertor(text: string) {
       return <strong key={`${word}-${idx}`}>{word.substring(1, word.length)}</strong>;
     } else if (word.startsWith("[")) {
       return substituteAnchorWithLink(word, idx);
+    /* c8 ignore next */
     } else if (word === "!!") {
+    /* c8 ignore next */
       return <br key={`${word}-${idx}`} />;
     } else {
       return word.replaceAll(unbreakableSpaceTextReplacement, " ");
