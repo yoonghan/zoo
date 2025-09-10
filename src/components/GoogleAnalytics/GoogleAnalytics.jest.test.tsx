@@ -11,6 +11,13 @@ jest.mock("next/navigation", () => ({
   useSearchParams: () => new URLSearchParams("mock_param=1"),
 }));
 
+// Mock config/system
+jest.mock("@/config/system", () => ({
+  systemConfig: {
+    "google-analytic-measurement-id": "G-4GRBN4E8PX",
+  },
+}));
+
 describe("GoogleAnalytics", () => {
   it("initializes GA and sends a pageview", async () => {
     render(<GoogleAnalytics />);
