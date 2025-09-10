@@ -3,11 +3,12 @@
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import ReactGA from "react-ga4";
-import { systemConfig } from "@/config/system";
 
-const measurementId = systemConfig["google-analytic-measurement-id"];
+type Props = {
+  measurementId?: string;
+};
 
-export default function GoogleAnalytics() {
+export default function GoogleAnalytics({ measurementId }: Props) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -16,7 +17,7 @@ export default function GoogleAnalytics() {
       return;
     }
     ReactGA.initialize(measurementId);
-  }, []);
+  }, [measurementId]);
 
   useEffect(() => {
     if (!measurementId) {
@@ -24,7 +25,7 @@ export default function GoogleAnalytics() {
     }
     const url = pathname + searchParams.toString();
     ReactGA.send({ hitType: "pageview", page: url });
-  }, [pathname, searchParams]);
+  }, [pathname, searchParams, measurementId]);
 
   return null;
 }

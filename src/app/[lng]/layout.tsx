@@ -11,6 +11,7 @@ import { TranslatedFooter } from "./TranslatedFooter";
 import { getTranslation } from "@/i18n";
 import { generateSiteMeta } from "@/util/generateMeta";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import { systemConfig } from "@/config/system";
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }))
@@ -43,7 +44,7 @@ export default function RootLayout({
     <html lang={lng} dir={dir(lng)}>
       <body>
         <Suspense>
-          <GoogleAnalytics />
+          <GoogleAnalytics measurementId={systemConfig["google-analytic-measurement-id"]} />
         </Suspense>
         <header>
           <TranslatedAnnouncement params={params} />
