@@ -158,6 +158,7 @@ jobs:
           npm run snapshot
 
       - name: ▶️ Retry page rendering check if fail
+        id: renderingCheck
         shell: bash
         if: steps.renderingCheck.outcome == 'failure'
         env:
