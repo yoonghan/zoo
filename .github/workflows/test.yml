@@ -3,7 +3,6 @@ name: Test project
 on:
   # allow as dispatch call
   workflow_dispatch:
-
   workflow_call:
 
 jobs:
@@ -71,6 +70,7 @@ jobs:
           badge: true
           format: "markdown"
           output: "both"
+          
       - name: + Add Coverage PR Comment
         uses: marocchino/sticky-pull-request-comment@v2
         with:
@@ -88,3 +88,15 @@ jobs:
             playwright-report/
             coverage/
           retention-days: 30
+
+      - name: Upload coverage reports to Codecov
+        if: github.ref == 'refs/heads/main'
+        uses: codecov/codecov-action@v5.4.3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          
+      - name: SonarQube Scan
+        if: github.ref == 'refs/heads/main'
+        uses: SonarSource/sonarqube-scan-action@v5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
