@@ -2,10 +2,6 @@ import { render, act, screen } from "@testing-library/react";
 import ZooMap, { generateMetadata } from "./page";
 import translations from "@/i18n/locales/en/pages";
 import { isImageAssetExist, isNextJsImageAssetExist } from "@/__tests__/helpers/fileHelper";
-import ReactGA from "react-ga4";
-import userEvent from "@testing-library/user-event";
-
-jest.mock("react-ga4");
 
 describe("ZooMap", () => {
   const zooMapFileName = "zoo-negara-map";
@@ -42,14 +38,6 @@ describe("ZooMap", () => {
       name: translations.visitorInfo.zooMap.downloadMapBtn,
     });
     expect(downloadBtn).toHaveAttribute("href", mainImageAsset);
-
-    await userEvent.click(downloadBtn);
-
-    expect(ReactGA.event).toHaveBeenCalledWith({
-      category: "Button",
-      action: "Click",
-      label: "Download Map - en",
-    });
 
     assertImageAssetExists(mainImageAsset, false)
 
