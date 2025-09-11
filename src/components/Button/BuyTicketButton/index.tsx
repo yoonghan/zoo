@@ -29,6 +29,12 @@ export default function BuyTicketButton({text, href, hideOnMobile, alert, lng}: 
 
       event.preventDefault();
 
+      ReactGA.event({
+        category: "Button",
+        action: "Click",
+        label: `Buy Ticket - ${lng}`,
+      });
+
       promptMessageDialog({
         title: alert.title,
         message: alert.message,
@@ -37,7 +43,7 @@ export default function BuyTicketButton({text, href, hideOnMobile, alert, lng}: 
           ReactGA.event({
             category: "Button",
             action: "Click",
-            label: `Buy Ticket - ${lng}`,
+            label: `Buy Ticket Redirect - ${lng}`,
           });
           location.assign(href);
         },

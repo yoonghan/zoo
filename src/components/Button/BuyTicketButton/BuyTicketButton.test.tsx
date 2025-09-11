@@ -22,6 +22,12 @@ describe("BuyTicketButton", () => {
 
     await userEvent.click(buyTixButton);
 
+    expect(ReactGA.event).toHaveBeenCalledWith({
+      category: "Button",
+      action: "Click",
+      label: "Buy Ticket - en",
+    });
+
     expect(screen.getByText("ALERT TITLE")).toBeInTheDocument()
 
     await userEvent.click(screen.getByRole("button", {name: "Ok"}))
@@ -30,7 +36,7 @@ describe("BuyTicketButton", () => {
     expect(ReactGA.event).toHaveBeenCalledWith({
       category: "Button",
       action: "Click",
-      label: "Buy Ticket - en",
+      label: "Buy Ticket Redirect - en",
     });
   });
 
