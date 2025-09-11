@@ -48,7 +48,7 @@ describe("ZooMap", () => {
     expect(ReactGA.event).toHaveBeenCalledWith({
       category: "Button",
       action: "Click",
-      label: "Download Map",
+      label: "Download Map - en",
     });
 
     assertImageAssetExists(mainImageAsset, false)

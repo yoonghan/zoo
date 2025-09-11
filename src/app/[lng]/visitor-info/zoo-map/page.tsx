@@ -26,12 +26,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   );
 }
 
-function ZooMap({ t }: Readonly<TranslatorProps>) {
+function ZooMap({ t, lng }: Readonly<TranslatorProps>) {
   const onDownloadClick = () => {
     ReactGA.event({
       category: "Button",
       action: "Click",
-      label: "Download Map",
+      label: `Download Map - ${lng}`,
     });
   };
 
