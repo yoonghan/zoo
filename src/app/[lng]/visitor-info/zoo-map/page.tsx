@@ -1,3 +1,5 @@
+'use client'
+
 import type { Metadata } from "next";
 import { ButtonLink } from "@/components/Button";
 import {
@@ -7,6 +9,7 @@ import {
 import Image from "next/image";
 import { getTranslation } from "@/i18n";
 import { generateSiteMeta } from "@/util/generateMeta";
+import ReactGA from "react-ga4";
 
 type Props = {
   params: Promise<{ lng: string }>;
@@ -24,6 +27,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 function ZooMap({ t }: Readonly<TranslatorProps>) {
+  const onDownloadClick = () => {
+    ReactGA.event({
+      category: "Button",
+      action: "Click",
+      label: "Download Map",
+    });
+  };
+
   return (
     <main className="no-margin-y">
       <article className="primary">
@@ -38,6 +49,7 @@ function ZooMap({ t }: Readonly<TranslatorProps>) {
               href="/images/zoo-negara-map.jpg"
               download={true}
               styling="Secondary"
+              onClick={onDownloadClick}
             >
               {t("visitorInfo.zooMap.downloadMapBtn")}
             </ButtonLink>
