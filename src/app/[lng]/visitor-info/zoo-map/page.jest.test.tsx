@@ -34,11 +34,10 @@ describe("ZooMap", () => {
     });
 
     const mainImageAsset = `/images/${zooMapFileName}.jpg`
-    expect(
-      await screen.findByRole("link", {
-        name: translations.visitorInfo.zooMap.downloadMapBtn,
-      })
-    ).toHaveAttribute("href", mainImageAsset);
+    const downloadBtn = await screen.findByRole("link", {
+      name: translations.visitorInfo.zooMap.downloadMapBtn,
+    });
+    expect(downloadBtn).toHaveAttribute("href", mainImageAsset);
 
     assertImageAssetExists(mainImageAsset, false)
 

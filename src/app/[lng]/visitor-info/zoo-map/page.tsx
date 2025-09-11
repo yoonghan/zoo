@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ButtonLink } from "@/components/Button";
 import {
   TranslatorProps,
   withTranslator,
@@ -7,6 +6,7 @@ import {
 import Image from "next/image";
 import { getTranslation } from "@/i18n";
 import { generateSiteMeta } from "@/util/generateMeta";
+import DownloadButton from "@/components/Button/DownloadButton";
 
 type Props = {
   params: Promise<{ lng: string }>;
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   );
 }
 
-function ZooMap({ t }: Readonly<TranslatorProps>) {
+function ZooMap({ t, lng }: Readonly<TranslatorProps>) {
   return (
     <main className="no-margin-y">
       <article className="primary">
@@ -34,13 +34,7 @@ function ZooMap({ t }: Readonly<TranslatorProps>) {
             * {t("visitorInfo.zooMap.info")}
           </p>
           <div className="mt-6">
-            <ButtonLink
-              href="/images/zoo-negara-map.jpg"
-              download={true}
-              styling="Secondary"
-            >
-              {t("visitorInfo.zooMap.downloadMapBtn")}
-            </ButtonLink>
+            <DownloadButton lng={lng} text={t("visitorInfo.zooMap.downloadMapBtn")} />
           </div>
         </div>
         <div>

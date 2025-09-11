@@ -7,6 +7,7 @@ import AlertDialog, {
  from "@/components/Dialog/AlertDialog";
 import { useDialogCreation } from "@/components/Dialog/useDialogCreation/useDialogCreation";
 import { useCallback } from "react";
+import ReactGA from "react-ga4";
 
 interface BuyTicketButtonProps {
   text: string;
@@ -32,6 +33,11 @@ export default function BuyTicketButton({text, href, hideOnMobile, alert}: Reado
         message: alert.message,
         okBtnText: alert.okBtnText,
         onOk: () => {
+          ReactGA.event({
+            category: "Button",
+            action: "Click",
+            label: "Buy Ticket",
+          });
           location.assign(href);
         },
       })
