@@ -1,6 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import BuyTicketButton from ".";
 import userEvent from "@testing-library/user-event";
+import ReactGA from "react-ga4";
+
+jest.mock("react-ga4");
 
 describe("BuyTicketButton", () => {
   it("should render correctly", async () => {
@@ -23,6 +26,11 @@ describe("BuyTicketButton", () => {
     await userEvent.click(screen.getByRole("button", {name: "Ok"}))
 
     expect(window.location.assign).toHaveBeenCalledWith("/link");
+    expect(ReactGA.event).toHaveBeenCalledWith({
+      category: "Button",
+      action: "Click",
+      label: "Buy Ticket",
+    });
   });
 
   it("should hide button on mobile", async () => {
