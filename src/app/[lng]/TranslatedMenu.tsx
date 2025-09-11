@@ -38,7 +38,8 @@ const TranslatedMenuComponent = withComponentTranslator(
                   title: t("buyTicket.alert.title"),
                   message: t("buyTicket.alert.message"),
                   okBtnText: t("buyTicket.alert.confirm"),
-                }}/>
+                }}
+                lng={lng}/>
           </form>
         }
       />

@@ -13,6 +13,7 @@ describe("BuyTicketButton", () => {
       text="I am a Button"
       href="/link"
       alert={{ title: "Alert Title", message: "Alert Message", okBtnText: "Ok" }}
+      lng="en"
     />);
 
     const buyTixButton =screen.getByRole("link", { name: "I am a Button" })
@@ -29,7 +30,7 @@ describe("BuyTicketButton", () => {
     expect(ReactGA.event).toHaveBeenCalledWith({
       category: "Button",
       action: "Click",
-      label: "Buy Ticket",
+      label: "Buy Ticket - en",
     });
   });
 
@@ -41,6 +42,7 @@ describe("BuyTicketButton", () => {
       href="/link"
       alert={{ title: "Alert Title", message: "Alert Message", okBtnText: "Ok" }}
       hideOnMobile={true}
+      lng="en"
     />);
 
     const buyTixButton =screen.getByRole("link", { name: "I am a Button" })

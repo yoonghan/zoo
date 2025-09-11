@@ -18,9 +18,10 @@ interface BuyTicketButtonProps {
     message: string;
     okBtnText: string;
   }
+  lng: string;
 }
 
-export default function BuyTicketButton({text, href, hideOnMobile, alert}: Readonly<BuyTicketButtonProps>) {
+export default function BuyTicketButton({text, href, hideOnMobile, alert, lng}: Readonly<BuyTicketButtonProps>) {
   const promptMessageDialog = useDialogCreation<AlertProps>(AlertDialog)
   
   const onOkClick = useCallback(
@@ -36,13 +37,13 @@ export default function BuyTicketButton({text, href, hideOnMobile, alert}: Reado
           ReactGA.event({
             category: "Button",
             action: "Click",
-            label: "Buy Ticket",
+            label: `Buy Ticket - ${lng}`,
           });
           location.assign(href);
         },
       })
     },
-    [alert.message, alert.okBtnText, alert.title, href, promptMessageDialog],
+    [alert.message, alert.okBtnText, alert.title, href, promptMessageDialog, lng],
   )
 
   return  <ButtonLink

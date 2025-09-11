@@ -90,7 +90,8 @@ function VisitorInfo({ t, lng }: Readonly<TranslatorProps>) {
                 title: t("translation.buyTicket.alert.title"),
                 message: t("translation.buyTicket.alert.message"),
                 okBtnText: t("translation.buyTicket.alert.confirm"),
-              }}/>
+              }}
+              lng={lng}/>
           </div>
           <div className="mt-16 text-left">
             <strong>{t('visitorInfo.additionalInformationText')}:</strong>
