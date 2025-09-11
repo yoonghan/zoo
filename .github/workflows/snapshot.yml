@@ -157,6 +157,14 @@ jobs:
         run: |
           npm run snapshot
 
+      - name: ▶️ Retry page rendering check if fail
+        shell: bash
+        if: steps.renderingCheck.outcome == 'failure'
+        env:
+          LOAD_NO_IMAGE: ${{ inputs.test_no_image }}
+        continue-on-error: true
+        run: rm -rf backstop_data/bitmaps_test && npm run snapshot
+
       - name: ✅ Approve all snapshots
         if: ${{ inputs.should_approve }}
         shell: bash
