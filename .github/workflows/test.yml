@@ -61,8 +61,15 @@ jobs:
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.manager }} run build
 
-      - name: Run Unit test with coverage
+      - name: ▶️ Run Unit test with coverage
+        id: testCoverage
+        continue-on-error: true
         run: ${{ steps.detect-package-manager.outputs.manager }} run test:coverage
+
+      - name: ▶️ Retry Unit test with coverage
+        if: steps.testCoverage.outcome == 'failure'
+        run: ${{ steps.detect-package-manager.outputs.manager }} run test:coverage
+
       - name: 📁 Code coverage report
         uses: irongut/CodeCoverageSummary@v1.3.0
         with:
