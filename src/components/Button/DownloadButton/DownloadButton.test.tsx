@@ -2,10 +2,12 @@
 
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import ReactGA from "react-ga4";
 import DownloadButton from ".";
+import { trackEvent } from "@/util/ga";
 
-jest.mock("react-ga4");
+jest.mock("@/util/ga", () => ({
+  trackEvent: jest.fn(),
+}));
 
 describe("DownloadButton", () => {
   it("should call GA event on click", async () => {
@@ -14,10 +16,10 @@ describe("DownloadButton", () => {
     const downloadBtn = screen.getByRole("link", { name: "Download" });
     await userEvent.click(downloadBtn);
 
-    expect(ReactGA.event).toHaveBeenCalledWith({
-      category: "Button",
-      action: "Click",
-      label: "Download Map - en",
-    });
+    expect(trackEvent).toHaveBeenCalledWith(
+      "Button",
+      "Click",
+      "Download Map - en",
+    );
   });
 });
