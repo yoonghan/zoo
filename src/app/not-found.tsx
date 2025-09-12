@@ -1,8 +1,21 @@
+'use client'
+
 import { ButtonLink } from "@/components/Button";
 import { systemConfig } from "@/config/system";
 import { Link } from "@/components/Link";
+import { useEffect } from "react";
+import ReactGA from "react-ga4";
 
 export default function NotFound() {
+
+  useEffect(() => {
+    const measurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+    if (measurementId) {
+      ReactGA.initialize(measurementId);
+      ReactGA.send({ hitType: "pageview", page: "/404" });
+    }
+  }, []);
+
   return (
     <div className="bg-gray-100 bg-[url(/images/not-found.webp)] bg-cover">
       <div className="bg-white/50 w-screen h-screen flex flex-col items-center text-center ">

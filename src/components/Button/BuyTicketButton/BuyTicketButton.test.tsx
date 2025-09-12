@@ -1,9 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import BuyTicketButton from ".";
 import userEvent from "@testing-library/user-event";
-import ReactGA from "react-ga4";
+import { trackEvent } from "@/util/ga";
 
-jest.mock("react-ga4");
+jest.mock("@/util/ga", () => ({
+  trackEvent: jest.fn(),
+}));
 
 describe("BuyTicketButton", () => {
   it("should render correctly", async () => {
@@ -22,22 +24,22 @@ describe("BuyTicketButton", () => {
 
     await userEvent.click(buyTixButton);
 
-    expect(ReactGA.event).toHaveBeenCalledWith({
-      category: "Button",
-      action: "Click",
-      label: "Buy Ticket - en",
-    });
+    expect(trackEvent).toHaveBeenCalledWith(
+      "Button",
+      "Click",
+      "Buy Ticket - en",
+    );
 
     expect(screen.getByText("ALERT TITLE")).toBeInTheDocument()
 
     await userEvent.click(screen.getByRole("button", {name: "Ok"}))
 
     expect(window.location.assign).toHaveBeenCalledWith("/link");
-    expect(ReactGA.event).toHaveBeenCalledWith({
-      category: "Button",
-      action: "Click",
-      label: "Buy Ticket Redirect - en",
-    });
+    expect(trackEvent).toHaveBeenCalledWith(
+      "Button",
+      "Click",
+      "Buy Ticket Redirect - en",
+    );
   });
 
   it("should hide button on mobile", async () => {
