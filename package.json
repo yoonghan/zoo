@@ -23,7 +23,7 @@
     "@fortawesome/free-solid-svg-icons": "^7.0.0",
     "@fortawesome/react-fontawesome": "^3.0.0",
     "accept-language": "^3.0.20",
-    "happy-dom": "^18.0.1",
+    "happy-dom": "^20.0.5",
     "i18next": "^25.6.0",
     "i18next-resources-to-backend": "^1.2.1",
     "lodash": "^4.17.21",
@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
-    "@happy-dom/jest-environment": "^18.0.1",
+    "@happy-dom/jest-environment": "^20.0.5",
     "@playwright/test": "^1.55.0",
     "@tailwindcss/postcss": "^4.1.14",
     "@testing-library/jest-dom": "^6.9.1",
