@@ -60,6 +60,11 @@ const translations: typeof enTranslation = {
     introduction:
       "Zoo Negara Malaysia diuruskan oleh Persatuan Zoologi Malaysia, sebuah pertubuhan bukan kerajaan yang ditubuhkan untuk mewujudkan zoo tempatan yang pertama untuk rakyat Malaysia. Zoo Negara telah dibuka secara rasmi pada 14 November 1963 dan telah matang menjadi zoo terkenal di seluruh dunia. Kami mempunyai sejumlah lebih 5137 spesimen daripada 476 spesimen, haiwan, haiwan mamalia dan haiwan mamalia.",
     introductionRemark: "diterjemahkan dari laman web Zoo Negara",
+    help: {
+      title: "Kami Memerlukan Bantuan Anda!",
+      description: "Ini adalah laman web tidak berkaitan dan alternatif tentang Zoo Negara Malaysia yang dicipta oleh Walcron. Kami memerlukan bantuan anda untuk memperbaiki laman web ini dengan menyumbangkan imej zoo. Jika anda telah melawat Zoo Negara baru-baru ini, sila pertimbangkan untuk berkongsi foto anda dengan kami untuk meningkatkan pengalaman visual pelawat laman kami.",
+      contributeBtn: "Sumbangkan Imej",
+    }
   },
   aboutUs: {
     title: "Tentang Kami",
