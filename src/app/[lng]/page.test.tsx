@@ -22,4 +22,15 @@ describe("Main Homepage", () => {
     expect(metadata.title).toBe(translations.headers.default)
     expect(metadata.description).toBe(translations.headers.defaultDescription)
   })
+
+  it("contribute button should be a mailto link using postEmail", async () => {
+    await act(async () => {
+      render(<Home params={Promise.resolve({ lng: "en" })} />);
+    })
+
+    const btn = await screen.findByRole("link", { name: translations.homepage.help.contributeBtn });
+    expect(btn).toBeInTheDocument();
+    expect(btn).toHaveAttribute("href");
+    expect(btn.getAttribute("href")).toMatch(/^mailto:wal.*\?subject=/);
+  });
 });
