@@ -59,6 +59,11 @@ const translations = {
     introduction:
       "Zoo Negara Malaysia is managed by the Malaysian Zoological Society, a non-governmental organization established to create the first local zoo for Malaysians. Zoo Negara was officially opened on 14th November 1963 and has matured into a well-known zoo all around the world. We have a total of over 5137 specimen from 476 species of mammals, birds, reptiles, amphibians and fish.",
     introductionRemark: "taken from Zoo Negara website",
+    help: {
+      title: "We Need Your Help!",
+      description: "This is a non-associated and alternate website about Zoo Negara Malaysia created by Walcron. We need your help to improve this website by contributing images of the zoo. If you have visited Zoo Negara recently, please consider sharing your photos with us to enhance the visual experience of our site visitors.",
+      contributeBtn: "Contribute Images",
+    }
   },
   aboutUs: {
     title: "About Us",
