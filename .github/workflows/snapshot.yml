@@ -184,7 +184,7 @@ jobs:
           
       - name: 💼 Commit on approved snapshot
         if: ${{ inputs.should_approve }}
-        uses: stefanzweifel/git-auto-commit-action@v6
+        uses: stefanzweifel/git-auto-commit-action@v7
         id: auto-commit-action
         with:
           commit_message: Update snapshot with auto approval
