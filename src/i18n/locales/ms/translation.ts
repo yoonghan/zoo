@@ -18,9 +18,9 @@ const translations: typeof enTranslation = {
     },
   },
   announcements: [
+
     "Laman ini *BUKAN laman official. Untuk maklumat lanjut sila melawat laman rasmi [https://zoonegara.my|zoonegara.my].",
-    "Hiburan Zoo di *TUTUP setiap hari Jumaat *KECUALI cuti sekolah dan cuti awam.",
-    "Pameran Panda *TUTUP, dijangka dibuka semula pada Oktober 2025.",
+    "Pameran panda masih *TUTUP, panda hanya tiba di zoo pada November 2025."
   ],
   menu: {
     "mobile-home-text": "Zoo Negara",
