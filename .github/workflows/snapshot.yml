@@ -72,14 +72,14 @@ jobs:
             core.setOutput('head_ref', "${{ inputs.head_ref }}");
       - name: ⬇️ Checkout repo required to commit and PAT Is required to retrigger pipeline
         if: ${{ inputs.should_approve }}
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           token: ${{ secrets.PAT }}
           ref: ${{ steps.pr.head_ref || github.ref }}
 
       - name: ⬇️ Checkout repo without commit
         if: ${{ !inputs.should_approve }}
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           ref: ${{ steps.pr.head_ref || github.ref }}
           
