@@ -37,7 +37,7 @@
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.3",
+    "@eslint/eslintrc": "^3.3.5",
     "@happy-dom/jest-environment": "^20.6.1",
     "@playwright/test": "^1.58.2",
     "@tailwindcss/postcss": "^4.2.1",
