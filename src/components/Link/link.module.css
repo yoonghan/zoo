@@ -1,9 +1,9 @@
 .link-primary,
 .link-primary:hover {
-  color: var(--link-text-color);
+	color: var(--link-text-color);
 }
 
 .link-secondary,
 .link-secondary:hover {
-  color: var(--secondary-text-color);
+	color: var(--secondary-text-color);
 }

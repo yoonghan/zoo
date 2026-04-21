@@ -1,4 +1,3 @@
-
 export function sanitizePath(path: string) {
-    return path
+	return path
 }

@@ -1,44 +1,44 @@
-import fs from "fs";
+import fs from "node:fs"
 
-const appFolder = "./src/app/[lng]";
+const appFolder = "./src/app/[lng]"
 
 const getRecursiveFiles = (srcpath: string): string[] => {
-  return fs
-    .readdirSync(srcpath, {
-      withFileTypes: true,
-    })
-    .flatMap((file) => {
-      const relativePath = `${srcpath}/${file.name}`;
-      if (file.isDirectory()) {
-        return getRecursiveFiles(relativePath);
-      } else {
-        return relativePath;
-      }
-    });
-};
+	return fs
+		.readdirSync(srcpath, {
+			withFileTypes: true,
+		})
+		.flatMap((file) => {
+			const relativePath = `${srcpath}/${file.name}`
+			if (file.isDirectory()) {
+				return getRecursiveFiles(relativePath)
+			} else {
+				return relativePath
+			}
+		})
+}
 
 const remapAppFiles = (files: string[]) => {
-  const appPageFile = "/page.tsx";
+	const appPageFile = "/page.tsx"
 
-  const removeRootPath = (file: string) =>
-    file.substring(appFolder.length, file.length);
-  const removeExtension = (file: string) => file.split(".")[0];
-  const removePage = (file: string) => {
-    const filePath = file.substring(
-      0,
-      file.length - removeExtension(appPageFile).length
-    );
-    return filePath === "" ? "/" : filePath;
-  };
+	const removeRootPath = (file: string) =>
+		file.substring(appFolder.length, file.length)
+	const removeExtension = (file: string) => file.split(".")[0]
+	const removePage = (file: string) => {
+		const filePath = file.substring(
+			0,
+			file.length - removeExtension(appPageFile).length,
+		)
+		return filePath === "" ? "/" : filePath
+	}
 
-  const rootFiles = files
-    .filter((file: string) => file.indexOf("/.") === -1) //remove all hidden files, like .DS_Store
-    .filter((file: string) => file.lastIndexOf(".test.") === -1) //remove all test files
-    .filter((file) => file.endsWith(appPageFile))
-    .map((file) => removePage(removeExtension(removeRootPath(file))));
+	const rootFiles = files
+		.filter((file: string) => file.indexOf("/.") === -1) //remove all hidden files, like .DS_Store
+		.filter((file: string) => file.lastIndexOf(".test.") === -1) //remove all test files
+		.filter((file) => file.endsWith(appPageFile))
+		.map((file) => removePage(removeExtension(removeRootPath(file))))
 
-  return rootFiles.map((file) => `${file}`);
-};
+	return rootFiles.map((file) => `${file}`)
+}
 
-const allAppFiles = getRecursiveFiles(appFolder);
-export const allRemappedFile = remapAppFiles(allAppFiles);
+const allAppFiles = getRecursiveFiles(appFolder)
+export const allRemappedFile = remapAppFiles(allAppFiles)

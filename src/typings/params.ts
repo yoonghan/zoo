@@ -1,1 +1,1 @@
-export type PageParams = {params: Promise<{lng: string}>}
+export type PageParams = { params: Promise<{ lng: string }> }

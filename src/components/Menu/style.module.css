@@ -1,226 +1,226 @@
 .general {
-  width: 100%;
-  position: relative;
-  z-index: 10;
-  background: var(--menu-color);
-  color: var(--link-text-color);
+	width: 100%;
+	position: relative;
+	z-index: 10;
+	background: var(--menu-color);
+	color: var(--link-text-color);
 }
 
 .desktop__nav {
-  display: none;
-  border-bottom-width: 1px;
-  box-shadow: 2px 2px 2px -4px black;
-  padding: 0 2rem;
+	display: none;
+	border-bottom-width: 1px;
+	box-shadow: 2px 2px 2px -4px black;
+	padding: 0 2rem;
 }
 
 .mobile__nav {
-  display: block;
-  border-bottom-width: 1px;
-  box-shadow: 2px 2px 2px -4px black;
+	display: block;
+	border-bottom-width: 1px;
+	box-shadow: 2px 2px 2px -4px black;
 }
 
 @media (min-width: 960px) {
-  .desktop__nav {
-    display: block;
-  }
+	.desktop__nav {
+		display: block;
+	}
 
-  .mobile__nav {
-    display: none;
-  }
+	.mobile__nav {
+		display: none;
+	}
 }
 
 @keyframes grow {
-  from {
-    max-height: 0;
-    opacity: 0;
-  }
-  to {
-    max-height: 200px;
-    opacity: 1;
-  }
+	from {
+		max-height: 0;
+		opacity: 0;
+	}
+	to {
+		max-height: 200px;
+		opacity: 1;
+	}
 }
 
 .desktop__nav .home-logo {
-  display: inline;
-  padding: 10px;
+	display: inline;
+	padding: 10px;
 }
 
 .desktop__nav .menu {
-  width: 100%;
-  height: 100%;
-  position: static;
-  background: var(--menu-color);
+	width: 100%;
+	height: 100%;
+	position: static;
+	background: var(--menu-color);
 }
 
 .desktop__nav a[role="menuitem"] {
-  text-decoration: none;
-  padding: 10px 10px;
-  display: block;
+	text-decoration: none;
+	padding: 10px 10px;
+	display: block;
 }
 
 .desktop__nav .menu a[role="menuitem"]:hover {
-  color: var(--link-text-hover-color);
+	color: var(--link-text-hover-color);
 }
 
 .desktop__nav .subnav-content {
-  height: 0;
-  opacity: 0;
-  width: 0;
-  z-index: 1;
-  overflow: hidden;
-  box-shadow: 8px 8px 8px -8px black;
+	height: 0;
+	opacity: 0;
+	width: 0;
+	z-index: 1;
+	overflow: hidden;
+	box-shadow: 8px 8px 8px -8px black;
 }
 
 .desktop__nav .subnav:hover .subnav-content {
-  display: block;
-  opacity: 1;
-  width: auto;
-  height: auto;
-  border-radius: 0 0 4px 4px;
-  animation: grow 0.2s ease-out;
-  position: absolute;
-  padding: 10px;
-  background: var(--menu-color);
-  border-width: 0 1px 1px 1px;
-  margin-top: 2px;
+	display: block;
+	opacity: 1;
+	width: auto;
+	height: auto;
+	border-radius: 0 0 4px 4px;
+	animation: grow 0.2s ease-out;
+	position: absolute;
+	padding: 10px;
+	background: var(--menu-color);
+	border-width: 0 1px 1px 1px;
+	margin-top: 2px;
 }
 
 .desktop__nav .menu > ul {
-  display: flex;
-  gap: 20px;
-  align-items: center;
+	display: flex;
+	gap: 20px;
+	align-items: center;
 }
 
 .desktop__nav .menu > ul > li > div > a[role="menuitem"] {
-  padding-top: 20px;
-  padding-bottom: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 .desktop__nav .menu > ul li:last-child {
-  margin-left: auto;
+	margin-left: auto;
 }
 
 /* Start mobile */
 .mobile__nav .menu {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  overflow-y: hidden;
-  max-height: 0;
-  transition: max-height 0.5s ease-out;
-  background: var(--menu-color);
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	overflow-y: hidden;
+	max-height: 0;
+	transition: max-height 0.5s ease-out;
+	background: var(--menu-color);
 }
 
 .mobile__nav a[role="menuitem"],
 .mobile__nav label {
-  text-decoration: none;
-  padding: 10px 10px;
-  display: block;
+	text-decoration: none;
+	padding: 10px 10px;
+	display: block;
 }
 
 .mobile__nav .menu a[role="menuitem"]:hover {
-  color: var(--link-text-hover-color);
+	color: var(--link-text-hover-color);
 }
 
 .mobile__nav .menu ul {
-  margin-left: 2rem;
+	margin-left: 2rem;
 }
 
 .mobile__nav .menu > ul {
-  overflow-y: auto;
-  height: 90%;
+	overflow-y: auto;
+	height: 90%;
 }
 
 .mobile__nav .mobile-menu {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0 1rem;
-  gap: 0.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0 1rem;
+	gap: 0.5rem;
 }
 
 .mobile__nav .hamb {
-  cursor: pointer;
-  padding: 40px 0;
+	cursor: pointer;
+	padding: 40px 0;
 }
 
 .mobile__nav .hamb-line {
-  background: var(--link-text-color);
-  display: block;
-  height: 2px;
-  position: relative;
-  width: 24px;
+	background: var(--link-text-color);
+	display: block;
+	height: 2px;
+	position: relative;
+	width: 24px;
 }
 
 .mobile__nav .hamb-line::before,
 .mobile__nav .hamb-line::after {
-  background: var(--link-text-color);
-  content: "";
-  display: block;
-  height: 100%;
-  position: absolute;
-  transition: all 0.1s ease-out;
-  width: 100%;
+	background: var(--link-text-color);
+	content: "";
+	display: block;
+	height: 100%;
+	position: absolute;
+	transition: all 0.1s ease-out;
+	width: 100%;
 }
 .mobile__nav .hamb-line::before {
-  top: 8px;
+	top: 8px;
 }
 
 .mobile__nav .hamb-line::after {
-  top: -8px;
+	top: -8px;
 }
 
 .mobile__nav .top-menu,
 .mobile__nav .side-menu {
-  display: none;
+	display: none;
 } /* Hide checkbox */
 
 /* Toggle menu icon */
 .mobile__nav .side-menu:checked ~ nav {
-  max-height: calc(100% - 60px);
+	max-height: calc(100% - 60px);
 }
 .mobile__nav .side-menu:checked ~ .mobile-menu .hamb .hamb-line {
-  background: transparent;
+	background: transparent;
 }
 .mobile__nav .side-menu:checked ~ .mobile-menu .hamb .hamb-line::before {
-  transform: rotate(-45deg);
-  top: 0;
+	transform: rotate(-45deg);
+	top: 0;
 }
 .mobile__nav .side-menu:checked ~ .mobile-menu .hamb .hamb-line::after {
-  transform: rotate(45deg);
-  top: 0;
+	transform: rotate(45deg);
+	top: 0;
 }
 
 /* Toggle top menu */
 .mobile__nav .top-menu:checked ~ .subnav-content {
-  max-height: 320px;
-  padding: 0 0 10px 0;
-  border-radius: 0 0 4px 4px;
+	max-height: 320px;
+	padding: 0 0 10px 0;
+	border-radius: 0 0 4px 4px;
 }
 
 .mobile__nav .subnav-content {
-  z-index: 1;
-  max-height: 0;
-  overflow-y: hidden;
-  transition-property: max-height;
-  transition-duration: 0.5s;
-  transition-timing-function: ease-out;
+	z-index: 1;
+	max-height: 0;
+	overflow-y: hidden;
+	transition-property: max-height;
+	transition-duration: 0.5s;
+	transition-timing-function: ease-out;
 }
 
 .mobile__nav label {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .mobile__nav label[role="menuitem"]::before {
-  content: "+";
-  display: inline-block;
-  padding-right: 0.5rem;
+	content: "+";
+	display: inline-block;
+	padding-right: 0.5rem;
 }
 
 .mobile__nav .top-menu:checked ~ label[role="menuitem"]::before {
-  content: "-";
+	content: "-";
 }
 
 header:has(.side-menu:checked) {
-  position: sticky;
+	position: sticky;
 }

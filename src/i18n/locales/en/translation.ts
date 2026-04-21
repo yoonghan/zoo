@@ -1,44 +1,45 @@
 const translations = {
-  to: "to",
-  Monday: "Monday",
-  Tuesday: "Tuesday",
-  Wednesday: "Wednesday",
-  Thursday: "Thursday",
-  Friday: "Friday",
-  Saturday: "Saturday",
-  Sunday: "Sunday",
-  buyTicket: {
-    text: "Buy Ticket",
-    alert: {
-      title: "Notice",
-      message: "You are about to be directed to the official ticketing website. Make sure the url officially ends with 'zoonegara.my'.",
-      confirm: "Continue",
-    },
-  },
-  announcements: [
-    "This is *NOT the official website of the zoo. Please visit the official website [https://zoonegara.my|zoonegara.my] for more information.",
-    "Panda exhibit is still *CLOSED, panda has only arrived at zoo in November 2025."
-  ],
-  menu: {
-    "mobile-home-text": "Zoo Negara",
-    "visitor-info": "Visitor Info",
-    "about-us": "About Us",
-    "opening-and-rates": "Opening Hours And Rates",
-    "getting-there": "Getting There",
-    "zoo-map": "Zoo Map",
-    "kiosk-and-facilities": "Kiosks And Facilities",
-  },
-  footer: {
-    lastAdmission: "Last Admission at {{time}}",
-    operationHours: "Operation Hours",
-    address: "Address",
-    partners: "Partners",
-    maintainedInfo: "all rights reserved.",
-    contactUs: "Contact Zoo Negara",
-    careers: "Careers",
-    faq: "FAQ",
-    sitemap: "Sitemap",
-  },
-};
+	to: "to",
+	Monday: "Monday",
+	Tuesday: "Tuesday",
+	Wednesday: "Wednesday",
+	Thursday: "Thursday",
+	Friday: "Friday",
+	Saturday: "Saturday",
+	Sunday: "Sunday",
+	buyTicket: {
+		text: "Buy Ticket",
+		alert: {
+			title: "Notice",
+			message:
+				"You are about to be directed to the official ticketing website. Make sure the url officially ends with 'zoonegara.my'.",
+			confirm: "Continue",
+		},
+	},
+	announcements: [
+		"This is *NOT the official website of the zoo. Please visit the official website [https://zoonegara.my|zoonegara.my] for more information.",
+		"Panda exhibit is still *CLOSED, panda has only arrived at zoo in November 2025.",
+	],
+	menu: {
+		"mobile-home-text": "Zoo Negara",
+		"visitor-info": "Visitor Info",
+		"about-us": "About Us",
+		"opening-and-rates": "Opening Hours And Rates",
+		"getting-there": "Getting There",
+		"zoo-map": "Zoo Map",
+		"kiosk-and-facilities": "Kiosks And Facilities",
+	},
+	footer: {
+		lastAdmission: "Last Admission at {{time}}",
+		operationHours: "Operation Hours",
+		address: "Address",
+		partners: "Partners",
+		maintainedInfo: "all rights reserved.",
+		contactUs: "Contact Zoo Negara",
+		careers: "Careers",
+		faq: "FAQ",
+		sitemap: "Sitemap",
+	},
+}
 
-export default translations;
+export default translations

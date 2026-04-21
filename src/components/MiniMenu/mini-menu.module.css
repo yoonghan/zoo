@@ -1,14 +1,14 @@
 .container {
-  background-color: var(--color-slate-100);
-  color: var(--secondary-text-color);
+	background-color: var(--color-slate-100);
+	color: var(--secondary-text-color);
 }
 
 .container .separator {
-  border-color: var(--secondary-text-color);
+	border-color: var(--secondary-text-color);
 }
 
 .sticky {
-  top: 0;
-  position: sticky;
-  z-index: 899;
+	top: 0;
+	position: sticky;
+	z-index: 899;
 }

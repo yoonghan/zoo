@@ -1,24 +1,24 @@
-const observe = jest.fn();
-const unobserve = jest.fn();
-export const disconnect = jest.fn();
-export var intersectionFn = jest.fn();
+const observe = jest.fn()
+const unobserve = jest.fn()
+export const disconnect = jest.fn()
+export var intersectionFn = jest.fn()
 
 afterEach(() => {
-  disconnect.mockReset();
-});
+	disconnect.mockReset()
+})
 
 class IntersectionObserver {
-  constructor(intersection) {
-    intersectionFn = intersection;
-  }
+	constructor(intersection) {
+		intersectionFn = intersection
+	}
 
-  static observe = observe;
+	static observe = observe
 
-  static unobserve = unobserve;
+	static unobserve = unobserve
 
-  disconnect = disconnect;
+	disconnect = disconnect
 }
 
-window.IntersectionObserver = IntersectionObserver;
+window.IntersectionObserver = IntersectionObserver
 
-window.HTMLElement.prototype.scrollIntoViewIfNeeded = function () {};
+window.HTMLElement.prototype.scrollIntoViewIfNeeded = () => {}

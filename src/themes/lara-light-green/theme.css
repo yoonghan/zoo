@@ -1,71 +1,71 @@
 @font-face {
-  font-family: "Inter var";
-  font-weight: 100 900;
-  font-display: swap;
-  font-style: normal;
-  src: url("./fonts/Inter-roman.var.woff2?v=3.19") format("woff2");
+	font-family: "Inter var";
+	font-weight: 100 900;
+	font-display: swap;
+	font-style: normal;
+	src: url("./fonts/Inter-roman.var.woff2?v=3.19") format("woff2");
 }
 
 @font-face {
-  font-family: "Inter var";
-  font-weight: 100 900;
-  font-display: swap;
-  font-style: italic;
-  src: url("./fonts/Inter-italic.var.woff2?v=3.19") format("woff2");
+	font-family: "Inter var";
+	font-weight: 100 900;
+	font-display: swap;
+	font-style: italic;
+	src: url("./fonts/Inter-italic.var.woff2?v=3.19") format("woff2");
 }
 
 :root {
-  font-family: "Inter var", sans-serif;
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-  font-variation-settings: normal;
-  color-scheme: light;
-  --yellow-50: #fefbf3;
-  --yellow-100: #faedc4;
-  --yellow-200: #f6de95;
-  --yellow-300: #f2d066;
-  --yellow-400: #eec137;
-  --yellow-500: #eab308;
-  --yellow-600: #c79807;
-  --yellow-700: #a47d06;
-  --yellow-800: #816204;
-  --yellow-900: #5e4803;
-  --bluegray-50: #f7f8f9;
-  --bluegray-100: #dadee3;
-  --bluegray-200: #bcc3cd;
-  --bluegray-300: #9fa9b7;
-  --bluegray-400: #818ea1;
-  --bluegray-500: #64748b;
-  --bluegray-600: #556376;
-  --bluegray-700: #465161;
-  --bluegray-800: #37404c;
-  --bluegray-900: #282e38;
-  --primary-50: #f3fcf9;
-  --primary-100: #c6eee1;
-  --primary-200: #98e1c9;
-  --primary-300: #6bd4b1;
-  --primary-400: #3dc699;
-  --primary-500: #10b981;
-  --primary-600: #0e9d6e;
-  --primary-700: #0b825a;
-  --primary-800: #096647;
-  --primary-900: #053b2a;
-  
-  /*specially written to follow ticket 2u*/
-  --buy-pimary-color: #f1e4bc;
-  --primary-color: rgb(16, 185, 129);
-  --primary-color-text: #ffffff;
-  --secondary-color: var(--yellow-500);
-  --secondary-hover-color: var(--yellow-700);
-  --secondary-text-color: black;
-  --scroll-color: rgba(30, 185, 129, 0.8);
-  --link-text-color: var(--primary-900);
-  --link-text-hover-color: var(--primary-700);
-  --buy-color: var(--buy-pimary-color);
-  --buy-text-color: #222;
-  --menu-color: var(--buy-pimary-color);
-  --footer-color: var(--buy-pimary-color);
-  --title-bar-bg: var(--yellow-500);
-  --title-bar: var(--secondary-900);
-  --fa-display: inline-block;
-  --fa-width: 1rem;
+	font-family: "Inter var", sans-serif;
+	font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+	font-variation-settings: normal;
+	color-scheme: light;
+	--yellow-50: #fefbf3;
+	--yellow-100: #faedc4;
+	--yellow-200: #f6de95;
+	--yellow-300: #f2d066;
+	--yellow-400: #eec137;
+	--yellow-500: #eab308;
+	--yellow-600: #c79807;
+	--yellow-700: #a47d06;
+	--yellow-800: #816204;
+	--yellow-900: #5e4803;
+	--bluegray-50: #f7f8f9;
+	--bluegray-100: #dadee3;
+	--bluegray-200: #bcc3cd;
+	--bluegray-300: #9fa9b7;
+	--bluegray-400: #818ea1;
+	--bluegray-500: #64748b;
+	--bluegray-600: #556376;
+	--bluegray-700: #465161;
+	--bluegray-800: #37404c;
+	--bluegray-900: #282e38;
+	--primary-50: #f3fcf9;
+	--primary-100: #c6eee1;
+	--primary-200: #98e1c9;
+	--primary-300: #6bd4b1;
+	--primary-400: #3dc699;
+	--primary-500: #10b981;
+	--primary-600: #0e9d6e;
+	--primary-700: #0b825a;
+	--primary-800: #096647;
+	--primary-900: #053b2a;
+
+	/*specially written to follow ticket 2u*/
+	--buy-pimary-color: #f1e4bc;
+	--primary-color: rgb(16, 185, 129);
+	--primary-color-text: #ffffff;
+	--secondary-color: var(--yellow-500);
+	--secondary-hover-color: var(--yellow-700);
+	--secondary-text-color: black;
+	--scroll-color: rgba(30, 185, 129, 0.8);
+	--link-text-color: var(--primary-900);
+	--link-text-hover-color: var(--primary-700);
+	--buy-color: var(--buy-pimary-color);
+	--buy-text-color: #222;
+	--menu-color: var(--buy-pimary-color);
+	--footer-color: var(--buy-pimary-color);
+	--title-bar-bg: var(--yellow-500);
+	--title-bar: var(--secondary-900);
+	--fa-display: inline-block;
+	--fa-width: 1rem;
 }

@@ -1,16 +1,18 @@
-import { act, render, screen } from "@testing-library/react";
-import { TranslatedMenu } from "./TranslatedMenu";
-import en from "@/i18n/locales/en/translation";
+import { act, render, screen } from "@testing-library/react"
+import en from "@/i18n/locales/en/translation"
+import { TranslatedMenu } from "./TranslatedMenu"
 
 describe("TranslatedMenu", () => {
-  it("should render a translated Menu with menu in English", async () => {
-    await act(async () => {
-      render(<TranslatedMenu params={Promise.resolve({ lng: "en" })} />);
-    });
+	it("should render a translated Menu with menu in English", async () => {
+		await act(async () => {
+			render(<TranslatedMenu params={Promise.resolve({ lng: "en" })} />)
+		})
 
-    expect(await screen.findAllByText(en["menu"]["about-us"])).toHaveLength(2);
-    expect(screen.getAllByRole("combobox")).toHaveLength(2);
-    expect(screen.getAllByRole("link", { name: "Buy Ticket" })).toHaveLength(2);
-    expect(screen.getByText("Zoo Negara")).toBeInTheDocument();
-  });
-});
+		expect(await screen.findAllByText(en.menu["about-us"])).toHaveLength(2)
+		expect(screen.getAllByRole("combobox")).toHaveLength(2)
+		expect(
+			screen.getAllByRole("link", { name: "Buy Ticket" }),
+		).toHaveLength(2)
+		expect(screen.getByText("Zoo Negara")).toBeInTheDocument()
+	})
+})

@@ -1,104 +1,111 @@
-import styles from "./about-us.module.css";
-import MiniMenu, { MiniMenuItems } from "@/components/MiniMenu";
-import { Link } from "@/components/Link";
+import type { Metadata } from "next"
+import { Link } from "@/components/Link"
+import MiniMenu, { type MiniMenuItems } from "@/components/MiniMenu"
 import {
-  withTranslator,
-  TranslatorProps,
-} from "@/components/util/hoc/withTranslator";
-import { getTranslation } from "@/i18n";
-import type { Metadata } from "next";
-import { generateSiteMeta } from "@/util/generateMeta";
+	type TranslatorProps,
+	withTranslator,
+} from "@/components/util/hoc/withTranslator"
+import { getTranslation } from "@/i18n"
+import { generateSiteMeta } from "@/util/generateMeta"
+import styles from "./about-us.module.css"
 
 type Props = {
-  params: Promise<{ lng: string }>;
-};
+	params: Promise<{ lng: string }>
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { lng } = await params;
-  const { t } = await getTranslation(lng, "pages");
+	const { lng } = await params
+	const { t } = await getTranslation(lng, "pages")
 
-  return generateSiteMeta(
-    lng,
-    t("headers.aboutUs.title"),
-    t("headers.aboutUs.description")
-  );
+	return generateSiteMeta(
+		lng,
+		t("headers.aboutUs.title"),
+		t("headers.aboutUs.description"),
+	)
 }
 
 function About({ t }: Readonly<TranslatorProps>) {
-  const miniLinks: MiniMenuItems[] = [
-    {
-      hashId: "aboutWalcron",
-      title: t("aboutUs.aboutWalcron.title"),
-    },
-    {
-      hashId: "aboutZoo",
-      title: t("aboutUs.aboutZoo.title"),
-    },
-    {
-      hashId: "vision",
-      title: t("aboutUs.vision.title"),
-    },
-  ];
+	const miniLinks: MiniMenuItems[] = [
+		{
+			hashId: "aboutWalcron",
+			title: t("aboutUs.aboutWalcron.title"),
+		},
+		{
+			hashId: "aboutZoo",
+			title: t("aboutUs.aboutZoo.title"),
+		},
+		{
+			hashId: "vision",
+			title: t("aboutUs.vision.title"),
+		},
+	]
 
-  return (
-    <>
-      <MiniMenu model={miniLinks} />
-      <main className={styles["about-us"]}>
-        <h1 className="text-4xl text-center font-bold my-10">
-          {t("aboutUs.title")}
-        </h1>
-        <article
-          className="primary anchor-link-header"
-          id={miniLinks[0].hashId}
-        >
-          <h2 className="text-4xl text-center font-bold pb-4">
-            {miniLinks[0].title}
-          </h2>
-          <p className="mt-10">{t("aboutUs.aboutWalcron.description")}</p>
-          <p className="mt-10">{t("aboutUs.aboutWalcron.desription2")}</p>
-          <ul className="list-disc ml-8 mt-4">
-            {(
-              t("aboutUs.aboutWalcron.descriptionSupport", {
-                returnObjects: true,
-              }) as string[]
-            )?.map((description) => (
-              <li key={description}>{description}</li>
-            ))}
-          </ul>
-        </article>
-        <article className="anchor-link-header" id={miniLinks[1].hashId}>
-          <h3 className="text-2xl text-center font-bold pb-4">
-            {miniLinks[1].title}
-          </h3>
-          <p>
-            {t("aboutUs.aboutZoo.description")} [
-            <Link href="https://en.wikipedia.org/wiki/National_Zoo_of_Malaysia">
-              {t("aboutUs.aboutZoo.descriptionWiki")}
-            </Link>
-            ]
-          </p>
-        </article>
-        <article
-          className="primary anchor-link-header"
-          id={miniLinks[2].hashId}
-        >
-          <h4 className="text-2xl text-center font-bold pb-4">
-            {miniLinks[2].title}
-          </h4>
-          <p>{t("aboutUs.vision.description")}</p>
-          <ul className="list-disc ml-8 mt-4">
-            {(
-              t("aboutUs.vision.descriptionSupport", {
-                returnObjects: true,
-              }) as string[]
-            )?.map((description) => (
-              <li key={description}>{description}</li>
-            ))}
-          </ul>
-        </article>
-      </main>
-    </>
-  );
+	return (
+		<>
+			<MiniMenu model={miniLinks} />
+			<main className={styles["about-us"]}>
+				<h1 className="text-4xl text-center font-bold my-10">
+					{t("aboutUs.title")}
+				</h1>
+				<article
+					className="primary anchor-link-header"
+					id={miniLinks[0].hashId}
+				>
+					<h2 className="text-4xl text-center font-bold pb-4">
+						{miniLinks[0].title}
+					</h2>
+					<p className="mt-10">
+						{t("aboutUs.aboutWalcron.description")}
+					</p>
+					<p className="mt-10">
+						{t("aboutUs.aboutWalcron.desription2")}
+					</p>
+					<ul className="list-disc ml-8 mt-4">
+						{(
+							t("aboutUs.aboutWalcron.descriptionSupport", {
+								returnObjects: true,
+							}) as string[]
+						)?.map((description) => (
+							<li key={description}>{description}</li>
+						))}
+					</ul>
+				</article>
+				<article
+					className="anchor-link-header"
+					id={miniLinks[1].hashId}
+				>
+					<h3 className="text-2xl text-center font-bold pb-4">
+						{miniLinks[1].title}
+					</h3>
+					<p>
+						{t("aboutUs.aboutZoo.description")} [
+						<Link href="https://en.wikipedia.org/wiki/National_Zoo_of_Malaysia">
+							{t("aboutUs.aboutZoo.descriptionWiki")}
+						</Link>
+						]
+					</p>
+				</article>
+				<article
+					className="primary anchor-link-header"
+					id={miniLinks[2].hashId}
+				>
+					<h4 className="text-2xl text-center font-bold pb-4">
+						{miniLinks[2].title}
+					</h4>
+					<p>{t("aboutUs.vision.description")}</p>
+					<ul className="list-disc ml-8 mt-4">
+						{(
+							t("aboutUs.vision.descriptionSupport", {
+								returnObjects: true,
+							}) as string[]
+						)?.map((description) => (
+							<li key={description}>{description}</li>
+						))}
+					</ul>
+				</article>
+			</main>
+		</>
+	)
 }
 
-export default withTranslator(About, "pages");
+export default withTranslator(About, "pages")

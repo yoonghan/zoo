@@ -1,49 +1,57 @@
-import { Link } from "@/components/Link";
-import { TranslatorProps, withTranslator } from "@/components/util/hoc/withTranslator";
-import { zooProfile } from "@/config/profile";
-import { getTranslation } from "@/i18n";
-import { generateSiteMeta } from "@/util/generateMeta";
-import { Metadata } from "next";
-
+import type { Metadata } from "next"
+import { Link } from "@/components/Link"
+import {
+	type TranslatorProps,
+	withTranslator,
+} from "@/components/util/hoc/withTranslator"
+import { zooProfile } from "@/config/profile"
+import { getTranslation } from "@/i18n"
+import { generateSiteMeta } from "@/util/generateMeta"
 
 type Props = {
-  params: Promise<{ lng: string }>
+	params: Promise<{ lng: string }>
 }
 
-export async function generateMetadata(
-  { params }: Props
-): Promise<Metadata> {
-  const { lng } = await params
-  const { t } = await getTranslation(lng, "pages")
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+	const { lng } = await params
+	const { t } = await getTranslation(lng, "pages")
 
-  return generateSiteMeta(lng, t('headers.careers.title'), t('headers.careers.description'))
+	return generateSiteMeta(
+		lng,
+		t("headers.careers.title"),
+		t("headers.careers.description"),
+	)
 }
 
 function Career({ t }: Readonly<TranslatorProps>) {
-  return (
-    <main>
-      <section className="text-center">
-        <h1>{t('careers.title')}</h1>
-        <article>
-          <p className="pb-16">{t('careers.description')}</p>
+	return (
+		<main>
+			<section className="text-center">
+				<h1>{t("careers.title")}</h1>
+				<article>
+					<p className="pb-16">{t("careers.description")}</p>
 
-          <Link
-            href={zooProfile.careerLink}
-            className="hover:underline p-4 text-xl"
-            target="_blank" rel="alternate"
-          >{t('careers.officialCareerLinkText')}</Link>
+					<Link
+						href={zooProfile.careerLink}
+						className="hover:underline p-4 text-xl"
+						target="_blank"
+						rel="alternate"
+					>
+						{t("careers.officialCareerLinkText")}
+					</Link>
 
-          <p className="py-8 text-2xl">{t('careers.OR')}</p>
+					<p className="py-8 text-2xl">{t("careers.OR")}</p>
 
-
-          <Link
-            href={`mailto:${zooProfile.contactus.hrEmail}`}
-            className="hover:underline text-xl"
-          >{t('careers.emailToZoo')}</Link>
-        </article>
-      </section>
-    </main>
-  );
+					<Link
+						href={`mailto:${zooProfile.contactus.hrEmail}`}
+						className="hover:underline text-xl"
+					>
+						{t("careers.emailToZoo")}
+					</Link>
+				</article>
+			</section>
+		</main>
+	)
 }
 
 export default withTranslator(Career, "pages")
