@@ -45,7 +45,8 @@ describe("MiniMenu", () => {
 		renderComponent()
 		expect(screen.getAllByTestId("separator")).toHaveLength(1)
 		expect(
-			screen.getAllByTestId("separator")[0].previousElementSibling?.tagName,
+			screen.getAllByTestId("separator")[0].previousElementSibling
+				?.tagName,
 		).toBe("A")
 	})
 
@@ -104,7 +105,7 @@ describe("MiniMenu", () => {
 			const scrollIntoViewCall = jest
 				// eslint-disable-next-line @typescript-eslint/no-explicit-any
 				.spyOn(fivePillarsElem as any, "scrollIntoViewIfNeeded")
-				.mockImplementation(() => { })
+				.mockImplementation(() => {})
 
 			act(() => {
 				intersectionFn([
