@@ -2,9 +2,10 @@
 
 import { useDisableVersioning } from "../util/hook/disableVersioning/useDisableVersioning"
 
-export const Version = ({version}: {version: string}) => {
+export const Version = ({ version }: { version: string }) => {
+	const { isVersioned } = useDisableVersioning()
 
-  const { isVersioned } = useDisableVersioning()
-
-  return <div className={isVersioned?"block":"hidden"}>(ver. {version})</div>
+	return (
+		<div className={isVersioned ? "block" : "hidden"}>(ver. {version})</div>
+	)
 }

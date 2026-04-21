@@ -1,42 +1,42 @@
 .button {
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-  box-shadow: 1px 1px 5px 0 gray;
-  border-radius: 0.5rem;
-  padding: 0.75rem;
-  color: var(--primary-color-text);
-  white-space: nowrap;
-  font-weight: bold;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+	box-shadow: 1px 1px 5px 0 gray;
+	border-radius: 0.5rem;
+	padding: 0.75rem;
+	color: var(--primary-color-text);
+	white-space: nowrap;
+	font-weight: bold;
 }
 
 .button:hover {
-  color: var(--secondary-text-color);
-  box-shadow: 0 0 5px 0 gray;
+	color: var(--secondary-text-color);
+	box-shadow: 0 0 5px 0 gray;
 }
 
 .button-primary {
-  background: var(--primary-color);
+	background: var(--primary-color);
 }
 
 .button-primary:hover {
-  background: var(--primary-700);
+	background: var(--primary-700);
 }
 
 .button-secondary {
-  color: var(--secondary-text-color);
-  background: var(--secondary-color);
+	color: var(--secondary-text-color);
+	background: var(--secondary-color);
 }
 
 .button-secondary:hover {
-  color: var(--primary-color-text);
-  background: var(--secondary-hover-color);
+	color: var(--primary-color-text);
+	background: var(--secondary-hover-color);
 }
 
 .button-buynow {
-  color: var(--buy-text-color);
-  background: var(--buy-color);
+	color: var(--buy-text-color);
+	background: var(--buy-color);
 }
 
 .button-buynow:hover {
-  color: var(--buy-color);
-  background: var(--buy-text-color);
+	color: var(--buy-color);
+	background: var(--buy-text-color);
 }

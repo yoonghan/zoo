@@ -1,19 +1,19 @@
 .announcement {
-  background-color: var(--yellow-400);
-  color: black;
-  display: grid;
-  gap: 20px;
-  grid-template-columns: 20px 1fr 20px 80px;
+	background-color: var(--yellow-400);
+	color: black;
+	display: grid;
+	gap: 20px;
+	grid-template-columns: 20px 1fr 20px 80px;
 }
 
 .announcement.only-one {
-  grid-template-columns: 1fr 80px;
+	grid-template-columns: 1fr 80px;
 }
 
 .close-announcement {
-  display: none;
+	display: none;
 }
 
 .close-announcement:checked ~ .announcement {
-  display: none;
+	display: none;
 }

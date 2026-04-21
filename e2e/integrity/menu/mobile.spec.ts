@@ -1,112 +1,114 @@
-import { zooMenu } from "@/config/menu";
-import { zooProfile } from "@/config/profile";
-import { test, expect } from "@playwright/test";
-import en from "@/i18n/locales/en/translation";
+import { expect, test } from "@playwright/test"
+import { zooMenu } from "@/config/menu"
+import { zooProfile } from "@/config/profile"
+import en from "@/i18n/locales/en/translation"
 
 test.use({
-  viewport: { width: 700, height: 1200 },
-});
+	viewport: { width: 700, height: 1200 },
+})
 
 const convertToMenuLabel = (menuLabel: string) => {
-  const label = menuLabel.replace("menu.", "");
-  return (en["menu"] as any)[label];
-};
+	const label = menuLabel.replace("menu.", "")
+	return (en.menu as any)[label]
+}
 
 test("has menu", async ({ page }) => {
-  await page.goto("http://localhost:3000/");
-  await expect(
-    page.getByRole("link", { name: "Zoo Negara", exact: true })
-  ).toBeVisible();
+	await page.goto("http://localhost:3000/")
+	await expect(
+		page.getByRole("link", { name: "Zoo Negara", exact: true }),
+	).toBeVisible()
 
-  if (zooMenu.length > 0) {
-    const firstTopMenuItem = page
-      .getByRole("menuitem", { name: convertToMenuLabel(zooMenu[0].label) })
-      .locator("../../../..");
-    const hamburgerMenu = page.getByLabel("Main Menu");
+	if (zooMenu.length > 0) {
+		const firstTopMenuItem = page
+			.getByRole("menuitem", {
+				name: convertToMenuLabel(zooMenu[0].label),
+			})
+			.locator("../../../..")
+		const hamburgerMenu = page.getByLabel("Main Menu")
 
-    await expect(firstTopMenuItem).not.toBeVisible();
+		await expect(firstTopMenuItem).not.toBeVisible()
 
-    await hamburgerMenu.click();
+		await hamburgerMenu.click()
 
-    await expect(firstTopMenuItem).toBeVisible();
+		await expect(firstTopMenuItem).toBeVisible()
 
-    await hamburgerMenu.click();
+		await hamburgerMenu.click()
 
-    await expect(firstTopMenuItem).not.toBeVisible();
-  }
-});
+		await expect(firstTopMenuItem).not.toBeVisible()
+	}
+})
 
 test("menu that has child will be expanded (with +) and child is clickable", async ({
-  page,
+	page,
 }) => {
-  await page.goto("http://localhost:3000/");
+	await page.goto("http://localhost:3000/")
 
-  await page.getByLabel("Main Menu").click();
+	await page.getByLabel("Main Menu").click()
 
-  const firstMenuWithItemsAreNotLinkable = zooMenu.find(
-    (menu) => (menu.items ?? []).length > 0
-  );
+	const firstMenuWithItemsAreNotLinkable = zooMenu.find(
+		(menu) => (menu.items ?? []).length > 0,
+	)
 
-  if (firstMenuWithItemsAreNotLinkable) {
-    await page
-      .getByRole("menuitem", {
-        name: `+ ${convertToMenuLabel(firstMenuWithItemsAreNotLinkable.label)}`,
-        exact: true,
-      })
-      .click();
+	if (firstMenuWithItemsAreNotLinkable) {
+		await page
+			.getByRole("menuitem", {
+				name: `+ ${convertToMenuLabel(firstMenuWithItemsAreNotLinkable.label)}`,
+				exact: true,
+			})
+			.click()
 
-    const items = firstMenuWithItemsAreNotLinkable.items;
-    if (items !== undefined) {
-      await page
-        .getByRole("menuitem", {
-          name: convertToMenuLabel(items[0].label),
-          exact: true,
-        })
-        .click();
-      expect(page.url, items[0].url);
-    }
-  }
-});
+		const items = firstMenuWithItemsAreNotLinkable.items
+		if (items !== undefined) {
+			await page
+				.getByRole("menuitem", {
+					name: convertToMenuLabel(items[0].label),
+					exact: true,
+				})
+				.click()
+			expect(page.url, items[0].url)
+		}
+	}
+})
 
 test("menu that had no child can be clicked", async ({ page }) => {
-  await page.goto("http://localhost:3000/");
+	await page.goto("http://localhost:3000/")
 
-  await page.getByLabel("Main Menu").click();
+	await page.getByLabel("Main Menu").click()
 
-  const firstMenuWithNoItemsClickable = zooMenu.find(
-    (menu) => (menu.items ?? []).length === 0
-  );
+	const firstMenuWithNoItemsClickable = zooMenu.find(
+		(menu) => (menu.items ?? []).length === 0,
+	)
 
-  if (firstMenuWithNoItemsClickable) {
-    await page
-      .getByRole("menuitem", {
-        name: convertToMenuLabel(firstMenuWithNoItemsClickable.label),
-        exact: true,
-      })
-      .click();
-    expect(page.url, firstMenuWithNoItemsClickable.url);
-  }
-});
+	if (firstMenuWithNoItemsClickable) {
+		await page
+			.getByRole("menuitem", {
+				name: convertToMenuLabel(firstMenuWithNoItemsClickable.label),
+				exact: true,
+			})
+			.click()
+		expect(page.url, firstMenuWithNoItemsClickable.url)
+	}
+})
 
 test("can purchase ticket", async ({ page }) => {
-  await page.goto("http://localhost:3000/");
+	await page.goto("http://localhost:3000/")
 
-  const ticketUrl = zooProfile.ticket.admission.url;
-  
-  await page.getByRole("link", { name: en["buyTicket"]["text"] }).click();
+	const ticketUrl = zooProfile.ticket.admission.url
 
-  await page.getByRole("button", { name: en["buyTicket"]["alert"]["confirm"] }).click();
+	await page.getByRole("link", { name: en.buyTicket.text }).click()
 
-  expect(page.url()).toBe(
-    ticketUrl.endsWith("/") ? ticketUrl : ticketUrl + "/"
-  );
-});
+	await page.getByRole("button", { name: en.buyTicket.alert.confirm }).click()
+
+	expect(page.url()).toBe(
+		ticketUrl.endsWith("/") ? ticketUrl : `${ticketUrl}/`,
+	)
+})
 
 test("can switch language", async ({ page }) => {
-  await page.goto("http://localhost:3000/en");
-  await page.getByRole("combobox").selectOption("ms");
+	await page.goto("http://localhost:3000/en")
+	await page.getByRole("combobox").selectOption("ms")
 
-  await expect(
-    page.getByRole("heading", { name: /Selamat datang ke Zoo Negara/ })
-  ).toBeVisible();
-});
+	await expect(
+		page.getByRole("heading", { name: /Selamat datang ke Zoo Negara/ }),
+	).toBeVisible()
+})

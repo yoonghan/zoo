@@ -1,14 +1,10 @@
 {
-  "ignore": [
-    "e2e/**",
-    "backstop_data/**",
-    "__mocks__/**"
-  ],
-  "ignoreDependencies": [
-    "happy-dom",
-    "ts-node",
-    "jest-environment-jsdom",
-    "eslint-config-next",
-    "eslint"
-  ]
+	"ignore": [
+		"backstop_data/**"
+	],
+	"ignoreDependencies": [
+		"happy-dom",
+		"ts-node",
+		"jest-environment-jsdom"
+	]
 }

@@ -1,36 +1,36 @@
 .five-pillars div {
-  margin-top: 2rem;
-}
-
-.five-pillars div p {
-  margin-top: 0.5rem;
-  margin-left: 1.25rem;
+	margin-top: 2rem;
 }
 
 .about-us p {
-  margin-top: 0.5rem;
+	margin-top: 0.5rem;
+}
+
+.five-pillars div p {
+	margin-top: 0.5rem;
+	margin-left: 1.25rem;
 }
 
 .about-us p ~ p {
-  margin-top: 2rem;
+	margin-top: 2rem;
 }
 
 .research figure {
-  display: flex;
+	display: flex;
 }
 
 .research figure figcaption {
-  flex: 2;
-  text-align: left;
-  margin-top: 0.5rem;
+	flex: 2;
+	text-align: left;
+	margin-top: 0.5rem;
 }
 
 @media (max-width: 960px) {
-  .research figure {
-    flex-direction: column;
-  }
+	.research figure {
+		flex-direction: column;
+	}
 
-  .research figure img {
-    margin: auto;
-  }
+	.research figure img {
+		margin: auto;
+	}
 }

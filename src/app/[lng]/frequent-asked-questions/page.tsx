@@ -1,38 +1,42 @@
-import { Accordion, AccordionProps } from "@/components/Accordion";
-import { TranslatorProps, withTranslator } from "@/components/util/hoc/withTranslator";
-import { getTranslation } from "@/i18n";
-import { generateSiteMeta } from "@/util/generateMeta";
-import { Metadata } from "next";
+import type { Metadata } from "next"
+import { Accordion, type AccordionProps } from "@/components/Accordion"
+import {
+	type TranslatorProps,
+	withTranslator,
+} from "@/components/util/hoc/withTranslator"
+import { getTranslation } from "@/i18n"
+import { generateSiteMeta } from "@/util/generateMeta"
 
 type Props = {
-  params: Promise<{ lng: string }>
+	params: Promise<{ lng: string }>
 }
 
-export async function generateMetadata(
-  { params }: Props
-): Promise<Metadata> {
-  const { lng } = await params
-  const { t } = await getTranslation(lng, "pages")
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+	const { lng } = await params
+	const { t } = await getTranslation(lng, "pages")
 
-  return generateSiteMeta(lng, t('headers.frequentAskedQuestions.title'), t('headers.frequentAskedQuestions.description'))
+	return generateSiteMeta(
+		lng,
+		t("headers.frequentAskedQuestions.title"),
+		t("headers.frequentAskedQuestions.description"),
+	)
 }
 
 function Faq({ t }: Readonly<TranslatorProps>) {
+	const faq: AccordionProps = t("frequentAskedQuestions.zooFaq", {
+		returnObjects: true,
+	}) as AccordionProps
 
-  const faq: AccordionProps = t("frequentAskedQuestions.zooFaq", { returnObjects: true }) as AccordionProps
-
-  return (
-    <main>
-      <article>
-        <h1>
-          {t("frequentAskedQuestions.title")}
-        </h1>
-        <div className="mt-8">
-          <Accordion model={faq} groupName="faq" />
-        </div>
-      </article>
-    </main>
-  );
+	return (
+		<main>
+			<article>
+				<h1>{t("frequentAskedQuestions.title")}</h1>
+				<div className="mt-8">
+					<Accordion model={faq} groupName="faq" />
+				</div>
+			</article>
+		</main>
+	)
 }
 
-export default withTranslator(Faq, "pages");
+export default withTranslator(Faq, "pages")

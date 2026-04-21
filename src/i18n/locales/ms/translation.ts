@@ -1,47 +1,47 @@
-import enTranslation from "../en/translation";
+import type enTranslation from "../en/translation"
 
 const translations: typeof enTranslation = {
-  to: "sampai",
-  Monday: "Isnin",
-  Tuesday: "Selasa",
-  Wednesday: "Rabu",
-  Thursday: "Khamis",
-  Friday: "Jumaat",
-  Saturday: "Sabtu",
-  Sunday: "Ahad",
-  buyTicket: {
-    text: "Beli Tiket",
-    alert: {
-      title: "Notis",
-      message: "Anda akan diarahkan ke laman web tiket rasmi. Pastikan url secara rasmi berakhir dengan 'zoonegara.my'.",
-      confirm: "Teruskan",
-    },
-  },
-  announcements: [
+	to: "sampai",
+	Monday: "Isnin",
+	Tuesday: "Selasa",
+	Wednesday: "Rabu",
+	Thursday: "Khamis",
+	Friday: "Jumaat",
+	Saturday: "Sabtu",
+	Sunday: "Ahad",
+	buyTicket: {
+		text: "Beli Tiket",
+		alert: {
+			title: "Notis",
+			message:
+				"Anda akan diarahkan ke laman web tiket rasmi. Pastikan url secara rasmi berakhir dengan 'zoonegara.my'.",
+			confirm: "Teruskan",
+		},
+	},
+	announcements: [
+		"Laman ini *BUKAN laman official. Untuk maklumat lanjut sila melawat laman rasmi [https://zoonegara.my|zoonegara.my].",
+		"Pameran panda masih *TUTUP, panda hanya tiba di zoo pada November 2025.",
+	],
+	menu: {
+		"mobile-home-text": "Zoo Negara",
+		"visitor-info": "Maklumat Pengunjung",
+		"about-us": "Tentang Kami",
+		"opening-and-rates": "Waktu Buka Dan Kadar",
+		"getting-there": "Ke Sini",
+		"zoo-map": "Peta Zoo",
+		"kiosk-and-facilities": "Kiosk Dan Kemudahan",
+	},
+	footer: {
+		lastAdmission: "Kemasukan terakhir pada {{time}}",
+		operationHours: "Waktu Operasi",
+		address: "Alamat",
+		partners: "Partners",
+		maintainedInfo: "all rights reserved.",
+		contactUs: "Hubungi Zoo Negara",
+		careers: "Kerjaya",
+		faq: "Soalan Lazim",
+		sitemap: "Peta Laman",
+	},
+}
 
-    "Laman ini *BUKAN laman official. Untuk maklumat lanjut sila melawat laman rasmi [https://zoonegara.my|zoonegara.my].",
-    "Pameran panda masih *TUTUP, panda hanya tiba di zoo pada November 2025."
-  ],
-  menu: {
-    "mobile-home-text": "Zoo Negara",
-    "visitor-info": "Maklumat Pengunjung",
-    "about-us": "Tentang Kami",
-    "opening-and-rates": "Waktu Buka Dan Kadar",
-    "getting-there": "Ke Sini",
-    "zoo-map": "Peta Zoo",
-    "kiosk-and-facilities": "Kiosk Dan Kemudahan",
-  },
-  footer: {
-    lastAdmission: "Kemasukan terakhir pada {{time}}",
-    operationHours: "Waktu Operasi",
-    address: "Alamat",
-    partners: "Partners",
-    maintainedInfo: "all rights reserved.",
-    contactUs: "Hubungi Zoo Negara",
-    careers: "Kerjaya",
-    faq: "Soalan Lazim",
-    sitemap: "Peta Laman",
-  },
-};
-
-export default translations;
+export default translations
