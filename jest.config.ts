@@ -23,6 +23,7 @@ const config: Config = {
 		},
 	},
 	setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
+	transformIgnorePatterns: ["/node_modules/(?!react-ga4/)/"],
 	coverageReporters: ["text", "cobertura", "lcov"],
 	testEnvironment: "@happy-dom/jest-environment",
 	moduleNameMapper: {
