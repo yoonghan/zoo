@@ -1,8 +1,6 @@
 /**
  * @type {import('next').NextConfig}
  */
-const nextConfig = {
-	transpilePackages: ["react-ga4"],
-}
+const nextConfig = {}
 
 export default nextConfig

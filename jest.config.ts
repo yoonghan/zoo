@@ -2,8 +2,6 @@
  * For a detailed explanation regarding each configuration property, visit:
  * https://jestjs.io/docs/configuration
  */
-
-import type { Config } from "jest"
 import nextJest from "next/jest.js"
 
 const createJestConfig = nextJest({
@@ -11,7 +9,7 @@ const createJestConfig = nextJest({
 	dir: "./",
 })
 
-const config: Config = {
+const config = {
 	coverageDirectory: "coverage",
 	coverageProvider: "v8",
 	coverageThreshold: {
@@ -23,6 +21,7 @@ const config: Config = {
 		},
 	},
 	setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
+	transformIgnorePatterns: ["/node_modules/(?!react-ga4/)/"],
 	coverageReporters: ["text", "cobertura", "lcov"],
 	testEnvironment: "@happy-dom/jest-environment",
 	moduleNameMapper: {
@@ -40,4 +39,15 @@ const config: Config = {
 	],
 }
 
-export default createJestConfig(config as any)
+// createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
+const asyncConfig = createJestConfig(config)
+
+const result = async () => {
+	const config = await asyncConfig()
+	config.transformIgnorePatterns = [
+		"/node_modules/(?!(react-ga4|geist)/)(?!.pnpm)",
+	]
+	return config
+}
+
+export default result
