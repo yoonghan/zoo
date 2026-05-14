@@ -5,6 +5,7 @@ import en from "@/i18n/locales/en/translation"
 
 test.use({
 	viewport: { width: 1600, height: 1200 },
+	ignoreHTTPSErrors: true,
 })
 
 const convertToMenuLabel = (menuLabel: string) => {
