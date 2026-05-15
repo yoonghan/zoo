@@ -66,7 +66,9 @@
 		"ignoreUnknown": true,
 		"includes": [
 			"**",
-			"!!**/src/app/main.css"
+			"!**/src/app/main.css",
+			"!**/node_modules/**",
+			"!*.json"
 		]
 	}
 }
