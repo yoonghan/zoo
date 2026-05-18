@@ -40,7 +40,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.4.12",
-		"@happy-dom/jest-environment": "^20.6.1",
+		"@happy-dom/jest-environment": "^20.9.0",
 		"@playwright/test": "^1.58.2",
 		"@tailwindcss/postcss": "^4.3.0",
 		"@testing-library/jest-dom": "^6.9.1",
