@@ -18,7 +18,7 @@ const translations = {
 	},
 	announcements: [
 		"This is *NOT the official website of the zoo. Please visit the official website [https://zoonegara.my|zoonegara.my] for more information.",
-		"Panda exhibit is still *CLOSED, panda has only arrived at zoo in November 2025.",
+		"Panda exhibit is *OPENED, since Jan 2026",
 	],
 	menu: {
 		"mobile-home-text": "Zoo Negara",
