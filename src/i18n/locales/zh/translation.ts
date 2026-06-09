@@ -19,7 +19,7 @@ const translations: typeof enTranslation = {
 		},
 	},
 	announcements: [
-		"这不是动物园的官方网站。请访问官方网站 [https://zoonegara.my|zoonegara.my] 了解更多信息。"
+		"这不是动物园的官方网站。请访问官方网站 [https://zoonegara.my|zoonegara.my] 了解更多信息。",
 	],
 	menu: {
 		"mobile-home-text": "Zoo Negara",
