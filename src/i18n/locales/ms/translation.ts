@@ -19,8 +19,7 @@ const translations: typeof enTranslation = {
 		},
 	},
 	announcements: [
-		"Laman ini *BUKAN laman official. Untuk maklumat lanjut sila melawat laman rasmi [https://zoonegara.my|zoonegara.my].",
-		"Pameran panda masih *TUTUP, panda hanya tiba di zoo pada November 2025.",
+		"Laman ini *BUKAN laman official. Untuk maklumat lanjut sila melawat laman rasmi [https://zoonegara.my|zoonegara.my]."
 	],
 	menu: {
 		"mobile-home-text": "Zoo Negara",
