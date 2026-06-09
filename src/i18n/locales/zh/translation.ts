@@ -19,8 +19,7 @@ const translations: typeof enTranslation = {
 		},
 	},
 	announcements: [
-		"这不是动物园的官方网站。请访问官方网站 [https://zoonegara.my|zoonegara.my] 了解更多信息。",
-		"熊猫馆目前仍处于关闭状态，熊猫要到 2025 年 11 月才会抵达动物园。",
+		"这不是动物园的官方网站。请访问官方网站 [https://zoonegara.my|zoonegara.my] 了解更多信息。"
 	],
 	menu: {
 		"mobile-home-text": "Zoo Negara",
