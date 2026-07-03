@@ -9,7 +9,7 @@ const zooFaq: AccordionProps = [
 	{
 		label: "What are the admission rates?",
 		content:
-			"You can check it out in [https://ticket.zoonegara.my/|Official Zoo Negara Ticketing] website.",
+			"You can check it out in [https://www.ticket2u.com.my/zoonegara/book|Official Zoo Negara Ticketing] website.",
 	},
 	{
 		label: "I'm a teacher and planning to bring my students to zoo. Do you offer any school concession rates?",
