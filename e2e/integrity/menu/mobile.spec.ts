@@ -100,9 +100,7 @@ test("can purchase ticket", async ({ page }) => {
 
 	await page.getByRole("button", { name: en.buyTicket.alert.confirm }).click()
 
-	expect(page.url()).toBe(
-		ticketUrl.endsWith("/") ? ticketUrl : `${ticketUrl}/`,
-	)
+	expect(page.url()).toBe(ticketUrl)
 })
 
 test("can switch language", async ({ page }) => {

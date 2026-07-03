@@ -30,7 +30,7 @@ export const zooProfile: FooterProps &
 	partners: [],
 	ticket: {
 		admission: {
-			url: "https://ticket.zoonegara.my",
+			url: "https://www.ticket2u.com.my/zoonegara/book",
 		},
 	},
 	contactus: {

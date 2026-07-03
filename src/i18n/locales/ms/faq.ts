@@ -9,7 +9,7 @@ const zooFaq: AccordionProps = [
 	{
 		label: "Apakah kadar kemasukan?",
 		content:
-			"Anda boleh menyemaknya di [https://ticket.zoonegara.my/|laman Ticket Zoo Negara].",
+			"Anda boleh menyemaknya di [https://www.ticket2u.com.my/zoonegara/book|laman Ticket Zoo Negara].",
 	},
 	{
 		label: "Saya seorang guru dan bercadang untuk membawa pelajar saya ke zoo. Adakah anda menawarkan sebarang kadar konsesi sekolah?",
