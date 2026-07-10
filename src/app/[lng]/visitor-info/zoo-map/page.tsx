@@ -30,9 +30,6 @@ function ZooMap({ t, lng }: Readonly<TranslatorProps>) {
 				<h1>{t("visitorInfo.zooMap.title")}</h1>
 				<div className="py-8 text-center">
 					<p>{t("visitorInfo.zooMap.description")}</p>
-					<p className="italic text-red-300">
-						* {t("visitorInfo.zooMap.info")}
-					</p>
 					<div className="mt-6">
 						<DownloadButton
 							lng={lng}
